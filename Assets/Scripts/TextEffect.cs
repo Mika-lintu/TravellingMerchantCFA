@@ -40,6 +40,8 @@ public class TextEffect : MonoBehaviour
     }
     public void ResetText()
     {
+        StopCoroutine(Damage());
+        StopCoroutine(Heal());
         transform.position = transform.parent.position;
         gameObject.SetActive(false);
         currentTime = 0;
