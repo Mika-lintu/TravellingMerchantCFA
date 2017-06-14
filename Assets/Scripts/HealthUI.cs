@@ -10,6 +10,13 @@ public class HealthUI : MonoBehaviour {
     public GameObject target;
     public float offset;
     private bool active;
+
+    /*
+     * SET UI TO OBJECT
+     *      GETS GAMEOJECT TO TARGET (BATTLE UI SCRIPT TELLS WHAT GAMEOBJECT TO TARGET)
+     *      GETS TARGETS HEALTH AMOUNT FROM STATS SCRIPTS (STAT SCRIPT IS IN TARGET GAMEOBJECT)
+     *      UPDATES HEALHTBAR FILL TO CORRECT FROM STATS
+     */
     public void SetUIToObject(GameObject go)
     {
         target = go;
@@ -17,7 +24,10 @@ public class HealthUI : MonoBehaviour {
         stats = go.GetComponent<Stats>();
         hp.fillAmount = (float)stats.health / (float)stats.startHealth;
     }
-	
+	/*ON UPDATE 
+     *      
+     * 
+     */
 	void Update () {
 
         if (active)
@@ -31,6 +41,7 @@ public class HealthUI : MonoBehaviour {
        hp.fillAmount = (float)stats.health / (float)stats.startHealth;
        GetEmptyText(damage);
     }
+
     public void ResetHPBar()
     {
         hp.fillAmount = 1f;
@@ -39,6 +50,7 @@ public class HealthUI : MonoBehaviour {
             if (textList[i].activeInHierarchy)
             {
                 textList[i].SetActive(false);
+                transform.position = transform.parent.position;
             }
         }
         

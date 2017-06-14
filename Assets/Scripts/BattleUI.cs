@@ -11,7 +11,6 @@ public class BattleUI : MonoBehaviour
      * Find UISet from list that is not active in hierarchy 
      * Set it active and call function to transform it's position to gameobject
      */
-
     public void SetUI(GameObject go)
     {
         for (int i = 0; i < battleUISet.Count; i++)
@@ -28,9 +27,8 @@ public class BattleUI : MonoBehaviour
 
     /*
      * Find correct UISet by checking that GameObjects GetInstanceID is same as target
-     * Call function to add o
+     * Call function to add or decrase healthbar fill image
      */
-
     public void UpdateHealth(GameObject go, int dmg)
     {
 
@@ -44,6 +42,10 @@ public class BattleUI : MonoBehaviour
         }
     }
 
+    /*
+     * Go through list and disable all UISets that are active
+     * Call function in HeathUI script to reset healthBar fill and reset UISet position 
+     */
     public void DisableUI()
     {
         for (int i = 0; i < battleUISet.Count; i++)
@@ -55,6 +57,11 @@ public class BattleUI : MonoBehaviour
             }
         }
     }
+
+    /*
+     * Find correct UISet by checking that GameObjects GetInstanceID is same as targets GetInstanceID
+     * Call function in HeathUI script to reset healthBar fill and reset UISet position
+     */
     public void DisableUI(GameObject go)
     {
         for (int i = 0; i < battleUISet.Count; i++)
