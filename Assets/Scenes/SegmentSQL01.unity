@@ -437,7 +437,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 667575827}
         m_MethodName: SetToItemSlot
         m_Mode: 2
         m_Arguments:
@@ -3484,6 +3484,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4268922820456904, guid: dc9d6b346bd7f7e439bda67175720cc5,
     type: 2}
   m_PrefabInternal: {fileID: 2121126826}
+--- !u!114 &667575827 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114266352158547420, guid: dc9d6b346bd7f7e439bda67175720cc5,
+    type: 2}
+  m_PrefabInternal: {fileID: 2121126826}
+  m_Script: {fileID: 11500000, guid: 9baf05f11c81f2648a843859dfaa2a79, type: 3}
 --- !u!1001 &681075981
 Prefab:
   m_ObjectHideFlags: 0
@@ -4130,7 +4136,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 667575827}
         m_MethodName: SetToItemSlot
         m_Mode: 2
         m_Arguments:
@@ -4994,6 +5000,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4923290980164570, guid: f5c223c957735e54aa6b51a89e449229,
     type: 2}
   m_PrefabInternal: {fileID: 926404871}
+--- !u!1 &947260130 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1401457551653008, guid: dc9d6b346bd7f7e439bda67175720cc5,
+    type: 2}
+  m_PrefabInternal: {fileID: 2121126826}
 --- !u!1001 &954086189
 Prefab:
   m_ObjectHideFlags: 0
@@ -7347,7 +7358,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 667575827}
         m_MethodName: SetToItemSlot
         m_Mode: 2
         m_Arguments:
@@ -8331,7 +8342,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 667575827}
         m_MethodName: SetToItemSlot
         m_Mode: 2
         m_Arguments:
@@ -8914,7 +8925,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 667575827}
         m_MethodName: SetToItemSlot
         m_Mode: 2
         m_Arguments:
@@ -10600,7 +10611,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 667575827}
         m_MethodName: SetToItemSlot
         m_Mode: 2
         m_Arguments:
@@ -11586,7 +11597,7 @@ MonoBehaviour:
   - {fileID: 722614019}
   - {fileID: 21079628}
   projectiles:
-  - {fileID: 0}
+  - {fileID: 947260130}
   selected: {fileID: 0}
   testInventory: {fileID: 667575824}
   player: {fileID: 131471978}
@@ -11942,6 +11953,11 @@ Prefab:
       propertyPath: itemSlots
       value: 
       objectReference: {fileID: 2071965832}
+    - target: {fileID: 114749957152537714, guid: dc9d6b346bd7f7e439bda67175720cc5,
+        type: 2}
+      propertyPath: projectileTarget
+      value: 
+      objectReference: {fileID: 1642692650}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dc9d6b346bd7f7e439bda67175720cc5, type: 2}
   m_IsPrefabParent: 0
