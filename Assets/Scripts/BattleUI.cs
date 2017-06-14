@@ -7,7 +7,10 @@ public class BattleUI : MonoBehaviour
 {
     public List<GameObject> battleUISet;
 
-
+    /*
+     * Find UISet from list that is not active in hierarchy 
+     * Set it active and call function to transform it's position to gameobject
+     */
 
     public void SetUI(GameObject go)
     {
@@ -22,6 +25,11 @@ public class BattleUI : MonoBehaviour
         }
 
     }
+
+    /*
+     * Find correct UISet by checking that GameObjects GetInstanceID is same as target
+     * Call function to add o
+     */
 
     public void UpdateHealth(GameObject go, int dmg)
     {
