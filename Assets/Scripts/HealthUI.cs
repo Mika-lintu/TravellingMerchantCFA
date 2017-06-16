@@ -24,9 +24,9 @@ public class HealthUI : MonoBehaviour {
         stats = go.GetComponent<Stats>();
         hp.fillAmount = (float)stats.health / (float)stats.startHealth;
     }
-	/*ON UPDATE 
-     *      
-     * 
+	/* ON UPDATE 
+     *      GETS UISETS POSITION ON FROM CANVAS AND TRANSFERS IT TO SCENE POSITION
+     *      IT GETS TARGET GAMEOBJECTS POSITION ADDS OFFSET AND SO FOLLOWS TARGET
      */
 	void Update () {
 
@@ -36,12 +36,22 @@ public class HealthUI : MonoBehaviour {
         }
 	}
 
-    public void MinusHealth(int damage)
+    /* ON HEALTH UPDATE:
+     *      GETS INT VARIABLE AND CHANCES IT TO FLOAT 
+     *      WITH FLOAT VARIABLE IT CHANCES HPBARS FILL AMOUNT
+     *      CALLS GETEMPTYTEXT FUNCTION AND GIVES IT INT VARIABLE
+     */
+    public void HealthUpdate(int damage)
     {
        hp.fillAmount = (float)stats.health / (float)stats.startHealth;
        GetEmptyText(damage);
     }
 
+    /* ON RESET HPBAR:
+     *      FILLS HPBARS FILL AMOUNT
+     *      DIABLES TEXT ITEMS IF ACTIVE
+     *      AND SETS TEXT ITEMS POSITION BACK TO PARENT
+     */
     public void ResetHPBar()
     {
         hp.fillAmount = 1f;
@@ -55,6 +65,11 @@ public class HealthUI : MonoBehaviour {
         }
         
     }
+
+    /* ON GET EMPTY TEXT:
+     *      GETS TEXT ITEM THAT IS NOT ACTIVE IN HIERARCHY
+     *      SETS IT ACTIVE AND CALLS POPUPEFFECT FUNCTION
+     */
     public void GetEmptyText(int dmg)
     {
         for (int i = 0; i < textList.Count; i++)
@@ -68,5 +83,4 @@ public class HealthUI : MonoBehaviour {
         }
     }
     
- 
 }

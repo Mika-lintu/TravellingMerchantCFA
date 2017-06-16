@@ -13,16 +13,23 @@ public class TextEffect : MonoBehaviour
 
     Vector3 startPosition = new Vector3(0, 22, 0);
     Vector3 endPosition = new Vector3(0, 100, 0);
-    
+
+
+    /* ON AWAKE:
+     * 
+     */
     void Awake()
     {
         popupText = GetComponent<Text>();
         rTransfomr = GetComponent<RectTransform>();
     }
-
+    /* ON POPUPEFFECT (INT):
+     *      GETS INT VARIABLE OF DAMAGE TO DISPLAY
+     *      IF DAMAGE IS NEGATIVE IT'LL START COURUTINE NAMED HEAL
+     *      AND IF DAMAGE IS POSITIVE IT'LL START COURUTINE NAMED DAMAGE
+     */
     public void PopupEffect(int dmg)
     {
-        StopAllCoroutines();
         if (dmg < 0)
         {
             popupText.text = "" + (-dmg);
@@ -34,10 +41,18 @@ public class TextEffect : MonoBehaviour
             StartCoroutine(Damage());
         }
     }
+    /*  ON POPUPEFFECT (STRING)
+     *      TO BE MADE
+     *
+     */
     public void PopupEffect(string miss)
     {
        
     }
+    /*  ON RESET TEXT:
+     *      STOPS ALL COURUTINES 
+     *      RESETS POSITION, COLOR AND ALPHA
+     */
     public void ResetText()
     {
         StopCoroutine(Damage());
@@ -50,7 +65,10 @@ public class TextEffect : MonoBehaviour
         popupText.color = imageColor;
         StopAllCoroutines();
     }
-
+    /*  ON DAMAGE IENUMERATOR:
+     *      TRANSFORMS POSITION TO MOVE UP     
+     *      SETS COLOR RED
+     */
     IEnumerator Damage()
     {
         while (currentTime <= timeOfTravel)
@@ -66,6 +84,10 @@ public class TextEffect : MonoBehaviour
         }
         ResetText();
     }
+    /*  ON HEAL IENUMERATOR 
+     *      TRANSFORM POSITION TO MOVE UP
+     *      SETS COLOR GREEN
+     */
     IEnumerator Heal()
     {
         while (currentTime <= timeOfTravel)

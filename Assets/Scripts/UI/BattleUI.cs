@@ -73,4 +73,7 @@ public class BattleUI : MonoBehaviour
             }
         }
     }
+
+
+
 }
