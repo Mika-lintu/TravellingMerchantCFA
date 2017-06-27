@@ -4001,6 +4001,7 @@ GameObject:
   - component: {fileID: 712412751}
   - component: {fileID: 712412753}
   - component: {fileID: 712412754}
+  - component: {fileID: 712412752}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4132,6 +4133,34 @@ MonoBehaviour:
   - {fileID: 1467239995}
   activeEnemies: []
   battleOngoing: 0
+--- !u!114 &712412752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 712412743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f280a55a98a924fa7b6f9789b192f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 712412751}
+        m_MethodName: ModeChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameController+GameModeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  state: 0
 --- !u!82 &712412753
 AudioSource:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public GameModeEvent gameState;
     public GameState state;
     int stateInput = 0;
+    bool battleOnGoing;
 
     [Serializable]
     public class GameModeEvent : UnityEvent<GameState> { };
@@ -17,6 +18,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         state = GameState.Battle;
+        battleOnGoing = false;
     }
 
     void Update()
@@ -58,6 +60,7 @@ public class GameController : MonoBehaviour
                 break;
             case 1:
                 state = GameState.Battle;
+                SetBattleOngoing(true);
                 break;
             case 2:
                 state = GameState.Inventory;
@@ -69,7 +72,34 @@ public class GameController : MonoBehaviour
                 break;
         }
 
+        CheckModeTerms();
+
+    }
+
+    void CheckModeTerms()
+    {
+        if (!battleOnGoing)
+        {
+            // Do nothing;
+        }
+        else if (state == GameState.Free || state == GameState.Event)
+        {
+            state = GameState.Battle;
+        }
         gameState.Invoke(state);
+    }
+
+    public void SetBattleOngoing(bool i)
+    {
+        if (i)
+        {
+            battleOnGoing = true;
+        }
+        else
+        {
+            battleOnGoing = false;
+            ChangeMode(0);
+        }
     }
 
 }
