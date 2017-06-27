@@ -4,15 +4,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 
-public class GameController : MonoBehaviour {
-
-    /*public GameObject player;
-    public float gameSpeed;
-    public bool moving;
-    public bool movingDisabled;*/
-    public enum GameState {Free, Battle, Inventory, Event};
+public class GameController : MonoBehaviour
+{
+    public enum GameState { Free = 0, Battle = 1, Inventory = 2, Event = 3 };
     public GameModeEvent gameState;
     public GameState state;
+    int stateInput = 0;
 
     [Serializable]
     public class GameModeEvent : UnityEvent<GameState> { };
@@ -20,18 +17,41 @@ public class GameController : MonoBehaviour {
     void Start()
     {
         state = GameState.Battle;
-        ChangeMode();
     }
 
-    /*float GameSpeedRelativeToPosition()
+    void Update()
     {
-        return gameSpeed = Mathf.InverseLerp(9, -14, player.transform.position.y);
-    }
-    */
+        if (!Input.anyKeyDown)
+        {
+            //do nothing
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                stateInput = 0;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                stateInput = 1;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                stateInput = 2;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad4))
+            {
+                stateInput = 3;
+            }
+            ChangeMode(stateInput);
+        }
 
-    void ChangeMode()
+    }
+
+
+    void ChangeMode(int modeInput)
     {
-        /*switch (i)
+        switch (modeInput)
         {
             case 0:
                 state = GameState.Free;
@@ -47,7 +67,7 @@ public class GameController : MonoBehaviour {
                 break;
             default:
                 break;
-        }*/
+        }
 
         gameState.Invoke(state);
     }
