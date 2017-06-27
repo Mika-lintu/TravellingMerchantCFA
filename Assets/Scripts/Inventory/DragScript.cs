@@ -14,7 +14,7 @@ public class DragScript : MonoBehaviour
     GameObject selectedObject;
     SpringJoint2D spring;
     public GameObject anchor;
-    public GameObject player;
+    //public GameObject player;
     ItemSlots itemSlotsScript;
     public GameObject itemSlots;
     float clickTimer;
@@ -38,6 +38,7 @@ public class DragScript : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject.transform.tag == "Item")
             {
                 colliderObject = hit.collider.gameObject;
+                Debug.Log("CLICK");
             } else if (hit.collider != null && hit.collider.gameObject.tag == "Character" && quickSelection)
             {
                 itemSlotsScript.ThrowItem(hit.collider.gameObject);
@@ -82,7 +83,8 @@ public class DragScript : MonoBehaviour
             Unselect();
             if (!dragging)
             {
-                Debug.Log(Vector2.Distance(colliderObject.transform.position, anchor.transform.position));
+
+                Debug.Log("DRAG");
                 dragging = true;
                 rig = colliderObject.GetComponent<Rigidbody2D>();
                 rig.drag = 10f;

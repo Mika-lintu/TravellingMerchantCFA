@@ -17,4 +17,9 @@ public class Coins : MonoBehaviour {
         amount += (int)num;
         coins.text = "" + amount;
     }
+    public static void RemoveCoins(float num)
+    {
+        amount -= (int)num;
+        coins.text = "" + amount;
+    }
 }
