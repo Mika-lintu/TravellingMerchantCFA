@@ -12,6 +12,7 @@ public class ParallaxMovement : MonoBehaviour {
     float screenWidth;
     public float zPosition;
     public Vector2 offset;
+    bool playerMoving;
 
 
     void Awake()
@@ -31,7 +32,7 @@ public class ParallaxMovement : MonoBehaviour {
 
     void Update()
     {
-        if (gameSpeed.moving)
+        if (playerMoving)
         {
             MoveParallaxSegments();
         }
@@ -73,5 +74,15 @@ public class ParallaxMovement : MonoBehaviour {
             Vector3 newPos = new Vector3(transform.position.x - screenWidth + widthOffset, transform.position.y, zPosition);
             parallaxList[i].transform.position = newPos;
         }
+    }
+
+    public void PlayerHasStopped()
+    {
+        playerMoving = false;
+    }
+
+    public void PlayerIsMoving()
+    {
+        playerMoving = true;
     }
 }

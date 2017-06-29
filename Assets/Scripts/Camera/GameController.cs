@@ -11,14 +11,20 @@ public class GameController : MonoBehaviour
     public GameState state;
     int stateInput = 0;
     bool battleOnGoing;
+    bool freezeMovement;
+    bool playerMoving;
 
     [Serializable]
     public class GameModeEvent : UnityEvent<GameState> { };
 
+    public UnityEvent playerIsMoving;
+    public UnityEvent playerHasStopped;
+
     void Start()
     {
-        state = GameState.Battle;
+        state = GameState.Free;
         battleOnGoing = false;
+        playerMoving = false;
     }
 
     void Update()
@@ -32,22 +38,40 @@ public class GameController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Keypad1))
             {
                 stateInput = 0;
+                ChangeMode(stateInput);
             }
             else if (Input.GetKeyDown(KeyCode.Keypad2))
             {
                 stateInput = 1;
+                ChangeMode(stateInput);
             }
             else if (Input.GetKeyDown(KeyCode.Keypad3))
             {
                 stateInput = 2;
+                ChangeMode(stateInput);
             }
             else if (Input.GetKeyDown(KeyCode.Keypad4))
             {
                 stateInput = 3;
+                ChangeMode(stateInput);
             }
-            ChangeMode(stateInput);
+            else if (Input.GetKeyDown("a"))
+            {
+                ToggleMovement();
+            }
+
         }
 
+    }
+
+    private void OnEnable()
+    {
+        BattleController.EndBattle += EndBattle;
+    }
+
+    private void OnDisable()
+    {
+        BattleController.EndBattle -= EndBattle;
     }
 
 
@@ -60,7 +84,7 @@ public class GameController : MonoBehaviour
                 break;
             case 1:
                 state = GameState.Battle;
-                SetBattleOngoing(true);
+                battleOnGoing = true;
                 break;
             case 2:
                 state = GameState.Inventory;
@@ -84,21 +108,39 @@ public class GameController : MonoBehaviour
         }
         else if (state == GameState.Free || state == GameState.Event)
         {
+            freezeMovement = true;
             state = GameState.Battle;
         }
         gameState.Invoke(state);
+        ToggleMovement();
     }
 
-    public void SetBattleOngoing(bool i)
+    void EndBattle()
     {
-        if (i)
+        battleOnGoing = false;
+        freezeMovement = false;
+        ChangeMode(0);
+    }
+
+    void ToggleMovement()
+    {
+        if (state == GameState.Free)
         {
-            battleOnGoing = true;
+            if (playerMoving)
+            {
+                playerMoving = false;
+                playerHasStopped.Invoke();
+            }
+            else
+            {
+                playerMoving = true;
+                playerIsMoving.Invoke();
+            }
         }
         else
         {
-            battleOnGoing = false;
-            ChangeMode(0);
+            playerMoving = false;
+            playerHasStopped.Invoke();
         }
     }
 

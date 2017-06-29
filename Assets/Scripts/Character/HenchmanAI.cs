@@ -141,7 +141,6 @@ public class HenchmanAI : MonoBehaviour
     {
         while(Vector2.Distance(transform.position, startPosition) >= 0.1f)
         {
-            gameSpeed.movingDisabled = true;
             transform.position = Vector2.MoveTowards(transform.position, startPosition, movementSpeed * Time.deltaTime);
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
 
@@ -155,7 +154,6 @@ public class HenchmanAI : MonoBehaviour
             }
             yield return null;
         }
-        gameSpeed.movingDisabled = false;
     }
 
     public void StartBattle()

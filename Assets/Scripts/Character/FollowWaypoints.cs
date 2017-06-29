@@ -29,8 +29,6 @@ public class FollowWaypoints : MonoBehaviour
 
     private void Update()
     {
-        if (gameSpeed.moving)
-        {
             sprite.flipX = false;
             if (waypoints.Count > 1)
             {
@@ -42,7 +40,6 @@ public class FollowWaypoints : MonoBehaviour
                 UpdateDistance();
                 MoveCharacter();
             }
-        }
         SetZPosition();
     }
 

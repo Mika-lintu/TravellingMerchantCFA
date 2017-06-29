@@ -15,6 +15,7 @@ public class SegmentMovement : MonoBehaviour
     public bool autorun = false;
     float screenWidth;
     public float speed;
+    public bool movingDisabled;
 
 
     /* ON AWAKE:
@@ -45,29 +46,6 @@ public class SegmentMovement : MonoBehaviour
      */
     private void Update()
     {
-        /*if (Input.GetKeyDown("right") && moving == false && gameSpeed.movingDisabled == false)
-        {
-            moving = true;
-            gameSpeed.moving = true;
-        }*/
-
-
-        if (Input.GetKeyDown("a") && autorun == false && gameSpeed.movingDisabled == false)
-        {
-            autorun = true;
-            moving = true;
-            gameSpeed.moving = true;
-        }
-        else if (Input.anyKeyDown && autorun)
-        {
-            autorun = false;
-        }
-
-        
-        if (Input.GetKeyDown("e"))
-        {
-            gameSpeed.moving = false;
-        }
 
         if (moving)
         {
@@ -76,12 +54,12 @@ public class SegmentMovement : MonoBehaviour
                 activeSegment = levelSegments[2];
             }
 
-            if (activeSegment.transform.position.x <= placeHolders.transform.position.x && autorun == false)
+            /*if (activeSegment.transform.position.x <= placeHolders.transform.position.x && autorun == false)
             {
                 moving = false;
                 UpdateSegments();
             }
-            else if (activeSegment.transform.position.x <= placeHolders.transform.position.x)
+            else*/ if (activeSegment.transform.position.x <= placeHolders.transform.position.x)
             {
                 UpdateSegments();
             }
@@ -98,16 +76,14 @@ public class SegmentMovement : MonoBehaviour
      */
     void MoveSegments()
     {
-        if (gameSpeed.moving)
-        {
+        //if (gameSpeed.moving)
+        //{
             for (int i = 0; i < levelSegments.Count; i++)
             {
-                Vector2 newPos = new Vector2(levelSegments[i].transform.position.x - Time.deltaTime * speed * gameSpeed.gameSpeed, transform.position.y);
+                Vector2 newPos = new Vector2(levelSegments[i].transform.position.x - Time.deltaTime * speed /* * gameSpeed.gameSpeed*/, transform.position.y);
                 levelSegments[i].transform.position = newPos;
             }
-        }
-
-
+        //}
 
     }
 
@@ -155,4 +131,19 @@ public class SegmentMovement : MonoBehaviour
             levelSegments[i].transform.position = newPos;
         }
     }
+
+    public void StopMoving()
+    {
+        moving = false;
+        //gameSpeed.moving = false;
+        Debug.Log("moving = false");
+    }
+    
+    public void StartMoving()
+    {
+        moving = true;
+        //gameSpeed.moving = true;
+        Debug.Log("moving = true");
+    }
+
 }

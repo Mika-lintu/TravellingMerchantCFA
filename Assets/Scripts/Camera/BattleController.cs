@@ -11,7 +11,6 @@ public class BattleController : MonoBehaviour
     public List<GameObject> activeEnemies;
     public bool battleOngoing;
     GameSpeed gameSpeed;
-    GameController gController;
 
     BattleUI bUI;
 
@@ -29,19 +28,8 @@ public class BattleController : MonoBehaviour
     {
         gameSpeed = GetComponent<GameSpeed>();
         bUI = GameObject.FindGameObjectWithTag("BattleUI").GetComponent<BattleUI>();
-        gController = Camera.main.GetComponent<GameController>();
     }
 
-    /*
-    private void Update()
-    {
-        if (Input.GetKeyDown("1")) StartNewBattle(1);
-        if (Input.GetKeyDown("2")) StartNewBattle(2);
-        if (Input.GetKeyDown("3")) StartNewBattle(3);
-        if (Input.GetKeyDown("4")) StartNewBattle(4);
-        if (Input.GetKeyDown("5")) StartNewBattle(5);
-    }
-    */
 
     public void CheckBattleLists()
     {
@@ -69,40 +57,38 @@ public class BattleController : MonoBehaviour
     }
 
 
-    public void StartNewBattle(int enemies)
+    /*public void StartNewBattle(int enemies)
     {
         battleOngoing = true;
         gameSpeed.movingDisabled = true;
         ActivateEnemies(enemies);
         StartBattle();
         SetUITarget();
-    }
+    }*/
+
 
     public void StartNewBattle() //NEW!!
     {
         int enemies = UnityEngine.Random.Range(1, 5);
         battleOngoing = true;
-        gameSpeed.movingDisabled = true; //tää pois
         ActivateEnemies(enemies);
         StartBattle();
         SetUITarget();
         Debug.Log("New battle has been started");
     }
 
+
     public void PauseBattle()
     {
         Debug.Log("Battle paused");
     }
+
 
     public void ResumeBattle()
     {
         Debug.Log("Battle Resumed");
     }
 
-    public void EndBattle2()
-    {
-
-    }
 
     public void ModeChanged(GameController.GameState newState)
     {
@@ -132,14 +118,13 @@ public class BattleController : MonoBehaviour
 
     public void ResetBattleSetup()
     {
-        gController.SetBattleOngoing(false);
         Debug.Log("Battle Ended");
         battleOngoing = false;
-        gameSpeed.movingDisabled = false;
         activeEnemies = null;
         EndBattle();
         bUI.DisableUI();
     }
+
 
     void ActivateEnemies(int numberOfEnemies)
     {
@@ -163,11 +148,13 @@ public class BattleController : MonoBehaviour
         }
     }
 
+
     public void PlayerDeath()
     {
         Debug.Log("Player Died");
         Time.timeScale = 0f;
     }
+
 
     public void SetUITarget()
     {

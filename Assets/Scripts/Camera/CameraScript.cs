@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraScript : MonoBehaviour {
+public class CameraScript : MonoBehaviour
+{
 
     public float dampTime = 0.15f;
     public Transform player;
@@ -12,7 +13,7 @@ public class CameraScript : MonoBehaviour {
     private Vector3 velocity = Vector3.zero;
     bool inventoryZoom = false;
     bool battleZoom = false;
-    public Transform target;
+    public Transform cameraTarget;
     Camera cam;
     Vector3 tempPosition;
     GameSpeed gameSpeed;
@@ -37,124 +38,39 @@ public class CameraScript : MonoBehaviour {
 
     private void Start()
     {
-        StartCoroutine(PanToStart());
+        //StartCoroutine(PanToStart());
     }
 
     void Update()
     {
-        if (!startMovement)
+        if (cameraTarget)
         {
-            if (target)
-            {
-                Vector3 point = Camera.main.WorldToViewportPoint(target.position);
-                Vector3 delta = target.position - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
-                Vector3 destination = transform.position + offset + delta;
-                transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
-                transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -6f, 5), -10);
-            }
-
-            if (Input.GetKeyDown("i"))
-            {
-                if (currentCoroutine != null)
-                {
-                    StopCoroutine(currentCoroutine);
-                }
-
-                if (!inventoryZoom)
-                {
-                    currentCoroutine = ZoomToInventory(2f, -1f);
-                    inventoryZoom = true;
-                    target = backpack;
-                    offset = new Vector3(0, 0f, 0);
-                    ShowSlots();
-                    gameSpeed.movingDisabled = true;
-
-                }
-                else if (battleZoom)
-                {
-                    currentCoroutine = BattleZoom(7f);
-                    inventoryZoom = false;
-                    target = player;
-                    offset = new Vector3(0, 2f, 0);
-                    ShowSlots();
-                }
-                else
-                {
-                    currentCoroutine = ZoomBack(5f, 3f, 1f);
-                    inventoryZoom = false;
-                    target = player;
-                    offset = new Vector3(0, 2f, 0);
-                    HideSlots();
-                    gameSpeed.movingDisabled = false;
-                }
-
-
-                StartCoroutine(currentCoroutine);
-            }
+            Vector3 point = Camera.main.WorldToViewportPoint(cameraTarget.position);
+            Vector3 delta = cameraTarget.position - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
+            Vector3 destination = transform.position + offset + delta;
+            transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+            transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -6f, 5), -10);
         }
-
+        
     }
 
-    private void OnEnable()
-    {
-        BattleController.EndBattle += EndBattle;
-        BattleController.StartBattle += StartBattle;
-    }
-
-
-    private void OnDisable()
-    {
-        BattleController.EndBattle -= EndBattle;
-        BattleController.StartBattle -= StartBattle;
-    }
-
-    void EndBattle()
-    {
-        battleZoom = false;
-        StopCoroutine(currentCoroutine);
-        currentCoroutine = ZoomBack(5f, 1.5f, 0f);
-        inventoryZoom = false;
-        target = player;
-        //offset = new Vector3(0, 2f, 0);
-        StartCoroutine(currentCoroutine);
-        HideSlots();
-    }
-
-    void StartBattle()
-    {
-        battleZoom = true;
-        StopAllCoroutines();
-        currentCoroutine = BattleZoom(7f);
-        StartCoroutine(currentCoroutine);
-        ShowSlots();
-    }
-
-
+    
     IEnumerator ZoomToInventory(float zoom, float invOffset)
     {
-        while(cam.orthographicSize > zoom)
+        while (cam.orthographicSize > zoom)
         {
             cam.orthographicSize -= Time.deltaTime * 4;
             dampTime = 0.25f;
             yield return null;
         }
         dampTime = 0.15f;
-        items.GetComponent<ItemHandler>().ShowItems();
-        items.transform.parent.position += new Vector3(0, 0, invOffset);
-        Color tempColor = player.GetComponent<SpriteRenderer>().color;
-        backpack.GetChild(0).gameObject.SetActive(true);
-        tempColor.a = 0.5f;
-        player.GetComponent<SpriteRenderer>().color = tempColor;
+        ShowInventory();
     }
 
-    IEnumerator ZoomBack(float zoom, float speed, float invOffset)
+
+    IEnumerator ZoomBackToPlayer(float zoom, float speed, float invOffset)
     {
-        Color tempColor = player.GetComponent<SpriteRenderer>().color;
-        tempColor.a = 1f;
-        player.GetComponent<SpriteRenderer>().color = tempColor;
-        items.GetComponent<ItemHandler>().HideItems();
-        items.transform.parent.position += new Vector3(0, 0, invOffset);
-        backpack.GetChild(0).gameObject.SetActive(false);
+        HideInventory();
         while (cam.orthographicSize != zoom)
         {
             cam.orthographicSize = Mathf.MoveTowards(cam.orthographicSize, zoom, Time.deltaTime * speed);
@@ -164,8 +80,10 @@ public class CameraScript : MonoBehaviour {
         dampTime = 0.15f;
     }
 
-    IEnumerator BattleZoom(float zoom)
+
+    IEnumerator ZoomToBattle(float zoom)
     {
+        HideInventory();
         Color tempColor = player.GetComponent<SpriteRenderer>().color;
         tempColor.a = 1f;
         player.GetComponent<SpriteRenderer>().color = tempColor;
@@ -179,14 +97,87 @@ public class CameraScript : MonoBehaviour {
         dampTime = 0.15f;
     }
 
-    IEnumerator PanToStart()
+
+    public void ChangeCameraMode(GameController.GameState newState)
     {
-        while (transform.position != target.position)
+        if (newState == GameController.GameState.Free)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * 3f);
-            yield return null;
+            CameraModeFree();
         }
-        target = player;
-        startMovement = false;
+        else if (newState == GameController.GameState.Battle)
+        {
+            CameraModeBattle();
+        }
+        else if (newState == GameController.GameState.Inventory)
+        {
+            CameraModeInventory();
+        }
+        else if (newState == GameController.GameState.Event)
+        {
+            //CameraModeCustom();
+        }
     }
+
+
+    void CameraModeFree()
+    {
+        StopAllCoroutines();
+        currentCoroutine = ZoomBackToPlayer(5f, 1.5f, 0f);
+        cameraTarget = player;
+        offset = new Vector3(0, 2f, 0);
+        StartCoroutine(currentCoroutine);
+        HideSlots();
+    }
+
+
+    void CameraModeBattle()
+    {
+        StopAllCoroutines();
+        currentCoroutine = ZoomToBattle(7f);
+        cameraTarget = player;
+        offset = new Vector3(0, 2f, 0);
+        StartCoroutine(currentCoroutine);
+        ShowSlots();
+    }
+
+
+    void CameraModeInventory()
+    {
+        StopAllCoroutines();
+        currentCoroutine = ZoomToInventory(2f, -1f);
+        cameraTarget = backpack;
+        offset = new Vector3(0, 0f, 0);
+        StartCoroutine(currentCoroutine);
+        ShowSlots();
+    }
+
+
+    void CameraModeCustom()
+    {
+        //NOTHING HERE YET
+    }
+
+
+    void ShowInventory()
+    {
+        items.GetComponent<ItemHandler>().ShowItems();
+        items.transform.parent.position += new Vector3(0, 0, -1f);
+        Color tempColor = player.GetComponent<SpriteRenderer>().color;
+        backpack.GetChild(0).gameObject.SetActive(true);
+        tempColor.a = 0.5f;
+        player.GetComponent<SpriteRenderer>().color = tempColor;
+    }
+
+
+    void HideInventory()
+    {
+        Color tempColor = player.GetComponent<SpriteRenderer>().color;
+        tempColor.a = 1f;
+        player.GetComponent<SpriteRenderer>().color = tempColor;
+        items.GetComponent<ItemHandler>().HideItems();
+        items.transform.parent.position += new Vector3(0, 0, 1f);
+        backpack.GetChild(0).gameObject.SetActive(false);
+    }
+
+
 }
