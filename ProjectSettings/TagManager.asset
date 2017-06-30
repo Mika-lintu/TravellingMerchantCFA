@@ -9,6 +9,7 @@ TagManager:
   - Character
   - InventoryBackground
   - Item
+  - ShopItem
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - ShelfItem
+  - PlayerItem
   - 
   - 
   - 
