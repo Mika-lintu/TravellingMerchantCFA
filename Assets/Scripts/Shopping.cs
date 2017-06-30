@@ -8,39 +8,64 @@ public class Shopping : MonoBehaviour {
     float cost;
     public Text itemAmountText;
     int itemAmount;
-    
+    bool empty;
+
     void Awake()
     {
-        costText = GetComponent<Text>();
+        UpdateInfo();
         cost = 0f;
         itemAmount = 0;
+        empty = true;
     }
     public void AddItemToCart()
     {
-        PlusCost(1.2f);
-        costText.text = "" + cost;
-        Debug.Log("Added item");
+        itemAmount++;
+        cost++;
+        empty = false;
+        UpdateInfo();
+        //Copy item to scene 
     }
     public void RemoveItemFromCart()
     {
-        Debug.Log("Removed item");
+        if (!empty)
+        {
+            itemAmount--;
+            cost--;
+            UpdateInfo();
+            Debug.Log("Removed item");
+            if(itemAmount == 0)
+            {
+                empty = true;
+            }
+        }
     }
-    public void BuyItem()
-    {
 
-    }
-    public void SellItem()
+    public void BuyItem(float num)
     {
-
+        cost = num;
+        Debug.Log("item was bought");
     }
-    void ResetCart()
+    public void PressOK()
+    {
+        SellItem(cost);
+        ResetCart();
+    }
+    void SellItem(float num)
+    {
+        cost = num;
+        Coins.AddCoins(cost);
+    }
+    void UpdateInfo()
+    {
+        itemAmountText.text = "" + itemAmount;
+        costText.text = "" + cost;
+    }
+    public void ResetCart()
     {
         cost = 0f;
         itemAmount = 0;
+        UpdateInfo();
     }
-    void PlusCost(float num)
-    {
-        cost += num;
-    }
+    
 
 }

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class ShopControl : MonoBehaviour {
     GameObject selectedObject;
     public GameObject bubble;
-	
+    public UnityEvent deselect;
+
 	void Awake () {
 
 	}
@@ -38,11 +40,12 @@ public class ShopControl : MonoBehaviour {
     {
         selectedObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         bubble.SetActive(true);
-        bubble.GetComponent<InfoBubble>().SetPosition(selectedObject);
+        bubble.GetComponent<UIMovement>().SetPosition(selectedObject);
     }
     void Unselect()
     {
         selectedObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         bubble.SetActive(false);
+        deselect.Invoke();
     }
 }
