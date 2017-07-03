@@ -1,19 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TradeDrag : MonoBehaviour
 {
     bool dragging;
     bool buttonDown;
     float clickTimer;
+    public GameObject bubble;
     public GameObject anchor;
-    GameObject selectedObject;
+
+    [HideInInspector]
+    public GameObject selectedObject;
     SpringJoint2D spring;
     Rigidbody2D rig;
 
     enum MouseMode { Click, Hold, Drag, Released };
     MouseMode myMouse;
+
+    public UnityEvent objectSelected;
+    public UnityEvent deselect;
 
     void Awake()
     {
@@ -32,7 +39,7 @@ public class TradeDrag : MonoBehaviour
         }
         else if (myMouse == MouseMode.Released)
         {
-            ReleaseItem();
+            //ReleaseItem();
             //Set selectedObject null and let it go
             //selectedObject = null;
         }
@@ -78,6 +85,7 @@ public class TradeDrag : MonoBehaviour
             buttonDown = false;
             Debug.Log("RELEASED");
             myMouse = MouseMode.Released;
+            ReleaseItem();
         }
     }
 
@@ -96,6 +104,10 @@ public class TradeDrag : MonoBehaviour
         {
             selectedObject = hit.collider.gameObject;
             Debug.Log("ITEEEM");
+        }else if (hit.collider != null && hit.collider.gameObject.transform.tag == "ShopItem")
+        {
+            selectedObject = hit.collider.gameObject;
+            Select();
         }
 
     }
@@ -141,11 +153,17 @@ public class TradeDrag : MonoBehaviour
     void Select()
     {
         selectedObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        objectSelected.Invoke();
+        bubble.SetActive(true);
+        bubble.GetComponent<UIMovement>().SetPosition(selectedObject);
     }
-    void Unselect()
+    public void Unselect()
     {
         selectedObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-        //selectedObject = null;
+        bubble.SetActive(false);
+        Debug.Log("UNSELECT");
+        //deselect.Invoke();
+        
     }
     void ResetTimer()
     {
