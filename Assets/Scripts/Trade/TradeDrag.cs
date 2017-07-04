@@ -7,6 +7,7 @@ public class TradeDrag : MonoBehaviour
 {
     bool dragging;
     bool buttonDown;
+    bool firstClick = true;
     float clickTimer;
     public GameObject bubble;
     public GameObject anchor;
@@ -16,9 +17,6 @@ public class TradeDrag : MonoBehaviour
     SpringJoint2D spring;
     Rigidbody2D rig;
 
-    enum MouseMode { Click, Hold, Drag, Released };
-    MouseMode myMouse;
-
     public UnityEvent objectSelected;
     public UnityEvent deselect;
 
@@ -26,72 +24,53 @@ public class TradeDrag : MonoBehaviour
     {
         dragging = false;
         clickTimer = 0.25f;
-        //MouseMode myMouse;
-        myMouse = MouseMode.Released;
     }
 
     void Update()
     {
         CheckMouseInput();
-        if (myMouse == MouseMode.Released && selectedObject == null)
-        {
-            //Do nothing
-        }
-        else if (myMouse == MouseMode.Released)
-        {
-            //ReleaseItem();
-            //Set selectedObject null and let it go
-            //selectedObject = null;
-        }
-        else if (myMouse == MouseMode.Click)
-        {
-            Select();
-            //Check if object is Item
-        }
-        else if (myMouse == MouseMode.Drag)
-        {
-            ActivateDrag();
-            //Activate Drag
-        }
-        else if (myMouse == MouseMode.Hold)
-        {
-            clickTimer -= Time.deltaTime;
-        }
     }
 
     void CheckMouseInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!Input.GetMouseButtonDown(0))
+        {
+            if (dragging)
+            {
+                ReleaseItem();
+            }
+
+            if (clickTimer < 0.25f)
+            {
+                ResetTimer();
+            }
+
+            firstClick = true;
+        }
+        else if (firstClick)
         {
             Debug.Log("CLICK");
-            myMouse = MouseMode.Click;
+            firstClick = false;
             buttonDown = true;
             ClickItem();
         }
-
-        if (Input.GetMouseButton(0))
+        else if (firstClick == false && clickTimer < 0)
         {
-            myMouse = MouseMode.Hold;
+            clickTimer -= Time.deltaTime;
         }
-
-        if (clickTimer <= 0 && selectedObject != null)
+        else if (clickTimer <= 0)
         {
-            myMouse = MouseMode.Drag;
-        }
-
-        if (Input.GetMouseButtonUp(0) && buttonDown)
-        {
-
-            buttonDown = false;
-            Debug.Log("RELEASED");
-            myMouse = MouseMode.Released;
-            ReleaseItem();
+            ActivateDrag();
         }
     }
 
+
+
+
+
     void ClickItem()
     {
-        
+
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         rig = null;
         if (hit.collider != null && selectedObject != null)
@@ -99,21 +78,29 @@ public class TradeDrag : MonoBehaviour
             Unselect();
             selectedObject = null;
         }
-            
+
         if (hit.collider != null && hit.collider.gameObject.transform.tag == "Item")
         {
             selectedObject = hit.collider.gameObject;
+            Select();
             Debug.Log("ITEEEM");
-        }else if (hit.collider != null && hit.collider.gameObject.transform.tag == "ShopItem")
+        }
+        else if (hit.collider != null && hit.collider.gameObject.transform.tag == "ShopItem")
         {
             selectedObject = hit.collider.gameObject;
             Select();
+        }
+        else
+        {
+            firstClick = true;
         }
 
     }
 
     void ActivateDrag()
     {
+
+
         Unselect();
         if (!dragging)
         {
@@ -131,24 +118,14 @@ public class TradeDrag : MonoBehaviour
 
     void ReleaseItem()
     {
-        if (selectedObject != null)
-        {
-            if (clickTimer > 0f)
-            {
-                Select();
-            }
 
-            if (dragging)
-            {
-                dragging = false;
-                rig.drag = 1f;
-                spring.enabled = false;
-                Unselect();
-                selectedObject = null;
-                ResetTimer();
-            }
-        }
+        dragging = false;
+        rig.drag = 1f;
+        spring.enabled = false;
+        Unselect();
+        selectedObject = null;
         ResetTimer();
+
     }
     void Select()
     {
@@ -163,7 +140,7 @@ public class TradeDrag : MonoBehaviour
         bubble.SetActive(false);
         Debug.Log("UNSELECT");
         //deselect.Invoke();
-        
+
     }
     void ResetTimer()
     {
