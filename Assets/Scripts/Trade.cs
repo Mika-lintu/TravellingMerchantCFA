@@ -11,6 +11,8 @@ public class Trade : MonoBehaviour {
     public Text costText;
     public Text amountText;
 
+    public GameObject message;
+
     bool shopping;
     bool empty;
 
@@ -33,7 +35,7 @@ public class Trade : MonoBehaviour {
     }
     public void GetShopItem()
     {
-        selectedObject = pInven.GetComponent<TradeDrag>().selectedObject;
+        selectedObject = GetComponent<TradeDrag>().selectedObject;
     }
     public void AddItems()
     {
@@ -47,15 +49,37 @@ public class Trade : MonoBehaviour {
         cost--;
         UpdateInfo();
     }
-    //Player Buys item from shop
-    void BuyItem(float num)
+    public void OnOK()
     {
+        if (selectedObject.tag == "Item")
+        {
+            SellItem();
+        }else if (selectedObject.tag == "ShopItem")
+        {
+            BuyItem();
+        }
         ResetTrade();
+
+    }
+    //Player Buys item from shop
+    void BuyItem()
+    {
+        if(Coins.amount >= (int)cost)
+        {
+            Coins.RemoveCoins(cost);
+        }
+        else
+        {
+            Debug.Log("You have no money");
+            message.SetActive(true);
+            //Tell player they don't have enough money
+        }
+        
     }
     //player sells item to shop
-    void SellItem(float num)
+     void SellItem()
     {
-        ResetTrade();
+        Coins.AddCoins(cost);
     }
     public void ResetTrade()
     {

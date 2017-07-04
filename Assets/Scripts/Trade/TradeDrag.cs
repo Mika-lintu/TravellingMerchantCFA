@@ -53,12 +53,14 @@ public class TradeDrag : MonoBehaviour
             firstClick = false;
             buttonDown = true;
             ClickItem();
+            
         }
         else if (firstClick == false && clickTimer < 0)
         {
+            Debug.Log("SCOOPY DOPY DOOO");
             clickTimer -= Time.deltaTime;
         }
-        else if (clickTimer <= 0)
+        else if (clickTimer <= 0 && buttonDown)
         {
             ActivateDrag();
         }
@@ -99,11 +101,12 @@ public class TradeDrag : MonoBehaviour
 
     void ActivateDrag()
     {
-
+        
 
         Unselect();
         if (!dragging)
         {
+            
             dragging = true;
             rig = selectedObject.GetComponent<Rigidbody2D>();
             //rig.drag = 10f;
