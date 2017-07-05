@@ -8,6 +8,7 @@ public class TradeDrag : MonoBehaviour
     bool dragging;
     bool buttonDown;
     bool firstClick = true;
+    bool draggable;
     float clickTimer;
     public GameObject bubble;
     public GameObject anchor;
@@ -33,35 +34,39 @@ public class TradeDrag : MonoBehaviour
 
     void CheckMouseInput()
     {
-        if (!Input.GetMouseButtonDown(0))
+        if (!Input.GetMouseButton(0))
         {
             if (dragging)
             {
                 ReleaseItem();
+                firstClick = true;
             }
 
             if (clickTimer < 0.25f)
             {
                 ResetTimer();
             }
+            if (!firstClick && selectedObject != null) firstClick = true;
 
-            firstClick = true;
+
         }
         else if (firstClick)
         {
-            Debug.Log("CLICK");
+            
             firstClick = false;
             buttonDown = true;
+            Debug.Log("CLICK" + firstClick);
             ClickItem();
             
         }
-        else if (firstClick == false && clickTimer < 0)
+        else if (firstClick == false && clickTimer > 0)
         {
-            Debug.Log("SCOOPY DOPY DOOO");
+            Debug.Log("SCOOPY-DOOBY-DOO");
             clickTimer -= Time.deltaTime;
         }
         else if (clickTimer <= 0 && buttonDown)
         {
+
             ActivateDrag();
         }
     }
@@ -84,17 +89,20 @@ public class TradeDrag : MonoBehaviour
         if (hit.collider != null && hit.collider.gameObject.transform.tag == "Item")
         {
             selectedObject = hit.collider.gameObject;
+            draggable = true;
             Select();
             Debug.Log("ITEEEM");
+            
         }
         else if (hit.collider != null && hit.collider.gameObject.transform.tag == "ShopItem")
         {
             selectedObject = hit.collider.gameObject;
+            draggable = false;
             Select();
         }
         else
         {
-            firstClick = true;
+            //firstClick = true;
         }
 
     }
@@ -102,11 +110,10 @@ public class TradeDrag : MonoBehaviour
     void ActivateDrag()
     {
         
-
-        Unselect();
-        if (!dragging)
+        //Unselect();
+        if (!dragging && draggable)
         {
-            
+
             dragging = true;
             rig = selectedObject.GetComponent<Rigidbody2D>();
             //rig.drag = 10f;
@@ -115,6 +122,7 @@ public class TradeDrag : MonoBehaviour
             spring.frequency = 1f;
             spring.distance = 0.05f;
             spring.connectedBody = anchor.GetComponent<Rigidbody2D>();
+            Unselect();
         }
         anchor.transform.position = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
@@ -128,7 +136,8 @@ public class TradeDrag : MonoBehaviour
         Unselect();
         selectedObject = null;
         ResetTimer();
-
+        
+        buttonDown = false;
     }
     void Select()
     {
