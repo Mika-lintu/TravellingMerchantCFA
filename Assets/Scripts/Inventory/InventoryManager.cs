@@ -11,7 +11,7 @@ public class InventoryManager : MonoBehaviour {
     [HideInInspector]
     public GameObject selectedObject;
     //WorldList worldListScript;
-
+    /*
     private void Awake()
     {
         connectingString = "URI=file:" + Application.dataPath + "/Database/InventoryDB.sqlite";
@@ -303,4 +303,5 @@ public class InventoryManager : MonoBehaviour {
 
         }
     }  
+    */
 }

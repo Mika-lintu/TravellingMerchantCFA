@@ -42,7 +42,7 @@ public class ItemObject : MonoBehaviour
 
         transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = spritelist[sprite - 1];
         transform.position = spawnPoint;
-        worldList.SetItemToActiveObjects(gameObject);
+        //worldList.SetItemToActiveObjects(gameObject); REMOVE ME IF YOU WANT TO USE THIS SCRIPT WITH SQL
 
         switch (id)
         {

@@ -11,7 +11,7 @@ public class WorldList : MonoBehaviour
     public GameObject[] itemTemplates;
     public GameObject activeInventory;
     InventoryManager manager;
-
+    /*
     void Awake()
     {
         manager = GetComponent<InventoryManager>();
@@ -63,5 +63,5 @@ public class WorldList : MonoBehaviour
         activeInventory.GetComponent<ItemHandler>().AddItem(go);
         go.transform.SetParent(activeInventory.transform);
     }
-
+    */
 }

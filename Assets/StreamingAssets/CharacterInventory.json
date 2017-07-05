@@ -1,0 +1,15 @@
+{
+  "characterInventory": [
+    {
+      "id": 0,
+      "itemName": "Papple",
+      "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
+    },
+    {
+      "id": 1,
+      "itemName": "Rat Sandwitch",
+      "stats": [ 15, 20, 3, 1, 1, 1, 1 ]
+    }
+  ]
+
+}
