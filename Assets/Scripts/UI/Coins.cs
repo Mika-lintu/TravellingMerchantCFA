@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Coins : MonoBehaviour {
     static Text coins;
 
-    static int amount;
+    public static int amount;
 
 	void Awake () {
 
@@ -16,5 +16,10 @@ public class Coins : MonoBehaviour {
     {
         amount += (int)num;
         coins.text = "" + amount;
+    }
+    public static void RemoveCoins(float num)
+    {
+            amount -= (int)num;
+            coins.text = "" + amount;
     }
 }
