@@ -12,11 +12,11 @@ public class ItemDatabase : MonoBehaviour
 
     void Start()
     {
-        path = Application.streamingAssetsPath + "/Item.json";
+        path = Application.streamingAssetsPath + "/CharacterInventory.json";
         jsonString = File.ReadAllText(path);
 
         JsonUtility.FromJsonOverwrite(jsonString, inventory);
-        Debug.Log(inventory.itemInventory.Count);
+        Debug.Log(inventory.characterInventory.Count);
     }
 
 }
@@ -24,5 +24,5 @@ public class ItemDatabase : MonoBehaviour
 [System.Serializable]
 public class PlayerInventory
 {
-    public List <Item> itemInventory;
+    public List <Item> characterInventory;
 }

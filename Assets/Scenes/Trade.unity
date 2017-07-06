@@ -628,7 +628,7 @@ Prefab:
     - target: {fileID: 224968411000436236, guid: 2a43576682bf4684d84395059dbc59a4,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 25
+      value: 14.53
       objectReference: {fileID: 0}
     - target: {fileID: 224968411000436236, guid: 2a43576682bf4684d84395059dbc59a4,
         type: 2}
@@ -643,7 +643,7 @@ Prefab:
     - target: {fileID: 114523480855108092, guid: 2a43576682bf4684d84395059dbc59a4,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a43576682bf4684d84395059dbc59a4, type: 2}
@@ -938,6 +938,7 @@ GameObject:
   - component: {fileID: 1061394837}
   - component: {fileID: 1061394836}
   - component: {fileID: 1061394835}
+  - component: {fileID: 1061394840}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1013,6 +1014,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1061394840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1061394834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f3ff1188d385349bd50d0267522a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1146482248
 GameObject:
   m_ObjectHideFlags: 0
