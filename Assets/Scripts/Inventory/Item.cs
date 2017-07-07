@@ -171,7 +171,7 @@ public class Item
     public string GetString(int newItemSlot)
     {
         itemSlot = newItemSlot;
-        return "     {\n        \"id\": " + id + ",\n        \"itemSlot\": \"" + newItemSlot + "\",\n        \"itemName\": \"" + itemName + "\",\n         \"stats\": [ 15, 30, 5, 1, 1, 1, 1 ]\n     }";
+        return "     {\n        \"id\": " + id + ",\n        \"itemSlot\": \"" + newItemSlot + "\",\n        \"itemName\": \"" + itemName + "\",\n         \"stats\": [ " + quantity + ", 30, 5, 1, 1, 1, 1 ]\n     }";
     }
 
 }

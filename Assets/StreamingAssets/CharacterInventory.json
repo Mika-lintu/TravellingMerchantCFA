@@ -4,25 +4,13 @@
         "id": 0,
         "itemSlot": "0",
         "itemName": "Papple",
-         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
-     },
-     {
-        "id": 1,
-        "itemSlot": "1",
-        "itemName": "Rat Sandwitch",
-         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
-     },
-     {
-        "id": 2,
-        "itemSlot": "2",
-        "itemName": "Cat Sandwitch",
-         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
+         "stats": [ 0, 30, 5, 1, 1, 1, 1 ]
      },
      {
         "id": 3,
-        "itemSlot": "3",
+        "itemSlot": "1",
         "itemName": "Bat Sandwitch",
-         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
+         "stats": [ 10, 30, 5, 1, 1, 1, 1 ]
      }
    ]
 

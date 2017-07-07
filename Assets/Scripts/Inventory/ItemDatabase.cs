@@ -25,16 +25,47 @@ public class ItemDatabase : MonoBehaviour
         JsonUtility.FromJsonOverwrite(jsonString, inventory);
         JsonUtility.FromJsonOverwrite(allItemsJsonString, itemList);
 
-        AddToInventory(2);
-        RemoveFromInventory(3);
+        AddToInventory(3, 5);
+        AddToInventory(3, 5);
+        AddToInventory(3, 5);
+        AddToInventory(3, 5);
+
+        //RemoveFromInventory(3);
 
     }
 
 
-    public void AddToInventory(int id)
+    public void AddToInventory(int id, int quantity)
     {
+
         Item newItem = new Item();
         newItem = itemList.allItems[id];
+        newItem.quantity = quantity;
+
+        for (int i = 0; i < inventory.characterInventory.Count; i++)
+        {
+            if (inventory.characterInventory[i].id == id)
+            {
+                if (inventory.characterInventory[i].quantity == 15)
+                {
+                    continue;
+                }
+                else if (inventory.characterInventory[i].quantity + newItem.quantity <= 15)
+                {
+                    //Debug.Log(newItem.quantity);
+                    inventory.characterInventory[i].quantity = inventory.characterInventory[i].quantity + newItem.quantity;
+                    Debug.Log(inventory.characterInventory[i].quantity +  " + " + newItem.quantity + " = " + (inventory.characterInventory[i].quantity + newItem.quantity));
+                    UpdateInventory();
+                    return;
+
+                }
+                else if (inventory.characterInventory[i].quantity + newItem.quantity > 15)
+                {
+                    newItem.quantity = newItem.quantity - (15 - inventory.characterInventory[i].quantity);
+                    inventory.characterInventory[i].quantity = 15;
+                }
+            }
+        }
 
         inventory.characterInventory.Add(newItem);
         UpdateInventory();
@@ -75,7 +106,7 @@ public class ItemDatabase : MonoBehaviour
         List<Item> tempList = new List<Item>();
         for (int i = 0; i < inventory.characterInventory.Count; i++)
         {
-           
+
             if (inventory.characterInventory[i].itemSlot != itemSlotNr)
             {
                 tempList.Add(inventory.characterInventory[i]);
