@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        state = GameState.Battle;
+        state = GameState.Free;
     }
 
     void Update()

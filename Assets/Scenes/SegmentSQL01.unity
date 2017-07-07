@@ -3950,9 +3950,10 @@ GameObject:
   - component: {fileID: 712412749}
   - component: {fileID: 712412750}
   - component: {fileID: 712412751}
-  - component: {fileID: 712412752}
   - component: {fileID: 712412753}
   - component: {fileID: 712412754}
+  - component: {fileID: 712412755}
+  - component: {fileID: 712412752}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4022,7 +4023,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 712412743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.71, y: 0.63, z: -20}
+  m_LocalPosition: {x: -0.04, y: 0.63, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1729067109}
@@ -4092,21 +4093,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 712412743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 67033a219d813b2408afdb733154098d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
-  intensity: 0.431
-  chromaticAberration: 0
-  axialAberration: 0.5
-  blur: 0
-  blurSpread: 1
-  luminanceDependency: 0.25
-  blurDistance: 2.5
-  vignetteShader: {fileID: 4800000, guid: 627943dc7a9a74286b70a4f694a0acd5, type: 3}
-  separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
-  chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
-    type: 3}
 --- !u!82 &712412753
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4225,6 +4214,34 @@ MonoBehaviour:
   blurAndFlaresShader: {fileID: 4800000, guid: be6e39cf196f146d5be72fbefb18ed75, type: 3}
   brightPassFilterShader: {fileID: 4800000, guid: 0aeaa4cb29f5d4e9c8455f04c8575c8c,
     type: 3}
+--- !u!114 &712412755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 712412743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f280a55a98a924fa7b6f9789b192f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 712412752}
+        m_MethodName: PrintStateWithText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameController+GameModeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  state: 0
 --- !u!1001 &722592479
 Prefab:
   m_ObjectHideFlags: 0

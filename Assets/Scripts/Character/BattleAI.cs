@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestiJuttu : MonoBehaviour {
+public class BattleAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

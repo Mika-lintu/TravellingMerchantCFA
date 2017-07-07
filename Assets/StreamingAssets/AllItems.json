@@ -1,5 +1,5 @@
 {
-  "characterInventory": [
+  "allItems": [
     {
       "id": 0,
       "itemName": "Papple",
@@ -9,6 +9,16 @@
       "id": 1,
       "itemName": "Rat Sandwitch",
       "stats": [ 15, 20, 3, 1, 1, 1, 1 ]
+    },
+    {
+      "id": 2,
+      "itemName": "Cat Sandwitch",
+      "stats": [ 15, 40, 3, 1, 1, 1, 1 ]
+    },
+    {
+      "id": 3,
+      "itemName": "Bat Sandwitch",
+      "stats": [ 15, 40, 3, 1, 1, 1, 1 ]
     }
   ]
 

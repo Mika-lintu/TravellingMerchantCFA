@@ -1,15 +1,41 @@
 {
-  "characterInventory": [
-    {
-      "id": 0,
-      "itemName": "Papple",
-      "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
-    },
-    {
-      "id": 1,
-      "itemName": "Rat Sandwitch",
-      "stats": [ 15, 20, 3, 1, 1, 1, 1 ]
-    }
-  ]
+     "characterInventory": [
+     {
+        "id": 0,
+        "itemSlot": "0",
+        "itemName": "Papple",
+         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
+     },
+     {
+        "id": 1,
+        "itemSlot": "1",
+        "itemName": "Rat Sandwitch",
+         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
+     },
+     {
+        "id": 2,
+        "itemSlot": "2",
+        "itemName": "Cat Sandwitch",
+         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
+     },
+     {
+        "id": 0,
+        "itemSlot": "3",
+        "itemName": "Papple",
+         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
+     },
+     {
+        "id": 0,
+        "itemSlot": "4",
+        "itemName": "Papple",
+         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
+     },
+     {
+        "id": 2,
+        "itemSlot": "5",
+        "itemName": "Cat Sandwitch",
+         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
+     }
+   ]
 
 }

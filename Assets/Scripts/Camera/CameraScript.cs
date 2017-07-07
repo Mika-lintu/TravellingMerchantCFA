@@ -35,11 +35,6 @@ public class CameraScript : MonoBehaviour {
         gameSpeed = Camera.main.GetComponent<GameSpeed>();
     }
 
-    private void Start()
-    {
-        StartCoroutine(PanToStart());
-    }
-
     void Update()
     {
         if (!startMovement)
@@ -177,16 +172,5 @@ public class CameraScript : MonoBehaviour {
             yield return null;
         }
         dampTime = 0.15f;
-    }
-
-    IEnumerator PanToStart()
-    {
-        while (transform.position != target.position)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * 3f);
-            yield return null;
-        }
-        target = player;
-        startMovement = false;
     }
 }
