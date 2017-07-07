@@ -26,11 +26,7 @@ public class ItemDatabase : MonoBehaviour
         JsonUtility.FromJsonOverwrite(allItemsJsonString, itemList);
 
         AddToInventory(2);
-
-        for (int i = 0; i < inventory.characterInventory.Count; i++)
-        {
-            Debug.Log(inventory.characterInventory[i].itemName);
-        }  
+        RemoveFromInventory(3);
 
     }
 
@@ -68,15 +64,25 @@ public class ItemDatabase : MonoBehaviour
 
         stringStart = stringStart + "   ]\n\n}";
 
-        //Debug.Log(stringStart);
+        Debug.Log(stringStart);
         File.WriteAllText(path, stringStart);
 
     }
 
 
-    public void RemoveFromInventory()
+    public void RemoveFromInventory(int itemSlotNr)
     {
-
+        List<Item> tempList = new List<Item>();
+        for (int i = 0; i < inventory.characterInventory.Count; i++)
+        {
+           
+            if (inventory.characterInventory[i].itemSlot != itemSlotNr)
+            {
+                tempList.Add(inventory.characterInventory[i]);
+            }
+        }
+        inventory.characterInventory = tempList;
+        UpdateInventory();
     }
 
 }

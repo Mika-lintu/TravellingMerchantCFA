@@ -8,7 +8,7 @@ using System;
 public class Item
 {
     public int id;
-    //public int itemSlot;
+    public int itemSlot;
     public string itemName;
     public int[] stats;
     public bool stackable;
@@ -168,9 +168,10 @@ public class Item
 
     }
 
-    public string GetString(int itemSlot)
+    public string GetString(int newItemSlot)
     {
-        return "     {\n        \"id\": " + id + ",\n        \"itemSlot\": \"" + itemSlot + "\",\n        \"itemName\": \"" + itemName + "\",\n         \"stats\": [ 15, 30, 5, 1, 1, 1, 1 ]\n     }";
+        itemSlot = newItemSlot;
+        return "     {\n        \"id\": " + id + ",\n        \"itemSlot\": \"" + newItemSlot + "\",\n        \"itemName\": \"" + itemName + "\",\n         \"stats\": [ 15, 30, 5, 1, 1, 1, 1 ]\n     }";
     }
 
 }

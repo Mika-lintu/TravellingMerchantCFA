@@ -19,21 +19,9 @@
          "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
      },
      {
-        "id": 0,
+        "id": 3,
         "itemSlot": "3",
-        "itemName": "Papple",
-         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
-     },
-     {
-        "id": 0,
-        "itemSlot": "4",
-        "itemName": "Papple",
-         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
-     },
-     {
-        "id": 2,
-        "itemSlot": "5",
-        "itemName": "Cat Sandwitch",
+        "itemName": "Bat Sandwitch",
          "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
      }
    ]
