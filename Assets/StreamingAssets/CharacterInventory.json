@@ -4,7 +4,37 @@
         "id": 0,
         "itemSlot": "0",
         "itemName": "Papple",
-         "stats": [ 9, 30, 5, 1, 1, 1, 1 ]
+         "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
+     },
+     {
+        "id": 3,
+        "itemSlot": "1",
+        "itemName": "Potion Health",
+         "stats": [ 5, 30, 5, 1, 1, 1, 1 ]
+     },
+     {
+        "id": 2,
+        "itemSlot": "2",
+        "itemName": "Poison Vial",
+         "stats": [ 10, 30, 5, 1, 1, 1, 1 ]
+     },
+     {
+        "id": 0,
+        "itemSlot": "3",
+        "itemName": "Papple",
+         "stats": [ 4, 30, 5, 1, 1, 1, 1 ]
+     },
+     {
+        "id": 1,
+        "itemSlot": "4",
+        "itemName": "Bomb",
+         "stats": [ 8, 30, 5, 1, 1, 1, 1 ]
+     },
+     {
+        "id": 5,
+        "itemSlot": "5",
+        "itemName": "Pepper Jar",
+         "stats": [ 3, 30, 5, 1, 1, 1, 1 ]
      }
    ]
 

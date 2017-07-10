@@ -48,6 +48,28 @@ public class PoolManager : MonoBehaviour {
         }
     }
 
+    public void CreateItemPool(int prefabNR, int poolSize)
+    {
+        
+        GameObject prefab = itemPrefabs[prefabNR];
+        int poolKey = prefab.GetInstanceID();
+        GameObject poolHolder = new GameObject(prefab.name + " pool");
+        poolHolder.transform.parent = transform;
+
+        if (!poolDictionary.ContainsKey(poolKey))
+        {
+            poolDictionary.Add(poolKey, new Queue<ObjectInstance>());
+
+            for (int i = 0; i < poolSize; i++)
+            {
+                ObjectInstance newObject = new ObjectInstance(Instantiate(prefab) as GameObject);
+
+                poolDictionary[poolKey].Enqueue(newObject);
+                newObject.SetParent(poolHolder.transform);
+            }
+        }
+    }
+
     public void ReuseObject(GameObject prefab, Vector3 position, Quaternion rotation)
     {
         int poolKey = prefab.GetInstanceID();

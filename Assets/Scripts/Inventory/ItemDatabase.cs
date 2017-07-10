@@ -11,8 +11,14 @@ public class ItemDatabase : MonoBehaviour
     string allItemsPath;
     string allItemsJsonString;
 
+    PoolManager poolManager;
     PlayerInventory inventory = new PlayerInventory();
     AllItemsList itemList = new AllItemsList();
+
+    void Awake()
+    {
+        poolManager = GetComponent<PoolManager>();
+    }
 
     void Start()
     {
@@ -25,15 +31,20 @@ public class ItemDatabase : MonoBehaviour
         JsonUtility.FromJsonOverwrite(jsonString, inventory);
         JsonUtility.FromJsonOverwrite(allItemsJsonString, itemList);
 
-        AddToInventory(3, 5);
-        AddToInventory(2, 10);
-        AddToInventory(0, 4);
-        AddToInventory(1, 8);
-
+        AddToInventory(5, 3);
+        SetInventory();
         //UpdateInventory();
 
         //RemoveFromInventory(3);
 
+    }
+
+    public void SetInventory()
+    {
+        for (int i = 0; i < inventory.characterInventory.Count; i++)
+        {
+            poolManager.CreateItemPool(inventory.characterInventory[i].id, inventory.characterInventory[i].stats[0]);
+        }
     }
 
     public void AddToInventory(int id, int quantity)
