@@ -30,15 +30,6 @@ public class BattleController : MonoBehaviour
         bUI = GameObject.FindGameObjectWithTag("BattleUI").GetComponent<BattleUI>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown("1")) StartNewBattle(1);
-        if (Input.GetKeyDown("2")) StartNewBattle(2);
-        if (Input.GetKeyDown("3")) StartNewBattle(3);
-        if (Input.GetKeyDown("4")) StartNewBattle(4);
-        if (Input.GetKeyDown("5")) StartNewBattle(5);
-    }
-
     public void CheckBattleLists()
     {
         List<GameObject> newEnemyList = new List<GameObject>();
@@ -62,6 +53,16 @@ public class BattleController : MonoBehaviour
         activeEnemies = newEnemyList;
         if (activeEnemies.Count <= 0) ResetBattleSetup();
         else UpdateTargets();
+    }
+
+    public void StartNewBattle()
+    {
+        int enemies = UnityEngine.Random.Range(1, 3);
+        battleOngoing = true;
+        gameSpeed.movingDisabled = true;
+        ActivateEnemies(enemies);
+        StartBattle();
+        SetUITarget();
     }
 
 

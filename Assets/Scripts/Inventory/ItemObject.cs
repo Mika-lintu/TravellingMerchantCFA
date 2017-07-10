@@ -14,7 +14,8 @@ public class ItemObject : MonoBehaviour
     SpriteRenderer sRenderer;
     SpriteRenderer childRenderer;
     public WorldList worldList;
-    public int effect;
+    public int effect; //DAMAGE
+    public bool parent; //IF THE OBJECT IS PARENT, ALL STACKED OBJECTS WILL BE ADDED AS CHILD OBJECTS
 
 
     void Awake()
@@ -25,6 +26,22 @@ public class ItemObject : MonoBehaviour
     void Start()
     {
         //renderer.sprite = spritelist[1];
+    }
+
+    public virtual void OnObjectReuse()
+    {
+        
+    }
+
+    void CreateChildDirectory()
+    {
+        GameObject stackHolder = new GameObject("Stacked " + transform.name);
+        stackHolder.transform.parent = transform;
+    }
+
+    protected void OnDestroy()
+    {
+        gameObject.SetActive(false);
     }
 
     public void SpawnItem(int id, Vector2 spawnPoint, int sprite)
@@ -100,51 +117,5 @@ public class ItemObject : MonoBehaviour
         childRenderer.enabled = false;
     }
 
-    /*
-    void CopyComponent(Component component, GameObject target)
-    {
-        System.Type type = component.GetType();
-        Component newComp = target.AddComponent(type);
-        PropertyInfo[] propInfo = type.GetProperties(/*BindingFlags.Public | BindingFlags.DeclaredOnly /*| BindingFlags.DeclaredOnly | BindingFlags.Instance);
-        foreach (var property in propInfo)
-        {
-            try
-            {
-                Debug.Log(property.Name);
-                if (property.Name == "radius" || property.Name == "offset")
-                    property.SetValue(target.GetComponent(type), property.GetValue(component, null), null);
-            }
-            catch (Exception)
-            {
-                //Debug.Log("Horrible things happened!");
-            }
-            //if (property.Name == "rect") continue;
-
-        }
-    }
-
-    
-    /*
-    foreach (FieldInfo info in fields)
-    {
-        info.SetValue(copy, info.GetValue(tempComponent));
-        Debug.Log(info.GetValue(tempComponent));
-    }
-    */
-
-    //newCollider = tempCollider;
-
-    /* Collider2D[] newColliders = itemTemplates[id + 1].GetComponents<Collider2D>();
-
-     for (int i = 0; i < newColliders.Length; i++)
-     {
-         Collider2D tempCol = newColliders[i];
-         gameObject.AddComponent<Collider2D>();
-     }
-     gameObject.SetActive(true);
-
-     sRenderer.sprite = spritelist[sprite - 1];
-     transform.parent = inventory.transform;
-     transform.position = spawnPoint;*/
 }
 

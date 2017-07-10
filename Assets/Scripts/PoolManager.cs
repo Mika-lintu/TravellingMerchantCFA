@@ -7,6 +7,7 @@ public class PoolManager : MonoBehaviour {
     Dictionary<int, Queue<ObjectInstance>> poolDictionary = new Dictionary<int, Queue<ObjectInstance>>();
 
     static PoolManager _instance;
+    public GameObject[] itemPrefabs;
 
     public static PoolManager instance
     {
@@ -30,6 +31,28 @@ public class PoolManager : MonoBehaviour {
     {
         int poolKey = prefab.GetInstanceID();
 
+        GameObject poolHolder = new GameObject(prefab.name + " pool");
+        poolHolder.transform.parent = transform;
+
+        if (!poolDictionary.ContainsKey(poolKey))
+        {
+            poolDictionary.Add(poolKey, new Queue<ObjectInstance>());
+
+            for (int i = 0; i < poolSize; i++)
+            {
+                ObjectInstance newObject = new ObjectInstance(Instantiate(prefab) as GameObject);
+
+                poolDictionary[poolKey].Enqueue(newObject);
+                newObject.SetParent(poolHolder.transform);
+            }
+        }
+    }
+
+    public void CreateItemPool(int prefabNR, int poolSize)
+    {
+        
+        GameObject prefab = itemPrefabs[prefabNR];
+        int poolKey = prefab.GetInstanceID();
         GameObject poolHolder = new GameObject(prefab.name + " pool");
         poolHolder.transform.parent = transform;
 

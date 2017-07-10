@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
+public class ItemEditor : MonoBehaviour {
 
-[System.Serializable]
-public class Item
-{
-    public int id;
-    public int itemSlot;
+    public static int id;
     public string itemName;
     public int[] stats;
     public bool stackable;
@@ -31,7 +27,7 @@ public class Item
     public Type itemType;
 
     public Color[] colors = new Color[6];
-    
+
 
 
 
@@ -55,9 +51,6 @@ public class Item
         */
     }
 
-    public void SetStats()
-    {
-    }
 
     // ITEM STATE STUFF HERE
     public void SetState(int stateID)
@@ -169,12 +162,6 @@ public class Item
     public void DebugStats()
     {
 
-    }
-
-    public string GetString(int newItemSlot)
-    {
-        itemSlot = newItemSlot;
-        return "     {\n        \"id\": " + id + ",\n        \"itemSlot\": \"" + newItemSlot + "\",\n        \"itemName\": \"" + itemName + "\",\n         \"stats\": [ " + stats[0] + ", 30, 5, 1, 1, 1, 1 ]\n     }";
     }
 
 }

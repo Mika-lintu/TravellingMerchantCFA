@@ -14,7 +14,6 @@ public class DragScript : MonoBehaviour
     GameObject selectedObject;
     SpringJoint2D spring;
     public GameObject anchor;
-    //public GameObject player;
     ItemSlots itemSlotsScript;
     public GameObject itemSlots;
     float clickTimer;
