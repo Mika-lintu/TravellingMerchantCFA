@@ -7,6 +7,7 @@ public class PoolManager : MonoBehaviour {
     Dictionary<int, Queue<ObjectInstance>> poolDictionary = new Dictionary<int, Queue<ObjectInstance>>();
 
     static PoolManager _instance;
+    public GameObject[] itemPrefabs;
 
     public static PoolManager instance
     {

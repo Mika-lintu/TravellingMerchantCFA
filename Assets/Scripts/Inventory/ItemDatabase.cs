@@ -26,48 +26,61 @@ public class ItemDatabase : MonoBehaviour
         JsonUtility.FromJsonOverwrite(allItemsJsonString, itemList);
 
         AddToInventory(3, 5);
-        AddToInventory(3, 5);
-        AddToInventory(3, 5);
-        AddToInventory(3, 5);
+        AddToInventory(2, 10);
+        AddToInventory(0, 4);
+        AddToInventory(1, 8);
+
+        //UpdateInventory();
 
         //RemoveFromInventory(3);
 
     }
 
-
     public void AddToInventory(int id, int quantity)
     {
+        int newQuantity = quantity;
 
-        Item newItem = new Item();
-        newItem = itemList.allItems[id];
-        newItem.quantity = quantity;
 
         for (int i = 0; i < inventory.characterInventory.Count; i++)
         {
+
             if (inventory.characterInventory[i].id == id)
             {
-                if (inventory.characterInventory[i].quantity == 15)
+
+                if (inventory.characterInventory[i].stats[0] == 15)
                 {
-                    continue;
+                    Debug.Log(inventory.characterInventory[i].itemName + " in slot nr: " + inventory.characterInventory[i].itemSlot + " count is 15");
                 }
-                else if (inventory.characterInventory[i].quantity + newItem.quantity <= 15)
+
+                else if (inventory.characterInventory[i].stats[0] + newQuantity <= 15)
                 {
-                    //Debug.Log(newItem.quantity);
-                    inventory.characterInventory[i].quantity = inventory.characterInventory[i].quantity + newItem.quantity;
-                    Debug.Log(inventory.characterInventory[i].quantity +  " + " + newItem.quantity + " = " + (inventory.characterInventory[i].quantity + newItem.quantity));
+                    Debug.Log(inventory.characterInventory[i].itemName + " in slot nr: " + inventory.characterInventory[i].itemSlot + " plus new quantity is less than 15");
+                    Debug.Log(inventory.characterInventory[i].stats[0] + " + " + newQuantity + " = " + (inventory.characterInventory[i].stats[0] + newQuantity));
+                    inventory.characterInventory[i].stats[0] = inventory.characterInventory[i].stats[0] + newQuantity;
                     UpdateInventory();
                     return;
 
                 }
-                else if (inventory.characterInventory[i].quantity + newItem.quantity > 15)
+
+                else if (inventory.characterInventory[i].stats[0] + newQuantity > 15)
                 {
-                    newItem.quantity = newItem.quantity - (15 - inventory.characterInventory[i].quantity);
-                    inventory.characterInventory[i].quantity = 15;
+                    Debug.Log(inventory.characterInventory[i].itemName + " in slot nr: " + inventory.characterInventory[i].itemSlot + " plus new quantity is more than 15");
+                    newQuantity = newQuantity - (15 - inventory.characterInventory[i].stats[0]);
+                    inventory.characterInventory[i].stats[0] = 15;
                 }
+
             }
+
         }
 
-        inventory.characterInventory.Add(newItem);
+        if (newQuantity >= 1)
+        {
+            Item newItem = new Item();
+            newItem = itemList.allItems[id];
+            newItem.stats[0] = newQuantity;
+            inventory.characterInventory.Add(newItem);
+        }
+
         UpdateInventory();
     }
 
