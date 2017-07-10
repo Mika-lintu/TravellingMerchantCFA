@@ -9,6 +9,7 @@ public class TavernMovement : MonoBehaviour {
     bool onMove;
     bool isFlipped;
     Vector3 mousePos;
+    bool playerAtShop;
 
     void Awake()
     {
@@ -45,17 +46,17 @@ public class TavernMovement : MonoBehaviour {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
         
-        if (hit.collider != null)
+        if (hit.collider != null && hit.collider.tag == "Ground")
         {
             target.transform.position =  mousePos;
             onMove = true;
         }
-       
-        
+              
     }
     void MovePlayer()
     {
         transform.position = Vector2.Lerp(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
-        
     }
+
+   
 }
