@@ -10,21 +10,21 @@ public class EditorRoad : MonoBehaviour {
     float curveLength = 0f;
     float standardWidth = 2f;
     public bool customRoad = false;
-    public float lineStartWidth;
-    public float lineEndWidth;
 
     public void DrawRoad()
     {
+        // UNITY SERIALIZE CURVES GOOGLESTA!
         curveLength = 0f;
         curve = GetComponent<BezierSpline>();
         line = GetComponent<LineRenderer>();
         AnimationCurve lineCurve = new AnimationCurve();
-        float startW = Mathf.InverseLerp(7, -10, curve.GetPoint(0).y);
+        float startW = Mathf.InverseLerp(7, -10, curve.GetPoint(0).y); //7, -10
         float endW = Mathf.InverseLerp(7, -10, curve.GetPoint(1).y);
-        lineCurve.AddKey(0, startW * standardWidth);
-        lineCurve.AddKey(1, endW * standardWidth);
+        lineCurve.AddKey(0, startW);
+        lineCurve.AddKey(1, endW);
 
         line.widthCurve = lineCurve;
+        line.widthMultiplier = 4f;
         line.numPositions = 21;
         float stepPrecision = 100f;
         float[] fractionStep = new float[(int)stepPrecision];

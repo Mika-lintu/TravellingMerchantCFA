@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(SegmentSQLEditor))]
+//[CustomEditor(typeof(SegmentSQLEditor))]
+[CustomEditor(typeof(LevelDatabase))]
 public class LevelEditor : Editor
 {
     private BezierSpline spline;
     private SegmentSQLEditor sqlEditor;
+    private LevelDatabase jsonEditor;
 
     private void OnSceneGUI()
     {
-        sqlEditor = target as SegmentSQLEditor;
+        //sqlEditor = target as SegmentSQLEditor;
+        jsonEditor = target as LevelDatabase;
     }
 
     public override void OnInspectorGUI()
@@ -20,27 +23,27 @@ public class LevelEditor : Editor
 
         if (GUILayout.Button("Refresh"))
         {
-            sqlEditor.Refresh();
+            jsonEditor.Refresh();
         }
 
         if (GUILayout.Button("Save Changes"))
         {
-            sqlEditor.SaveChanges();
+            jsonEditor.SaveChanges();
         }
 
         if (GUILayout.Button("Next Segment"))
         {
-            sqlEditor.NextSegment();
+            jsonEditor.NextSegment();
         }
 
         if (GUILayout.Button("Previous Segment"))
         {
-            sqlEditor.PreviousSegment();
+            jsonEditor.PreviousSegment();
         }
 
         if (GUILayout.Button("Add Prop"))
         {
-            sqlEditor.AddProp(sqlEditor.segmentNumber);
+            jsonEditor.AddProp(jsonEditor.segmentNumber);
         }
     }
 

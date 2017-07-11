@@ -31,7 +31,6 @@ public class ItemDatabase : MonoBehaviour
         JsonUtility.FromJsonOverwrite(jsonString, inventory);
         JsonUtility.FromJsonOverwrite(allItemsJsonString, itemList);
 
-        AddToInventory(5, 3);
         SetInventory();
         //UpdateInventory();
 
