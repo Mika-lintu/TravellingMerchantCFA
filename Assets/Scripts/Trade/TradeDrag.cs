@@ -9,14 +9,16 @@ public class TradeDrag : MonoBehaviour
     bool buttonDown;
     bool firstClick = true;
     bool draggable;
+    bool shopActive;
     float clickTimer;
     public GameObject bubble;
     public GameObject anchor;
 
-    [HideInInspector]
+
     public GameObject selectedObject;
     SpringJoint2D spring;
     Rigidbody2D rig;
+    TavernCamera tavernCamera;
 
     public UnityEvent objectSelected;
     public UnityEvent deselect;
@@ -25,6 +27,7 @@ public class TradeDrag : MonoBehaviour
     {
         dragging = false;
         clickTimer = 0.25f;
+        tavernCamera = Camera.main.GetComponent<TavernCamera>();
     }
 
     void Update()
@@ -52,16 +55,15 @@ public class TradeDrag : MonoBehaviour
         }
         else if (firstClick)
         {
-            
+
             firstClick = false;
             buttonDown = true;
             Debug.Log("CLICK" + firstClick);
             ClickItem();
-            
+
         }
         else if (firstClick == false && clickTimer > 0)
         {
-            Debug.Log("SCOOPY-DOOBY-DOO");
             clickTimer -= Time.deltaTime;
         }
         else if (clickTimer <= 0 && buttonDown)
@@ -72,44 +74,47 @@ public class TradeDrag : MonoBehaviour
     }
 
 
-
-
-
     void ClickItem()
     {
 
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        Debug.Log("Bleeep");
         rig = null;
-        if (hit.collider != null && selectedObject != null)
+        if (shopActive)
         {
-            Unselect();
-            selectedObject = null;
-        }
+            if (hit.collider != null && selectedObject != null)
+            {
+                Unselect();
+                selectedObject = null;
+            }
 
-        if (hit.collider != null && hit.collider.gameObject.transform.tag == "Item")
-        {
-            selectedObject = hit.collider.gameObject;
-            draggable = true;
-            Select();
-            Debug.Log("ITEEEM");
-            
+            if (hit.collider != null && hit.collider.gameObject.transform.tag == "Item")
+            {
+                selectedObject = hit.collider.gameObject;
+                draggable = true;
+                Select();
+                Debug.Log("ITEEEM");
+
+            }
+            else if (hit.collider != null && hit.collider.gameObject.transform.tag == "ShopItem")
+            {
+                selectedObject = hit.collider.gameObject;
+                draggable = false;
+                Select();
+            }
         }
-        else if (hit.collider != null && hit.collider.gameObject.transform.tag == "ShopItem")
+        if (!shopActive)
         {
-            selectedObject = hit.collider.gameObject;
-            draggable = false;
-            Select();
-        }
-        else
-        {
-            //firstClick = true;
+            //Movement in tavern
+            //Check If going to the shop
+
         }
 
     }
 
     void ActivateDrag()
     {
-        
+
         //Unselect();
         if (!dragging && draggable)
         {
@@ -136,7 +141,7 @@ public class TradeDrag : MonoBehaviour
         Unselect();
         selectedObject = null;
         ResetTimer();
-        
+
         buttonDown = false;
     }
     void Select()
@@ -157,5 +162,17 @@ public class TradeDrag : MonoBehaviour
     void ResetTimer()
     {
         clickTimer = 0.25f;
+    }
+
+    public void CheckGameMode()
+    {
+        if (tavernCamera.modeEnum == TavernCamera.Tavern.inShop)
+        {
+            shopActive = true;
+        }
+        else
+        {
+            shopActive = false;
+        }
     }
 }

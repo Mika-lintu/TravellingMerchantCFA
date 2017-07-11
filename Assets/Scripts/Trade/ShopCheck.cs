@@ -2,20 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopCheck : MonoBehaviour {
+public class ShopCheck : MonoBehaviour
+{
 
     bool playerAtShop;
+    bool shopping;
     private PolygonCollider2D myPoly;
-    public GameObject infoPaper;
+    TavernCamera tavernCamera;
+    public GameObject shop;
+    bool shopActive;
+
+
 
     void Awake()
     {
         //first polyCollider
+        tavernCamera = Camera.main.GetComponent<TavernCamera>();
         myPoly = GetComponent<PolygonCollider2D>();
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)&&playerAtShop)
+        if (Input.GetMouseButtonDown(0) && playerAtShop)
         {
             AtShop();
         }
@@ -31,7 +38,7 @@ public class ShopCheck : MonoBehaviour {
         {
             Debug.Log("Player at shop");
             playerAtShop = true;
-           
+            myPoly.enabled = true;
         }
     }
 
@@ -40,6 +47,7 @@ public class ShopCheck : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             playerAtShop = false;
+            myPoly.enabled = false;
             Debug.Log("Player left shop");
         }
     }
@@ -47,17 +55,38 @@ public class ShopCheck : MonoBehaviour {
     void AtShop()
     {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-        if(hit.collider != null && hit.collider.GetInstanceID() == hit.collider.GetInstanceID())
+        if (hit.collider != null && myPoly.enabled == true && hit.collider == myPoly && !shopActive)
         {
             GoToShop();
         }
     }
     void GoToShop()
     {
-        infoPaper.SetActive(true);
+        Debug.Log("BAABAAABaa");
+        tavernCamera.GoToShop();
+        shop.SetActive(true);
+        shopActive = true;
+        foreach (Collider2D item in transform)
+        {
+            item.enabled = false;
+        }
     }
-    public void MoveToScene()
+    public void LeaveShop()
     {
-        Application.LoadLevel(1);
+        tavernCamera.GoFromShop();
+        shop.SetActive(false);
+        shopActive = false;
+    }
+
+    public void CheckGameMode()
+    {
+        if (tavernCamera.modeEnum == TavernCamera.Tavern.inShop)
+        {
+            shopActive = true;
+        }
+        else
+        {
+            shopActive = false;
+        }
     }
 }
