@@ -41,9 +41,9 @@ public class LevelEditor : Editor
             jsonEditor.PreviousSegment();
         }
 
-        if (GUILayout.Button("Add Prop"))
+        if (GUILayout.Button("Next Background Sprite"))
         {
-            jsonEditor.AddProp(jsonEditor.segmentNumber);
+            jsonEditor.ChangeGroundLayer();
         }
     }
 

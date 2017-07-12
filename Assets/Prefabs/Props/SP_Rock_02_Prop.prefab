@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212108795335419088}
   - component: {fileID: 114855636808924956}
   m_Layer: 0
-  m_Name: TestProp
+  m_Name: SP_Rock_02_Prop
   m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253215629624060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.382984, y: 0.0742898, z: 0}
+  m_LocalPosition: {x: -14.239134, y: -0.20413283, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,6 +52,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94091a187c05c744ca2a5224cb526f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 19
+  segmentNumber: 0
+  propName: 
+  xOffset: 0
+  yOffset: 0
+  spriteNumber: 0
+  spriteList: []
 --- !u!212 &212108795335419088
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -83,7 +90,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 99fda0d8a4580554ab688391d658ee57, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88eafc261a76dd14bb2c370996e7d683, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

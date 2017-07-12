@@ -13,7 +13,7 @@ public class SpriteChanger : MonoBehaviour
     public int spriteID;
     public bool active = false;
 
-    public void NextSprite()
+    public int NextSprite()
     {
         sRenderer = GetComponent<SpriteRenderer>();
         currentSprite++;
@@ -22,6 +22,7 @@ public class SpriteChanger : MonoBehaviour
             currentSprite = 0;
         }
         sRenderer.sprite = sprites[currentSprite];
+        return currentSprite;
 
     }
 

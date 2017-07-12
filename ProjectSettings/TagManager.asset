@@ -10,6 +10,9 @@ TagManager:
   - InventoryBackground
   - Item
   - ShopItem
+  - SegmentEditor
+  - editorRoadSprite
+  - Background
   layers:
   - Default
   - TransparentFX

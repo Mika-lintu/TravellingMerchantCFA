@@ -10,7 +10,7 @@ public class Level {
     int segmentNR;
     public float roadStart;
     public float roadEnd;
-    int groundLayer;
+    public int groundLayer;
     float zoom = 5f;
 
     public void SetPoints(float sPoint, float ePoint)

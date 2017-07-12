@@ -19,6 +19,8 @@ public class LevelDatabase : MonoBehaviour
     public float startPoint;
     [HideInInspector]
     public float endPoint;
+    int newGroundLayer;
+    GameObject background;
     GameLevel level = new GameLevel();
     LevelProps props = new LevelProps();
 
@@ -48,7 +50,8 @@ public class LevelDatabase : MonoBehaviour
     {
         GetRoadPoints();
         GenerateCurve curve = GetComponent<GenerateCurve>();
-        SpriteChanger groundSprite = GameObject.FindGameObjectWithTag("editorRoadSprite").GetComponent<SpriteChanger>();
+        SpriteChanger groundSprite = GameObject.FindGameObjectWithTag("Background").GetComponent<SpriteChanger>();
+        groundSprite.SetSprite(level.levelSegments[segmentNumber].groundLayer);
         curve.CreateBezierWithPoints(startPoint, endPoint);
         road = GetComponent<EditorRoad>();
         road.DrawRoad();
@@ -80,6 +83,12 @@ public class LevelDatabase : MonoBehaviour
         UpdateSegments(startPoint, endPoint, segmentNumber);
         UpdateProps();
         Refresh();
+    }
+
+    public void ChangeGroundLayer()
+    {
+        SpriteChanger groundSprite = GameObject.FindGameObjectWithTag("Background").GetComponent<SpriteChanger>();
+        newGroundLayer = groundSprite.NextSprite();
     }
 
     public void ResetProps()
@@ -196,16 +205,6 @@ public class LevelDatabase : MonoBehaviour
         WritePropsToDatabase();
     }
 
-    private void InsertRandomSegment(int segLength)
-    {
-
-    }
-
-    private void GetSegments(int id)
-    {
-
-    }
-
     private void GetSegmentPoints(int id, out float return1, out float return2, out int sprite)
     {
         float f1 = 0.0f;
@@ -215,11 +214,6 @@ public class LevelDatabase : MonoBehaviour
         return1 = f1;
         return2 = f2;
         sprite = s1;
-    }
-
-    private void DeleteSegments()
-    {
-
     }
 
     private void UpdateSegments(float sp, float ep, int id)
@@ -242,7 +236,7 @@ public class LevelDatabase : MonoBehaviour
 
             level.levelSegments[nextID].roadStart = ep;
         }
-
+        level.levelSegments[id].groundLayer = newGroundLayer;
         WriteToDatabase();
     }
 
