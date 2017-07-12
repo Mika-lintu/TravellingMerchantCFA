@@ -91,89 +91,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &848839455
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 848839458}
-  - component: {fileID: 848839457}
-  - component: {fileID: 848839456}
-  m_Layer: 0
-  m_Name: SP_Rock_08_Prop(Clone)
-  m_TagString: Prop
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &848839456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 848839455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94091a187c05c744ca2a5224cb526f4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 25
-  segmentNumber: 0
-  propName: 
-  xOffset: 0
-  yOffset: 0
-  spriteNumber: 0
-  spriteList: []
---- !u!212 &848839457
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 848839455}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c0692dd9639fd7741bcbc27d82b50ba7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
---- !u!4 &848839458
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 848839455}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22028142, y: -2.2561529, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &1235874362
 Material:
   serializedVersion: 6
@@ -223,7 +140,7 @@ Material:
         name: _MainTex
       second:
         m_Texture: {fileID: 2800000, guid: c71304f2204161942a999b345f71d14f, type: 3}
-        m_Scale: {x: 7.9478493, y: 1}
+        m_Scale: {x: 7.7796183, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _OcclusionMap
@@ -461,10 +378,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -7.389656, y: -1.60562, z: 0}
-  - {x: -2.944828, y: -1.60562, z: 0}
-  - {x: 2.944828, y: 1.505191, z: 0}
-  - {x: 7.389656, y: 1.505191, z: 0}
+  - {x: -7.389656, y: -2.726618, z: 0}
+  - {x: -2.944828, y: -2.726618, z: 0}
+  - {x: 2.944828, y: -1.514054, z: 0}
+  - {x: 7.389656, y: -1.514054, z: 0}
 --- !u!120 &1749600293
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -497,27 +414,27 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -8.889656, y: -1.60562, z: 0}
-  - {x: -7.389656, y: -1.60562, z: 0}
-  - {x: -6.435994, y: -1.5620252, z: 0}
-  - {x: -5.589269, y: -1.4615709, z: 0}
-  - {x: -4.8658643, y: -1.3395337, z: 0}
-  - {x: -3.9796603, y: -1.1540796, z: 0}
-  - {x: -3.228602, y: -0.9725017, z: 0}
-  - {x: -2.46844, y: -0.77132535, z: 0}
-  - {x: -1.7013439, y: -0.55521744, z: 0}
-  - {x: -0.92947924, y: -0.3288436, z: 0}
-  - {x: -0.15501422, y: -0.09687041, z: 0}
-  - {x: 0.6198844, y: 0.13603605, z: 0}
-  - {x: 1.3930484, y: 0.36520925, z: 0}
-  - {x: 2.162312, y: 0.5859836, z: 0}
-  - {x: 2.9255075, y: 0.7936925, z: 0}
-  - {x: 3.6804676, y: 0.9836697, z: 0}
-  - {x: 4.425025, y: 1.1512492, z: 0}
-  - {x: 5.157011, y: 1.2917644, z: 0}
-  - {x: 6.015752, y: 1.4180882, z: 0}
-  - {x: 7.389656, y: 1.505191, z: 0}
-  - {x: 8.889656, y: 1.505191, z: 0}
+  - {x: -8.889656, y: -2.726618, z: 0}
+  - {x: -7.389656, y: -2.726618, z: 0}
+  - {x: -6.435994, y: -2.709625, z: 0}
+  - {x: -5.589269, y: -2.6704693, z: 0}
+  - {x: -4.8658643, y: -2.6229002, z: 0}
+  - {x: -4.128588, y: -2.5636904, z: 0}
+  - {x: -3.228602, y: -2.4798348, z: 0}
+  - {x: -2.46844, y: -2.4014177, z: 0}
+  - {x: -1.7013439, y: -2.317181, z: 0}
+  - {x: -0.92947924, y: -2.2289429, z: 0}
+  - {x: -0.15501422, y: -2.1385221, z: 0}
+  - {x: 0.6198844, y: -2.0477374, z: 0}
+  - {x: 1.3930484, y: -1.9584078, z: 0}
+  - {x: 2.162312, y: -1.8723521, z: 0}
+  - {x: 2.9255075, y: -1.7913892, z: 0}
+  - {x: 3.6804676, y: -1.7173378, z: 0}
+  - {x: 4.425025, y: -1.6520171, z: 0}
+  - {x: 5.157011, y: -1.5972456, z: 0}
+  - {x: 6.015752, y: -1.5480058, z: 0}
+  - {x: 7.389656, y: -1.514054, z: 0}
+  - {x: 8.889656, y: -1.514054, z: 0}
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 4
@@ -526,15 +443,15 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.50621295
-        inSlope: -0.18298888
-        outSlope: -0.18298888
+        value: 0.572154
+        inSlope: -0.07132727
+        outSlope: -0.07132727
         tangentMode: 0
       - serializedVersion: 2
         time: 1
-        value: 0.32322407
-        inSlope: -0.18298888
-        outSlope: -0.18298888
+        value: 0.5008267
+        inSlope: -0.07132727
+        outSlope: -0.07132727
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -631,6 +548,7 @@ MonoBehaviour:
   - {fileID: 1253215629624060, guid: 79310283e6fc63d4e82158c345966111, type: 2}
   - {fileID: 1253215629624060, guid: e707767dd32f4fe4d88c8902966c37d6, type: 2}
   - {fileID: 1253215629624060, guid: 21851735df250d74bb457617ec408a37, type: 2}
+  - {fileID: 1253215629624060, guid: 2e0bf89f893843846b8d95867462713e, type: 2}
 --- !u!4 &1749600295
 Transform:
   m_ObjectHideFlags: 0
@@ -655,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b3839bc3fd6c043b105094c73757da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: 1.505191
+  endPoint: -1.514054
 --- !u!114 &1749600297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,9 +585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c612f13a3503340a8a558e9add0e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentNumber: 0
-  startPoint: -1.60562
-  endPoint: 1.505191
+  segmentNumber: 5
+  startPoint: -2.726618
+  endPoint: -1.514054
 --- !u!1 &1908205111
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +634,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8e707a1b9166bbc45a1ca07972bfda17, type: 3}
   - {fileID: 21300000, guid: b576123fa1dfd96418d90f5a6acf9ac3, type: 3}
   - {fileID: 21300000, guid: ef4cd5b8904fbc44abb37388bafbcfaf, type: 3}
-  currentSprite: 2
+  currentSprite: 3
   inSegmentNR: 0
   spriteID: 0
   active: 0
@@ -750,7 +668,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 348637c8b9b30a84c9534cd955e3c68c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

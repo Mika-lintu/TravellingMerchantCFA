@@ -21,11 +21,11 @@ public class LevelEditor : Editor
     {
         DrawDefaultInspector();
 
-        if (GUILayout.Button("Refresh"))
+        /*if (GUILayout.Button("Refresh"))
         {
             jsonEditor.Refresh();
         }
-
+        */
         if (GUILayout.Button("Save Changes"))
         {
             jsonEditor.SaveChanges();

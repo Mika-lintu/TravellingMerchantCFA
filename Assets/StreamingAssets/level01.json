@@ -10,29 +10,29 @@
      {
         "segmentNumber": 1,
         "roadStart": "1.505191",
-        "roadEnd": "-1.702639",
+        "roadEnd": "1.004488",
         "groundLayer": 0,
         "zoom": 5
      },
      {
         "segmentNumber": 2,
-        "roadStart": "-1.702639",
-        "roadEnd": "0.02410936",
-        "groundLayer": 2,
+        "roadStart": "1.004488",
+        "roadEnd": "-1.374069",
+        "groundLayer": 1,
         "zoom": 5
      },
      {
         "segmentNumber": 3,
-        "roadStart": "0.02410936",
+        "roadStart": "-1.374069",
         "roadEnd": "0.3857794",
-        "groundLayer": 3,
+        "groundLayer": 0,
         "zoom": 5
      },
      {
         "segmentNumber": 4,
         "roadStart": "0.3857794",
         "roadEnd": "-2.726618",
-        "groundLayer": 0,
+        "groundLayer": 1,
         "zoom": 5
      },
      {
@@ -46,14 +46,14 @@
         "segmentNumber": 6,
         "roadStart": "-1.514054",
         "roadEnd": "0.8508652",
-        "groundLayer": 0,
+        "groundLayer": 3,
         "zoom": 5
      },
      {
         "segmentNumber": 7,
         "roadStart": "0.8508652",
         "roadEnd": "2.50548",
-        "groundLayer": 0,
+        "groundLayer": 3,
         "zoom": 5
      },
      {
@@ -66,13 +66,13 @@
      {
         "segmentNumber": 9,
         "roadStart": "0.6999183",
-        "roadEnd": "1.95334",
-        "groundLayer": 0,
+        "roadEnd": "-2.925435",
+        "groundLayer": 3,
         "zoom": 5
      },
      {
         "segmentNumber": 10,
-        "roadStart": "1.95334",
+        "roadStart": "-2.925435",
         "roadEnd": "0.7582582",
         "groundLayer": 0,
         "zoom": 5
@@ -80,20 +80,20 @@
      {
         "segmentNumber": 11,
         "roadStart": "0.7582582",
-        "roadEnd": "-3.400385",
+        "roadEnd": "1.113894",
         "groundLayer": 0,
         "zoom": 5
      },
      {
         "segmentNumber": 12,
-        "roadStart": "-3.400385",
-        "roadEnd": "-0.8888764",
+        "roadStart": "1.113894",
+        "roadEnd": "-3.069068",
         "groundLayer": 0,
         "zoom": 5
      },
      {
         "segmentNumber": 13,
-        "roadStart": "-0.8888764",
+        "roadStart": "-3.069068",
         "roadEnd": "2.260234",
         "groundLayer": 0,
         "zoom": 5

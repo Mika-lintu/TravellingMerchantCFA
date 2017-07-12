@@ -52,6 +52,7 @@ public class LevelDatabase : MonoBehaviour
         GenerateCurve curve = GetComponent<GenerateCurve>();
         SpriteChanger groundSprite = GameObject.FindGameObjectWithTag("Background").GetComponent<SpriteChanger>();
         groundSprite.SetSprite(level.levelSegments[segmentNumber].groundLayer);
+        newGroundLayer = level.levelSegments[segmentNumber].groundLayer;
         curve.CreateBezierWithPoints(startPoint, endPoint);
         road = GetComponent<EditorRoad>();
         road.DrawRoad();

@@ -9,6 +9,7 @@ public class Prop {
     public int id;
     public int segmentNumber;
     public string propName;
+    public int sprite;
     public float xOffset;
     public float yOffset;
 

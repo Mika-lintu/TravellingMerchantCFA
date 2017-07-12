@@ -419,7 +419,7 @@ public class SegmentSQLEditor : MonoBehaviour
                     while (reader.Read())
                     {
                         GameObject newProp = Instantiate(prop);
-                        newProp.GetComponent<SpriteChanger>().InstantiateNewProp(reader.GetInt32(0), reader.GetInt32(2), reader.GetFloat(3), reader.GetFloat(4));
+                        //newProp.GetComponent<SpriteChanger>().InstantiateNewProp(reader.GetInt32(0), reader.GetInt32(2), reader.GetFloat(3), reader.GetFloat(4));
                         Debug.Log("Prop ID: " + reader.GetInt32(0) + "   Sprite: " + reader.GetInt32(2) + "   X: " + reader.GetFloat(3) + "   Y: " + reader.GetFloat(4));
                     }
                     dbConnection.Close();

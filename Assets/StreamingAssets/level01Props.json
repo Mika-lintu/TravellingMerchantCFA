@@ -1,11 +1,74 @@
 {
      "level01Props": [
      {
-        "id": 25,
-        "segmentNumber": 0,
+        "id": 28,
+        "segmentNumber": 8,
         "propName": "",
-        "xOffset": 0.2202814,
-        "yOffset": -2.256153
+        "xOffset": -0.2341782,
+        "yOffset": -0.884825
+     },
+     {
+        "id": 25,
+        "segmentNumber": 8,
+        "propName": "",
+        "xOffset": 4.704098,
+        "yOffset": 0.4538645
+     },
+     {
+        "id": 16,
+        "segmentNumber": 8,
+        "propName": "",
+        "xOffset": 7.738461,
+        "yOffset": 0.1861264
+     },
+     {
+        "id": 28,
+        "segmentNumber": 6,
+        "propName": "",
+        "xOffset": 6.102286,
+        "yOffset": 1.584314
+     },
+     {
+        "id": 28,
+        "segmentNumber": 6,
+        "propName": "",
+        "xOffset": -4.161,
+        "yOffset": 2.685013
+     },
+     {
+        "id": 25,
+        "segmentNumber": 6,
+        "propName": "",
+        "xOffset": -1.156386,
+        "yOffset": -1.420301
+     },
+     {
+        "id": 31,
+        "segmentNumber": 6,
+        "propName": "",
+        "xOffset": 1.252373,
+        "yOffset": -1.237937
+     },
+     {
+        "id": 28,
+        "segmentNumber": 7,
+        "propName": "",
+        "xOffset": 6.459183,
+        "yOffset": 2.60946
+     },
+     {
+        "id": 25,
+        "segmentNumber": 7,
+        "propName": "",
+        "xOffset": 2.560487,
+        "yOffset": 1.044851
+     },
+     {
+        "id": 31,
+        "segmentNumber": 7,
+        "propName": "",
+        "xOffset": 4.509836,
+        "yOffset": 1.250046
      }
    ]
 

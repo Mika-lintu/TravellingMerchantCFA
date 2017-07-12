@@ -44,15 +44,4 @@ public class SpriteChanger : MonoBehaviour
         sRenderer.sprite = sprites[newSprite];
     }
 
-    public void InstantiateNewProp(int id, int sprite, float x, float y)
-    {
-        spriteID = id;
-        currentSprite = sprite;
-        Vector2 newPosition = new Vector2(x, y);
-        transform.position = newPosition;
-        SetSprite(currentSprite);
-    }
-
-
-
 }
