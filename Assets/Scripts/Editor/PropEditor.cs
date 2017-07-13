@@ -51,9 +51,9 @@ public class PropEditor : Editor
             if (Selection.activeTransform.hasChanged)
             {
                 Selection.activeTransform.hasChanged = false;
-                SegmentSQLEditor segEditor = GameObject.FindGameObjectWithTag("SegmentEditor").GetComponent<SegmentSQLEditor>();
+                //SegmentSQLEditor segEditor = GameObject.FindGameObjectWithTag("SegmentEditor").GetComponent<SegmentSQLEditor>();
                 SpriteChanger spriteCha = Selection.activeTransform.gameObject.GetComponent<SpriteChanger>();
-                segEditor.UpdateProp(spriteCha.spriteID, spriteCha.currentSprite, spriteCha.transform.position.x, spriteCha.transform.position.y);
+                //segEditor.UpdateProp(spriteCha.spriteID, spriteCha.currentSprite, spriteCha.transform.position.x, spriteCha.transform.position.y);
 
             }
         }

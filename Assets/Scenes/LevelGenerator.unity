@@ -91,13 +91,14 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &1235874362
+--- !u!21 &364288931
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Road_texture (Instance) (Instance) (Instance) (Instance) (Instance)
+  m_Name: Road_texture (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance)
   m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -140,7 +141,7 @@ Material:
         name: _MainTex
       second:
         m_Texture: {fileID: 2800000, guid: c71304f2204161942a999b345f71d14f, type: 3}
-        m_Scale: {x: 7.7796183, y: 1}
+        m_Scale: {x: 8.676291, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _OcclusionMap
@@ -248,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31bb0e7d58f05b46926d9f343a8c841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundExample: {fileID: 0}
   points:
   - {x: -7.389656, y: 0, z: 0}
   - {x: -2.944828, y: 0, z: 0}
@@ -294,7 +296,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -332,6 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b3839bc3fd6c043b105094c73757da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundExample: {fileID: 0}
   endPoint: 0
 --- !u!1 &1749600290
 GameObject:
@@ -377,11 +380,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31bb0e7d58f05b46926d9f343a8c841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundExample: {fileID: 21300000, guid: 348637c8b9b30a84c9534cd955e3c68c, type: 3}
   points:
-  - {x: -7.389656, y: -2.726618, z: 0}
-  - {x: -2.944828, y: -2.726618, z: 0}
-  - {x: 2.944828, y: -1.514054, z: 0}
-  - {x: 7.389656, y: -1.514054, z: 0}
+  - {x: -9.6, y: -1.60562, z: 0}
+  - {x: -3.3000002, y: -1.60562, z: 0}
+  - {x: 3.3000002, y: 1.505191, z: 0}
+  - {x: 9.6, y: 1.505191, z: 0}
 --- !u!120 &1749600293
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -395,7 +399,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 1235874362}
+  - {fileID: 364288931}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -414,27 +418,27 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -8.889656, y: -2.726618, z: 0}
-  - {x: -7.389656, y: -2.726618, z: 0}
-  - {x: -6.435994, y: -2.709625, z: 0}
-  - {x: -5.589269, y: -2.6704693, z: 0}
-  - {x: -4.8658643, y: -2.6229002, z: 0}
-  - {x: -4.128588, y: -2.5636904, z: 0}
-  - {x: -3.228602, y: -2.4798348, z: 0}
-  - {x: -2.46844, y: -2.4014177, z: 0}
-  - {x: -1.7013439, y: -2.317181, z: 0}
-  - {x: -0.92947924, y: -2.2289429, z: 0}
-  - {x: -0.15501422, y: -2.1385221, z: 0}
-  - {x: 0.6198844, y: -2.0477374, z: 0}
-  - {x: 1.3930484, y: -1.9584078, z: 0}
-  - {x: 2.162312, y: -1.8723521, z: 0}
-  - {x: 2.9255075, y: -1.7913892, z: 0}
-  - {x: 3.6804676, y: -1.7173378, z: 0}
-  - {x: 4.425025, y: -1.6520171, z: 0}
-  - {x: 5.157011, y: -1.5972456, z: 0}
-  - {x: 6.015752, y: -1.5480058, z: 0}
-  - {x: 7.389656, y: -1.514054, z: 0}
-  - {x: 8.889656, y: -1.514054, z: 0}
+  - {x: -9.6, y: -1.60562, z: 0}
+  - {x: -8.1, y: -1.60562, z: 0}
+  - {x: -7.066775, y: -1.5620252, z: 0}
+  - {x: -6.1446495, y: -1.4615709, z: 0}
+  - {x: -5.1937532, y: -1.3113933, z: 0}
+  - {x: -4.3827267, y: -1.1540796, z: 0}
+  - {x: -3.557661, y: -0.9725017, z: 0}
+  - {x: -2.7212543, y: -0.77132535, z: 0}
+  - {x: -1.8762087, y: -0.55521744, z: 0}
+  - {x: -1.0252223, y: -0.3288436, z: 0}
+  - {x: -0.17099613, y: -0.09687041, z: 0}
+  - {x: 0.68377006, y: 0.13603605, z: 0}
+  - {x: 1.5363753, y: 0.36520925, z: 0}
+  - {x: 2.3841214, y: 0.5859836, z: 0}
+  - {x: 3.2243078, y: 0.7936925, z: 0}
+  - {x: 4.054234, y: 0.9836697, z: 0}
+  - {x: 4.8712, y: 1.1512492, z: 0}
+  - {x: 5.6725054, y: 1.2917644, z: 0}
+  - {x: 6.6095996, y: 1.4180882, z: 0}
+  - {x: 8.1, y: 1.505191, z: 0}
+  - {x: 9.6, y: 1.505191, z: 0}
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 4
@@ -443,15 +447,15 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.572154
-        inSlope: -0.07132727
-        outSlope: -0.07132727
+        value: 0.50621295
+        inSlope: -0.18298888
+        outSlope: -0.18298888
         tangentMode: 0
       - serializedVersion: 2
         time: 1
-        value: 0.5008267
-        inSlope: -0.07132727
-        outSlope: -0.07132727
+        value: 0.32322407
+        inSlope: -0.18298888
+        outSlope: -0.18298888
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -573,7 +577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b3839bc3fd6c043b105094c73757da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: -1.514054
+  groundExample: {fileID: 21300000, guid: 348637c8b9b30a84c9534cd955e3c68c, type: 3}
+  endPoint: 1.505191
 --- !u!114 &1749600297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,9 +590,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c612f13a3503340a8a558e9add0e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentNumber: 5
-  startPoint: -2.726618
-  endPoint: -1.514054
+  segmentNumber: 0
+  startPoint: -1.60562
+  endPoint: 1.505191
 --- !u!1 &1908205111
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +617,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1908205111}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.59, z: 1}
+  m_LocalPosition: {x: 0, y: 6, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

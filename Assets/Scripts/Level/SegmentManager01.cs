@@ -4,10 +4,17 @@ using UnityEngine;
 using System;
 using System.Data;
 using Mono.Data.Sqlite;
+using System.IO;
 
 
 public class SegmentManager01 : MonoBehaviour
 {
+    string path;
+    string jsonString;
+
+    string propsPath;
+    string jsonStringProps;
+
 
     private string connectionString;
     public List<GameObject> segments;
@@ -25,6 +32,12 @@ public class SegmentManager01 : MonoBehaviour
      */
     private void Awake()
     {
+        path = Application.streamingAssetsPath + "/level01.json";
+        jsonString = File.ReadAllText(path);
+
+        propsPath = Application.streamingAssetsPath + "/level01Props.json";
+        jsonStringProps = File.ReadAllText(propsPath);
+
         connectionString = "URI=file:" + Application.dataPath + "/Database/SegmentTestDB.sqlite";
         segMovement = transform.parent.GetComponent<SegmentMovement>();
         props = GameObject.FindGameObjectsWithTag("Prop");
@@ -57,7 +70,7 @@ public class SegmentManager01 : MonoBehaviour
             float sP;
             float eP;
             GetSegmentPoints(i + 1, out sP, out eP);
-            segment.Build(sP, eP);
+            //segment.Build(sP, eP);
             currentIndex++;
             segment.segNum = currentIndex;
             StartProps();            
@@ -80,7 +93,7 @@ public class SegmentManager01 : MonoBehaviour
         currentIndex++;
         segments = updatedList;
         GetSegmentPoints(currentIndex, out sP, out eP);
-        segments[3].GetComponent<LevelSegment02>().Refresh(sP, eP);
+        //segments[3].GetComponent<LevelSegment02>().Refresh(sP, eP);
         segments[3].GetComponent<LevelSegment02>().segNum = currentIndex;
         UpdateProps();
     }

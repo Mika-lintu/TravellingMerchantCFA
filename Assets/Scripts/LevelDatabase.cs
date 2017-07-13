@@ -162,7 +162,7 @@ public class LevelDatabase : MonoBehaviour
 
     private void WritePropsToDatabase()
     {
-        string stringStart = "{\n     \"level01Props\": [\n";
+        string stringStart = "{\n     \"levelProps\": [\n";
 
 
         for (int i = 0; i < props.levelProps.Count; i++)

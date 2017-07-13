@@ -1,5 +1,5 @@
 {
-     "level01Props": [
+     "levelProps": [
      {
         "id": 28,
         "segmentNumber": 8,
@@ -69,6 +69,62 @@
         "propName": "",
         "xOffset": 4.509836,
         "yOffset": 1.250046
+     },
+     {
+        "id": 28,
+        "segmentNumber": 10,
+        "propName": "",
+        "xOffset": 5.683141,
+        "yOffset": -0.6511358
+     },
+     {
+        "id": 28,
+        "segmentNumber": 10,
+        "propName": "",
+        "xOffset": -5.751325,
+        "yOffset": 4.704533
+     },
+     {
+        "id": 28,
+        "segmentNumber": 10,
+        "propName": "",
+        "xOffset": -5.412359,
+        "yOffset": -1.600242
+     },
+     {
+        "id": 28,
+        "segmentNumber": 9,
+        "propName": "",
+        "xOffset": 6.880821,
+        "yOffset": -1.351666
+     },
+     {
+        "id": 28,
+        "segmentNumber": 9,
+        "propName": "",
+        "xOffset": 6.361073,
+        "yOffset": 5.156488
+     },
+     {
+        "id": 28,
+        "segmentNumber": 9,
+        "propName": "",
+        "xOffset": -6.51965,
+        "yOffset": -2.097392
+     },
+     {
+        "id": 28,
+        "segmentNumber": 5,
+        "propName": "",
+        "xOffset": 8.010709,
+        "yOffset": 4.455958
+     },
+     {
+        "id": 28,
+        "segmentNumber": 5,
+        "propName": "",
+        "xOffset": -6.11289,
+        "yOffset": -0.8771133
      }
    ]
 

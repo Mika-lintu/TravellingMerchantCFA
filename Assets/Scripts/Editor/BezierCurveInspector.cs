@@ -57,22 +57,23 @@ public class BezierCurveInspector : Editor
     private Vector3 ShowPoint(int index)
     {
         float width;
-        Camera cam = Camera.main;
+        /*Camera cam = Camera.main;
         Vector3 p1 = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
         Vector3 p2 = cam.ViewportToWorldPoint(new Vector3(1, 0, cam.nearClipPlane));
 
         width = (p1 - p2).magnitude;
-
+        */
+        width = spline.GetWidth();
         Vector3 point = handleTransform.TransformPoint(spline.points[index]);
         EditorGUI.BeginChangeCheck();
 
         if (index == 0)
         {
-            point.x = -width / 2 + 1.5f;
+            point.x = -width / 2/* + 1.5f*/;
         }
         else if (index == 3)
         {
-            point.x = width / 2 - 1.5f;
+            point.x = width / 2/* - 1.5f*/;
         }
         point = Handles.DoPositionHandle(point, handleRotation);
         if (EditorGUI.EndChangeCheck())

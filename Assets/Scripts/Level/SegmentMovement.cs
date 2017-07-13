@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class SegmentMovement : MonoBehaviour
 {
+    string path;
+    string jsonString;
+
+    string propsPath;
+    string jsonStringProps;
+
 
     public GameObject placeHolders;
     List<GameObject> levelSegments;
-    SegmentManager01 manager;
+    JSONReader manager;
     GameObject activeSegment;
     GameSpeed gameSpeed;
+    public Sprite bgSprite;
     [HideInInspector]
     public bool moving = false;
     public bool autorun = false;
@@ -25,15 +32,15 @@ public class SegmentMovement : MonoBehaviour
      */
     private void Awake()
     {
-
-        manager = transform.GetComponentInChildren<SegmentManager01>();
+        //manager = transform.GetComponentInChildren<SegmentManager01>();
+        manager = GetComponent<JSONReader>();
         Camera cam = Camera.main;
         gameSpeed = cam.GetComponent<GameSpeed>();
 
         Vector3 p1 = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
         Vector3 p2 = cam.ViewportToWorldPoint(new Vector3(1, 0, cam.nearClipPlane));
-        screenWidth = (p1 - p2).magnitude;
-
+        //screenWidth = (p1 - p2).magnitude;
+        screenWidth = bgSprite.bounds.size.x;
     }
 
 
@@ -45,12 +52,6 @@ public class SegmentMovement : MonoBehaviour
      */
     private void Update()
     {
-        /*if (Input.GetKeyDown("right") && moving == false && gameSpeed.movingDisabled == false)
-        {
-            moving = true;
-            gameSpeed.moving = true;
-        }*/
-
 
         if (Input.GetKeyDown("a") && autorun == false && gameSpeed.movingDisabled == false)
         {
@@ -76,12 +77,12 @@ public class SegmentMovement : MonoBehaviour
                 activeSegment = levelSegments[2];
             }
 
-            if (activeSegment.transform.position.x <= placeHolders.transform.position.x && autorun == false)
-            {
+            if (activeSegment.transform.position.x <= transform.position.x && autorun == false)
+                {
                 moving = false;
                 UpdateSegments();
             }
-            else if (activeSegment.transform.position.x <= placeHolders.transform.position.x)
+            else if (activeSegment.transform.position.x <= transform.position.x)
             {
                 UpdateSegments();
             }
@@ -102,6 +103,7 @@ public class SegmentMovement : MonoBehaviour
         {
             for (int i = 0; i < levelSegments.Count; i++)
             {
+                //Vector2 newPos = new Vector2(levelSegments[i].transform.position.x - Time.deltaTime * speed * gameSpeed.gameSpeed, transform.position.y);
                 Vector2 newPos = new Vector2(levelSegments[i].transform.position.x - Time.deltaTime * speed * gameSpeed.gameSpeed, transform.position.y);
                 levelSegments[i].transform.position = newPos;
             }
@@ -122,7 +124,12 @@ public class SegmentMovement : MonoBehaviour
      */
     void UpdateSegments()
     {
+
         GameObject tempGo = levelSegments[0];
+        for (int i = 0; i < tempGo.transform.childCount; i++)
+        {
+            if (tempGo.transform.GetChild(i).tag == "Prop") tempGo.transform.GetChild(i).gameObject.SetActive(false);
+        }
         levelSegments.RemoveAt(0);
         levelSegments.Add(tempGo);
         FixPosition();
@@ -151,7 +158,8 @@ public class SegmentMovement : MonoBehaviour
         for (int i = 0; i < levelSegments.Count; i++)
         {
             float widthOffset = screenWidth * i;
-            Vector2 newPos = new Vector2(placeHolders.transform.position.x - screenWidth + widthOffset, placeHolders.transform.position.y);
+            //Vector2 newPos = new Vector2(placeHolders.transform.position.x - screenWidth + widthOffset, placeHolders.transform.position.y);
+            Vector2 newPos = new Vector2(transform.position.x - screenWidth + widthOffset, transform.position.y);
             levelSegments[i].transform.position = newPos;
         }
     }

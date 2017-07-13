@@ -6,7 +6,7 @@ using System;
 
 public class BezierSpline : MonoBehaviour
 {
-
+    public Sprite groundExample;
     public Vector3[] points;
 
     public void Reset()
@@ -57,16 +57,26 @@ public class BezierSpline : MonoBehaviour
             return (points.Length - 1) / 3;
         }
     }
-
+    
     public void FixLineEnds()
     {
         float width;
-        Camera cam = Camera.main;
+        width = groundExample.bounds.size.x;
+        /*Camera cam = Camera.main;
         Vector3 p1 = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
         Vector3 p2 = cam.ViewportToWorldPoint(new Vector3(1, 0, cam.nearClipPlane));
-
+        
         width = (p1 - p2).magnitude;
-        points[0].x = -width / 2 + 1.5f;
-        points[3].x = width / 2 - 1.5f;
+        */
+        points[0].x = -width / 2/* + 1.5f*/;
+        points[3].x = width / 2/* - 1.5f*/;
     }
+
+    public float GetWidth()
+    {
+        float width;
+        width = groundExample.bounds.size.x;
+        return width;
+    }
+    
 }

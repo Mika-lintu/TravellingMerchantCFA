@@ -12,7 +12,7 @@ public class GameSpeed : MonoBehaviour
 
     private void Update()
     {
-        gameSpeed = Mathf.InverseLerp(9, -14, player.transform.position.y);
+        gameSpeed = Mathf.InverseLerp(9, -14, player.transform.position.y) * 5;
 
         if (Input.GetKeyDown("i"))
         {
