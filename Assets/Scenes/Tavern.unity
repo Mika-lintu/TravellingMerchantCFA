@@ -154,7 +154,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: d3453a38b9eb2274aba3633d2e8c0ef9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -239,6 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8673ebf32212afa4989809820f6208b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myPoly: {fileID: 0}
+  myPoly2: {fileID: 1043773}
   shop: {fileID: 853337884}
 --- !u!50 &1043776
 Rigidbody2D:
@@ -274,7 +276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &42512086
 Transform:
   m_ObjectHideFlags: 0
@@ -288,7 +290,7 @@ Transform:
   - {fileID: 709845117}
   - {fileID: 369181541}
   m_Father: {fileID: 853337887}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &42938493
 GameObject:
@@ -761,6 +763,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 853337886}
+        m_MethodName: Unselect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 853337885}
+        m_MethodName: ResetTrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &467745947
@@ -863,7 +887,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 134.29999, y: -271.90002}
+  m_AnchoredPosition: {x: 103.85, y: -206.6}
   m_SizeDelta: {x: 184.3, y: 149.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &615258550
@@ -1764,6 +1788,7 @@ MonoBehaviour:
   sInven: {fileID: 42512085}
   costText: {fileID: 1730230319}
   amountText: {fileID: 680128457}
+  bubble: {fileID: 879902332}
   message: {fileID: 594629932}
 --- !u!114 &853337886
 MonoBehaviour:
@@ -1779,6 +1804,8 @@ MonoBehaviour:
   bubble: {fileID: 879902332}
   anchor: {fileID: 53402157}
   selectedObject: {fileID: 0}
+  shopCheck: {fileID: 1043775}
+  tavernMovement: {fileID: 615258551}
   objectSelected:
     m_PersistentCalls:
       m_Calls:
@@ -1821,8 +1848,8 @@ Transform:
   m_LocalPosition: {x: 1.87, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
-  - {fileID: 946594999}
   - {fileID: 42512086}
+  - {fileID: 946594999}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1878,7 +1905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368a6d1ad9a7c1a4c97c2464661b1f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yOffset: 1
+  yOffset: 0.3
   xOffset: 1
 --- !u!114 &879902335
 MonoBehaviour:
@@ -1991,7 +2018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &946594999
 Transform:
   m_ObjectHideFlags: 0
@@ -2005,7 +2032,7 @@ Transform:
   - {fileID: 1272873361}
   - {fileID: 2112511406}
   m_Father: {fileID: 853337887}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1061394834
 GameObject:
@@ -2159,6 +2186,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 853337886}
+        m_MethodName: CheckGameMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   modeEnum: 0
@@ -2291,7 +2329,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 90e8c29b57ec2d746ad38eda59de13ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2661,9 +2699,9 @@ RectTransform:
   m_Father: {fileID: 1847590954}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 102.05, y: -384.79}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -153, y: 28.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1707805833
@@ -2707,6 +2745,28 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1043775}
         m_MethodName: LeaveShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 853337886}
+        m_MethodName: Unselect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 853337885}
+        m_MethodName: ResetTrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

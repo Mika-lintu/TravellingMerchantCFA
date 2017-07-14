@@ -24,7 +24,6 @@ public class TavernCamera : MonoBehaviour {
         cam = Camera.main;
     }
 	
-	
 	void Update () {
 
         if (Input.GetKeyDown("a"))
@@ -39,8 +38,8 @@ public class TavernCamera : MonoBehaviour {
                 StopAllCoroutines();
                 StartCoroutine(ZoomBack(5f));
             }
-            
         }
+
 		if (target)
         {
             Vector3 point = Camera.main.WorldToViewportPoint(target.position);
@@ -61,8 +60,8 @@ public class TavernCamera : MonoBehaviour {
         }
         zoomToPlayer = true;
         gameMode.Invoke();
-
     }
+
     IEnumerator ZoomBack(float zoom)
     {
         while (cam.orthographicSize < zoom)
@@ -71,21 +70,22 @@ public class TavernCamera : MonoBehaviour {
             dampTime = 0.25f;
             yield return null;
         }
-
         zoomToPlayer = false;
         gameMode.Invoke();
     }
+
     public void GoToShop()
     {
         StopAllCoroutines();
-        StartCoroutine(ZoomToShop(2f));
+        StartCoroutine(ZoomToShop(4f));
+        modeEnum = Tavern.inShop;
     }
-
 
     public void GoFromShop()
     {
         StopAllCoroutines();
         StartCoroutine(ZoomBack(5f));
+        modeEnum = Tavern.tavern;
     }
 
 }

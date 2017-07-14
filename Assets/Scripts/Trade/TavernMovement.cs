@@ -20,17 +20,11 @@ public class TavernMovement : MonoBehaviour
     }
     void Update()
     {
-        if (!tavernCamera.zoomToPlayer)
-        {
-            if (Input.GetMouseButton(0))
-            {
-                OnClick();
-            }
-            else if (onMove == true)
+        
+        if (!shopActive && onMove)
             {
                 MovePlayer();
             }
-        }
         if (target.transform.position.x < transform.position.x)
         {
             if (!isFlipped)
@@ -38,7 +32,6 @@ public class TavernMovement : MonoBehaviour
                 isFlipped = true;
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, 1);
             }
-
         }
         else
         {
@@ -49,22 +42,26 @@ public class TavernMovement : MonoBehaviour
             }
         }
     }
-    void OnClick()
+    
+    public void OnClick(Vector3 mousePos)
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+      /*  mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
         if (hit.collider != null && hit.collider.tag == "Ground")
-        {
+        {*/
             target.transform.position = mousePos;
             onMove = true;
-        }
+        
+        //}
 
     }
+    
 
     void MovePlayer()
     {
         transform.position = Vector2.Lerp(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+        
     }
 
     public void CheckGameMode()
@@ -72,10 +69,12 @@ public class TavernMovement : MonoBehaviour
         if (tavernCamera.modeEnum == TavernCamera.Tavern.inShop)
         {
             shopActive = true;
+            onMove = false;
         }
         else
         {
             shopActive = false;
+            onMove = true;
         }
     }
 }

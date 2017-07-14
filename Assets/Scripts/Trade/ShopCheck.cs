@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class ShopCheck : MonoBehaviour
 {
-
-    bool playerAtShop;
-    bool shopping;
-    private PolygonCollider2D myPoly;
+    public PolygonCollider2D myPoly;
+    public PolygonCollider2D myPoly2;
     TavernCamera tavernCamera;
     public GameObject shop;
     bool shopActive;
@@ -22,10 +20,6 @@ public class ShopCheck : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && playerAtShop)
-        {
-            AtShop();
-        }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             myPoly.enabled = !myPoly.enabled;
@@ -34,48 +28,39 @@ public class ShopCheck : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !shopActive)
         {
             Debug.Log("Player at shop");
-            playerAtShop = true;
             myPoly.enabled = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !shopActive)
         {
-            playerAtShop = false;
             myPoly.enabled = false;
             Debug.Log("Player left shop");
         }
     }
 
-    void AtShop()
+    
+    public void GoToShop()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-        if (hit.collider != null && myPoly.enabled == true && hit.collider == myPoly && !shopActive)
-        {
-            GoToShop();
-        }
-    }
-    void GoToShop()
-    {
-        Debug.Log("BAABAAABaa");
         tavernCamera.GoToShop();
-        shop.SetActive(true);
-        shopActive = true;
-        foreach (Collider2D item in transform)
-        {
-            item.enabled = false;
-        }
+        shop.transform.GetChild(0).gameObject.SetActive(true);
+        shop.transform.GetChild(1).gameObject.SetActive(true);
+        myPoly.enabled = false;
+        myPoly2.enabled = false;
     }
+
     public void LeaveShop()
     {
         tavernCamera.GoFromShop();
-        shop.SetActive(false);
-        shopActive = false;
+        shop.transform.GetChild(0).gameObject.SetActive(false);
+        shop.transform.GetChild(1).gameObject.SetActive(false);
+        myPoly.enabled = true;
+        myPoly2.enabled = true;
     }
 
     public void CheckGameMode()
