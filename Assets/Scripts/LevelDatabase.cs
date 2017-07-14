@@ -14,7 +14,7 @@ public class LevelDatabase : MonoBehaviour
 
     public int segmentNumber;
     EditorRoad road;
-    PropEditor propEditor;
+    PropList propList;
     [HideInInspector]
     public float startPoint;
     [HideInInspector]
@@ -32,7 +32,7 @@ public class LevelDatabase : MonoBehaviour
         propsPath = Application.streamingAssetsPath + "/level01Props.json";
         jsonStringProps = File.ReadAllText(propsPath);
 
-        propEditor = GetComponent<PropEditor>();
+        propList = GetComponent<PropList>();
 
     }
 
@@ -92,7 +92,7 @@ public class LevelDatabase : MonoBehaviour
         newGroundLayer = groundSprite.NextSprite();
     }
 
-    public void ResetProps()
+    public void ResetActiveProps()
     {
         GameObject[] propList = GameObject.FindGameObjectsWithTag("Prop");
 
@@ -241,7 +241,7 @@ public class LevelDatabase : MonoBehaviour
         WriteToDatabase();
     }
 
-    public void AddProp(int segNum)
+    /*public void AddProp(int segNum)
     {
         for (int i = 0; i < props.levelProps.Count; i++)
         {
@@ -252,7 +252,8 @@ public class LevelDatabase : MonoBehaviour
         props.levelProps[props.levelProps.Count - 1].segmentNumber = segNum;
 
     }
-
+    */
+    
     public void UpdateProps()
     {
         List<Prop> tempList = new List<Prop>();
@@ -272,7 +273,6 @@ public class LevelDatabase : MonoBehaviour
             PropStats newPropStats = propList[i].GetComponent<PropStats>();
 
             newProp.id = newPropStats.id;
-            newProp.propName = newPropStats.propName;
             newProp.segmentNumber = segmentNumber;
             newProp.xOffset = propList[i].transform.position.x;
             newProp.yOffset = propList[i].transform.position.y;
@@ -308,13 +308,13 @@ public class LevelDatabase : MonoBehaviour
         propsPath = Application.streamingAssetsPath + "/level01Props.json";
         jsonStringProps = File.ReadAllText(propsPath);
         JsonUtility.FromJsonOverwrite(jsonStringProps, props);
-        propEditor = GetComponent<PropEditor>();
+        propList = GetComponent<PropList>();
 
         for (int i = 0; i < props.levelProps.Count; i++)
         {
             if (props.levelProps[i].segmentNumber == segmentNumber)
             {
-                propEditor.SetProp(props.levelProps[i].id, props.levelProps[i].xOffset, props.levelProps[i].yOffset);
+                propList.SetProp(props.levelProps[i].id, props.levelProps[i].xOffset, props.levelProps[i].yOffset);
             }
         }
 

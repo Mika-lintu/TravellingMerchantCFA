@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PropStats : MonoBehaviour {
 
-    public int id;
+    public string id;
     [HideInInspector]
     public int segmentNumber;
     public string propName;

@@ -13,6 +13,7 @@ TagManager:
   - SegmentEditor
   - editorRoadSprite
   - Background
+  - PropListHandler
   layers:
   - Default
   - TransparentFX
