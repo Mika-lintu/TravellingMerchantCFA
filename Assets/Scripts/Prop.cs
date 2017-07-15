@@ -14,7 +14,16 @@ public class Prop {
 
     public string GetString()
     {
-        return "     {\n        \"id\": " + id + ",\n        \"segmentNumber\": " + segmentNumber + ",\n        \"xOffset\": " + xOffset + ",\n        \"yOffset\": " + yOffset + "\n     }";
+        return "     {\n        \"id\": \"" + id + "\",\n        \"segmentNumber\": " + segmentNumber + ",\n        \"xOffset\": " + xOffset + ",\n        \"yOffset\": " + yOffset + "\n     }";
+    }
+
+    public void DebugStats()
+    {
+        Debug.Log("ID: " + id);
+        Debug.Log("   segmentNumber: " + segmentNumber);
+        Debug.Log("   sprite: " + sprite);
+        Debug.Log("   x: " + xOffset);
+        Debug.Log("   y: " + yOffset);
     }
 
 }

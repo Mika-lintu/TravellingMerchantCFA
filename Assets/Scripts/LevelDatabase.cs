@@ -14,7 +14,7 @@ public class LevelDatabase : MonoBehaviour
 
     public int segmentNumber;
     EditorRoad road;
-    PropList propList;
+    PropHandler propHandler;
     [HideInInspector]
     public float startPoint;
     [HideInInspector]
@@ -32,7 +32,7 @@ public class LevelDatabase : MonoBehaviour
         propsPath = Application.streamingAssetsPath + "/level01Props.json";
         jsonStringProps = File.ReadAllText(propsPath);
 
-        propList = GetComponent<PropList>();
+        propHandler = GetComponent<PropHandler>();
 
     }
 
@@ -41,8 +41,6 @@ public class LevelDatabase : MonoBehaviour
 
         JsonUtility.FromJsonOverwrite(jsonString, level);
         JsonUtility.FromJsonOverwrite(jsonStringProps, props);
-        //AddRandomProps(10);
-        //GenerateLevel(200);
         GetProps();
     }
 
@@ -258,6 +256,7 @@ public class LevelDatabase : MonoBehaviour
     {
         List<Prop> tempList = new List<Prop>();
         GameObject[] propList = GameObject.FindGameObjectsWithTag("Prop");
+        //Dictionary<string, GameObject> propDictionary = propHandler.ReturnPropList();
 
         for (int i = 0; i < props.levelProps.Count; i++)
         {
@@ -272,7 +271,7 @@ public class LevelDatabase : MonoBehaviour
             Prop newProp = new Prop();
             PropStats newPropStats = propList[i].GetComponent<PropStats>();
 
-            newProp.id = newPropStats.id;
+            newProp.id = newPropStats.name;
             newProp.segmentNumber = segmentNumber;
             newProp.xOffset = propList[i].transform.position.x;
             newProp.yOffset = propList[i].transform.position.y;
@@ -282,11 +281,6 @@ public class LevelDatabase : MonoBehaviour
 
         props.levelProps = tempList;
         WritePropsToDatabase();
-
-    }
-
-    public void RemoveProp(int id)
-    {
 
     }
 
@@ -308,14 +302,15 @@ public class LevelDatabase : MonoBehaviour
         propsPath = Application.streamingAssetsPath + "/level01Props.json";
         jsonStringProps = File.ReadAllText(propsPath);
         JsonUtility.FromJsonOverwrite(jsonStringProps, props);
-        propList = GetComponent<PropList>();
+        propHandler = GetComponent<PropHandler>();
 
         for (int i = 0; i < props.levelProps.Count; i++)
         {
             if (props.levelProps[i].segmentNumber == segmentNumber)
             {
-                propList.SetProp(props.levelProps[i].id, props.levelProps[i].xOffset, props.levelProps[i].yOffset);
+                propHandler.SetProp(props.levelProps[i].id, props.levelProps[i].xOffset, props.levelProps[i].yOffset);
             }
+            //props.levelProps[i].DebugStats();
         }
 
     }

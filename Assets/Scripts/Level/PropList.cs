@@ -5,40 +5,42 @@ using System;
 
 public class PropList : MonoBehaviour {
 
-    public GameObject[] allProps;
+    /*public GameObject[] allProps;
+    public Dictionary<string, GameObject> propDictionary;
     public const string propPath = "Props";
 
 
     public void LoadProps()
     {
         allProps = Resources.LoadAll<GameObject>(propPath);
-    }
-
-
-    public GameObject[] ReturnPropList()
-    {
-        LoadProps();
-        return allProps;
-    }
-
-
-    public GameObject GetProp(int id)
-    {
-        GameObject go = null;
 
         for (int i = 0; i < allProps.Length; i++)
         {
-            if (allProps[i].name == id.ToString())
-            {
-                go = allProps[i];
-            }
+            propDictionary.Add(allProps[i].name, allProps[i]);
         }
+
+    }
+
+
+    public Dictionary<string, GameObject> ReturnPropList()
+    {
+        LoadProps();
+        return propDictionary;
+    }
+
+
+    public GameObject GetProp(string id)
+    {
+        GameObject go = propDictionary[id];
 
         return go;
     }
 
 
-    public void SetProp(string id, float xPos, float yPos)
+
+
+
+    /*public void SetProp(string id, float xPos, float yPos)
     {
         int propNumber = 0;
 
@@ -49,6 +51,6 @@ public class PropList : MonoBehaviour {
 
         Vector3 instPosition = new Vector3(xPos, yPos, 0);
         Instantiate(allProps[propNumber], instPosition, transform.rotation);
-    }
+    }*/
 }
 

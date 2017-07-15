@@ -8,8 +8,10 @@ public class PropHandler : MonoBehaviour
     JSONReader jsonReader;
     PoolManager poolManager;
     List<Prop> levelProps;
-    List<int> propIDs;
-    public GameObject[] propPrefabs;
+    List<string> propIDs;
+    public Dictionary<string, GameObject> propDictionary;
+    public const string propPath = "Props";
+    public GameObject[] allProps;
 
     void Awake()
     {
@@ -18,14 +20,44 @@ public class PropHandler : MonoBehaviour
         poolManager = GetComponent<PoolManager>();
     }
 
+
     void Start()
     {
         CheckNeededProps();
     }
 
+
+    public void LoadProps()
+    {
+        allProps = Resources.LoadAll<GameObject>(propPath);
+        propDictionary = new Dictionary<string, GameObject>();
+
+        for (int i = 0; i < allProps.Length; i++)
+        {
+            propDictionary.Add(allProps[i].name, allProps[i]);
+        }
+
+    }
+
+
+    public Dictionary<string, GameObject> ReturnPropList()
+    {
+        LoadProps();
+        return propDictionary;
+    }
+
+
+    public GameObject GetProp(string id)
+    {
+        GameObject go = propDictionary[id];
+
+        return go;
+    }
+
+
     void CheckNeededProps()
     {
-        propIDs = new List<int>();
+        propIDs = new List<string>();
 
         for (int i = 0; i < jsonReader.props.levelProps.Count; i++)
         {
@@ -38,16 +70,19 @@ public class PropHandler : MonoBehaviour
                 if (!propIDs.Contains(jsonReader.props.levelProps[i].id)) propIDs.Add(jsonReader.props.levelProps[i].id);
             }
         }
+        
         PoolProps();
     }
+
 
     void PoolProps()
     {
         for (int i = 0; i < propIDs.Count; i++)
         {
-            poolManager.CreatePool(propPrefabs[propIDs[i]], 4);
+            poolManager.CreatePool(propDictionary[propIDs[i]], 4);
         }
     }
+
 
     public void ActivateProps(int segment, GameObject parent)
     {
@@ -56,10 +91,17 @@ public class PropHandler : MonoBehaviour
             if (levelProps[i].segmentNumber == segment)
             {
                 Vector3 tempVector = new Vector3(levelProps[i].xOffset + parent.transform.position.x, levelProps[i].yOffset);
-                //poolManager.ReuseObject(propPrefabs[levelProps[i].id], tempVector, Quaternion.identity);
-                poolManager.ReuseProp(propPrefabs[levelProps[i].id], tempVector, Quaternion.identity, parent);
+                poolManager.ReuseProp(propDictionary[levelProps[i].id], tempVector, Quaternion.identity, parent);
             }
         }
+    }
+
+
+    public void SetProp(string id, float xPos, float yPos)
+    {
+        LoadProps();
+        Vector3 instPosition = new Vector3(xPos, yPos, 0);
+        Instantiate(propDictionary[id], instPosition, transform.rotation);
     }
 
 }

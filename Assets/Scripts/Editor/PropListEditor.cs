@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(PropList))]
+[CustomEditor(typeof(PropHandler))]
 public class PropListEditor : Editor {
 
     public override void OnInspectorGUI()
@@ -12,7 +12,7 @@ public class PropListEditor : Editor {
 
         if (GUILayout.Button("GetProps"))
         {
-            Selection.activeTransform.gameObject.GetComponent<PropList>().LoadProps();
+            Selection.activeTransform.gameObject.GetComponent<PropHandler>().LoadProps();
         }
 
     }

@@ -1,5 +1,29 @@
 {
      "levelProps": [
+     {
+        "id": "0104008",
+        "segmentNumber": 7,
+        "xOffset": 3.396656,
+        "yOffset": 0.5263864
+     },
+     {
+        "id": "0103001",
+        "segmentNumber": 1,
+        "xOffset": 6.797462,
+        "yOffset": 4.389887
+     },
+     {
+        "id": "0104003",
+        "segmentNumber": 1,
+        "xOffset": 2.170516,
+        "yOffset": 0.5957907
+     },
+     {
+        "id": "0102019",
+        "segmentNumber": 1,
+        "xOffset": 6.774327,
+        "yOffset": -0.4684069
+     }
    ]
 
 }
