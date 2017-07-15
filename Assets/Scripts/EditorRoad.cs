@@ -24,7 +24,7 @@ public class EditorRoad : MonoBehaviour {
         lineCurve.AddKey(1, endW);
 
         line.widthCurve = lineCurve;
-        line.widthMultiplier = 4f;
+        line.widthMultiplier = 2f;
         line.numPositions = 21;
         float stepPrecision = 100f;
         float[] fractionStep = new float[(int)stepPrecision];

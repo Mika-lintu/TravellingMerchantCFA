@@ -1,16 +1,28 @@
 {
      "levelProps": [
      {
-        "id": "SP_AlderTree_01",
-        "segmentNumber": 0,
-        "xOffset": -4.644306,
-        "yOffset": 5.509611
+        "id": "SP_Rock_08",
+        "segmentNumber": 5,
+        "xOffset": 7.00593,
+        "yOffset": 2.322283
      },
      {
-        "id": "SP_BirchTree_01",
-        "segmentNumber": 0,
-        "xOffset": 5.357313,
-        "yOffset": 2.899298
+        "id": "SP_Rock_06",
+        "segmentNumber": 5,
+        "xOffset": 4.038418,
+        "yOffset": 0.3164635
+     },
+     {
+        "id": "SP_RedFarmHouse_04",
+        "segmentNumber": 5,
+        "xOffset": -1.264639,
+        "yOffset": 7.817677
+     },
+     {
+        "id": "SP_Sack_02",
+        "segmentNumber": 5,
+        "xOffset": -4.149721,
+        "yOffset": 0.5088023
      },
      {
         "id": "SP_BirchFence_Small_02",
@@ -77,30 +89,6 @@
         "segmentNumber": 4,
         "xOffset": -3.380366,
         "yOffset": 6.855983
-     },
-     {
-        "id": "SP_Rock_08",
-        "segmentNumber": 5,
-        "xOffset": 7.00593,
-        "yOffset": 2.322283
-     },
-     {
-        "id": "SP_Rock_06",
-        "segmentNumber": 5,
-        "xOffset": 4.038418,
-        "yOffset": 0.3164635
-     },
-     {
-        "id": "SP_RedFarmHouse_04",
-        "segmentNumber": 5,
-        "xOffset": -1.264639,
-        "yOffset": 7.817677
-     },
-     {
-        "id": "SP_Sack_02",
-        "segmentNumber": 5,
-        "xOffset": -4.149721,
-        "yOffset": 0.5088023
      },
      {
         "id": "SP_ScareCrow_01",

@@ -24,12 +24,6 @@ public class PropHandler : MonoBehaviour
     }
 
 
-    void Start()
-    {
-
-    }
-
-
     public void LoadProps()
     {
         allProps = Resources.LoadAll<GameObject>(propPath);

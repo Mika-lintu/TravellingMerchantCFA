@@ -271,6 +271,13 @@ public class LevelDatabase : MonoBehaviour
             Prop newProp = new Prop();
             PropStats newPropStats = propList[i].GetComponent<PropStats>();
 
+            /*  TÄHÄN NIMI KORJAUKSET
+            if (newPropStats.name.Contains("(Clone)") )
+            {
+
+            }
+            */
+
             newProp.id = newPropStats.name;
             newProp.segmentNumber = segmentNumber;
             newProp.xOffset = propList[i].transform.position.x;

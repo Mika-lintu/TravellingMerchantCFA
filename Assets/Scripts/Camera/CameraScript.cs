@@ -16,7 +16,7 @@ public class CameraScript : MonoBehaviour {
     Camera cam;
     Vector3 tempPosition;
     GameSpeed gameSpeed;
-    bool startMovement = true;
+    bool startMovement = false;
 
     IEnumerator currentCoroutine;
 
@@ -31,7 +31,7 @@ public class CameraScript : MonoBehaviour {
     void Awake()
     {
         cam = GetComponent<Camera>();
-        //target = player;
+        target = player;
         gameSpeed = Camera.main.GetComponent<GameSpeed>();
     }
 
