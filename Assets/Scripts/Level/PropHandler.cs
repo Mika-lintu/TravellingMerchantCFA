@@ -18,12 +18,15 @@ public class PropHandler : MonoBehaviour
         jsonReader = GetComponent<JSONReader>();
         levelProps = jsonReader.props.levelProps;
         poolManager = GetComponent<PoolManager>();
+        propDictionary = new Dictionary<string, GameObject>();
+        LoadProps();
+        CheckNeededProps();
     }
 
 
     void Start()
     {
-        CheckNeededProps();
+
     }
 
 

@@ -53,8 +53,8 @@ public class JSONReader : MonoBehaviour {
             int bg = level.levelSegments[i].groundLayer;
             GetSegmentPoints(segmentIndex, out sP, out eP, out bg);
             segment.Refresh(sP, eP, bg, segmentIndex);
-            
-            if(i != 3) segmentIndex++;
+            propHandler.ActivateProps(segmentIndex, segments[i]);
+            if (i != 3) segmentIndex++;
         }
     }
 
