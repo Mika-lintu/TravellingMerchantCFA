@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4182918000108014}
   - component: {fileID: 212801537960670942}
   - component: {fileID: 114657024894566846}
+  - component: {fileID: 114932190596764006}
   m_Layer: 0
   m_Name: SP_Grass_Darker_03
   m_TagString: Prop
@@ -58,6 +59,17 @@ MonoBehaviour:
   yOffset: 0
   spriteNumber: 0
   spriteList: []
+--- !u!114 &114932190596764006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1739559964719100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212801537960670942
 SpriteRenderer:
   m_ObjectHideFlags: 1

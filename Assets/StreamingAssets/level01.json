@@ -3,20 +3,20 @@
      {
         "segmentNumber": 0,
         "roadStart": "-5.9055",
-        "roadEnd": "-1.514054",
+        "roadEnd": "-4.26326",
         "groundLayer": 1,
         "zoom": 5
      },
      {
         "segmentNumber": 1,
-        "roadStart": "-1.514054",
-        "roadEnd": "-1.706896",
+        "roadStart": "-4.26326",
+        "roadEnd": "-4.456083",
         "groundLayer": 1,
         "zoom": 5
      },
      {
         "segmentNumber": 2,
-        "roadStart": "-1.706896",
+        "roadStart": "-4.456083",
         "roadEnd": "-7.264328",
         "groundLayer": 2,
         "zoom": 5

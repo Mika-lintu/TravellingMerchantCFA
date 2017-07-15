@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4182580806912590}
   - component: {fileID: 212475773671495632}
   - component: {fileID: 114756338927565622}
+  - component: {fileID: 114409277486264270}
   m_Layer: 0
   m_Name: SP_Grass_Darker_06
   m_TagString: Prop
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114409277486264270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1343325025721412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114756338927565622
 MonoBehaviour:
   m_ObjectHideFlags: 1

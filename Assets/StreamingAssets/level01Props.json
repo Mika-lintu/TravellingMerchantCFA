@@ -1,96 +1,6 @@
 {
      "levelProps": [
      {
-        "id": "SP_Rock_08",
-        "segmentNumber": 5,
-        "xOffset": 7.00593,
-        "yOffset": 2.322283
-     },
-     {
-        "id": "SP_Rock_06",
-        "segmentNumber": 5,
-        "xOffset": 4.038418,
-        "yOffset": 0.3164635
-     },
-     {
-        "id": "SP_RedFarmHouse_04",
-        "segmentNumber": 5,
-        "xOffset": -1.264639,
-        "yOffset": 7.817677
-     },
-     {
-        "id": "SP_Sack_02",
-        "segmentNumber": 5,
-        "xOffset": -4.149721,
-        "yOffset": 0.5088023
-     },
-     {
-        "id": "SP_BirchFence_Small_02",
-        "segmentNumber": 1,
-        "xOffset": 7.088362,
-        "yOffset": 2.542099
-     },
-     {
-        "id": "SP_BlueFarmHouse_01",
-        "segmentNumber": 1,
-        "xOffset": -4.644306,
-        "yOffset": 3.393884
-     },
-     {
-        "id": "SP_OrangeFarmHouse_01",
-        "segmentNumber": 2,
-        "xOffset": 3.846078,
-        "yOffset": 6.004197
-     },
-     {
-        "id": "SP_Plant1_Light_01",
-        "segmentNumber": 2,
-        "xOffset": 0.1916417,
-        "yOffset": -2.101511
-     },
-     {
-        "id": "SP_Haystack_03",
-        "segmentNumber": 2,
-        "xOffset": -5.990678,
-        "yOffset": 3.778562
-     },
-     {
-        "id": "SP_OrangeFarmHouse_01",
-        "segmentNumber": 3,
-        "xOffset": -4.836645,
-        "yOffset": 6.278967
-     },
-     {
-        "id": "SP_OakTree_02",
-        "segmentNumber": 3,
-        "xOffset": 6.813591,
-        "yOffset": 1.580404
-     },
-     {
-        "id": "SP_MilkChurn_01",
-        "segmentNumber": 3,
-        "xOffset": -2.61101,
-        "yOffset": 0.8934797
-     },
-     {
-        "id": "SP_Rock_08",
-        "segmentNumber": 4,
-        "xOffset": 7.885195,
-        "yOffset": 2.239852
-     },
-     {
-        "id": "SP_Rock_03",
-        "segmentNumber": 4,
-        "xOffset": -5.688431,
-        "yOffset": -1.991602
-     },
-     {
-        "id": "SP_PurpleFarmHouse_01",
-        "segmentNumber": 4,
-        "xOffset": -3.380366,
-        "yOffset": 6.855983
-     },
-     {
         "id": "SP_ScareCrow_01",
         "segmentNumber": 6,
         "xOffset": -4.149721,
@@ -107,6 +17,180 @@
         "segmentNumber": 6,
         "xOffset": -5.770862,
         "yOffset": -1.414586
+     },
+     {
+        "id": "SP_OakTree_01",
+        "segmentNumber": 1,
+        "xOffset": 6.047107,
+        "yOffset": 5.496903
+     },
+     {
+        "id": "SP_OakTree_02",
+        "segmentNumber": 1,
+        "xOffset": -8.524872,
+        "yOffset": 2.794034
+     },
+     {
+        "id": "SP_OakTree_01",
+        "segmentNumber": 1,
+        "xOffset": -5.880763,
+        "yOffset": 4.674291
+     },
+     {
+        "id": "SP_OakTreeStump_01",
+        "segmentNumber": 1,
+        "xOffset": -4.235538,
+        "yOffset": -1.495297
+     },
+     {
+        "id": "SP_Rock_08",
+        "segmentNumber": 1,
+        "xOffset": 5.400767,
+        "yOffset": 0.5612321
+     },
+     {
+        "id": "SP_OakTreeStump_03",
+        "segmentNumber": 1,
+        "xOffset": 6.869717,
+        "yOffset": -6.254692
+     },
+     {
+        "id": "SP_OakTree_01",
+        "segmentNumber": 1,
+        "xOffset": -0.1224815,
+        "yOffset": 6.730821
+     },
+     {
+        "id": "SP_OakTree_02",
+        "segmentNumber": 1,
+        "xOffset": 1.111436,
+        "yOffset": -4.374437
+     },
+     {
+        "id": "SP_OakTree_01",
+        "segmentNumber": 1,
+        "xOffset": -6.468342,
+        "yOffset": -8.07619
+     },
+     {
+        "id": "SP_OakTree_01",
+        "segmentNumber": 2,
+        "xOffset": -7.70226,
+        "yOffset": 3.675404
+     },
+     {
+        "id": "SP_OakTree_02",
+        "segmentNumber": 2,
+        "xOffset": 6.869717,
+        "yOffset": -0.6726849
+     },
+     {
+        "id": "SP_OakTree_02",
+        "segmentNumber": 2,
+        "xOffset": 1.111436,
+        "yOffset": 4.262985
+     },
+     {
+        "id": "SP_OakTreeStump_01",
+        "segmentNumber": 2,
+        "xOffset": -2.590316,
+        "yOffset": -2.317908
+     },
+     {
+        "id": "SP_Rock_08",
+        "segmentNumber": 2,
+        "xOffset": 6.047107,
+        "yOffset": -15.47969
+     },
+     {
+        "id": "SP_Rock_03",
+        "segmentNumber": 2,
+        "xOffset": 2.932933,
+        "yOffset": -11.13161
+     },
+     {
+        "id": "SP_OakTree_02",
+        "segmentNumber": 2,
+        "xOffset": -3.824234,
+        "yOffset": -10.36775
+     },
+     {
+        "id": "SP_RedFarmHouse_04",
+        "segmentNumber": 4,
+        "xOffset": 5.6358,
+        "yOffset": 3.440372
+     },
+     {
+        "id": "SP_Rock_03",
+        "segmentNumber": 4,
+        "xOffset": -7.349713,
+        "yOffset": 1.618876
+     },
+     {
+        "id": "SP_OakTree_01",
+        "segmentNumber": 4,
+        "xOffset": -4.235538,
+        "yOffset": -2.964246
+     },
+     {
+        "id": "SP_OakTreeStump_01",
+        "segmentNumber": 4,
+        "xOffset": 7.457299,
+        "yOffset": -7.429852
+     },
+     {
+        "id": "SP_OakTreeStump_03",
+        "segmentNumber": 4,
+        "xOffset": 0.2888259,
+        "yOffset": -5.843387
+     },
+     {
+        "id": "SP_Haystack_04",
+        "segmentNumber": 3,
+        "xOffset": -0.3575119,
+        "yOffset": -0.02634718
+     },
+     {
+        "id": "SP_Haystack_03",
+        "segmentNumber": 3,
+        "xOffset": -2.590316,
+        "yOffset": -0.6726849
+     },
+     {
+        "id": "SP_OakTree_02",
+        "segmentNumber": 3,
+        "xOffset": -7.525985,
+        "yOffset": 0.5612321
+     },
+     {
+        "id": "SP_OakTree_02",
+        "segmentNumber": 3,
+        "xOffset": 7.045992,
+        "yOffset": -4.785743
+     },
+     {
+        "id": "SP_OakTree_01",
+        "segmentNumber": 3,
+        "xOffset": -1.767704,
+        "yOffset": -10.54403
+     },
+     {
+        "id": "SP_OrangeFarmHouse_02",
+        "segmentNumber": 3,
+        "xOffset": 4.16685,
+        "yOffset": 4.909322
+     },
+     {
+        "id": "LightTexture02",
+        "segmentNumber": 3,
+        "xOffset": -8.96924,
+        "yOffset": -2.649611
+     },
+     {
+        "id": "LightTexture03",
+        "segmentNumber": 3,
+        "xOffset": 7.65816,
+        "yOffset": -5.451297
      }
    ]
 

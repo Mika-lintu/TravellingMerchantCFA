@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4774171881889896}
   - component: {fileID: 212670382632117100}
   - component: {fileID: 114745007286911856}
+  - component: {fileID: 114554321444824488}
   m_Layer: 0
   m_Name: SP_Bottle_03
   m_TagString: Prop
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114554321444824488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1938639102786876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114745007286911856
 MonoBehaviour:
   m_ObjectHideFlags: 1

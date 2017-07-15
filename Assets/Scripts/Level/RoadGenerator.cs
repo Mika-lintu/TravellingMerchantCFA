@@ -38,18 +38,34 @@ public class RoadGenerator : MonoBehaviour {
 
     public void DrawRoad()
     {
+        /*
         AnimationCurve lineCurve = new AnimationCurve();
-        float startW = Mathf.InverseLerp(3, -10, curve.GetPoint(0).y);
-        float endW = Mathf.InverseLerp(3, -10, curve.GetPoint(1).y);
-        lineCurve.AddKey(0, startW * standardWidth);
-        lineCurve.AddKey(1, endW * standardWidth);
+        float startW = Mathf.InverseLerp(7, -10, curve.GetPoint(0).y); //7, -10
+        float endW = Mathf.InverseLerp(7, -10, curve.GetPoint(1).y);
+        lineCurve.AddKey(0, startW);
+        lineCurve.AddKey(1, endW);
         
         line.widthCurve = lineCurve;
         line.numPositions = 21;
         float stepPrecision = 100f;
         float[] fractionStep = new float[(int)stepPrecision];
         Vector3 oldPoint = curve.GetPoint(0);
+        */
+        curveLength = 0f;
+        curve = GetComponent<BezierSpline>();
+        line = GetComponent<LineRenderer>();
+        AnimationCurve lineCurve = new AnimationCurve();
+        float startW = Mathf.InverseLerp(7, -10, curve.GetPoint(0).y); //7, -10
+        float endW = Mathf.InverseLerp(7, -10, curve.GetPoint(1).y);
+        lineCurve.AddKey(0, startW);
+        lineCurve.AddKey(1, endW);
 
+        line.widthCurve = lineCurve;
+        line.widthMultiplier = 2f;
+        line.numPositions = 21;
+        float stepPrecision = 100f;
+        float[] fractionStep = new float[(int)stepPrecision];
+        Vector3 oldPoint = curve.GetPoint(0);
 
         for (int i = 0; i < fractionStep.Length; i++)
         {

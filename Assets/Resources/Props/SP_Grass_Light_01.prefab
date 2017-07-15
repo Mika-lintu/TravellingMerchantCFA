@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4869603906424086}
   - component: {fileID: 212215749883352176}
   - component: {fileID: 114765556856952988}
+  - component: {fileID: 114617779846482688}
   m_Layer: 0
   m_Name: SP_Grass_Light_01
   m_TagString: Prop
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114617779846482688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1382932047638128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114765556856952988
 MonoBehaviour:
   m_ObjectHideFlags: 1

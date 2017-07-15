@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4631054524743876}
   - component: {fileID: 212144214955508956}
   - component: {fileID: 114225314829134604}
+  - component: {fileID: 114906052632428276}
   m_Layer: 0
   m_Name: SP_Plant2_Light_01
   m_TagString: Prop
@@ -58,6 +59,17 @@ MonoBehaviour:
   yOffset: 0
   spriteNumber: 0
   spriteList: []
+--- !u!114 &114906052632428276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1487417181637648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212144214955508956
 SpriteRenderer:
   m_ObjectHideFlags: 1

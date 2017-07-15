@@ -422,7 +422,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 834202222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -19.2, z: -1}
+  m_LocalPosition: {x: 0, y: -19.2, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1908205112}
@@ -527,132 +527,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1142300275
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Road_texture (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-  m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _BumpMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DetailAlbedoMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DetailMask
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DetailNormalMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _EmissionMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 2800000, guid: c71304f2204161942a999b345f71d14f, type: 3}
-        m_Scale: {x: 8.747834, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _OcclusionMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _ParallaxMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _SpecGlossMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _BumpScale
-      second: 1
-    - first:
-        name: _Cutoff
-      second: 0.5
-    - first:
-        name: _DetailNormalMapScale
-      second: 1
-    - first:
-        name: _DstBlend
-      second: 0
-    - first:
-        name: _GlossMapScale
-      second: 1
-    - first:
-        name: _Glossiness
-      second: 0.5
-    - first:
-        name: _GlossyReflections
-      second: 1
-    - first:
-        name: _Mode
-      second: 0
-    - first:
-        name: _OcclusionStrength
-      second: 1
-    - first:
-        name: _Parallax
-      second: 0.02
-    - first:
-        name: _SmoothnessTextureChannel
-      second: 0
-    - first:
-        name: _SpecularHighlights
-      second: 1
-    - first:
-        name: _SrcBlend
-      second: 1
-    - first:
-        name: _UVSec
-      second: 0
-    - first:
-        name: _ZWrite
-      second: 1
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _EmissionColor
-      second: {r: 0, g: 0, b: 0, a: 1}
-    - first:
-        name: _SpecColor
-      second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1 &1326046288
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,10 +758,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundExample: {fileID: 21300000, guid: 348637c8b9b30a84c9534cd955e3c68c, type: 3}
   points:
-  - {x: -9.6, y: -2.925435, z: 0}
-  - {x: -3.3000002, y: -2.925435, z: 0}
-  - {x: 3.3000002, y: 0.7582582, z: 0}
-  - {x: 9.6, y: 0.7582582, z: 0}
+  - {x: -9.6, y: -5.9055, z: 0}
+  - {x: -3.3000002, y: -5.9055, z: 0}
+  - {x: 3.3000002, y: -4.26326, z: 0}
+  - {x: 9.6, y: -4.26326, z: 0}
 --- !u!120 &1749600293
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -901,7 +775,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 1142300275}
+  - {fileID: 1883772542}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -920,27 +794,27 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -9.6, y: -2.925435, z: 0}
-  - {x: -8.1, y: -2.925435, z: 0}
-  - {x: -7.066775, y: -2.8738117, z: 0}
-  - {x: -6.1446495, y: -2.754858, z: 0}
-  - {x: -5.1937532, y: -2.5770242, z: 0}
-  - {x: -4.3827267, y: -2.3907397, z: 0}
-  - {x: -3.557661, y: -2.1757228, z: 0}
-  - {x: -2.7212543, y: -1.9374977, z: 0}
-  - {x: -1.8762087, y: -1.6815919, z: 0}
-  - {x: -1.0252223, y: -1.4135294, z: 0}
-  - {x: -0.17099613, y: -1.1388363, z: 0}
-  - {x: 0.68377006, y: -0.8630382, z: 0}
-  - {x: 1.5363753, y: -0.59166086, z: 0}
-  - {x: 2.3841214, y: -0.330229, z: 0}
-  - {x: 3.2243078, y: -0.08426876, z: 0}
-  - {x: 4.054234, y: 0.14069444, z: 0}
-  - {x: 4.8712, y: 0.33913505, z: 0}
-  - {x: 5.6725054, y: 0.5055273, z: 0}
-  - {x: 6.6095996, y: 0.65511477, z: 0}
-  - {x: 8.1, y: 0.7582582, z: 0}
-  - {x: 9.6, y: 0.7582582, z: 0}
+  - {x: -9.6, y: -5.9055, z: 0}
+  - {x: -8.1, y: -5.9055, z: 0}
+  - {x: -7.066775, y: -5.8824854, z: 0}
+  - {x: -6.1446495, y: -5.829455, z: 0}
+  - {x: -5.3540354, y: -5.7650294, z: 0}
+  - {x: -4.3827267, y: -5.667125, z: 0}
+  - {x: -3.557661, y: -5.5712686, z: 0}
+  - {x: -2.7212543, y: -5.4650636, z: 0}
+  - {x: -1.8762087, y: -5.350978, z: 0}
+  - {x: -1.0252223, y: -5.231472, z: 0}
+  - {x: -0.17099613, y: -5.10901, z: 0}
+  - {x: 0.68377006, y: -4.9860554, z: 0}
+  - {x: 1.5363753, y: -4.865072, z: 0}
+  - {x: 2.3841214, y: -4.7485223, z: 0}
+  - {x: 3.2243078, y: -4.63887, z: 0}
+  - {x: 4.054234, y: -4.538578, z: 0}
+  - {x: 4.8712, y: -4.4501104, z: 0}
+  - {x: 5.6725054, y: -4.375931, z: 0}
+  - {x: 6.6095996, y: -4.3092422, z: 0}
+  - {x: 8.1, y: -4.26326, z: 0}
+  - {x: 9.6, y: -4.26326, z: 0}
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 2
@@ -949,15 +823,15 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.58384913
-        inSlope: -0.21668786
-        outSlope: -0.21668786
+        value: 0.75914705
+        inSlope: -0.09660232
+        outSlope: -0.09660232
         tangentMode: 0
       - serializedVersion: 2
         time: 1
-        value: 0.36716127
-        inSlope: -0.21668786
-        outSlope: -0.21668786
+        value: 0.6625447
+        inSlope: -0.09660232
+        outSlope: -0.09660232
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -1080,7 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundExample: {fileID: 21300000, guid: 348637c8b9b30a84c9534cd955e3c68c, type: 3}
-  endPoint: 0.7582582
+  endPoint: -4.26326
 --- !u!114 &1749600297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1092,9 +966,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c612f13a3503340a8a558e9add0e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentNumber: 10
-  startPoint: -2.925435
-  endPoint: 0.7582582
+  segmentNumber: 0
+  startPoint: -5.9055
+  endPoint: -4.26326
 --- !u!114 &1749600298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,6 +1106,133 @@ MonoBehaviour:
   - {fileID: 1359080358029714, guid: a93f366cac7c58846b9dd47dfca7c96f, type: 2}
   - {fileID: 1316884630940122, guid: d329b31cdaa09b647a2704300fd52995, type: 2}
   - {fileID: 1382534449958372, guid: 31367c06ae8439848b80ac148cf18dd6, type: 2}
+--- !u!21 &1883772542
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Road_texture (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance)
+  m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 1
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _BumpMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailAlbedoMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailMask
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailNormalMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _EmissionMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: c71304f2204161942a999b345f71d14f, type: 3}
+        m_Scale: {x: 8.546006, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _OcclusionMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _ParallaxMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _SpecGlossMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _BumpScale
+      second: 1
+    - first:
+        name: _Cutoff
+      second: 0.5
+    - first:
+        name: _DetailNormalMapScale
+      second: 1
+    - first:
+        name: _DstBlend
+      second: 0
+    - first:
+        name: _GlossMapScale
+      second: 1
+    - first:
+        name: _Glossiness
+      second: 0.5
+    - first:
+        name: _GlossyReflections
+      second: 1
+    - first:
+        name: _Mode
+      second: 0
+    - first:
+        name: _OcclusionStrength
+      second: 1
+    - first:
+        name: _Parallax
+      second: 0.02
+    - first:
+        name: _SmoothnessTextureChannel
+      second: 0
+    - first:
+        name: _SpecularHighlights
+      second: 1
+    - first:
+        name: _SrcBlend
+      second: 1
+    - first:
+        name: _UVSec
+      second: 0
+    - first:
+        name: _ZWrite
+      second: 1
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _EmissionColor
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _SpecColor
+      second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!1 &1908205111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,7 +1315,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -2
-  m_Sprite: {fileID: 21300000, guid: b576123fa1dfd96418d90f5a6acf9ac3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8e707a1b9166bbc45a1ca07972bfda17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

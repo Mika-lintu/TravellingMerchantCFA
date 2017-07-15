@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4456143654527034}
   - component: {fileID: 212686966262658188}
   - component: {fileID: 114731893671307184}
+  - component: {fileID: 114084749198671268}
   m_Layer: 0
   m_Name: SP_Rock_10
   m_TagString: Prop
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114084749198671268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654902638103056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114731893671307184
 MonoBehaviour:
   m_ObjectHideFlags: 1

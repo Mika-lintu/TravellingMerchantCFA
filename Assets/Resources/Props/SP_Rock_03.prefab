@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4539763264218620}
   - component: {fileID: 212098663331808490}
   - component: {fileID: 114100517796849008}
+  - component: {fileID: 114897286184608894}
   m_Layer: 0
   m_Name: SP_Rock_03
   m_TagString: Prop
@@ -58,6 +59,17 @@ MonoBehaviour:
   yOffset: 0
   spriteNumber: 0
   spriteList: []
+--- !u!114 &114897286184608894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1756367558406316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212098663331808490
 SpriteRenderer:
   m_ObjectHideFlags: 1
