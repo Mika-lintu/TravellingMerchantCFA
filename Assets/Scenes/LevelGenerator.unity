@@ -559,12 +559,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31bb0e7d58f05b46926d9f343a8c841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundExample: {fileID: 0}
+  groundExample: {fileID: 21300000, guid: 16ce71da0cb579c49a4683095629f07a, type: 3}
   points:
-  - {x: -7.389656, y: 0, z: 0}
+  - {x: -9.6, y: 0, z: 0}
   - {x: -2.944828, y: 0, z: 0}
   - {x: 2.944828, y: 0, z: 0}
-  - {x: 7.389656, y: 0, z: 0}
+  - {x: 9.6, y: 0, z: 0}
 --- !u!81 &1326046290
 AudioListener:
   m_ObjectHideFlags: 0
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b3839bc3fd6c043b105094c73757da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundExample: {fileID: 0}
+  groundExample: {fileID: 21300000, guid: 16ce71da0cb579c49a4683095629f07a, type: 3}
   endPoint: 0
 --- !u!1 &1615141847
 GameObject:

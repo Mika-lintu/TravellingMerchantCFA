@@ -19,6 +19,7 @@ public class JSONReader : MonoBehaviour {
     public GameLevel level = new GameLevel();
     [HideInInspector]
     public LevelProps props = new LevelProps();
+    CameraScript camScript;
 
     float startPoint;
     float endPoint;
@@ -35,6 +36,8 @@ public class JSONReader : MonoBehaviour {
 
         segMovement = GetComponent<SegmentMovement>();
         propHandler = GetComponent<PropHandler>();
+
+        camScript = Camera.main.GetComponent<CameraScript>();
     }
 
     void Start()
@@ -63,11 +66,25 @@ public class JSONReader : MonoBehaviour {
         float sP;
         float eP;
         int bg;
+        float zoom;
         segmentIndex++;
         segments = segs;
-        GetSegmentPoints(segmentIndex, out sP, out eP, out bg);
+        GetSegmentPoints(segmentIndex, out sP, out eP, out bg, out zoom);
         segments[3].GetComponent<LevelSegment02>().Refresh(sP, eP, bg, segmentIndex);
         propHandler.ActivateProps(segmentIndex, segments[3]);
+        camScript.camZoom = zoom;
+    }
+
+    void GetSegmentPoints(int id, out float return1, out float return2, out int return3, out float return4)
+    {
+        float f1 = level.levelSegments[id].roadStart;
+        float f2 = level.levelSegments[id].roadEnd;
+        int bgLayer = level.levelSegments[id].groundLayer;
+        float camZoom = level.levelSegments[id].zoom;
+        return1 = f1;
+        return2 = f2;
+        return3 = bgLayer;
+        return4 = camZoom;
     }
 
     void GetSegmentPoints(int id, out float return1, out float return2, out int return3)
@@ -75,6 +92,7 @@ public class JSONReader : MonoBehaviour {
         float f1 = level.levelSegments[id].roadStart;
         float f2 = level.levelSegments[id].roadEnd;
         int bgLayer = level.levelSegments[id].groundLayer;
+        float camZoom = level.levelSegments[id].zoom;
         return1 = f1;
         return2 = f2;
         return3 = bgLayer;
