@@ -256,7 +256,6 @@ public class LevelDatabase : MonoBehaviour
     {
         List<Prop> tempList = new List<Prop>();
         GameObject[] propList = GameObject.FindGameObjectsWithTag("Prop");
-        //Dictionary<string, GameObject> propDictionary = propHandler.ReturnPropList();
 
         for (int i = 0; i < props.levelProps.Count; i++)
         {
@@ -282,7 +281,7 @@ public class LevelDatabase : MonoBehaviour
             newProp.segmentNumber = segmentNumber;
             newProp.xOffset = propList[i].transform.position.x;
             newProp.yOffset = propList[i].transform.position.y;
-
+            newProp.rotation = propList[i].transform.eulerAngles.z;
             tempList.Add(newProp);
         }
 
@@ -315,7 +314,7 @@ public class LevelDatabase : MonoBehaviour
         {
             if (props.levelProps[i].segmentNumber == segmentNumber)
             {
-                propHandler.SetProp(props.levelProps[i].id, props.levelProps[i].xOffset, props.levelProps[i].yOffset);
+                propHandler.SetProp(props.levelProps[i].id, props.levelProps[i].xOffset, props.levelProps[i].yOffset, props.levelProps[i].rotation);
             }
             //props.levelProps[i].DebugStats();
         }

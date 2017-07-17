@@ -11,10 +11,11 @@ public class Prop {
     public int sprite;
     public float xOffset;
     public float yOffset;
+    public float rotation;
 
     public string GetString()
     {
-        return "     {\n        \"id\": \"" + id + "\",\n        \"segmentNumber\": " + segmentNumber + ",\n        \"xOffset\": " + xOffset + ",\n        \"yOffset\": " + yOffset + "\n     }";
+        return "     {\n        \"id\": \"" + id + "\",\n        \"segmentNumber\": " + segmentNumber + ",\n        \"xOffset\": " + xOffset + ",\n        \"yOffset\": " + yOffset + ",\n        \"rotation\": " + rotation + "\n     }";
     }
 
     public void DebugStats()
