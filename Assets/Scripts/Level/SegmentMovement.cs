@@ -137,7 +137,6 @@ public class SegmentMovement : MonoBehaviour
         FixPosition();
         manager.UpdateSegments(levelSegments);
         activeSegment = levelSegments[2];
-        camScript.UpdateZoom(levelSegments[2]);
     }
 
     /* SET SEGMENTS TO MOVEMENT LIST:
