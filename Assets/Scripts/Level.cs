@@ -11,7 +11,7 @@ public class Level {
     public float roadStart;
     public float roadEnd;
     public int groundLayer;
-    float zoom = 5f;
+    public float zoom = 5f;
 
     public void SetPoints(float sPoint, float ePoint)
     {
@@ -21,6 +21,7 @@ public class Level {
 
     public string GetString(int segment)
     {
+        zoom = Camera.main.orthographicSize;
         segmentNR = segment;
         return "     {\n        \"segmentNumber\": " + segmentNR + ",\n        \"roadStart\": \"" + roadStart + "\",\n        \"roadEnd\": \"" + roadEnd + "\",\n        \"groundLayer\": " + groundLayer + ",\n        \"zoom\": " + zoom + "\n     }";
     }

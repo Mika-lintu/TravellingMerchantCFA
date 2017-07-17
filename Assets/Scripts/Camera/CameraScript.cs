@@ -10,13 +10,16 @@ public class CameraScript : MonoBehaviour {
     public GameObject items;
     public Vector3 offset;
     private Vector3 velocity = Vector3.zero;
+    public GameObject activeSegment;
     bool inventoryZoom = false;
     bool battleZoom = false;
     public Transform target;
     Camera cam;
     Vector3 tempPosition;
     GameSpeed gameSpeed;
-    bool startMovement = true;
+    bool startMovement = false;
+    public float previousCamZoom = 10f;
+    public float camZoom = 10f;
 
     IEnumerator currentCoroutine;
 
@@ -31,8 +34,9 @@ public class CameraScript : MonoBehaviour {
     void Awake()
     {
         cam = GetComponent<Camera>();
-        //target = player;
+        target = player;
         gameSpeed = Camera.main.GetComponent<GameSpeed>();
+        activeSegment = GameObject.FindGameObjectWithTag("LevelSegment");
     }
 
     void Update()
@@ -88,6 +92,11 @@ public class CameraScript : MonoBehaviour {
             }
         }
 
+        /*
+        //cam.orthographicSize = Mathf.Lerp(previousCamZoom, camZoom, activeSegment.transform.position.x - player.position.x);
+        cam.orthographicSize = Mathf.InverseLerp(previousCamZoom, camZoom, activeSegment.transform.position.x - player.position.x);
+        Debug.Log(previousCamZoom + "  " + camZoom + "   " + (activeSegment.transform.position.x - player.position.x) + "   "  + cam.orthographicSize);
+        */
     }
 
     private void OnEnable()
@@ -122,6 +131,12 @@ public class CameraScript : MonoBehaviour {
         currentCoroutine = BattleZoom(7f);
         StartCoroutine(currentCoroutine);
         ShowSlots();
+    }
+
+    public void UpdateZoom(GameObject go)
+    {
+        previousCamZoom = camZoom;
+        activeSegment = go;
     }
 
 

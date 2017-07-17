@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-//[CustomEditor(typeof(SegmentSQLEditor))]
 [CustomEditor(typeof(LevelDatabase))]
 public class LevelEditor : Editor
 {
@@ -13,7 +12,6 @@ public class LevelEditor : Editor
 
     private void OnSceneGUI()
     {
-        //sqlEditor = target as SegmentSQLEditor;
         jsonEditor = target as LevelDatabase;
     }
 
@@ -21,11 +19,6 @@ public class LevelEditor : Editor
     {
         DrawDefaultInspector();
 
-        /*if (GUILayout.Button("Refresh"))
-        {
-            jsonEditor.Refresh();
-        }
-        */
         if (GUILayout.Button("Save Changes"))
         {
             jsonEditor.SaveChanges();

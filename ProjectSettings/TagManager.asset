@@ -14,6 +14,9 @@ TagManager:
   - editorRoadSprite
   - Background
   - PropListHandler
+  - Fire
+  - waypoint
+  - LevelSegment
   layers:
   - Default
   - TransparentFX
@@ -25,7 +28,7 @@ TagManager:
   - 
   - ShelfItem
   - PlayerItem
-  - 
+  - Background
   - 
   - 
   - 

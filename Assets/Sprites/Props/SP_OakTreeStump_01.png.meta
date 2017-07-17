@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: ba29b0f0d12dd20459b61df34a1c08a0
 timeCreated: 1500036698
 licenseType: Pro
+=======
+guid: e4c219dca6f81fe47b12a5c7120f4ec9
+timeCreated: 1500212251
+licenseType: Free
+>>>>>>> 4d505b639c0cdb561cc68599e10023fc8fce7afc
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -37,8 +43,13 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
+<<<<<<< HEAD
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+=======
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.15}
+>>>>>>> 4d505b639c0cdb561cc68599e10023fc8fce7afc
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaUsage: 1
@@ -58,6 +69,25 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
+=======
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+>>>>>>> 4d505b639c0cdb561cc68599e10023fc8fce7afc
   spriteSheet:
     serializedVersion: 2
     sprites: []

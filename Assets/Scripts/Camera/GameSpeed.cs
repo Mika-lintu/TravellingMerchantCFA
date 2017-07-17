@@ -9,10 +9,11 @@ public class GameSpeed : MonoBehaviour
     public float gameSpeed;
     public bool moving;
     public bool movingDisabled;
+    public Sprite groundLayerTemplate;
 
     private void Update()
     {
-        gameSpeed = Mathf.InverseLerp(9, -14, player.transform.position.y) * 5;
+        gameSpeed = Mathf.InverseLerp(9, -14, player.transform.position.y);
 
         if (Input.GetKeyDown("i"))
         {

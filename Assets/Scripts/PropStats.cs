@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PropStats : MonoBehaviour {
 
+    [HideInInspector]
     public string id;
     [HideInInspector]
     public int segmentNumber;
-    public string propName;
     [HideInInspector]
     public float xOffset;
     [HideInInspector]
