@@ -1415,7 +1415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96a2e50bde04e2419794f669e03666b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxSpeed: 0.5
+  parallaxSpeed: 0.6
   parallaxList:
   - {fileID: 587427473}
   - {fileID: 730324311}
@@ -7865,7 +7865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96a2e50bde04e2419794f669e03666b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxSpeed: 0.1
+  parallaxSpeed: 0
   parallaxList:
   - {fileID: 551502578}
   - {fileID: 837196176}
