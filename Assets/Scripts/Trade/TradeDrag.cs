@@ -183,6 +183,7 @@ public class TradeDrag : MonoBehaviour
     {
         selectedObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         objectSelected.Invoke();
+        trade.ResetTrade();
         InfoBubble();
     }
 
