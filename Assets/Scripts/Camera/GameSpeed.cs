@@ -26,4 +26,14 @@ public class GameSpeed : MonoBehaviour
         }
 
     }
+
+    public void StopMoving()
+    {
+        moving = false;
+    }
+
+    public void Startmoving()
+    {
+        moving = true;
+    }
 }

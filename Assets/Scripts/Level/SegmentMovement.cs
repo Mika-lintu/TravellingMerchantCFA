@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SegmentMovement : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class SegmentMovement : MonoBehaviour
     string propsPath;
     string jsonStringProps;
 
+    public UnityEvent charactersWalk;
+    public UnityEvent charactersStop;
 
     public GameObject placeHolders;
     List<GameObject> levelSegments;
@@ -57,9 +60,11 @@ public class SegmentMovement : MonoBehaviour
 
         if (Input.GetKeyDown("a") && autorun == false && gameSpeed.movingDisabled == false)
         {
+            charactersWalk.Invoke();
             autorun = true;
             moving = true;
-            gameSpeed.moving = true;
+            //gameSpeed.moving = true;
+
         }
         else if (Input.anyKeyDown && autorun)
         {
@@ -69,7 +74,8 @@ public class SegmentMovement : MonoBehaviour
         
         if (Input.GetKeyDown("e"))
         {
-            gameSpeed.moving = false;
+            //gameSpeed.moving = false;
+            charactersStop.Invoke();
         }
 
         if (moving)
