@@ -15,6 +15,8 @@ public class ItemDatabase : MonoBehaviour
     JSONReader jsonReader;
     PoolManager poolManager;
     PlayerInventory inventory = new PlayerInventory();
+    SceneItems sceneItems = new SceneItems();
+
     public Dictionary<string, GameObject> itemDictionary;
     public Dictionary<string, GameObject> allItemsDictionary;
 
@@ -33,7 +35,7 @@ public class ItemDatabase : MonoBehaviour
         allItemsJSONString = File.ReadAllText(allItemsPath);
 
         JsonUtility.FromJsonOverwrite(jsonString, inventory);
-        JsonUtility.FromJsonOverwrite(allItemsJSONString, );
+        JsonUtility.FromJsonOverwrite(allItemsJSONString, sceneItems);
 
         jsonReader = GetComponent<JSONReader>();
         poolManager = GetComponent<PoolManager>();
