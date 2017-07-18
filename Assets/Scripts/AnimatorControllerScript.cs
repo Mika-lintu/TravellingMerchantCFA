@@ -23,6 +23,7 @@ public class AnimatorControllerScript : MonoBehaviour
         {
             AnimationSet("Walk");
             //skeletonAnimation.state.SetAnimation(0, currentAnimation, true);
+            //DIIBADAABA
         }
         if (Input.GetKey(KeyCode.Q))
         {
