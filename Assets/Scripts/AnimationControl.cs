@@ -22,6 +22,11 @@ public class AnimationControl : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             AnimationSet("Walk");
+<<<<<<< HEAD:Assets/Scripts/AnimationControl.cs
+=======
+            //skeletonAnimation.state.SetAnimation(0, currentAnimation, true);
+            //DIIBADAABA
+>>>>>>> MasterUpdate:Assets/Scripts/AnimatorControllerScript.cs
         }
         if (Input.GetKey(KeyCode.Q))
         {

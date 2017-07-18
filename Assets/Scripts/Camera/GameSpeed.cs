@@ -13,7 +13,7 @@ public class GameSpeed : MonoBehaviour
 
     private void Update()
     {
-        gameSpeed = Mathf.InverseLerp(9, -14, player.transform.position.y);
+        gameSpeed = Mathf.InverseLerp(9, -14, player.transform.position.y * 6);
 
         if (Input.GetKeyDown("i"))
         {
@@ -25,5 +25,15 @@ public class GameSpeed : MonoBehaviour
             moving = false;
         }
 
+    }
+
+    public void StopMoving()
+    {
+        moving = false;
+    }
+
+    public void Startmoving()
+    {
+        moving = true;
     }
 }

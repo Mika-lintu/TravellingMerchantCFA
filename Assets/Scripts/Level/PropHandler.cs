@@ -88,17 +88,21 @@ public class PropHandler : MonoBehaviour
             if (levelProps[i].segmentNumber == segment)
             {
                 Vector3 tempVector = new Vector3(levelProps[i].xOffset + parent.transform.position.x, levelProps[i].yOffset);
-                poolManager.ReuseProp(propDictionary[levelProps[i].id], tempVector, Quaternion.identity, parent);
+                Quaternion propRotation = Quaternion.identity;
+                propRotation.eulerAngles = new Vector3(0, 0, levelProps[i].rotation);
+                poolManager.ReuseProp(propDictionary[levelProps[i].id], tempVector, propRotation, parent);
             }
         }
     }
 
 
-    public void SetProp(string id, float xPos, float yPos)
+    public void SetProp(string id, float xPos, float yPos, float newRotation)
     {
         LoadProps();
         Vector3 instPosition = new Vector3(xPos, yPos, 0);
-        Instantiate(propDictionary[id], instPosition, transform.rotation);
+        Quaternion propRotation = Quaternion.identity;
+        propRotation.eulerAngles = new Vector3(0, 0, newRotation);
+        Instantiate(propDictionary[id], instPosition, propRotation);
     }
 
 }

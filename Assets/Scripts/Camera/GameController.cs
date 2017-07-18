@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public GameModeEvent gameState;
     public GameState state;
     int stateInput = 0;
+    public bool charactersMoving;
 
     [Serializable]
     public class GameModeEvent : UnityEvent<GameState> { };

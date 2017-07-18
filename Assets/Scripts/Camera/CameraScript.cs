@@ -20,6 +20,7 @@ public class CameraScript : MonoBehaviour {
     bool startMovement = false;
     public float previousCamZoom = 10f;
     public float camZoom = 10f;
+    float segmentStartX;
 
     IEnumerator currentCoroutine;
 
@@ -36,7 +37,7 @@ public class CameraScript : MonoBehaviour {
         cam = GetComponent<Camera>();
         target = player;
         gameSpeed = Camera.main.GetComponent<GameSpeed>();
-        activeSegment = GameObject.FindGameObjectWithTag("LevelSegment");
+        //activeSegment = GameObject.FindGameObjectWithTag("Segment03");
     }
 
     void Update()
@@ -92,6 +93,21 @@ public class CameraScript : MonoBehaviour {
             }
         }
 
+        if (activeSegment != null)
+        {
+            float tempZoom = Mathf.InverseLerp(segmentStartX, 0, activeSegment.transform.position.x);
+            cam.orthographicSize = Mathf.Lerp(previousCamZoom, camZoom, tempZoom);
+            Debug.Log(activeSegment.transform.position.x);
+
+            if (activeSegment.transform.position.x < 0)
+            {
+                activeSegment = null;
+            }
+
+        }
+
+        //Debug.Log(Mathf.InverseLerp(segmentStartX, 0, activeSegment.transform.position.x));
+
         /*
         //cam.orthographicSize = Mathf.Lerp(previousCamZoom, camZoom, activeSegment.transform.position.x - player.position.x);
         cam.orthographicSize = Mathf.InverseLerp(previousCamZoom, camZoom, activeSegment.transform.position.x - player.position.x);
@@ -133,16 +149,18 @@ public class CameraScript : MonoBehaviour {
         ShowSlots();
     }
 
-    public void UpdateZoom(GameObject go)
+    public void UpdateZoom(GameObject go, float newZoom)
     {
+        segmentStartX = go.transform.position.x;
         previousCamZoom = camZoom;
+        camZoom = newZoom;
         activeSegment = go;
     }
 
 
     IEnumerator ZoomToInventory(float zoom, float invOffset)
     {
-        while(cam.orthographicSize > zoom)
+        while (cam.orthographicSize > zoom)
         {
             cam.orthographicSize -= Time.deltaTime * 4;
             dampTime = 0.25f;
