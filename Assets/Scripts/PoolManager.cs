@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolManager : MonoBehaviour {
+public class PoolManager : MonoBehaviour
+{
 
     Dictionary<int, Queue<ObjectInstance>> poolDictionary = new Dictionary<int, Queue<ObjectInstance>>();
 
     static PoolManager _instance;
     public GameObject[] itemPrefabs;
+    public GameObject inventory;
+    List<Transform> poolHolders = new List<Transform>();
 
     public static PoolManager instance
     {
@@ -26,7 +29,7 @@ public class PoolManager : MonoBehaviour {
      * - Set GameObject prefab and wanted item quantity
      * - All pool object instances will be in "<prefab name> pool" -folder
      * - Dictionary key is integer, which is the prefab instance ID
-     */ 
+     */
     public void CreatePool(GameObject prefab, int poolSize)
     {
         int poolKey = prefab.GetInstanceID();
@@ -47,18 +50,28 @@ public class PoolManager : MonoBehaviour {
         }
     }
 
-    public void CreateItemPool(int prefabNR, int poolSize)
+    public void CreateItemPool(GameObject prefab, int poolSize)
     {
-        
-        GameObject prefab = itemPrefabs[prefabNR];
         int poolKey = prefab.GetInstanceID();
-        GameObject poolHolder = new GameObject(prefab.name + " pool");
+
+        GameObject poolHolder = inventory;
+
         poolHolder.transform.parent = transform;
 
         if (!poolDictionary.ContainsKey(poolKey))
         {
             poolDictionary.Add(poolKey, new Queue<ObjectInstance>());
 
+            for (int i = 0; i < poolSize; i++)
+            {
+                ObjectInstance newObject = new ObjectInstance(Instantiate(prefab) as GameObject);
+
+                poolDictionary[poolKey].Enqueue(newObject);
+                newObject.SetParent(poolHolder.transform);
+            }
+        }
+        else
+        {
             for (int i = 0; i < poolSize; i++)
             {
                 ObjectInstance newObject = new ObjectInstance(Instantiate(prefab) as GameObject);
@@ -96,9 +109,7 @@ public class PoolManager : MonoBehaviour {
         }
     }
 
-    /*
-     * Here is the ObjectInstance class 
-     */
+
 
     public class ObjectInstance
     {
@@ -139,3 +150,41 @@ public class PoolManager : MonoBehaviour {
         }
     }
 }
+
+
+/*      HULLUN HIENO VIRITELMÄ JOTA VOI KÄYTTÄÄ JOS HALUAA TEHDÄ JOKAISELLE ITEMILLE OMAN PARENTIN INVENTARIOON, MUTTA VIE VÄHÄN ENEMMÄN LASKENTATEHOA
+ *      
+ *          int poolKey = prefab.GetInstanceID();
+            string poolHolderName = prefab.name + " pool";
+
+            if (!poolDictionary.ContainsKey(poolKey))
+            {
+                GameObject poolHolder = new GameObject(poolHolderName);
+                poolHolder.transform.parent = inventory.transform;
+                poolDictionary.Add(poolKey, new Queue<ObjectInstance>());
+                poolHolders.Add(poolHolder.transform);
+
+                for (int i = 0; i < poolSize; i++)
+                {
+                    ObjectInstance newObject = new ObjectInstance(Instantiate(prefab) as GameObject);
+                    poolDictionary[poolKey].Enqueue(newObject);
+                    newObject.SetParent(poolHolder.transform);
+                }
+            }
+            else
+            {
+                Transform holderRef = null;
+
+                foreach (Transform item in poolHolders)
+                {
+                    if (item.name == poolHolderName) holderRef = item;
+                }
+
+                for (int i = 0; i < poolSize; i++)
+                {
+                    ObjectInstance newObject = new ObjectInstance(Instantiate(prefab) as GameObject);
+                    poolDictionary[poolKey].Enqueue(newObject);
+                    newObject.SetParent(holderRef);
+                }
+            }
+        }*/

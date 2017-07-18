@@ -8,48 +8,98 @@ public class ItemDatabase : MonoBehaviour
 
     string path;
     string jsonString;
-    string allItemsPath;
-    string allItemsJsonString;
 
+    string allItemsPath;
+    string allItemsJSONString;
+
+    JSONReader jsonReader;
     PoolManager poolManager;
     PlayerInventory inventory = new PlayerInventory();
-    AllItemsList itemList = new AllItemsList();
+    public Dictionary<string, GameObject> itemDictionary;
+    public Dictionary<string, GameObject> allItemsDictionary;
+
+    public const string itemPath = "Items";
+
+    List<string> itemIDs;
+    List<Item> playerItems;
+
 
     void Awake()
-    {
-        poolManager = GetComponent<PoolManager>();
-    }
-
-    void Start()
     {
         path = Application.streamingAssetsPath + "/CharacterInventory.json";
         jsonString = File.ReadAllText(path);
 
         allItemsPath = Application.streamingAssetsPath + "/AllItems.json";
-        allItemsJsonString = File.ReadAllText(allItemsPath);
+        allItemsJSONString = File.ReadAllText(allItemsPath);
 
         JsonUtility.FromJsonOverwrite(jsonString, inventory);
-        JsonUtility.FromJsonOverwrite(allItemsJsonString, itemList);
+        JsonUtility.FromJsonOverwrite(allItemsJSONString, );
 
-        SetInventory();
-        //UpdateInventory();
+        jsonReader = GetComponent<JSONReader>();
+        poolManager = GetComponent<PoolManager>();
 
-        //RemoveFromInventory(3);
+        itemDictionary = new Dictionary<string, GameObject>();
+        allItemsDictionary = new Dictionary<string, GameObject>();
 
+        LoadItems();
     }
 
-    public void SetInventory()
+    private void Start()
     {
-        for (int i = 0; i < inventory.characterInventory.Count; i++)
+        //AddToInventory("bomb", 10);
+        PoolItems();
+    }
+
+
+    void LoadItems()
+    {
+        GameObject[] allItems;
+        allItems = Resources.LoadAll<GameObject>(itemPath);
+        itemDictionary = new Dictionary<string, GameObject>();
+
+        for (int i = 0; i < allItems.Length; i++)
         {
-            poolManager.CreateItemPool(inventory.characterInventory[i].id, inventory.characterInventory[i].stats[0]);
+            itemDictionary.Add(allItems[i].name, allItems[i]);
         }
     }
 
-    public void AddToInventory(int id, int quantity)
+
+    void CheckNeededItems()
+    {
+        playerItems = new List<Item>();
+
+        for (int i = 0; i < inventory.characterInventory.Count; i++)
+        {
+            if (playerItems.Count == 0)
+            {
+                playerItems.Add(inventory.characterInventory[i]);
+            }
+            else
+            {
+                if (!playerItems.Contains(inventory.characterInventory[i]))
+                {
+                    playerItems.Add(inventory.characterInventory[i]);
+                }
+            }
+        }
+
+        PoolItems();
+    }
+
+
+    void PoolItems()
+    {
+        for (int i = 0; i < inventory.characterInventory.Count; i++)
+        {
+            poolManager.CreateItemPool(itemDictionary[inventory.characterInventory[i].id], inventory.characterInventory[i].quantity);
+        }
+    }
+
+
+    public void AddToInventory(string id, int quantity)
     {
         int newQuantity = quantity;
-
+        Item newItem = new Item();
 
         for (int i = 0; i < inventory.characterInventory.Count; i++)
         {
@@ -57,26 +107,23 @@ public class ItemDatabase : MonoBehaviour
             if (inventory.characterInventory[i].id == id)
             {
 
-                if (inventory.characterInventory[i].stats[0] == 15)
+                if (inventory.characterInventory[i].quantity == 15)
                 {
-                    Debug.Log(inventory.characterInventory[i].itemName + " in slot nr: " + inventory.characterInventory[i].itemSlot + " count is 15");
+                    //Do nothing
                 }
 
-                else if (inventory.characterInventory[i].stats[0] + newQuantity <= 15)
+                else if (inventory.characterInventory[i].quantity + newQuantity <= 15)
                 {
-                    Debug.Log(inventory.characterInventory[i].itemName + " in slot nr: " + inventory.characterInventory[i].itemSlot + " plus new quantity is less than 15");
-                    Debug.Log(inventory.characterInventory[i].stats[0] + " + " + newQuantity + " = " + (inventory.characterInventory[i].stats[0] + newQuantity));
-                    inventory.characterInventory[i].stats[0] = inventory.characterInventory[i].stats[0] + newQuantity;
+                    inventory.characterInventory[i].quantity = inventory.characterInventory[i].quantity + newQuantity;
                     UpdateInventory();
                     return;
 
                 }
 
-                else if (inventory.characterInventory[i].stats[0] + newQuantity > 15)
+                else if (inventory.characterInventory[i].quantity + newQuantity > 15)
                 {
-                    Debug.Log(inventory.characterInventory[i].itemName + " in slot nr: " + inventory.characterInventory[i].itemSlot + " plus new quantity is more than 15");
-                    newQuantity = newQuantity - (15 - inventory.characterInventory[i].stats[0]);
-                    inventory.characterInventory[i].stats[0] = 15;
+                    newQuantity = newQuantity - (15 - inventory.characterInventory[i].quantity);
+                    inventory.characterInventory[i].quantity = 15;
                 }
 
             }
@@ -85,24 +132,24 @@ public class ItemDatabase : MonoBehaviour
 
         if (newQuantity >= 1)
         {
-            Item newItem = new Item();
-            newItem = itemList.allItems[id];
-            newItem.stats[0] = newQuantity;
+            newItem = itemDictionary[id].GetComponent<ItemStats>().GetStats();
+            newItem.quantity = newQuantity;
             inventory.characterInventory.Add(newItem);
         }
-
+        Debug.Log(newQuantity);
         UpdateInventory();
     }
 
 
     void UpdateInventory()
     {
+
         string stringStart = "{\n     \"characterInventory\": [\n";
 
 
         for (int i = 0; i < inventory.characterInventory.Count; i++)
         {
-            string tempString = inventory.characterInventory[i].GetString(i);
+            string tempString = inventory.characterInventory[i].GetString();
             stringStart = stringStart + tempString;
 
             if (i < inventory.characterInventory.Count - 1)
@@ -122,9 +169,10 @@ public class ItemDatabase : MonoBehaviour
         File.WriteAllText(path, stringStart);
 
     }
+}
 
 
-    public void RemoveFromInventory(int itemSlotNr)
+/*    public void RemoveFromInventory(int itemSlotNr)
     {
         List<Item> tempList = new List<Item>();
         for (int i = 0; i < inventory.characterInventory.Count; i++)
@@ -140,6 +188,7 @@ public class ItemDatabase : MonoBehaviour
     }
 
 }
+*/
 
 [System.Serializable]
 public class PlayerInventory
@@ -148,7 +197,7 @@ public class PlayerInventory
 }
 
 [System.Serializable]
-public class AllItemsList
+public class SceneItems
 {
-    public List<Item> allItems;
+    public List<Item> sceneItems;
 }
