@@ -15,7 +15,7 @@ public class ItemDatabase : MonoBehaviour
     JSONReader jsonReader;
     PoolManager poolManager;
     PlayerInventory inventory = new PlayerInventory();
-    SceneItems sceneItems = new SceneItems();
+    SceneItems allSceneItems = new SceneItems();
 
     public Dictionary<string, GameObject> itemDictionary;
     public Dictionary<string, GameObject> allItemsDictionary;
@@ -35,7 +35,7 @@ public class ItemDatabase : MonoBehaviour
         allItemsJSONString = File.ReadAllText(allItemsPath);
 
         JsonUtility.FromJsonOverwrite(jsonString, inventory);
-        JsonUtility.FromJsonOverwrite(allItemsJSONString, sceneItems);
+        JsonUtility.FromJsonOverwrite(allItemsJSONString, allSceneItems);
 
         jsonReader = GetComponent<JSONReader>();
         poolManager = GetComponent<PoolManager>();
@@ -48,7 +48,7 @@ public class ItemDatabase : MonoBehaviour
 
     private void Start()
     {
-        //AddToInventory("bomb", 10);
+        AddToScene("bomb", 10);
         PoolItems();
     }
 
@@ -66,34 +66,17 @@ public class ItemDatabase : MonoBehaviour
     }
 
 
-    void CheckNeededItems()
-    {
-        playerItems = new List<Item>();
-
-        for (int i = 0; i < inventory.characterInventory.Count; i++)
-        {
-            if (playerItems.Count == 0)
-            {
-                playerItems.Add(inventory.characterInventory[i]);
-            }
-            else
-            {
-                if (!playerItems.Contains(inventory.characterInventory[i]))
-                {
-                    playerItems.Add(inventory.characterInventory[i]);
-                }
-            }
-        }
-
-        PoolItems();
-    }
-
-
     void PoolItems()
     {
         for (int i = 0; i < inventory.characterInventory.Count; i++)
         {
-            poolManager.CreateItemPool(itemDictionary[inventory.characterInventory[i].id], inventory.characterInventory[i].quantity);
+            poolManager.CreateItemPool(itemDictionary[inventory.characterInventory[i].id], inventory.characterInventory[i].quantity, "inventory");
+            
+        }
+
+        for (int i = 0; i < allSceneItems.sceneItems.Count; i++)
+        {
+            poolManager.CreateItemPool(itemDictionary[allSceneItems.sceneItems[i].id], allSceneItems.sceneItems[i].quantity, "scene");
         }
     }
 
@@ -136,10 +119,24 @@ public class ItemDatabase : MonoBehaviour
         {
             newItem = itemDictionary[id].GetComponent<ItemStats>().GetStats();
             newItem.quantity = newQuantity;
+            newItem.itemLocation = "inventory";
             inventory.characterInventory.Add(newItem);
         }
-        Debug.Log(newQuantity);
+
         UpdateInventory();
+    }
+
+
+    public void AddToScene(string id, int quantity)
+    {
+        Item newItem = new Item();
+        string location = "scene";
+        newItem = itemDictionary[id].GetComponent<ItemStats>().GetStats();
+        newItem.quantity = quantity;
+        newItem.itemLocation = location;
+        allSceneItems.sceneItems.Add(newItem);
+
+        UpdateSceneItems();
     }
 
 
@@ -167,10 +164,37 @@ public class ItemDatabase : MonoBehaviour
 
         stringStart = stringStart + "   ]\n\n}";
 
-        Debug.Log(stringStart);
         File.WriteAllText(path, stringStart);
 
     }
+
+
+    void UpdateSceneItems()
+    {
+        string stringStart = "{\n     \"allItems\": [\n";
+
+
+        for (int i = 0; i < allSceneItems.sceneItems.Count; i++)
+        {
+            string tempString = allSceneItems.sceneItems[i].GetString();
+            stringStart = stringStart + tempString;
+
+            if (i < allSceneItems.sceneItems.Count - 1)
+            {
+                stringStart = stringStart + ",\n";
+
+            }
+            else
+            {
+                stringStart = stringStart + "\n";
+            }
+        }
+
+        stringStart = stringStart + "   ]\n\n}";
+
+        File.WriteAllText(allItemsPath, stringStart);
+    }
+
 }
 
 

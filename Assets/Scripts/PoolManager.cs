@@ -5,12 +5,14 @@ using UnityEngine;
 public class PoolManager : MonoBehaviour
 {
 
+    Dictionary<int, Queue<ItemObjectInstance>> itemDictionary = new Dictionary<int, Queue<ItemObjectInstance>>();
     Dictionary<int, Queue<ObjectInstance>> poolDictionary = new Dictionary<int, Queue<ObjectInstance>>();
 
     static PoolManager _instance;
     public GameObject[] itemPrefabs;
     public GameObject inventory;
-    List<Transform> poolHolders = new List<Transform>();
+    public GameObject sceneItems;
+
 
     public static PoolManager instance
     {
@@ -50,7 +52,7 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public void CreateItemPool(GameObject prefab, int poolSize)
+    public void CreateItemPool(GameObject prefab, int poolSize, string location)
     {
         int poolKey = prefab.GetInstanceID();
 
@@ -58,15 +60,15 @@ public class PoolManager : MonoBehaviour
 
         poolHolder.transform.parent = transform;
 
-        if (!poolDictionary.ContainsKey(poolKey))
+        if (!itemDictionary.ContainsKey(poolKey))
         {
-            poolDictionary.Add(poolKey, new Queue<ObjectInstance>());
+            itemDictionary.Add(poolKey, new Queue<ItemObjectInstance>());
 
             for (int i = 0; i < poolSize; i++)
             {
-                ObjectInstance newObject = new ObjectInstance(Instantiate(prefab) as GameObject);
+                ItemObjectInstance newObject = new ItemObjectInstance(Instantiate(prefab) as GameObject, location);
 
-                poolDictionary[poolKey].Enqueue(newObject);
+                itemDictionary[poolKey].Enqueue(newObject);
                 newObject.SetParent(poolHolder.transform);
             }
         }
@@ -74,13 +76,14 @@ public class PoolManager : MonoBehaviour
         {
             for (int i = 0; i < poolSize; i++)
             {
-                ObjectInstance newObject = new ObjectInstance(Instantiate(prefab) as GameObject);
+                ItemObjectInstance newObject = new ItemObjectInstance(Instantiate(prefab) as GameObject, location);
 
-                poolDictionary[poolKey].Enqueue(newObject);
+                itemDictionary[poolKey].Enqueue(newObject);
                 newObject.SetParent(poolHolder.transform);
             }
         }
     }
+
 
     public void ReuseObject(GameObject prefab, Vector3 position, Quaternion rotation)
     {
@@ -149,42 +152,49 @@ public class PoolManager : MonoBehaviour
             transform.parent = parent;
         }
     }
+
+
+    public class ItemObjectInstance
+    {
+        GameObject gameObject;
+        Transform transform;
+
+        bool hasPoolObjectComponent;
+        PoolObject poolObjectScript;
+
+        public ItemObjectInstance(GameObject objectInstance, string location)
+        {
+            gameObject = objectInstance;
+            transform = gameObject.transform;
+            gameObject.SetActive(false);
+
+            if (gameObject.GetComponent<PoolObject>())
+            {
+                hasPoolObjectComponent = true;
+                poolObjectScript = gameObject.GetComponent<PoolObject>();
+            }
+
+            if (gameObject.GetComponent<ItemStats>())
+            {
+                gameObject.GetComponent<ItemStats>().itemLocation = location;
+            }
+        }
+
+        public void Reuse(Vector3 position, Quaternion rotation)
+        {
+            if (hasPoolObjectComponent)
+            {
+                poolObjectScript.OnObjectReuse();
+            }
+
+            gameObject.SetActive(true);
+            transform.position = position;
+            transform.rotation = rotation;
+        }
+
+        public void SetParent(Transform parent)
+        {
+            transform.parent = parent;
+        }
+    }
 }
-
-
-/*      HULLUN HIENO VIRITELMÄ JOTA VOI KÄYTTÄÄ JOS HALUAA TEHDÄ JOKAISELLE ITEMILLE OMAN PARENTIN INVENTARIOON, MUTTA VIE VÄHÄN ENEMMÄN LASKENTATEHOA
- *      
- *          int poolKey = prefab.GetInstanceID();
-            string poolHolderName = prefab.name + " pool";
-
-            if (!poolDictionary.ContainsKey(poolKey))
-            {
-                GameObject poolHolder = new GameObject(poolHolderName);
-                poolHolder.transform.parent = inventory.transform;
-                poolDictionary.Add(poolKey, new Queue<ObjectInstance>());
-                poolHolders.Add(poolHolder.transform);
-
-                for (int i = 0; i < poolSize; i++)
-                {
-                    ObjectInstance newObject = new ObjectInstance(Instantiate(prefab) as GameObject);
-                    poolDictionary[poolKey].Enqueue(newObject);
-                    newObject.SetParent(poolHolder.transform);
-                }
-            }
-            else
-            {
-                Transform holderRef = null;
-
-                foreach (Transform item in poolHolders)
-                {
-                    if (item.name == poolHolderName) holderRef = item;
-                }
-
-                for (int i = 0; i < poolSize; i++)
-                {
-                    ObjectInstance newObject = new ObjectInstance(Instantiate(prefab) as GameObject);
-                    poolDictionary[poolKey].Enqueue(newObject);
-                    newObject.SetParent(holderRef);
-                }
-            }
-        }*/

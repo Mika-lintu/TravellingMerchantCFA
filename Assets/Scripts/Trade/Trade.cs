@@ -9,11 +9,14 @@ public class Trade : MonoBehaviour
     public GameObject pInven;
     public GameObject sInven;
     GameObject selectedObject;
+    ItemDatabase itemDatabase;
 
     public Text costText;
     public Text amountText;
     public GameObject bubble;
     public GameObject message;
+
+    public List<GameObject> shopSlots;
 
     bool shopActive;
     bool empty;
@@ -27,13 +30,17 @@ public class Trade : MonoBehaviour
     void Awake()
     {
         tavernCamera = Camera.main.GetComponent<TavernCamera>();
+        itemDatabase = Camera.main.GetComponent<ItemDatabase>();
         tradeDrag = GetComponent<TradeDrag>();
     }
+
+
     void UpdateInfo()
     {
         amountText.text = "" + itemAmount;
         costText.text = "" + cost;
     }
+
 
     public void GetShopItem(GameObject go)
     {
@@ -41,12 +48,14 @@ public class Trade : MonoBehaviour
         bubble.GetComponent<UIMovement>().SetPosition(selectedObject);
     }
 
+
     public void AddItems()
     {
         itemAmount++;
         cost++;
         UpdateInfo();
     }
+
 
     public void RemoveItems()
     {
@@ -57,6 +66,7 @@ public class Trade : MonoBehaviour
             UpdateInfo();
         }
     }
+
 
     public void OnOK()
     {
@@ -70,6 +80,7 @@ public class Trade : MonoBehaviour
         }
         ResetTrade();
     }
+
 
     //Player Buys item from shop
     void BuyItem()
@@ -86,11 +97,13 @@ public class Trade : MonoBehaviour
         }
     }
     
+
     //player sells item to shop
     void SellItem()
     {
         Coins.AddCoins(cost);
     }
+
 
     public void ResetTrade()
     {
@@ -99,6 +112,7 @@ public class Trade : MonoBehaviour
         UpdateInfo();
         bubble.SetActive(false);
     }
+
 
     public void CheckGameMode()
     {
@@ -110,5 +124,11 @@ public class Trade : MonoBehaviour
         {
             shopActive = false;
         }
+    }
+
+
+    public void SetItems()
+    {
+
     }
 }

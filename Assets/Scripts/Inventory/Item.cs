@@ -17,10 +17,11 @@ public class Item
     public float weight;
     [Range(0, 15)]
     public int quantity;
+    public string itemLocation;
 
     public string GetString()
     {
-        return "     {\n        \"id\": \"" + id + "\",\n        \"xOffset\": " + xOffset + ",\n        \"yOffset\": " + yOffset + ",\n        \"rotation\": " + rotation + ",\n        \"value\": " + value + ",\n        \"weight\": " + weight + ",\n        \"quantity\": " + quantity + "\n     }";
+        return "     {\n        \"id\": \"" + id + "\",\n        \"xOffset\": " + xOffset + ",\n        \"yOffset\": " + yOffset + ",\n        \"rotation\": " + rotation + ",\n        \"value\": " + value + ",\n        \"weight\": " + weight + ",\n        \"quantity\": " + quantity + ",\n        \"location\": \"" + itemLocation + "\"\n     }";
     }
 
 }

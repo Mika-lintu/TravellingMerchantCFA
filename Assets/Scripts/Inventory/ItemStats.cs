@@ -14,6 +14,7 @@ public class ItemStats : MonoBehaviour {
     public float weight;
     [Range(0, 15)]
     public int quantity;
+    public string itemLocation;
 
     public Item GetStats()
     {
@@ -25,6 +26,7 @@ public class ItemStats : MonoBehaviour {
         newItem.value = value;
         newItem.weight = weight;
         newItem.quantity = quantity;
+        newItem.itemLocation = itemLocation;
         return newItem;
     }
 
