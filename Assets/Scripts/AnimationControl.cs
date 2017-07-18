@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimatorControllerScript : MonoBehaviour
+public class AnimationControl : MonoBehaviour
 {
     [Spine.Unity.SpineAnimation]
     public string currentAnimation;
@@ -22,12 +22,14 @@ public class AnimatorControllerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             AnimationSet("Walk");
-            //skeletonAnimation.state.SetAnimation(0, currentAnimation, true);
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            
-            AnimationSet("Run");
+            AnimationSet("Idle/Normal");
+        }
+        if (Input.GetKey(KeyCode.T))
+        {
+            UseAnimationOnce("Being hit");
         }
     }
 
@@ -43,6 +45,7 @@ public class AnimatorControllerScript : MonoBehaviour
     }
     void UseAnimationOnce(string name)
     {
-
+        skeletonAnimation.state.SetAnimation(0, name, false);
+        skeletonAnimation.state.AddAnimation(0, currentAnimation, true, 0f);
     }
 }
