@@ -5,6 +5,9 @@ using UnityEngine;
 public class TavernMovement : MonoBehaviour
 {
 
+    //ADD IN CAMERA
+
+
     public GameObject target;
     public float moveSpeed;
     bool onMove;
