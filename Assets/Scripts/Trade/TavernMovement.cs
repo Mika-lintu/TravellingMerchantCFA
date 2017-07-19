@@ -18,6 +18,7 @@ public class TavernMovement : MonoBehaviour
     {
         tavernCamera = Camera.main.GetComponent<TavernCamera>();
     }
+
     void Update()
     {
         
@@ -45,22 +46,14 @@ public class TavernMovement : MonoBehaviour
     
     public void OnClick(Vector3 mousePos)
     {
-      /*  mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-
-        if (hit.collider != null && hit.collider.tag == "Ground")
-        {*/
             target.transform.position = mousePos;
             onMove = true;
-        
-        //}
-
     }
     
 
     void MovePlayer()
     {
-        transform.position = Vector2.Lerp(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
         
     }
 

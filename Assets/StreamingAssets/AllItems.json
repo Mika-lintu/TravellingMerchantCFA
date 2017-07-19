@@ -1,35 +1,15 @@
 {
-  "allItems": [
-    {
-      "id": 0,
-      "itemName": "Papple",
-      "stats": [ 15, 30, 5, 1, 1, 1, 1 ]
-    },
-    {
-      "id": 1,
-      "itemName": "Bomb",
-      "stats": [ 15, 20, 3, 1, 1, 1, 1 ]
-    },
-    {
-      "id": 2,
-      "itemName": "Poison Vial",
-      "stats": [ 15, 40, 3, 1, 1, 1, 1 ]
-    },
-    {
-      "id": 3,
-      "itemName": "Potion Health",
-      "stats": [ 15, 40, 3, 1, 1, 1, 1 ]
-    },
-    {
-      "id": 4,
-      "itemName": "Potion Strenght",
-      "stats": [ 15, 40, 3, 1, 1, 1, 1 ]
-    },
-    {
-      "id": 5,
-      "itemName": "Pepper Jar",
-      "stats": [ 15, 40, 3, 1, 1, 1, 1 ]
-    }
-  ]
+     "allItems": [
+     {
+        "id": "bomb",
+        "xOffset": 0,
+        "yOffset": 0,
+        "rotation": 0,
+        "value": 0,
+        "weight": 0,
+        "quantity": 10,
+        "location": "scene"
+     }
+   ]
 
 }
