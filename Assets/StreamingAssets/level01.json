@@ -109,7 +109,7 @@
         "segmentNumber": 15,
         "roadStart": "-6.776767",
         "roadEnd": "-6.875661",
-        "groundLayer": 1,
+        "groundLayer": 2,
         "zoom": 10
      },
      {
@@ -122,13 +122,13 @@
      {
         "segmentNumber": 17,
         "roadStart": "-6.768886",
-        "roadEnd": "-9.288383",
+        "roadEnd": "-9.3241",
         "groundLayer": 2,
         "zoom": 10
      },
      {
         "segmentNumber": 18,
-        "roadStart": "-9.288383",
+        "roadStart": "-9.3241",
         "roadEnd": "-11.08653",
         "groundLayer": 3,
         "zoom": 10

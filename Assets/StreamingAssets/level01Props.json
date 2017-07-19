@@ -127,13 +127,6 @@
         "rotation": 0
      },
      {
-        "id": "SP_Plant2_Light_01",
-        "segmentNumber": 8,
-        "xOffset": -9.634195,
-        "yOffset": 0.6084262,
-        "rotation": 0
-     },
-     {
         "id": "SP_Grass_Darker_10",
         "segmentNumber": 8,
         "xOffset": 4.45,
@@ -295,13 +288,6 @@
         "rotation": 0
      },
      {
-        "id": "SP_Plant2_Light_02",
-        "segmentNumber": 6,
-        "xOffset": 1.827,
-        "yOffset": -7.161,
-        "rotation": 0
-     },
-     {
         "id": "SP_Grass_Darker_01",
         "segmentNumber": 6,
         "xOffset": 3.353533,
@@ -342,27 +328,6 @@
         "xOffset": 1.98,
         "yOffset": -4.6,
         "rotation": 342.839
-     },
-     {
-        "id": "SP_BirchFence_Big_01",
-        "segmentNumber": 15,
-        "xOffset": 1.467507,
-        "yOffset": -6.148648,
-        "rotation": 0
-     },
-     {
-        "id": "SP_AlderSign_01",
-        "segmentNumber": 15,
-        "xOffset": -3.38,
-        "yOffset": -6.15,
-        "rotation": 0
-     },
-     {
-        "id": "SP_BigRedFarmHouse_05",
-        "segmentNumber": 15,
-        "xOffset": 8,
-        "yOffset": -6.21,
-        "rotation": 0
      },
      {
         "id": "LightTexture01",
@@ -470,10 +435,129 @@
         "rotation": 12.39128
      },
      {
+        "id": "SP_BirchFence_Big_01",
+        "segmentNumber": 15,
+        "xOffset": 1.467507,
+        "yOffset": -6.148648,
+        "rotation": 0
+     },
+     {
+        "id": "SP_AlderSign_01",
+        "segmentNumber": 15,
+        "xOffset": -3.38,
+        "yOffset": -6.15,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BigRedFarmHouse_05",
+        "segmentNumber": 15,
+        "xOffset": 7.87,
+        "yOffset": -4.37,
+        "rotation": 0
+     },
+     {
         "id": "SP_BigOrangeFarmHouse_05",
         "segmentNumber": 16,
-        "xOffset": -4.56,
-        "yOffset": -6.67,
+        "xOffset": 5.668725,
+        "yOffset": -4.92979,
+        "rotation": 0
+     },
+     {
+        "id": "SP_YellowFarmHouse_01",
+        "segmentNumber": 16,
+        "xOffset": -2.74,
+        "yOffset": -2.77,
+        "rotation": 0
+     },
+     {
+        "id": "SP_YellowFarmHouse_01 (1)",
+        "segmentNumber": 16,
+        "xOffset": 4.08,
+        "yOffset": -2.61,
+        "rotation": 0
+     },
+     {
+        "id": "SP_OrangeFarmHouse_02",
+        "segmentNumber": 17,
+        "xOffset": 5.63,
+        "yOffset": -2.84,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BigBox_02",
+        "segmentNumber": 17,
+        "xOffset": 3.56,
+        "yOffset": -7.47,
+        "rotation": 0
+     },
+     {
+        "id": "SP_MilkChurn_01",
+        "segmentNumber": 17,
+        "xOffset": 3.228065,
+        "yOffset": -5.14573,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Sack_02",
+        "segmentNumber": 17,
+        "xOffset": 2.049417,
+        "yOffset": -7.467306,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Sack_02",
+        "segmentNumber": 17,
+        "xOffset": 1.656535,
+        "yOffset": -6.788692,
+        "rotation": 0
+     },
+     {
+        "id": "SP_RedFarmHouse_01",
+        "segmentNumber": 17,
+        "xOffset": -7.651258,
+        "yOffset": -2.77,
+        "rotation": 0
+     },
+     {
+        "id": "SP_YellowFarmHouse_04",
+        "segmentNumber": 17,
+        "xOffset": -0.61,
+        "yOffset": -2.36,
+        "rotation": 0
+     },
+     {
+        "id": "SP_CartClosed_01",
+        "segmentNumber": 18,
+        "xOffset": -4.22,
+        "yOffset": -8.22,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Bottles_01",
+        "segmentNumber": 18,
+        "xOffset": -5.24205,
+        "yOffset": -6.462041,
+        "rotation": 0
+     },
+     {
+        "id": "SP_RedFarmHouse_03",
+        "segmentNumber": 18,
+        "xOffset": -5.435276,
+        "yOffset": -3.455225,
+        "rotation": 0
+     },
+     {
+        "id": "SP_YellowFarmHouse_01",
+        "segmentNumber": 18,
+        "xOffset": 1.293637,
+        "yOffset": -3.474302,
+        "rotation": 0
+     },
+     {
+        "id": "SP_OrangeFarmHouse_03",
+        "segmentNumber": 18,
+        "xOffset": 7.731675,
+        "yOffset": -4.584693,
         "rotation": 0
      }
    ]
