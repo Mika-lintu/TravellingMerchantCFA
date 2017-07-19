@@ -31,7 +31,7 @@ public class FollowWaypoints : MonoBehaviour
     {
         if (gameSpeed.moving)
         {
-            sprite.flipX = false;
+            //sprite.flipX = false;
             if (waypoints.Count > 1)
             {
                 if (disToWaypoint <= 1f && target != null)
@@ -118,11 +118,11 @@ public class FollowWaypoints : MonoBehaviour
     {
         if (targetPosition.x < transform.position.x)
         {
-            sprite.flipX = true;
+            //sprite.flipX = true;
         }
         else
         {
-            sprite.flipX = false;
+            //sprite.flipX = false;
         }
     }
 }

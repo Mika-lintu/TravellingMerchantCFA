@@ -75,6 +75,7 @@ public class SegmentMovement : MonoBehaviour
         if (Input.GetKeyDown("e"))
         {
             //gameSpeed.moving = false;
+            
             charactersStop.Invoke();
         }
 
