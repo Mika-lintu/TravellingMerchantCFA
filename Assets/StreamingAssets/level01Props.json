@@ -568,13 +568,6 @@
         "rotation": 358.5098
      },
      {
-        "id": "SP_BigOakTree_02",
-        "segmentNumber": 28,
-        "xOffset": 3.544853,
-        "yOffset": -8.226622,
-        "rotation": 0
-     },
-     {
         "id": "SP_RedFarmHouse_01",
         "segmentNumber": 19,
         "xOffset": -10.89,
@@ -624,6 +617,104 @@
         "rotation": 0
      },
      {
+        "id": "SP_BigRedFarmHouse_05",
+        "segmentNumber": 27,
+        "xOffset": 3.534757,
+        "yOffset": -2.579637,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BigOakTree_02",
+        "segmentNumber": 28,
+        "xOffset": 3.544853,
+        "yOffset": -8.226622,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BirchFence_Big_02",
+        "segmentNumber": 28,
+        "xOffset": 8.911799,
+        "yOffset": -10.81474,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Cart_01",
+        "segmentNumber": 40,
+        "xOffset": 9.299332,
+        "yOffset": -4.565751,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BigBox_02",
+        "segmentNumber": 54,
+        "xOffset": 0.4829232,
+        "yOffset": -9.167723,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Bottles_01",
+        "segmentNumber": 54,
+        "xOffset": 0.6766918,
+        "yOffset": -6.890958,
+        "rotation": 0
+     },
+     {
+        "id": "LightTexture04",
+        "segmentNumber": 56,
+        "xOffset": 0.4829232,
+        "yOffset": -7.47226,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BirchFence_Big_02",
+        "segmentNumber": 58,
+        "xOffset": 0.65,
+        "yOffset": -3.85,
+        "rotation": 333.1341
+     },
+     {
+        "id": "SP_OakTreeStump_03",
+        "segmentNumber": 60,
+        "xOffset": -1.81,
+        "yOffset": -7.23,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Berries_06",
+        "segmentNumber": 62,
+        "xOffset": -2.404896,
+        "yOffset": -4.611129,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Berries_06",
+        "segmentNumber": 62,
+        "xOffset": -6.286563,
+        "yOffset": -5.412777,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Berries_06",
+        "segmentNumber": 62,
+        "xOffset": -7.974244,
+        "yOffset": -3.682904,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Berries_06",
+        "segmentNumber": 62,
+        "xOffset": -8.902471,
+        "yOffset": -6.130042,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BirchTree_01",
+        "segmentNumber": 63,
+        "xOffset": 5.85,
+        "yOffset": -7.71,
+        "rotation": 0
+     },
+     {
         "id": "SP_BlueFarmHouse_01",
         "segmentNumber": 64,
         "xOffset": 6.45,
@@ -631,11 +722,11 @@
         "rotation": 0
      },
      {
-        "id": "SP_BigRedFarmHouse_05",
-        "segmentNumber": 22,
-        "xOffset": -0.7348472,
-        "yOffset": -2.823143,
-        "rotation": 0
+        "id": "SP_BirchFence_Big_02",
+        "segmentNumber": 64,
+        "xOffset": 0.4340434,
+        "yOffset": -8.892744,
+        "rotation": 13.85473
      }
    ]
 
