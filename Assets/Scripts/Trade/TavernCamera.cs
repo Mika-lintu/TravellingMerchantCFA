@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TavernCamera : MonoBehaviour {
 
@@ -10,14 +11,18 @@ public class TavernCamera : MonoBehaviour {
     public Vector3 offset;
     Vector3 velocity = Vector3.zero;
     Camera cam;
-    bool zoomToPlayer;
+    public bool zoomToPlayer;
+    public UnityEvent gameMode;
+
+
+    public enum Tavern { tavern, inShop, }
+    public Tavern modeEnum;
 
     void Awake()
     {
         zoomToPlayer = false;
         cam = Camera.main;
     }
-	
 	
 	void Update () {
 
@@ -33,8 +38,8 @@ public class TavernCamera : MonoBehaviour {
                 StopAllCoroutines();
                 StartCoroutine(ZoomBack(5f));
             }
-            
         }
+
 		if (target)
         {
             Vector3 point = Camera.main.WorldToViewportPoint(target.position);
@@ -54,9 +59,9 @@ public class TavernCamera : MonoBehaviour {
             yield return null;
         }
         zoomToPlayer = true;
-        
-
+        gameMode.Invoke();
     }
+
     IEnumerator ZoomBack(float zoom)
     {
         while (cam.orthographicSize < zoom)
@@ -65,8 +70,22 @@ public class TavernCamera : MonoBehaviour {
             dampTime = 0.25f;
             yield return null;
         }
-
         zoomToPlayer = false;
-
+        gameMode.Invoke();
     }
+
+    public void GoToShop()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ZoomToShop(4f));
+        modeEnum = Tavern.inShop;
+    }
+
+    public void GoFromShop()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ZoomBack(5f));
+        modeEnum = Tavern.tavern;
+    }
+
 }

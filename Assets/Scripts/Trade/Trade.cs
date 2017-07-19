@@ -9,20 +9,29 @@ public class Trade : MonoBehaviour
     public GameObject pInven;
     public GameObject sInven;
     GameObject selectedObject;
+    ItemDatabase itemDatabase;
+
     public Text costText;
     public Text amountText;
-
+    public GameObject bubble;
     public GameObject message;
 
-    bool shopping;
+    public List<GameObject> shopSlots;
+
+    bool shopActive;
     bool empty;
 
     float cost;
     int itemAmount;
+    TavernCamera tavernCamera;
+    TradeDrag tradeDrag;
+
 
     void Awake()
     {
-        shopping = false;
+        tavernCamera = Camera.main.GetComponent<TavernCamera>();
+        itemDatabase = Camera.main.GetComponent<ItemDatabase>();
+        tradeDrag = GetComponent<TradeDrag>();
     }
 
 
@@ -33,16 +42,10 @@ public class Trade : MonoBehaviour
     }
 
 
-    void Shopping()
+    public void GetShopItem(GameObject go)
     {
-        shopping = true;
-
-    }
-
-
-    public void GetShopItem()
-    {
-        selectedObject = GetComponent<TradeDrag>().selectedObject;
+        selectedObject = go;
+        bubble.GetComponent<UIMovement>().SetPosition(selectedObject);
     }
 
 
@@ -56,9 +59,12 @@ public class Trade : MonoBehaviour
 
     public void RemoveItems()
     {
-        itemAmount--;
-        cost--;
-        UpdateInfo();
+        if (itemAmount >= 1)
+        {
+            itemAmount--;
+            cost--;
+            UpdateInfo();
+        }
     }
 
 
@@ -73,7 +79,6 @@ public class Trade : MonoBehaviour
             BuyItem();
         }
         ResetTrade();
-
     }
 
 
@@ -90,19 +95,40 @@ public class Trade : MonoBehaviour
             message.SetActive(true);
             //Tell player they don't have enough money
         }
-
     }
+    
+
     //player sells item to shop
     void SellItem()
     {
         Coins.AddCoins(cost);
     }
+
+
     public void ResetTrade()
     {
-        shopping = false;
         cost = 0f;
         itemAmount = 0;
         UpdateInfo();
+        bubble.SetActive(false);
     }
 
+
+    public void CheckGameMode()
+    {
+        if (tavernCamera.modeEnum == TavernCamera.Tavern.inShop)
+        {
+            shopActive = true;
+        }
+        else
+        {
+            shopActive = false;
+        }
+    }
+
+
+    public void SetItems()
+    {
+
+    }
 }

@@ -9,80 +9,73 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1785107870955030}
+  m_RootGameObject: {fileID: 1985888607740650}
   m_IsPrefabParent: 1
---- !u!1 &1785107870955030
+--- !u!1 &1985888607740650
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4233766992294680}
-  - component: {fileID: 212655367437744534}
-  - component: {fileID: 58335602081179314}
-  - component: {fileID: 50962933616126030}
-  - component: {fileID: 231903965672194702}
+  - component: {fileID: 4584278966398902}
+  - component: {fileID: 212531802817800740}
+  - component: {fileID: 114727447412781220}
+  - component: {fileID: 114635297012530082}
   m_Layer: 0
-  m_Name: apple
-  m_TagString: Item
+  m_Name: SP_BigRedFarmHouse_05
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4233766992294680
+--- !u!4 &4584278966398902
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1785107870955030}
+  m_GameObject: {fileID: 1985888607740650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.91, y: 0.79, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalPosition: {x: 11.97, y: -6.69, z: 0}
+  m_LocalScale: {x: 2.8281887, y: 2.8281887, z: 2.8281887}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50962933616126030
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &114635297012530082
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1785107870955030}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 3
-  m_AngularDrag: 5
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &58335602081179314
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1785107870955030}
+  m_GameObject: {fileID: 1985888607740650}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -0.42, y: -0.45}
-  serializedVersion: 2
-  m_Radius: 1.75
---- !u!212 &212655367437744534
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114727447412781220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1985888607740650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94091a187c05c744ca2a5224cb526f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
+  segmentNumber: 0
+  xOffset: 0
+  yOffset: 0
+  spriteNumber: 0
+  spriteList: []
+--- !u!212 &212531802817800740
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1785107870955030}
+  m_GameObject: {fileID: 1985888607740650}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -108,26 +101,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b99f2d1859489b94f97ede001d4f45ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed38dad65759f5d488be56badfdddad0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!231 &231903965672194702
-SpringJoint2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1785107870955030}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: -0.42, y: -0.42}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_AutoConfigureDistance: 0
-  m_Distance: 2.4004786
-  m_DampingRatio: 0
-  m_Frequency: 1

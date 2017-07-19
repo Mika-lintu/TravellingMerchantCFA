@@ -16,6 +16,8 @@ public class PropStats : MonoBehaviour {
     public int spriteNumber;
     public Sprite[] spriteList;
     SpriteRenderer spriteRenderer;
+    [HideInInspector]
+    public float rotation;
 
     public void ChangeSprite(int i)
     {

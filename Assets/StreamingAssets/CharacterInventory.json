@@ -1,34 +1,14 @@
 {
      "characterInventory": [
      {
-        "id": 0,
-        "itemSlot": "0",
-        "itemName": "Papple",
-         "stats": [ 5, 30, 5, 1, 1, 1, 1 ]
-     },
-     {
-        "id": 3,
-        "itemSlot": "1",
-        "itemName": "Potion Health",
-         "stats": [ 5, 30, 5, 1, 1, 1, 1 ]
-     },
-     {
-        "id": 2,
-        "itemSlot": "2",
-        "itemName": "Poison Vial",
-         "stats": [ 10, 30, 5, 1, 1, 1, 1 ]
-     },
-     {
-        "id": 1,
-        "itemSlot": "4",
-        "itemName": "Bomb",
-         "stats": [ 8, 30, 5, 1, 1, 1, 1 ]
-     },
-     {
-        "id": 5,
-        "itemSlot": "5",
-        "itemName": "Pepper Jar",
-         "stats": [ 9, 30, 5, 1, 1, 1, 1 ]
+        "id": "bomb",
+        "xOffset": 0,
+        "yOffset": 0,
+        "rotation": 0,
+        "value": 0,
+        "weight": 0,
+        "quantity": 10,
+        "location": "inventory"
      }
    ]
 

@@ -200,7 +200,7 @@ public class LevelDatabase : MonoBehaviour
         {
             props.levelProps.Add(new Prop());
         }
-        
+
         WritePropsToDatabase();
     }
 
@@ -251,12 +251,11 @@ public class LevelDatabase : MonoBehaviour
 
     }
     */
-    
+
     public void UpdateProps()
     {
         List<Prop> tempList = new List<Prop>();
         GameObject[] propList = GameObject.FindGameObjectsWithTag("Prop");
-        //Dictionary<string, GameObject> propDictionary = propHandler.ReturnPropList();
 
         for (int i = 0; i < props.levelProps.Count; i++)
         {
@@ -270,19 +269,22 @@ public class LevelDatabase : MonoBehaviour
         {
             Prop newProp = new Prop();
             PropStats newPropStats = propList[i].GetComponent<PropStats>();
+            string newName = newPropStats.name;
 
-            /*  TÄHÄN NIMI KORJAUKSET
-            if (newPropStats.name.Contains("(Clone)") )
+            if (newName.Contains("("))
             {
-
+                int firstBracket = newName.IndexOf('(');
+                int lastBracket = newName.IndexOf(')');
+                int diff = lastBracket - firstBracket + 1;
+                newName = newName.Remove(firstBracket, diff);
             }
-            */
+            //newName = newName.Replace("(Clone)", "");
 
-            newProp.id = newPropStats.name;
+            newProp.id = newName.Trim();
             newProp.segmentNumber = segmentNumber;
             newProp.xOffset = propList[i].transform.position.x;
             newProp.yOffset = propList[i].transform.position.y;
-
+            newProp.rotation = propList[i].transform.eulerAngles.z;
             tempList.Add(newProp);
         }
 
@@ -315,7 +317,7 @@ public class LevelDatabase : MonoBehaviour
         {
             if (props.levelProps[i].segmentNumber == segmentNumber)
             {
-                propHandler.SetProp(props.levelProps[i].id, props.levelProps[i].xOffset, props.levelProps[i].yOffset);
+                propHandler.SetProp(props.levelProps[i].id, props.levelProps[i].xOffset, props.levelProps[i].yOffset, props.levelProps[i].rotation);
             }
             //props.levelProps[i].DebugStats();
         }

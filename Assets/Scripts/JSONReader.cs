@@ -54,9 +54,15 @@ public class JSONReader : MonoBehaviour {
             float sP = level.levelSegments[i].roadStart;
             float eP = level.levelSegments[i].roadEnd;
             int bg = level.levelSegments[i].groundLayer;
-            GetSegmentPoints(segmentIndex, out sP, out eP, out bg);
+            float zoom = level.levelSegments[i].zoom;
+            GetSegmentPoints(segmentIndex, out sP, out eP, out bg, out zoom);
             segment.Refresh(sP, eP, bg, segmentIndex);
             propHandler.ActivateProps(segmentIndex, segments[i]);
+            if (i == 3)
+            {
+                camScript.camZoom = zoom;
+                camScript.previousCamZoom = zoom;
+            }
             if (i != 3) segmentIndex++;
         }
     }
@@ -72,7 +78,12 @@ public class JSONReader : MonoBehaviour {
         GetSegmentPoints(segmentIndex, out sP, out eP, out bg, out zoom);
         segments[3].GetComponent<LevelSegment02>().Refresh(sP, eP, bg, segmentIndex);
         propHandler.ActivateProps(segmentIndex, segments[3]);
-        camScript.camZoom = zoom;
+
+        if (zoom != camScript.camZoom)
+        {
+            camScript.UpdateZoom(segments[3], zoom);
+        }
+
     }
 
     void GetSegmentPoints(int id, out float return1, out float return2, out int return3, out float return4)
