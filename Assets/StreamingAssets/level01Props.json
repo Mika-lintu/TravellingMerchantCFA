@@ -1,41 +1,6 @@
 {
      "levelProps": [
      {
-        "id": "SP_OakTree_01",
-        "segmentNumber": 11,
-        "xOffset": 6.739644,
-        "yOffset": -4.128929,
-        "rotation": 0
-     },
-     {
-        "id": "SP_AlderTree_01",
-        "segmentNumber": 13,
-        "xOffset": 1.988115,
-        "yOffset": -4.807719,
-        "rotation": 0
-     },
-     {
-        "id": "SP_BirchFence_Big_01",
-        "segmentNumber": 15,
-        "xOffset": 1.467507,
-        "yOffset": -6.148648,
-        "rotation": 0
-     },
-     {
-        "id": "SP_AlderSign_01",
-        "segmentNumber": 15,
-        "xOffset": -3.38,
-        "yOffset": -6.15,
-        "rotation": 0
-     },
-     {
-        "id": "SP_BigRedFarmHouse_05",
-        "segmentNumber": 15,
-        "xOffset": 9.7,
-        "yOffset": -6.27,
-        "rotation": 0
-     },
-     {
         "id": "LightTexture01",
         "segmentNumber": 12,
         "xOffset": -0.07,
@@ -197,109 +162,109 @@
         "rotation": 0
      },
      {
-        "id": "LightTexture01",
-        "segmentNumber": 3,
-        "xOffset": 7.403508,
-        "yOffset": -6.28,
+        "id": "SP_ScareCrow_01",
+        "segmentNumber": 14,
+        "xOffset": 1.73,
+        "yOffset": -3.26,
         "rotation": 0
      },
      {
-        "id": "SP_OakTreeStump_01",
-        "segmentNumber": 3,
-        "xOffset": 6.5,
-        "yOffset": -6.12,
-        "rotation": 0
-     },
-     {
-        "id": "SP_AlderTree_01",
-        "segmentNumber": 3,
-        "xOffset": -4.63,
-        "yOffset": -5.22,
-        "rotation": 0
-     },
-     {
-        "id": "SP_AlderTree_01",
-        "segmentNumber": 3,
-        "xOffset": 5.23,
-        "yOffset": -2.01,
-        "rotation": 0
-     },
-     {
-        "id": "SP_AlderTree_01",
-        "segmentNumber": 3,
-        "xOffset": 8.59,
-        "yOffset": -4.38,
-        "rotation": 0
-     },
-     {
-        "id": "SP_Grass_Darker_13",
-        "segmentNumber": 3,
-        "xOffset": 7.491245,
-        "yOffset": -8.188444,
-        "rotation": 0
-     },
-     {
-        "id": "SP_Grass_Light_08",
-        "segmentNumber": 3,
-        "xOffset": 5.243259,
-        "yOffset": -5.19113,
+        "id": "SP_Grass_Light_12",
+        "segmentNumber": 14,
+        "xOffset": 1.7,
+        "yOffset": -3.55,
         "rotation": 0
      },
      {
         "id": "SP_OakTree_02",
-        "segmentNumber": 3,
-        "xOffset": -3.12,
-        "yOffset": -10.25,
+        "segmentNumber": 4,
+        "xOffset": -8.722833,
+        "yOffset": -2.463398,
+        "rotation": 356.5384
+     },
+     {
+        "id": "SP_BigOakTree_03",
+        "segmentNumber": 4,
+        "xOffset": -6.97,
+        "yOffset": -6.59,
+        "rotation": 354.8342
+     },
+     {
+        "id": "SP_BigOakTree_02",
+        "segmentNumber": 4,
+        "xOffset": -2.563035,
+        "yOffset": -9.252402,
+        "rotation": 351.8729
+     },
+     {
+        "id": "SP_Grass_Darker_11",
+        "segmentNumber": 4,
+        "xOffset": -6.07,
+        "yOffset": -8.62,
         "rotation": 0
      },
      {
-        "id": "SP_Grass_Darker_13",
-        "segmentNumber": 3,
-        "xOffset": 7.314499,
-        "yOffset": -8.444136,
+        "id": "SP_Grass_Darker_07",
+        "segmentNumber": 4,
+        "xOffset": -4.934831,
+        "yOffset": -7.450031,
         "rotation": 0
      },
      {
-        "id": "SP_Grass_Darker_13",
-        "segmentNumber": 3,
-        "xOffset": 7.451794,
-        "yOffset": -8.535967,
+        "id": "SP_Bush_02",
+        "segmentNumber": 4,
+        "xOffset": 2.67,
+        "yOffset": -9.62,
         "rotation": 0
      },
      {
-        "id": "SP_OakTreeStump_03",
-        "segmentNumber": 3,
-        "xOffset": 6.033179,
-        "yOffset": -8.023555,
+        "id": "SP_Bush_01",
+        "segmentNumber": 4,
+        "xOffset": 7.09,
+        "yOffset": -5.79,
         "rotation": 0
      },
      {
-        "id": "SP_Grass_Darker_03",
-        "segmentNumber": 3,
-        "xOffset": -1.116915,
-        "yOffset": -4.309806,
+        "id": "SP_Berries_03",
+        "segmentNumber": 4,
+        "xOffset": 6.9,
+        "yOffset": -5.03,
         "rotation": 0
      },
      {
-        "id": "SP_BigAlderTree_02",
-        "segmentNumber": 3,
-        "xOffset": 0.4293363,
-        "yOffset": -3.467241,
+        "id": "SP_Rock_02",
+        "segmentNumber": 4,
+        "xOffset": -6.335558,
+        "yOffset": -8.480663,
         "rotation": 0
      },
      {
-        "id": "SP_Grass_Light_01",
-        "segmentNumber": 3,
-        "xOffset": 2.237955,
-        "yOffset": -5.33768,
-        "rotation": 21.27261
+        "id": "SP_Bush_02",
+        "segmentNumber": 4,
+        "xOffset": 6.66,
+        "yOffset": -9.61,
+        "rotation": 0
+     },
+     {
+        "id": "SP_AlderTree_01",
+        "segmentNumber": 4,
+        "xOffset": -3.47,
+        "yOffset": -3.02,
+        "rotation": 343.2895
      },
      {
         "id": "SP_Grass_Light_02",
-        "segmentNumber": 3,
-        "xOffset": 6.11,
-        "yOffset": -2.95,
-        "rotation": 12.39128
+        "segmentNumber": 4,
+        "xOffset": 1.77,
+        "yOffset": -5.31,
+        "rotation": 339.062
+     },
+     {
+        "id": "SP_Grass_Darker_01",
+        "segmentNumber": 4,
+        "xOffset": -8.409221,
+        "yOffset": -3.837536,
+        "rotation": 0
      },
      {
         "id": "SP_Grass_Light_05",
@@ -354,98 +319,161 @@
         "id": "SP_Grass_Darker_12",
         "segmentNumber": 6,
         "xOffset": -1.591662,
-        "yOffset": -4.23,
+        "yOffset": -4.36,
         "rotation": 0
      },
      {
         "id": "SP_Grass_Darker_07",
         "segmentNumber": 6,
         "xOffset": -8.920379,
-        "yOffset": -4.637092,
+        "yOffset": -4.94,
         "rotation": 0
      },
      {
-        "id": "SP_ScareCrow_01",
-        "segmentNumber": 14,
-        "xOffset": 1.73,
-        "yOffset": -3.26,
+        "id": "SP_OakTree_01",
+        "segmentNumber": 11,
+        "xOffset": 6.76,
+        "yOffset": -3.77,
         "rotation": 0
      },
      {
-        "id": "SP_Grass_Light_12",
-        "segmentNumber": 14,
-        "xOffset": 1.7,
-        "yOffset": -3.55,
+        "id": "SP_AlderTree_01",
+        "segmentNumber": 13,
+        "xOffset": 1.98,
+        "yOffset": -4.6,
+        "rotation": 342.839
+     },
+     {
+        "id": "SP_BirchFence_Big_01",
+        "segmentNumber": 15,
+        "xOffset": 1.467507,
+        "yOffset": -6.148648,
         "rotation": 0
+     },
+     {
+        "id": "SP_AlderSign_01",
+        "segmentNumber": 15,
+        "xOffset": -3.38,
+        "yOffset": -6.15,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BigRedFarmHouse_05",
+        "segmentNumber": 15,
+        "xOffset": 8,
+        "yOffset": -6.21,
+        "rotation": 0
+     },
+     {
+        "id": "LightTexture01",
+        "segmentNumber": 3,
+        "xOffset": 7.403508,
+        "yOffset": -6.28,
+        "rotation": 0
+     },
+     {
+        "id": "SP_OakTreeStump_01",
+        "segmentNumber": 3,
+        "xOffset": 6.5,
+        "yOffset": -6.12,
+        "rotation": 0
+     },
+     {
+        "id": "SP_AlderTree_01",
+        "segmentNumber": 3,
+        "xOffset": -4.63,
+        "yOffset": -5.22,
+        "rotation": 0
+     },
+     {
+        "id": "SP_AlderTree_01",
+        "segmentNumber": 3,
+        "xOffset": 5.23,
+        "yOffset": -2.01,
+        "rotation": 0
+     },
+     {
+        "id": "SP_AlderTree_01",
+        "segmentNumber": 3,
+        "xOffset": 8.59,
+        "yOffset": -4.38,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Grass_Darker_13",
+        "segmentNumber": 3,
+        "xOffset": 7.491245,
+        "yOffset": -8.188444,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Grass_Light_08",
+        "segmentNumber": 3,
+        "xOffset": 5.21,
+        "yOffset": -5.38,
+        "rotation": 15.35329
      },
      {
         "id": "SP_OakTree_02",
-        "segmentNumber": 4,
-        "xOffset": -8.413685,
-        "yOffset": -2.47274,
+        "segmentNumber": 3,
+        "xOffset": -3.12,
+        "yOffset": -10.25,
         "rotation": 0
      },
      {
-        "id": "SP_BigOakTree_03",
-        "segmentNumber": 4,
-        "xOffset": -6.97,
-        "yOffset": -6.59,
-        "rotation": 354.8342
-     },
-     {
-        "id": "SP_BigOakTree_02",
-        "segmentNumber": 4,
-        "xOffset": -1.33,
-        "yOffset": -9.34,
+        "id": "SP_Grass_Darker_13",
+        "segmentNumber": 3,
+        "xOffset": 7.314499,
+        "yOffset": -8.444136,
         "rotation": 0
      },
      {
-        "id": "SP_Grass_Darker_11",
-        "segmentNumber": 4,
-        "xOffset": -6.07,
-        "yOffset": -8.62,
+        "id": "SP_Grass_Darker_13",
+        "segmentNumber": 3,
+        "xOffset": 7.451794,
+        "yOffset": -8.535967,
         "rotation": 0
      },
      {
-        "id": "SP_Grass_Darker_07",
-        "segmentNumber": 4,
-        "xOffset": -4.934831,
-        "yOffset": -7.450031,
+        "id": "SP_OakTreeStump_03",
+        "segmentNumber": 3,
+        "xOffset": 6.033179,
+        "yOffset": -8.023555,
         "rotation": 0
      },
      {
-        "id": "SP_Bush_02",
-        "segmentNumber": 4,
-        "xOffset": 2.67,
-        "yOffset": -9.62,
+        "id": "SP_Grass_Darker_03",
+        "segmentNumber": 3,
+        "xOffset": -1.116915,
+        "yOffset": -4.309806,
         "rotation": 0
      },
      {
-        "id": "SP_Bush_01",
-        "segmentNumber": 4,
-        "xOffset": 7.09,
-        "yOffset": -5.79,
+        "id": "SP_BigAlderTree_02",
+        "segmentNumber": 3,
+        "xOffset": 0.4293363,
+        "yOffset": -3.467241,
         "rotation": 0
      },
      {
-        "id": "SP_Berries_03",
-        "segmentNumber": 4,
-        "xOffset": 6.9,
-        "yOffset": -5.03,
-        "rotation": 0
+        "id": "SP_Grass_Light_01",
+        "segmentNumber": 3,
+        "xOffset": 2.107,
+        "yOffset": -5.347,
+        "rotation": 21.27261
      },
      {
-        "id": "SP_Rock_02",
-        "segmentNumber": 4,
-        "xOffset": -6.335558,
-        "yOffset": -8.480663,
-        "rotation": 0
+        "id": "SP_Grass_Light_02",
+        "segmentNumber": 3,
+        "xOffset": 6.083,
+        "yOffset": -3.064,
+        "rotation": 12.39128
      },
      {
-        "id": "SP_Bush_02",
-        "segmentNumber": 4,
-        "xOffset": 6.66,
-        "yOffset": -9.61,
+        "id": "SP_BigOrangeFarmHouse_05",
+        "segmentNumber": 16,
+        "xOffset": -4.56,
+        "yOffset": -6.67,
         "rotation": 0
      }
    ]

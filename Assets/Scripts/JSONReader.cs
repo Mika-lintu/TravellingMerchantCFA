@@ -12,7 +12,7 @@ public class JSONReader : MonoBehaviour {
     string jsonStringProps;
 
     public List<GameObject> segments;
-    int segmentIndex = 0;
+    public int segmentIndex;
     SegmentMovement segMovement;
     PropHandler propHandler;
     [HideInInspector]
@@ -51,10 +51,10 @@ public class JSONReader : MonoBehaviour {
         for (int i = 0; i < 4; i++)
         {
             LevelSegment02 segment = segments[i].GetComponent<LevelSegment02>();
-            float sP = level.levelSegments[i].roadStart;
-            float eP = level.levelSegments[i].roadEnd;
-            int bg = level.levelSegments[i].groundLayer;
-            float zoom = level.levelSegments[i].zoom;
+            float sP = level.levelSegments[segmentIndex].roadStart;
+            float eP = level.levelSegments[segmentIndex].roadEnd;
+            int bg = level.levelSegments[segmentIndex].groundLayer;
+            float zoom = level.levelSegments[segmentIndex].zoom;
             GetSegmentPoints(segmentIndex, out sP, out eP, out bg, out zoom);
             segment.Refresh(sP, eP, bg, segmentIndex);
             propHandler.ActivateProps(segmentIndex, segments[i]);

@@ -26,6 +26,7 @@ public class LevelDatabase : MonoBehaviour
 
     void Awake()
     {
+        
         path = Application.streamingAssetsPath + "/level01.json";
         jsonString = File.ReadAllText(path);
 
