@@ -470,7 +470,7 @@
         "rotation": 0
      },
      {
-        "id": "SP_YellowFarmHouse_01 (1)",
+        "id": "SP_YellowFarmHouse_01",
         "segmentNumber": 16,
         "xOffset": 4.08,
         "yOffset": -2.61,
@@ -542,22 +542,99 @@
      {
         "id": "SP_RedFarmHouse_03",
         "segmentNumber": 18,
-        "xOffset": -5.435276,
+        "xOffset": -6.15,
         "yOffset": -3.455225,
         "rotation": 0
      },
      {
         "id": "SP_YellowFarmHouse_01",
         "segmentNumber": 18,
-        "xOffset": 1.293637,
-        "yOffset": -3.474302,
+        "xOffset": 0.64,
+        "yOffset": -3.44,
         "rotation": 0
      },
      {
         "id": "SP_OrangeFarmHouse_03",
         "segmentNumber": 18,
-        "xOffset": 7.731675,
-        "yOffset": -4.584693,
+        "xOffset": 7.2,
+        "yOffset": -4.55,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BigAlderTree_02",
+        "segmentNumber": 23,
+        "xOffset": 0.46,
+        "yOffset": -4.38,
+        "rotation": 358.5098
+     },
+     {
+        "id": "SP_BigOakTree_02",
+        "segmentNumber": 28,
+        "xOffset": 3.544853,
+        "yOffset": -8.226622,
+        "rotation": 0
+     },
+     {
+        "id": "SP_RedFarmHouse_01",
+        "segmentNumber": 19,
+        "xOffset": -10.89,
+        "yOffset": -8.54,
+        "rotation": 0
+     },
+     {
+        "id": "SP_ScareCrow_01",
+        "segmentNumber": 29,
+        "xOffset": -2.694688,
+        "yOffset": -7.381012,
+        "rotation": 0
+     },
+     {
+        "id": "SP_ScareCrow_01",
+        "segmentNumber": 38,
+        "xOffset": -2.512694,
+        "yOffset": -5.743055,
+        "rotation": 0
+     },
+     {
+        "id": "SP_OakTree_01",
+        "segmentNumber": 38,
+        "xOffset": 6.44147,
+        "yOffset": -3.923103,
+        "rotation": 0
+     },
+     {
+        "id": "SP_OakTree_02",
+        "segmentNumber": 42,
+        "xOffset": 4.002735,
+        "yOffset": -5.706656,
+        "rotation": 0
+     },
+     {
+        "id": "SP_ScareCrow_01",
+        "segmentNumber": 43,
+        "xOffset": -7.551361,
+        "yOffset": -6.129464,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BigBirchTree_02",
+        "segmentNumber": 52,
+        "xOffset": -3.072084,
+        "yOffset": -6.319264,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BlueFarmHouse_01",
+        "segmentNumber": 64,
+        "xOffset": 6.45,
+        "yOffset": -9.43,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BigRedFarmHouse_05",
+        "segmentNumber": 22,
+        "xOffset": -0.7348472,
+        "yOffset": -2.823143,
         "rotation": 0
      }
    ]
