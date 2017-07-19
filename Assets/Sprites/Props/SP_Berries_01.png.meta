@@ -1,5 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< 3ea44b54205139005daba4253f0ecbd11cbc06be:Assets/Sprites/Props/SP_Berries_01.png.meta
 guid: 0d89fc24d2635e243979889d140ae2ad
+=======
+guid: 81f55dad2482be647bf99882b61abc80
+timeCreated: 1500448476
+licenseType: Pro
+>>>>>>> Level 01 modified, post-tutorial part started.:Assets/Sprites/Props/SP_Grass_Light_01.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -35,8 +41,13 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
+<<<<<<< 3ea44b54205139005daba4253f0ecbd11cbc06be:Assets/Sprites/Props/SP_Berries_01.png.meta
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+=======
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.06}
+>>>>>>> Level 01 modified, post-tutorial part started.:Assets/Sprites/Props/SP_Grass_Light_01.png.meta
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaUsage: 1
