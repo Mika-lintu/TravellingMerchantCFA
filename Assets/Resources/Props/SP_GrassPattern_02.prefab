@@ -21,10 +21,9 @@ GameObject:
   - component: {fileID: 4292331175560102}
   - component: {fileID: 212650581468117438}
   - component: {fileID: 114045348571076040}
-  - component: {fileID: 114194385387734468}
   m_Layer: 0
   m_Name: SP_GrassPattern_02
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1697485168805524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.066411, y: 0.9258534, z: 0}
+  m_LocalPosition: {x: -2.63, y: -4.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,17 +59,6 @@ MonoBehaviour:
   spriteNumber: 0
   spriteList: []
   rotation: 0
---- !u!114 &114194385387734468
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1697485168805524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212650581468117438
 SpriteRenderer:
   m_ObjectHideFlags: 1

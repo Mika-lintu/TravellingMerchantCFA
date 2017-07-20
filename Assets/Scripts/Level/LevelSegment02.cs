@@ -28,6 +28,7 @@ public class LevelSegment02 : MonoBehaviour {
 
     public void Refresh(float pointStart, float pointEnd, int bg, int seg)
     {
+        segNum = seg;
         curveGenerator.CreateBezierWithPoints(pointStart, pointEnd);
         bgSprite.SetSprite(bg);
         road.Reset();
