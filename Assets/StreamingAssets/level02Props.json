@@ -1,10 +1,108 @@
 {
      "levelProps": [
      {
+        "id": "SP_BirchTree_01",
+        "segmentNumber": 26,
+        "xOffset": -4.202026,
+        "yOffset": 0.6417181,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Plant1_Light_03",
+        "segmentNumber": 26,
+        "xOffset": 5.409572,
+        "yOffset": 0.4097142,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Plant1_Light_03",
+        "segmentNumber": 76,
+        "xOffset": -5.328904,
+        "yOffset": -2.473766,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Rock_08",
+        "segmentNumber": 76,
+        "xOffset": 5.707863,
+        "yOffset": -0.8497372,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Plant1_Light_01",
+        "segmentNumber": 76,
+        "xOffset": 5.906723,
+        "yOffset": -1.612036,
+        "rotation": 0
+     },
+     {
+        "id": "SP_RedTent_01",
+        "segmentNumber": 102,
+        "xOffset": 3.99,
+        "yOffset": -3.7,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Plant1_Light_01",
+        "segmentNumber": 102,
+        "xOffset": 3.54,
+        "yOffset": -4.44,
+        "rotation": 0
+     },
+     {
+        "id": "SP_PurpleFarmHouse_01",
+        "segmentNumber": 1,
+        "xOffset": -4.3346,
+        "yOffset": -1.048598,
+        "rotation": 0
+     },
+     {
         "id": "SP_AlderSign_01",
-        "segmentNumber": 0,
-        "xOffset": -0.7721744,
-        "yOffset": -3.136977,
+        "segmentNumber": 1,
+        "xOffset": 1.19825,
+        "yOffset": -0.9871752,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BigBirchTree_02",
+        "segmentNumber": 1,
+        "xOffset": 4.728753,
+        "yOffset": -1.315594,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Plant1_Light_03",
+        "segmentNumber": 81,
+        "xOffset": 4.6877,
+        "yOffset": -1.438751,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Rock_08",
+        "segmentNumber": 71,
+        "xOffset": -3.933295,
+        "yOffset": -0.4945474,
+        "rotation": 0
+     },
+     {
+        "id": "SP_Plant1_Light_03",
+        "segmentNumber": 21,
+        "xOffset": -4.179608,
+        "yOffset": -0.2482333,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BirchTree_01",
+        "segmentNumber": 31,
+        "xOffset": 4.523491,
+        "yOffset": -0.4534945,
+        "rotation": 0
+     },
+     {
+        "id": "SP_BigOrangeFarmHouse_05",
+        "segmentNumber": 61,
+        "xOffset": 3.004553,
+        "yOffset": -0.3713903,
         "rotation": 0
      }
    ]

@@ -20,6 +20,11 @@ public class PropHandler : MonoBehaviour
         poolManager = GetComponent<PoolManager>();
         propDictionary = new Dictionary<string, GameObject>();
         LoadProps();
+        
+    }
+
+    private void Start()
+    {
         CheckNeededProps();
     }
 
