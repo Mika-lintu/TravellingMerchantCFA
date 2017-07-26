@@ -17,6 +17,8 @@ TagManager:
   - Fire
   - waypoint
   - LevelSegment
+  - Ground
+  - ShopKeeper
   layers:
   - Default
   - TransparentFX

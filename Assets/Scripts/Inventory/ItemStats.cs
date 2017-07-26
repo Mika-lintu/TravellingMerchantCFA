@@ -16,6 +16,16 @@ public class ItemStats : MonoBehaviour {
     public int quantity;
     public string itemLocation;
 
+    public void SetStats(Item newStats)
+    {
+        xOffset = newStats.xOffset;
+        yOffset = newStats.yOffset;
+        rotation = newStats.rotation;
+        value = newStats.value;
+        weight = newStats.weight;
+        quantity = newStats.quantity;
+    }
+
     public Item GetStats()
     {
         Item newItem = new Item();

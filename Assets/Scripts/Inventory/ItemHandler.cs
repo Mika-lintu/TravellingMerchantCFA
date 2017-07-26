@@ -5,19 +5,46 @@ using UnityEngine;
 public class ItemHandler : MonoBehaviour {
 
     public List<GameObject> items;
+    List<Item> itemList;
+    PoolManager poolManager;
 
     void Awake()
     {
-        foreach (Transform child in transform)
-        {
-            items.Add(child.gameObject);
-        }
+        poolManager = Camera.main.GetComponent<PoolManager>();
+
     }
 
     private void Start()
     {
-        StartCoroutine(SetupItems());
+        //StartCoroutine(SetupItems());
     }
+
+    public void GetItems()
+    {
+
+    }
+
+
+
+    public void SetItems(List<Item> newItemList)
+    {
+        itemList = newItemList;
+
+        for (int i = 0; i < itemList.Count; i++)
+        {
+            GameObject newItem;
+            Vector3 newPosition = new Vector3(transform.position.x + itemList[i].xOffset, transform.position.y + itemList[i].yOffset, 0);
+            Quaternion newRotation = Quaternion.identity;
+            newRotation.eulerAngles = new Vector3(0, 0, itemList[i].rotation);
+            newItem = poolManager.ReuseItem(itemList[i].id, newPosition, newRotation, gameObject);
+            newItem.GetComponent<ItemStats>().SetStats(itemList[i]);
+            newItem.SetActive(false);
+            items.Add(newItem);
+        }
+    }
+
+
+
 
     public void ShowItems()
     {

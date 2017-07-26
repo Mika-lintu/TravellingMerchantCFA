@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System.IO;
 
 public class ItemDatabase : MonoBehaviour
@@ -16,6 +17,7 @@ public class ItemDatabase : MonoBehaviour
     PoolManager poolManager;
     PlayerInventory inventory = new PlayerInventory();
     SceneItems allSceneItems = new SceneItems();
+    ItemHandler itemHandler;
 
     public Dictionary<string, GameObject> itemDictionary;
     public Dictionary<string, GameObject> allItemsDictionary;
@@ -43,6 +45,8 @@ public class ItemDatabase : MonoBehaviour
         itemDictionary = new Dictionary<string, GameObject>();
         allItemsDictionary = new Dictionary<string, GameObject>();
 
+        itemHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>();
+
         LoadItems();
     }
 
@@ -50,6 +54,7 @@ public class ItemDatabase : MonoBehaviour
     {
         AddToScene("bomb", 10);
         PoolItems();
+        itemHandler.SetItems(inventory.characterInventory);
     }
 
 

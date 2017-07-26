@@ -6,10 +6,9 @@ using UnityEngine.UI;
 public class Trade : MonoBehaviour
 {
 
-    public GameObject pInven;
-    public GameObject sInven;
+    public GameObject playerInventory;
+    public GameObject shopInventory;
     GameObject selectedObject;
-    ItemDatabase itemDatabase;
 
     public Text costText;
     public Text amountText;
@@ -18,20 +17,15 @@ public class Trade : MonoBehaviour
 
     public List<GameObject> shopSlots;
 
-    bool shopActive;
     bool empty;
-
     float cost;
     int itemAmount;
     TavernCamera tavernCamera;
-    TradeDrag tradeDrag;
 
 
     void Awake()
     {
         tavernCamera = Camera.main.GetComponent<TavernCamera>();
-        itemDatabase = Camera.main.GetComponent<ItemDatabase>();
-        tradeDrag = GetComponent<TradeDrag>();
     }
 
 
@@ -118,17 +112,14 @@ public class Trade : MonoBehaviour
     {
         if (tavernCamera.modeEnum == TavernCamera.Tavern.inShop)
         {
-            shopActive = true;
+            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(true);
         }
         else
         {
-            shopActive = false;
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 
-
-    public void SetItems()
-    {
-
-    }
 }

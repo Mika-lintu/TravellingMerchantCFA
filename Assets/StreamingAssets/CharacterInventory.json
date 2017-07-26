@@ -2,11 +2,11 @@
      "characterInventory": [
      {
         "id": "bomb",
-        "xOffset": 0,
-        "yOffset": 0,
-        "rotation": 0,
-        "value": 0,
-        "weight": 0,
+        "xOffset": 1,
+        "yOffset": 2,
+        "rotation": 45,
+        "value": 15,
+        "weight": 10,
         "quantity": 10,
         "location": "inventory"
      }
