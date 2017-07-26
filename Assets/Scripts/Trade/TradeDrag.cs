@@ -80,11 +80,13 @@ public class TradeDrag : MonoBehaviour
 
             {
                 dragTimer -= Time.deltaTime;
+
                 if (dragTimer <= 0f)
                 {
                     StopAllCoroutines();
                     StartCoroutine(Dragging());
                 }
+
             }
 
             else if (Input.GetMouseButtonUp(0))

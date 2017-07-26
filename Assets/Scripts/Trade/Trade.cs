@@ -6,21 +6,19 @@ using UnityEngine.UI;
 public class Trade : MonoBehaviour
 {
 
-    public GameObject playerInventory;
-    public GameObject shopInventory;
     GameObject selectedObject;
+    TavernCamera tavernCamera;
 
     public Text costText;
     public Text amountText;
-    public GameObject bubble;
-    public GameObject message;
-
+    public GameObject tradeInfo;
+    public GameObject errorMessage;
+    public GameObject infoCollider;
     public List<GameObject> shopSlots;
 
     bool empty;
     float cost;
     int itemAmount;
-    TavernCamera tavernCamera;
 
 
     void Awake()
@@ -29,7 +27,7 @@ public class Trade : MonoBehaviour
     }
 
 
-    void UpdateInfo()
+    void UpdateTradeInfo()
     {
         amountText.text = "" + itemAmount;
         costText.text = "" + cost;
@@ -39,31 +37,35 @@ public class Trade : MonoBehaviour
     public void GetShopItem(GameObject go)
     {
         selectedObject = go;
-        bubble.GetComponent<UIMovement>().SetPosition(selectedObject);
+        tradeInfo.GetComponent<UIMovement>().SetPosition(selectedObject);
+        SetBubbleCollider(go);
     }
 
 
-    public void AddItems()
+    public void AddItemsToCart()
     {
         itemAmount++;
         cost++;
-        UpdateInfo();
+        UpdateTradeInfo();
     }
 
 
-    public void RemoveItems()
+    public void RemoveItemsFromCart()
     {
+
         if (itemAmount >= 1)
         {
             itemAmount--;
             cost--;
-            UpdateInfo();
+            UpdateTradeInfo();
         }
+
     }
 
 
-    public void OnOK()
+    public void ConfirmTrade()
     {
+
         if (selectedObject.tag == "Item")
         {
             SellItem();
@@ -72,13 +74,15 @@ public class Trade : MonoBehaviour
         {
             BuyItem();
         }
+
         ResetTrade();
+
     }
 
 
-    //Player Buys item from shop
     void BuyItem()
     {
+
         if (Coins.amount >= (int)cost)
         {
             Coins.RemoveCoins(cost);
@@ -86,13 +90,12 @@ public class Trade : MonoBehaviour
         else
         {
             Debug.Log("You have no money");
-            message.SetActive(true);
-            //Tell player they don't have enough money
+            errorMessage.SetActive(true);
         }
+
     }
     
 
-    //player sells item to shop
     void SellItem()
     {
         Coins.AddCoins(cost);
@@ -103,8 +106,16 @@ public class Trade : MonoBehaviour
     {
         cost = 0f;
         itemAmount = 0;
-        UpdateInfo();
-        bubble.SetActive(false);
+        UpdateTradeInfo();
+        tradeInfo.SetActive(false);
+        infoCollider.SetActive(false);
+    }
+
+
+    void SetBubbleCollider(GameObject go)
+    {
+        infoCollider.SetActive(true);
+        infoCollider.transform.position = new Vector3(-0.65f, 0.9f, -1f) + go.transform.position;
     }
 
 
@@ -121,5 +132,6 @@ public class Trade : MonoBehaviour
             transform.GetChild(1).gameObject.SetActive(false);
         }
     }
+
 
 }
