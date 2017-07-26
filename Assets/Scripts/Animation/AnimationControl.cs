@@ -21,16 +21,25 @@ public class AnimationControl : MonoBehaviour
 
     AnimationStateControl animState;
 
+    EffectAnimation effect;
+    GameObject animChild;
    
     void Start()
     {
         skeletonAnimation = GetComponent<Spine.Unity.SkeletonAnimation>();
         Debug.Log(skeletonAnimation.AnimationName);
         animState = Camera.main.GetComponent<AnimationStateControl>();
+        animChild = transform.GetChild(0).gameObject;
+        effect = animChild.GetComponent<EffectAnimation>();
+        
     }
     
     void Update()
-    { 
+    {
+        if (Input.GetKey(KeyCode.N))
+        {
+            Hurt();
+        }
     }
 
 
@@ -46,7 +55,7 @@ public class AnimationControl : MonoBehaviour
 
     void UseAnimationOnce(string name)
     {
-        skeletonAnimation.state.SetAnimation(0, "Melee Attack", false);
+        skeletonAnimation.state.SetAnimation(0, name, false);
         skeletonAnimation.state.AddAnimation(0, walk, true, 0f);
        
     }
@@ -59,6 +68,12 @@ public class AnimationControl : MonoBehaviour
     public void Walk()
     {
         AnimationSet(walk);
+    }
+
+    void Hurt(){
+        UseAnimationOnce(hurt);
+        animChild.SetActive(true);
+        //effect.HealAnimation();
     }
    
 }
