@@ -18,19 +18,17 @@ public class AnimationControl : MonoBehaviour
     string currentAnimation;
 
     Spine.Unity.SkeletonAnimation skeletonAnimation;
-
     AnimationStateControl animState;
-
-    EffectAnimation effect;
-    GameObject animChild;
+    //EffectAnimation effect;
+    //GameObject animChild;
    
     void Start()
     {
         skeletonAnimation = GetComponent<Spine.Unity.SkeletonAnimation>();
         Debug.Log(skeletonAnimation.AnimationName);
         animState = Camera.main.GetComponent<AnimationStateControl>();
-        animChild = transform.GetChild(0).gameObject;
-        effect = animChild.GetComponent<EffectAnimation>();
+        //animChild = transform.GetChild(0).gameObject;
+        //effect = animChild.GetComponent<EffectAnimation>();
         
     }
     
@@ -70,9 +68,9 @@ public class AnimationControl : MonoBehaviour
         AnimationSet(walk);
     }
 
-    void Hurt(){
+    public void Hurt(){
         UseAnimationOnce(hurt);
-        animChild.SetActive(true);
+       // animChild.SetActive(true);
         //effect.HealAnimation();
     }
    

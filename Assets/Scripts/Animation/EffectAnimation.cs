@@ -9,39 +9,45 @@ public class EffectAnimation : MonoBehaviour {
     AnimatorClipInfo[] clipInfo;
     float time;
 
-    void Start () {
-       
+    void Awake () {
+        
         anim = GetComponent<Animator>();
         clipInfo = anim.GetCurrentAnimatorClipInfo(0);
-        time = clipInfo[0].clip.length;
-        Debug.Log(clipInfo[0].clip.length + " this was animation time");
-        //Destroy(gameObject, clipInfo[0].clip.length);
-        ResetEffect(time);
-    }
-	
-	
-	void Update () {
-      //if (Input.GetKey(KeyCode.N))
-        //{
-           // ImpactAnimation();
-        //}
+        
+        //ImpactAnimation();
     }
 
-    public void HealAnimation()
+    void OnEnable()
     {
-
-      //anim.Play(animName);
+        StartCoroutine(PlayAnimation());
     }
+
 
     public void ImpactAnimation()
     {
-
+        clipInfo = anim.GetCurrentAnimatorClipInfo(0);
+        Debug.Log(clipInfo[0].clip.length + " this was animation time");
+        Destroy(gameObject, clipInfo[0].clip.length);
         //anim.SetTrigger();
-        
+        ResetEffect();
     }
-    void ResetEffect(float thing)
-    {
-        gameObject.SetActive(false);
 
+    IEnumerator PlayAnimation()
+    {
+        float runTime = 0f;
+
+        while (runTime <= clipInfo[0].clip.length)
+        {
+            runTime += Time.deltaTime;
+            yield return null;
+        }
+        ResetEffect();
+    }
+
+
+    void ResetEffect()
+    {
+        this.gameObject.SetActive(false);
+        
     }
 }
