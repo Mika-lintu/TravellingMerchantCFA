@@ -95,6 +95,6 @@ public class TavernMovement : MonoBehaviour
         }
 
         playerAtShop = true;
-
+        tavernCamera.GoToShop();
     }
 }

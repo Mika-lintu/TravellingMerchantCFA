@@ -11,6 +11,7 @@ public class TavernCamera : MonoBehaviour {
     public float dampTime;
     public Transform player;
     public Transform target;
+    public Transform shop;
     public Vector3 offset;
     public bool zoomToPlayer;
     public UnityEvent gameMode;
@@ -23,6 +24,7 @@ public class TavernCamera : MonoBehaviour {
     {
         zoomToPlayer = false;
         cam = Camera.main;
+        target = player;
     }
 	
 	void Update () {
@@ -39,6 +41,7 @@ public class TavernCamera : MonoBehaviour {
 
     IEnumerator ZoomToShop(float zoom)
     {
+        target = shop;
         while (cam.orthographicSize > zoom)
         {
             cam.orthographicSize -= Time.deltaTime * 4;
@@ -51,6 +54,7 @@ public class TavernCamera : MonoBehaviour {
 
     IEnumerator ZoomBack(float zoom)
     {
+        target = player;
         while (cam.orthographicSize < zoom)
         {
             cam.orthographicSize += Time.deltaTime * 4;
@@ -64,7 +68,7 @@ public class TavernCamera : MonoBehaviour {
     public void GoToShop()
     {
         StopAllCoroutines();
-        StartCoroutine(ZoomToShop(4f));
+        StartCoroutine(ZoomToShop(3f));
         modeEnum = Tavern.inShop;
     }
 

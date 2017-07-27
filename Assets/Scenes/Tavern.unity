@@ -1672,7 +1672,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 729486582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.799998, y: 3.0333333, z: 0}
+  m_LocalPosition: {x: 15.5, y: 2.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 491283637}
@@ -1889,7 +1889,7 @@ RectTransform:
   m_GameObject: {fileID: 879902332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 652596165}
   - {fileID: 310358040}
@@ -1901,7 +1901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.639984, y: 37}
+  m_AnchoredPosition: {x: 89, y: 45}
   m_SizeDelta: {x: 149.6, y: 110}
   m_Pivot: {x: 0.9, y: 0}
 --- !u!114 &879902334
@@ -2239,6 +2239,7 @@ MonoBehaviour:
   dampTime: 0.15
   player: {fileID: 615258554}
   target: {fileID: 615258554}
+  shop: {fileID: 1084377885}
   offset: {x: 0, y: 1, z: 0}
   zoomToPlayer: 0
   gameMode:
@@ -2283,6 +2284,34 @@ MonoBehaviour:
   itemPrefabs: []
   inventory: {fileID: 2075314655}
   sceneItems: {fileID: 413062220}
+--- !u!1 &1084377884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1084377885}
+  m_Layer: 0
+  m_Name: Shop
+  m_TagString: Untagged
+  m_Icon: {fileID: -3701561207968579530, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1084377885
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1084377884}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.38, y: -0.41, z: -0.015625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1196445151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,9 +2397,13 @@ PolygonCollider2D:
     - - {x: -2.5871348, y: -0.19102915}
       - {x: -5.1605825, y: -0.91409934}
       - {x: -4.302462, y: -1.3038658}
-      - {x: -5.427519, y: -1.7847924}
+      - {x: -5.550963, y: -1.7354145}
       - {x: -3.2424657, y: -2.4000816}
-      - {x: -1.0291526, y: -1.4538236}
+      - {x: -1.164942, y: -1.4661682}
+      - {x: -0.563671, y: -1.6887182}
+      - {x: -0.6605175, y: -2.016866}
+      - {x: 0.049664933, y: -2.3313906}
+      - {x: 0.5184588, y: -2.2953014}
       - {x: 1.1297256, y: -2.3106005}
       - {x: 2.6646526, y: -1.8826711}
       - {x: 4.0152073, y: -2.4805524}
@@ -2382,7 +2415,7 @@ PolygonCollider2D:
       - {x: 3.001133, y: -1.0218285}
       - {x: 2.371106, y: -1.2537404}
       - {x: -0.5273597, y: -0.58628005}
-      - {x: -1.4435285, y: -0.23558639}
+      - {x: -1.1596059, y: -0.23558636}
       - {x: -1.8494167, y: -0.4187135}
 --- !u!1001 &1197049161
 Prefab:
@@ -3220,7 +3253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1849228369
 SpriteRenderer:
   m_ObjectHideFlags: 0
