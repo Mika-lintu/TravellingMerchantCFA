@@ -6,7 +6,7 @@ public class ZPosition : MonoBehaviour {
 
 	void Update () {
 
-        Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+        Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, transform.position.y - 1);
         transform.position = newPosition;
 	}
 }

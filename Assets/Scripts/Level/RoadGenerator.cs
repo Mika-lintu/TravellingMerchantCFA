@@ -5,7 +5,6 @@ using UnityEngine;
 public class RoadGenerator : MonoBehaviour {
 
     BezierSpline curve;
-    //RandomCurve randomCurve;
     GenerateWaypoints wayPoints;
     LineRenderer line;
     Vector3[] roadPoints;
@@ -19,7 +18,6 @@ public class RoadGenerator : MonoBehaviour {
     void Awake()
     {
         curve = GetComponent<BezierSpline>();
-        //randomCurve = GetComponent<RandomCurve>();
         wayPoints = GetComponent<GenerateWaypoints>();
         line = GetComponent<LineRenderer>();
         line.useWorldSpace = false;
@@ -30,11 +28,13 @@ public class RoadGenerator : MonoBehaviour {
         }
     }
 
+
     public void Reset()
     {
         curveLength = 0f;
         
     }
+
 
     public void DrawRoad()
     {
@@ -55,7 +55,7 @@ public class RoadGenerator : MonoBehaviour {
         curve = GetComponent<BezierSpline>();
         line = GetComponent<LineRenderer>();
         AnimationCurve lineCurve = new AnimationCurve();
-        float startW = Mathf.InverseLerp(7, -10, curve.GetPoint(0).y); //7, -10
+        float startW = Mathf.InverseLerp(7, -10, curve.GetPoint(0).y);
         float endW = Mathf.InverseLerp(7, -10, curve.GetPoint(1).y);
         lineCurve.AddKey(0, startW);
         lineCurve.AddKey(1, endW);
@@ -66,6 +66,7 @@ public class RoadGenerator : MonoBehaviour {
         float stepPrecision = 100f;
         float[] fractionStep = new float[(int)stepPrecision];
         Vector3 oldPoint = curve.GetPoint(0);
+
 
         for (int i = 0; i < fractionStep.Length; i++)
         {
@@ -83,6 +84,7 @@ public class RoadGenerator : MonoBehaviour {
         targetStepLength = curveLength / (line.numPositions);
         oldPoint = curve.GetPoint(0);
         line.material.SetTextureScale("_MainTex", new Vector2(targetStepLength * 10, 1));
+
 
         for (int i = -1; i < line.numPositions; i++)
         {

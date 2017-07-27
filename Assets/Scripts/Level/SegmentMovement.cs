@@ -36,7 +36,6 @@ public class SegmentMovement : MonoBehaviour
      */
     private void Awake()
     {
-        //manager = transform.GetComponentInChildren<SegmentManager01>();
         manager = GetComponent<JSONReader>();
         Camera cam = Camera.main;
         gameSpeed = cam.GetComponent<GameSpeed>();
@@ -44,7 +43,6 @@ public class SegmentMovement : MonoBehaviour
 
         Vector3 p1 = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
         Vector3 p2 = cam.ViewportToWorldPoint(new Vector3(1, 0, cam.nearClipPlane));
-        //screenWidth = (p1 - p2).magnitude;
         screenWidth = bgSprite.bounds.size.x;
     }
 
@@ -63,18 +61,15 @@ public class SegmentMovement : MonoBehaviour
             charactersWalk.Invoke();
             autorun = true;
             moving = true;
-            //gameSpeed.moving = true;
-
         }
         else if (Input.anyKeyDown && autorun)
         {
             autorun = false;
         }
 
-        
+
         if (Input.GetKeyDown("e"))
         {
-            //gameSpeed.moving = false;
             charactersStop.Invoke();
         }
 
@@ -86,7 +81,7 @@ public class SegmentMovement : MonoBehaviour
             }
 
             if (activeSegment.transform.position.x <= transform.position.x && autorun == false)
-                {
+            {
                 moving = false;
                 UpdateSegments();
             }
