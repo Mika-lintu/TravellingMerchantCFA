@@ -8,6 +8,7 @@ public class Trade : MonoBehaviour
 
     GameObject selectedObject;
     TavernCamera tavernCamera;
+    ItemHandler itemHandler;
 
     public Text costText;
     public Text amountText;
@@ -24,6 +25,7 @@ public class Trade : MonoBehaviour
     void Awake()
     {
         tavernCamera = Camera.main.GetComponent<TavernCamera>();
+        itemHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>();
     }
 
 
@@ -123,13 +125,15 @@ public class Trade : MonoBehaviour
     {
         if (tavernCamera.modeEnum == TavernCamera.Tavern.inShop)
         {
-            transform.GetChild(0).gameObject.SetActive(true);
-            transform.GetChild(1).gameObject.SetActive(true);
+            //transform.GetChild(0).gameObject.SetActive(true);
+            //transform.GetChild(1).gameObject.SetActive(true);
+            itemHandler.ShowItems();
         }
         else
         {
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(false);
+            //transform.GetChild(0).gameObject.SetActive(false);
+            //transform.GetChild(1).gameObject.SetActive(false);
+            itemHandler.HideItems();
         }
     }
 

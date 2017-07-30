@@ -4,6 +4,7 @@
         "id": "bomb",
         "xOffset": 0,
         "yOffset": 0,
+        "scale": 0,
         "rotation": 0,
         "value": 0,
         "weight": 0,

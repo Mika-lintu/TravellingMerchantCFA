@@ -103,7 +103,7 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public GameObject ReuseItem(string id, Vector3 position, Quaternion rotation, GameObject parent)
+    public GameObject ReuseItem(string id, Vector3 position, Quaternion rotation, float scale, GameObject parent)
     {
         string poolKey = id;
 
@@ -111,7 +111,7 @@ public class PoolManager : MonoBehaviour
         {
             ItemObjectInstance objectToReuse = itemDictionary[poolKey].Dequeue();
             itemDictionary[poolKey].Enqueue(objectToReuse);
-            objectToReuse.Reuse(position, rotation);
+            objectToReuse.Reuse(position, rotation, scale);
             objectToReuse.SetParent(parent.transform);
             return objectToReuse.gameObject;
         }
@@ -201,7 +201,7 @@ public class PoolManager : MonoBehaviour
             }
         }
 
-        public void Reuse(Vector3 position, Quaternion rotation)
+        public void Reuse(Vector3 position, Quaternion rotation, float scale)
         {
             if (hasPoolObjectComponent)
             {
@@ -211,6 +211,7 @@ public class PoolManager : MonoBehaviour
             gameObject.SetActive(true);
             transform.position = position;
             transform.rotation = rotation;
+            transform.localScale = new Vector3(scale, scale, 1);
         }
 
         public void SetParent(Transform parent)
