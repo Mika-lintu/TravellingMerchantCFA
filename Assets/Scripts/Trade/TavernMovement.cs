@@ -5,31 +5,54 @@ using UnityEngine;
 public class TavernMovement : MonoBehaviour
 {
 
+<<<<<<< HEAD
     //ADD IN CAMERA
 
 
-    public GameObject target;
-    public float moveSpeed;
-    bool onMove;
-    bool isFlipped;
-    Vector3 mousePos;
+=======
     TavernCamera tavernCamera;
+>>>>>>> UpdateThing
+    public GameObject target;
+    public GameObject shopPosition;
+    float movementSpeed = 2f;
+    float targetDistance;
+    bool playerAtShop = false;
+    bool isFlipped;
 
-    bool shopActive;
 
     void Awake()
     {
         tavernCamera = Camera.main.GetComponent<TavernCamera>();
     }
 
-    void Update()
+
+    public void MoveToPosition(Vector3 mousePos)
     {
+        target.transform.position = mousePos;
+        StopAllCoroutines();
+        StartCoroutine(MoveToTarget(target));
+    }
+
+
+    public void MovePlayerToShop()
+    {
+        StopAllCoroutines();
+
+        if (playerAtShop)
+        {
+            tavernCamera.GoToShop();
+        }
+        else
+        {
+            StartCoroutine(MoveToShop());
+        }
         
-        if (!shopActive && onMove)
-            {
-                MovePlayer();
-            }
-        if (target.transform.position.x < transform.position.x)
+    }
+
+
+    void FlipPlayer(GameObject newTarget)
+    {
+        if (newTarget.transform.position.x < transform.position.x)
         {
             if (!isFlipped)
             {
@@ -46,31 +69,38 @@ public class TavernMovement : MonoBehaviour
             }
         }
     }
-    
-    public void OnClick(Vector3 mousePos)
-    {
-            target.transform.position = mousePos;
-            onMove = true;
-    }
-    
 
-    void MovePlayer()
+
+    IEnumerator MoveToTarget(GameObject newTargetPosition)
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
-        
+        playerAtShop = false;
+        target = newTargetPosition;
+        targetDistance = Vector2.Distance(transform.position, target.transform.position);
+
+        while (targetDistance >= 0.1f)
+        {
+            targetDistance = Vector2.Distance(transform.position, target.transform.position);
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, movementSpeed * Time.deltaTime);
+            FlipPlayer(newTargetPosition);
+            yield return null;
+        }
+
     }
 
-    public void CheckGameMode()
+
+    IEnumerator MoveToShop()
     {
-        if (tavernCamera.modeEnum == TavernCamera.Tavern.inShop)
+        targetDistance = Vector2.Distance(transform.position, shopPosition.transform.position);
+
+        while (targetDistance >= 0.1f)
         {
-            shopActive = true;
-            onMove = false;
+            targetDistance = Vector2.Distance(transform.position, shopPosition.transform.position);
+            transform.position = Vector2.MoveTowards(transform.position, shopPosition.transform.position, movementSpeed * Time.deltaTime);
+            FlipPlayer(shopPosition);
+            yield return null;
         }
-        else
-        {
-            shopActive = false;
-            onMove = true;
-        }
+
+        playerAtShop = true;
+        tavernCamera.GoToShop();
     }
 }

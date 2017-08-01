@@ -109,7 +109,7 @@ public class FollowWaypoints : MonoBehaviour
 
     void SetZPosition()
     {
-        Vector3 newZ = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+        Vector3 newZ = new Vector3(transform.position.x, transform.position.y, transform.position.y - 1);
         transform.position = newZ;
     }
 

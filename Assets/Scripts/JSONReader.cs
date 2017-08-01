@@ -26,11 +26,11 @@ public class JSONReader : MonoBehaviour {
 
     void Awake()
     {
-        path = Application.streamingAssetsPath + "/level01.json";
+        path = Application.streamingAssetsPath + "/level02.json";
         jsonString = File.ReadAllText(path);
         JsonUtility.FromJsonOverwrite(jsonString, level);
 
-        propsPath = Application.streamingAssetsPath + "/level01Props.json";
+        propsPath = Application.streamingAssetsPath + "/level02Props.json";
         jsonStringProps = File.ReadAllText(propsPath);
         JsonUtility.FromJsonOverwrite(jsonStringProps, props);
 

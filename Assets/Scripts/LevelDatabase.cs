@@ -27,10 +27,10 @@ public class LevelDatabase : MonoBehaviour
     void Awake()
     {
         
-        path = Application.streamingAssetsPath + "/level01.json";
+        path = Application.streamingAssetsPath + "/level02.json";
         jsonString = File.ReadAllText(path);
 
-        propsPath = Application.streamingAssetsPath + "/level01Props.json";
+        propsPath = Application.streamingAssetsPath + "/level02Props.json";
         jsonStringProps = File.ReadAllText(propsPath);
 
         propHandler = GetComponent<PropHandler>();
@@ -42,6 +42,7 @@ public class LevelDatabase : MonoBehaviour
 
         JsonUtility.FromJsonOverwrite(jsonString, level);
         JsonUtility.FromJsonOverwrite(jsonStringProps, props);
+        //GenerateLevel(200);
         GetProps();
     }
 
@@ -188,7 +189,7 @@ public class LevelDatabase : MonoBehaviour
 
     private void GetRoadPoints()
     {
-        path = Application.streamingAssetsPath + "/level01.json";
+        path = Application.streamingAssetsPath + "/level02.json";
         jsonString = File.ReadAllText(path);
         JsonUtility.FromJsonOverwrite(jsonString, level);
         startPoint = level.levelSegments[segmentNumber].roadStart;
@@ -309,7 +310,7 @@ public class LevelDatabase : MonoBehaviour
 
     public void GetProps()
     {
-        propsPath = Application.streamingAssetsPath + "/level01Props.json";
+        propsPath = Application.streamingAssetsPath + "/level02Props.json";
         jsonStringProps = File.ReadAllText(propsPath);
         JsonUtility.FromJsonOverwrite(jsonStringProps, props);
         propHandler = GetComponent<PropHandler>();

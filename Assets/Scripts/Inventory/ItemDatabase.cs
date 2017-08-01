@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class ItemDatabase : MonoBehaviour
 {
@@ -9,16 +11,19 @@ public class ItemDatabase : MonoBehaviour
     string path;
     string jsonString;
 
-    string allItemsPath;
-    string allItemsJSONString;
+    string sceneItemsPath;
+    string sceneItemsJSONString;
 
-    JSONReader jsonReader;
+    //JSONReader jsonReader;
     PoolManager poolManager;
     PlayerInventory inventory = new PlayerInventory();
-    SceneItems allSceneItems = new SceneItems();
+    //SceneItems<Item> allSceneItems; //= new SceneItems();
+    //public Item[] allSceneItems;
+    //TestSceneItemThingy<SceneItems> testSceneItemThingy;// = new TestSceneItemThingy<SceneItems>();
+    ItemHandler itemHandler;
 
-    public Dictionary<string, GameObject> itemDictionary;
-    public Dictionary<string, GameObject> allItemsDictionary;
+    //public Dictionary<string, GameObject> itemDictionary;
+    //public Dictionary<string, GameObject> allItemsDictionary;
 
     public const string itemPath = "Items";
 
@@ -31,28 +36,48 @@ public class ItemDatabase : MonoBehaviour
         path = Application.streamingAssetsPath + "/CharacterInventory.json";
         jsonString = File.ReadAllText(path);
 
-        allItemsPath = Application.streamingAssetsPath + "/AllItems.json";
-        allItemsJSONString = File.ReadAllText(allItemsPath);
+        /*
+        sceneItemsPath = Application.streamingAssetsPath + "/sceneItems.json";
+        sceneItemsJSONString = File.ReadAllText(sceneItemsPath);
+        */
+
+        sceneItemsPath = Application.streamingAssetsPath + "/sceneItems.json";
+        sceneItemsJSONString = File.ReadAllText(sceneItemsPath);
 
         JsonUtility.FromJsonOverwrite(jsonString, inventory);
-        JsonUtility.FromJsonOverwrite(allItemsJSONString, allSceneItems);
+        //JsonUtility.FromJsonOverwrite(sceneItemsJSONString, allSceneItems);
+        //JsonUtility.FromJsonOverwrite(sceneItemsJSONString, allSceneItems);
+        
 
-        jsonReader = GetComponent<JSONReader>();
+        //jsonReader = GetComponent<JSONReader>();
         poolManager = GetComponent<PoolManager>();
 
-        itemDictionary = new Dictionary<string, GameObject>();
-        allItemsDictionary = new Dictionary<string, GameObject>();
+        //itemDictionary = new Dictionary<string, GameObject>();
+        //allItemsDictionary = new Dictionary<string, GameObject>();
 
-        LoadItems();
+        //LoadItems();
     }
 
     private void Start()
     {
-        AddToScene("bomb", 10);
-        PoolItems();
+        //AddToScene("bomb", 10, "level01");
+        //AddToScene("bomb", 15, "level69");
+        //allSceneItems = getAnotherJsonArray<Item>(sceneItemsJSONString);
+        //allSceneItems = JsonHelper.getJsonArray<Item>(sceneItemsPath);
+        string someString = "[ { \"id\": \"bomb1\" } ] ";
+        YouObject[] objects = JsonHelper.getJsonArray<YouObject>(someString);
+        Debug.Log(objects.Length);
+
+
+        if (SceneManager.GetActiveScene().name != "SceneItemEditor")
+        {
+            //PoolItems();
+            itemHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>();
+            itemHandler.SetItems(inventory.characterInventory);
+        }
     }
 
-
+/*
     void LoadItems()
     {
         GameObject[] allItems;
@@ -65,14 +90,15 @@ public class ItemDatabase : MonoBehaviour
         }
     }
 
-
+    /*
     void PoolItems()
     {
+
         for (int i = 0; i < inventory.characterInventory.Count; i++)
         {
             poolManager.CreateItemPool(itemDictionary[inventory.characterInventory[i].id], inventory.characterInventory[i].quantity, "inventory");
-            
         }
+
 
         for (int i = 0; i < allSceneItems.sceneItems.Count; i++)
         {
@@ -140,6 +166,19 @@ public class ItemDatabase : MonoBehaviour
     }
 
 
+    public void AddToScene(string id, int quantity, string sceneName)
+    {
+        Item newItem = new Item();
+        string location = "scene";
+        newItem = itemDictionary[id].GetComponent<ItemStats>().GetStats();
+        newItem.quantity = quantity;
+        newItem.itemLocation = location;
+        allSceneItems.sceneItems.Add(newItem);
+
+        UpdateSceneItems(sceneName);
+    }
+
+
     void UpdateInventory()
     {
 
@@ -165,13 +204,13 @@ public class ItemDatabase : MonoBehaviour
         stringStart = stringStart + "   ]\n\n}";
 
         File.WriteAllText(path, stringStart);
-
     }
 
 
     void UpdateSceneItems()
     {
-        string stringStart = "{\n     \"allItems\": [\n";
+        string sceneName = SceneManager.GetActiveScene().name;
+        string stringStart = "{\n     \"" + sceneName + "\": [\n";
 
 
         for (int i = 0; i < allSceneItems.sceneItems.Count; i++)
@@ -192,29 +231,70 @@ public class ItemDatabase : MonoBehaviour
 
         stringStart = stringStart + "   ]\n\n}";
 
-        File.WriteAllText(allItemsPath, stringStart);
+        File.WriteAllText(sceneItemsPath, stringStart);
+
     }
 
-}
 
-
-/*    public void RemoveFromInventory(int itemSlotNr)
+    void UpdateSceneItems(string sceneName)
     {
-        List<Item> tempList = new List<Item>();
-        for (int i = 0; i < inventory.characterInventory.Count; i++)
-        {
+        string stringStart = "{\n     \"" + sceneName + "\": [\n";
 
-            if (inventory.characterInventory[i].itemSlot != itemSlotNr)
+
+        for (int i = 0; i < allSceneItems.sceneItems.Count; i++)
+        {
+            string tempString = allSceneItems.sceneItems[i].GetString();
+            stringStart = stringStart + tempString;
+
+            if (i < allSceneItems.sceneItems.Count - 1)
             {
-                tempList.Add(inventory.characterInventory[i]);
+                stringStart = stringStart + ",\n";
+
+            }
+            else
+            {
+                stringStart = stringStart + "\n";
             }
         }
-        inventory.characterInventory = tempList;
-        UpdateInventory();
+
+        stringStart = stringStart + "   ]\n\n}";
+
+        File.WriteAllText(sceneItemsPath, stringStart);
+        //Debug.Log(JsonUtility.FromJson<List<Item>>(sceneItemsPath));
+        
+        
+    }
+    */
+
+    public void GetSceneItems(/*string sceneID*/)
+    {
+        //SceneItems testList = JsonUtility.FromJson<SceneItems>(sceneItemsPath);
+        //TestSceneItemThingy testy = JsonUtility.FromJson<TestSceneItemThingy>(sceneItemsPath);
+        //Debug.Log(testSceneItemThingy.sceneItems.Count);
+        //Debug.Log(inventory.characterInventory.Count);
     }
 
+    /*
+    public static List<SceneItems> getJsonArray<SceneItems>(string json)
+    {
+        string newJson = "{ \"testSceneItemThingy\": { \"sceneItems\": " + json + "}";
+        TestSceneItemThingy<SceneItems> wrapper = JsonUtility.FromJson<TestSceneItemThingy<SceneItems>>(newJson);
+        return wrapper.sceneItems;
+    }
+    */
+
+    public static Item[] getAnotherJsonArray<Item>(string json)
+    {
+        string newJson = "{ \"sceneItems\": " + json + "}";
+        SceneItems<Item> wrapper = JsonUtility.FromJson<SceneItems<Item>>(newJson);
+        return wrapper.sceneItems;
+    }
+
+
 }
-*/
+
+
+
 
 [System.Serializable]
 public class PlayerInventory
@@ -223,7 +303,43 @@ public class PlayerInventory
 }
 
 [System.Serializable]
-public class SceneItems
+public class SceneItems<Item>
 {
-    public List<Item> sceneItems;
+    public Item[] sceneItems { get; set; }
 }
+
+public class JsonHelper
+{
+    public static T[] getJsonArray<T>(string json)
+    {
+        string newJson = "{ \"array\": " + json + "}";
+        Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(newJson);
+        return wrapper.array;
+    }
+
+    [System.Serializable]
+    private class Wrapper<T>
+    {
+        public T[] array;
+    }
+}
+
+[System.Serializable]
+public class YouObject
+{
+    public string id;
+}
+
+/*
+[System.Serializable]
+public class TestSceneItemThingy<SceneItems>
+{
+
+    public List<SceneItems> sceneItems { get; set; }
+    //public SceneItems[] sceneItemsList { get; set; }
+    //public List<SceneItems> sceneItemsList;
+    /*public string sceneItem;
+    public List<Item> itemLists;
+    
+}
+*/

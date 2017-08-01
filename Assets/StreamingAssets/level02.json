@@ -2,701 +2,1401 @@
      "levelSegments": [
      {
         "segmentNumber": 0,
-        "roadStart": "1.228883",
-        "roadEnd": "1.516678",
+        "roadStart": "-2.657938",
+        "roadEnd": "-1.522095",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 1,
-        "roadStart": "1.516678",
-        "roadEnd": "-1.594563",
+        "roadStart": "-1.522095",
+        "roadEnd": "-2.356861",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 2,
-        "roadStart": "-1.594563",
-        "roadEnd": "-1.183134",
+        "roadStart": "-2.356861",
+        "roadEnd": "-2.980335",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 3,
-        "roadStart": "-1.183134",
-        "roadEnd": "-0.5091009",
+        "roadStart": "-2.980335",
+        "roadEnd": "-2.989998",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 4,
-        "roadStart": "-0.5091009",
-        "roadEnd": "1.264309",
+        "roadStart": "-2.989998",
+        "roadEnd": "-2.732244",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 5,
-        "roadStart": "1.264309",
-        "roadEnd": "2.402407",
+        "roadStart": "-2.732244",
+        "roadEnd": "-1.901696",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 6,
-        "roadStart": "2.402407",
-        "roadEnd": "-2.989843",
+        "roadStart": "-1.901696",
+        "roadEnd": "-0.1664262",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 7,
-        "roadStart": "-2.989843",
-        "roadEnd": "-2.756168",
+        "roadStart": "-0.1664262",
+        "roadEnd": "-1.667804",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 8,
-        "roadStart": "-2.756168",
-        "roadEnd": "-1.606009",
+        "roadStart": "-1.667804",
+        "roadEnd": "-0.6306791",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 9,
-        "roadStart": "-1.606009",
-        "roadEnd": "0.6501513",
+        "roadStart": "-0.6306791",
+        "roadEnd": "-2.664209",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 10,
-        "roadStart": "0.6501513",
-        "roadEnd": "-2.386883",
+        "roadStart": "-2.664209",
+        "roadEnd": "-0.06488502",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 11,
-        "roadStart": "-2.386883",
-        "roadEnd": "2.041804",
+        "roadStart": "-0.06488502",
+        "roadEnd": "-4.3071",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 12,
-        "roadStart": "2.041804",
-        "roadEnd": "-1.466164",
+        "roadStart": "-4.3071",
+        "roadEnd": "-1.793647",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 13,
-        "roadStart": "-1.466164",
-        "roadEnd": "-2.79656",
+        "roadStart": "-1.793647",
+        "roadEnd": "-0.8367887",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 14,
-        "roadStart": "-2.79656",
-        "roadEnd": "0.5623722",
+        "roadStart": "-0.8367887",
+        "roadEnd": "-0.225112",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 15,
-        "roadStart": "0.5623722",
-        "roadEnd": "2.84536",
+        "roadStart": "-0.225112",
+        "roadEnd": "-4.799433",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 16,
-        "roadStart": "2.84536",
-        "roadEnd": "1.061783",
+        "roadStart": "-4.799433",
+        "roadEnd": "-1.847709",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 17,
-        "roadStart": "1.061783",
-        "roadEnd": "-1.62891",
+        "roadStart": "-1.847709",
+        "roadEnd": "-2.254349",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 18,
-        "roadStart": "-1.62891",
-        "roadEnd": "0.3320999",
+        "roadStart": "-2.254349",
+        "roadEnd": "-0.8789346",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 19,
-        "roadStart": "0.3320999",
-        "roadEnd": "1.261268",
+        "roadStart": "-0.8789346",
+        "roadEnd": "-0.6241131",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 20,
-        "roadStart": "1.261268",
-        "roadEnd": "1.490383",
+        "roadStart": "-0.6241131",
+        "roadEnd": "-1.079552",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 21,
-        "roadStart": "1.490383",
-        "roadEnd": "2.266853",
+        "roadStart": "-1.079552",
+        "roadEnd": "-1.667683",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 22,
-        "roadStart": "2.266853",
-        "roadEnd": "2.112448",
+        "roadStart": "-1.667683",
+        "roadEnd": "-1.598872",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 23,
-        "roadStart": "2.112448",
-        "roadEnd": "-2.04957",
+        "roadStart": "-1.598872",
+        "roadEnd": "-2.017249",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 24,
-        "roadStart": "-2.04957",
-        "roadEnd": "-0.1244078",
+        "roadStart": "-2.017249",
+        "roadEnd": "-2.416196",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 25,
-        "roadStart": "-0.1244078",
-        "roadEnd": "-0.6649842",
+        "roadStart": "-2.416196",
+        "roadEnd": "-0.2435102",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 26,
-        "roadStart": "-0.6649842",
-        "roadEnd": "1.286972",
+        "roadStart": "-0.2435102",
+        "roadEnd": "-0.3534206",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 27,
-        "roadStart": "1.286972",
-        "roadEnd": "0.8638586",
+        "roadStart": "-0.3534206",
+        "roadEnd": "-2.535339",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 28,
-        "roadStart": "0.8638586",
-        "roadEnd": "1.845496",
+        "roadStart": "-2.535339",
+        "roadEnd": "-2.793039",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 29,
-        "roadStart": "1.845496",
-        "roadEnd": "1.514462",
+        "roadStart": "-2.793039",
+        "roadEnd": "-1.185745",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 30,
-        "roadStart": "1.514462",
-        "roadEnd": "2.972335",
+        "roadStart": "-1.185745",
+        "roadEnd": "1.220361",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 31,
-        "roadStart": "2.972335",
-        "roadEnd": "0.1275477",
+        "roadStart": "1.220361",
+        "roadEnd": "-1.78702",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 32,
-        "roadStart": "0.1275477",
-        "roadEnd": "-0.4206843",
+        "roadStart": "-1.78702",
+        "roadEnd": "-2.64819",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 33,
-        "roadStart": "-0.4206843",
-        "roadEnd": "0.379776",
+        "roadStart": "-2.64819",
+        "roadEnd": "-2.088037",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 34,
-        "roadStart": "0.379776",
-        "roadEnd": "-2.952728",
+        "roadStart": "-2.088037",
+        "roadEnd": "-1.027894",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 35,
-        "roadStart": "-2.952728",
-        "roadEnd": "-1.823284",
+        "roadStart": "-1.027894",
+        "roadEnd": "-2.380764",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 36,
-        "roadStart": "-1.823284",
-        "roadEnd": "0.6377354",
+        "roadStart": "-2.380764",
+        "roadEnd": "-0.133986",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 37,
-        "roadStart": "0.6377354",
-        "roadEnd": "-2.147511",
+        "roadStart": "-0.133986",
+        "roadEnd": "-6.680495",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 38,
-        "roadStart": "-2.147511",
-        "roadEnd": "2.854031",
+        "roadStart": "-6.680495",
+        "roadEnd": "-3.153473",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 39,
-        "roadStart": "2.854031",
-        "roadEnd": "-1.96089",
+        "roadStart": "-3.153473",
+        "roadEnd": "-0.08045959",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 40,
-        "roadStart": "-1.96089",
-        "roadEnd": "1.483567",
+        "roadStart": "-0.08045959",
+        "roadEnd": "-2.820591",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 41,
-        "roadStart": "1.483567",
-        "roadEnd": "1.179314",
+        "roadStart": "-2.820591",
+        "roadEnd": "-0.04792738",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 42,
-        "roadStart": "1.179314",
-        "roadEnd": "0.8795427",
+        "roadStart": "-0.04792738",
+        "roadEnd": "-2.86602",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 43,
-        "roadStart": "0.8795427",
-        "roadEnd": "-2.775986",
+        "roadStart": "-2.86602",
+        "roadEnd": "-2.645037",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 44,
-        "roadStart": "-2.775986",
-        "roadEnd": "1.551598",
+        "roadStart": "-2.645037",
+        "roadEnd": "-8.107389",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 45,
-        "roadStart": "1.551598",
-        "roadEnd": "-1.117475",
+        "roadStart": "-8.107389",
+        "roadEnd": "-1.976299",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 46,
-        "roadStart": "-1.117475",
-        "roadEnd": "-2.486291",
+        "roadStart": "-1.976299",
+        "roadEnd": "-1.235912",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 47,
-        "roadStart": "-2.486291",
-        "roadEnd": "2.684861",
+        "roadStart": "-1.235912",
+        "roadEnd": "-6.758631",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 48,
-        "roadStart": "2.684861",
-        "roadEnd": "-0.1767993",
+        "roadStart": "-6.758631",
+        "roadEnd": "-1.205999",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 49,
-        "roadStart": "-0.1767993",
-        "roadEnd": "-0.9966826",
+        "roadStart": "-1.205999",
+        "roadEnd": "-2.058281",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 50,
-        "roadStart": "-0.9966826",
-        "roadEnd": "-2.663362",
+        "roadStart": "-2.058281",
+        "roadEnd": "-1.161724",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 51,
-        "roadStart": "-2.663362",
-        "roadEnd": "-2.064254",
+        "roadStart": "-1.161724",
+        "roadEnd": "-0.08974266",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 52,
-        "roadStart": "-2.064254",
-        "roadEnd": "1.860354",
+        "roadStart": "-0.08974266",
+        "roadEnd": "-0.194603",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 53,
-        "roadStart": "1.860354",
-        "roadEnd": "2.370287",
+        "roadStart": "-0.194603",
+        "roadEnd": "-1.748732",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 54,
-        "roadStart": "2.370287",
-        "roadEnd": "-0.3658981",
+        "roadStart": "-1.748732",
+        "roadEnd": "-1.967277",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 55,
-        "roadStart": "-0.3658981",
-        "roadEnd": "1.223774",
+        "roadStart": "-1.967277",
+        "roadEnd": "-1.190064",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 56,
-        "roadStart": "1.223774",
-        "roadEnd": "0.3194566",
+        "roadStart": "-1.190064",
+        "roadEnd": "-6.608186",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 57,
-        "roadStart": "0.3194566",
-        "roadEnd": "-0.3576541",
+        "roadStart": "-6.608186",
+        "roadEnd": "0.2095146",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 58,
-        "roadStart": "-0.3576541",
-        "roadEnd": "2.131525",
+        "roadStart": "0.2095146",
+        "roadEnd": "-2.82906",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 59,
-        "roadStart": "2.131525",
-        "roadEnd": "1.478864",
+        "roadStart": "-2.82906",
+        "roadEnd": "-7.026675",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 60,
-        "roadStart": "1.478864",
-        "roadEnd": "-0.6182175",
+        "roadStart": "-7.026675",
+        "roadEnd": "-0.3944631",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 61,
-        "roadStart": "-0.6182175",
-        "roadEnd": "-0.8200655",
+        "roadStart": "-0.3944631",
+        "roadEnd": "-2.007641",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 62,
-        "roadStart": "-0.8200655",
-        "roadEnd": "-1.645652",
+        "roadStart": "-2.007641",
+        "roadEnd": "-6.065646",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 63,
-        "roadStart": "-1.645652",
-        "roadEnd": "-1.718275",
+        "roadStart": "-6.065646",
+        "roadEnd": "-1.81342",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 64,
-        "roadStart": "-1.718275",
-        "roadEnd": "-0.8956981",
+        "roadStart": "-1.81342",
+        "roadEnd": "-4.325017",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 65,
-        "roadStart": "-0.8956981",
-        "roadEnd": "0.1694136",
+        "roadStart": "-4.325017",
+        "roadEnd": "-2.300114",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 66,
-        "roadStart": "0.1694136",
-        "roadEnd": "-0.2028475",
+        "roadStart": "-2.300114",
+        "roadEnd": "-1.557476",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 67,
-        "roadStart": "-0.2028475",
-        "roadEnd": "1.439024",
+        "roadStart": "-1.557476",
+        "roadEnd": "-0.1247721",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 68,
-        "roadStart": "1.439024",
-        "roadEnd": "0.94285",
+        "roadStart": "-0.1247721",
+        "roadEnd": "-4.949417",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 69,
-        "roadStart": "0.94285",
-        "roadEnd": "0.4921694",
+        "roadStart": "-4.949417",
+        "roadEnd": "-7.396266",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 70,
-        "roadStart": "0.4921694",
-        "roadEnd": "-1.221272",
+        "roadStart": "-7.396266",
+        "roadEnd": "-1.970619",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 71,
-        "roadStart": "-1.221272",
-        "roadEnd": "-0.7082353",
+        "roadStart": "-1.970619",
+        "roadEnd": "-0.7180042",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 72,
-        "roadStart": "-0.7082353",
-        "roadEnd": "-2.980485",
+        "roadStart": "-0.7180042",
+        "roadEnd": "-2.399683",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 73,
-        "roadStart": "-2.980485",
-        "roadEnd": "2.980885",
+        "roadStart": "-2.399683",
+        "roadEnd": "-1.180328",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 74,
-        "roadStart": "2.980885",
-        "roadEnd": "0.3807526",
+        "roadStart": "-1.180328",
+        "roadEnd": "-1.106334",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 75,
-        "roadStart": "0.3807526",
-        "roadEnd": "-0.7562833",
+        "roadStart": "-1.106334",
+        "roadEnd": "-3.01606",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 76,
-        "roadStart": "-0.7562833",
-        "roadEnd": "-2.750322",
+        "roadStart": "-3.01606",
+        "roadEnd": "-2.499556",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 77,
-        "roadStart": "-2.750322",
-        "roadEnd": "-2.350896",
+        "roadStart": "-2.499556",
+        "roadEnd": "-4.038534",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 78,
-        "roadStart": "-2.350896",
-        "roadEnd": "0.4779129",
+        "roadStart": "-4.038534",
+        "roadEnd": "-2.035058",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 79,
-        "roadStart": "0.4779129",
-        "roadEnd": "-0.4985285",
+        "roadStart": "-2.035058",
+        "roadEnd": "-2.71035",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 80,
-        "roadStart": "-0.4985285",
-        "roadEnd": "-0.210772",
+        "roadStart": "-2.71035",
+        "roadEnd": "-7.844744",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 81,
-        "roadStart": "-0.210772",
-        "roadEnd": "1.958335",
+        "roadStart": "-7.844744",
+        "roadEnd": "-2.183174",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 82,
-        "roadStart": "1.958335",
-        "roadEnd": "1.541277",
+        "roadStart": "-2.183174",
+        "roadEnd": "-3.310812",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 83,
-        "roadStart": "1.541277",
-        "roadEnd": "-1.003426",
+        "roadStart": "-3.310812",
+        "roadEnd": "-4.091007",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 84,
-        "roadStart": "-1.003426",
-        "roadEnd": "1.62112",
+        "roadStart": "-4.091007",
+        "roadEnd": "-2.22256",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 85,
-        "roadStart": "1.62112",
-        "roadEnd": "0.6289754",
+        "roadStart": "-2.22256",
+        "roadEnd": "-5.75294",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 86,
-        "roadStart": "0.6289754",
-        "roadEnd": "0.1212907",
+        "roadStart": "-5.75294",
+        "roadEnd": "-1.129547",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 87,
-        "roadStart": "0.1212907",
-        "roadEnd": "2.519478",
+        "roadStart": "-1.129547",
+        "roadEnd": "1.775413",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 88,
-        "roadStart": "2.519478",
-        "roadEnd": "-0.9981356",
+        "roadStart": "1.775413",
+        "roadEnd": "0.05573082",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 89,
-        "roadStart": "-0.9981356",
-        "roadEnd": "-1.098745",
+        "roadStart": "0.05573082",
+        "roadEnd": "-1.439456",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 90,
-        "roadStart": "-1.098745",
-        "roadEnd": "0.994583",
+        "roadStart": "-1.439456",
+        "roadEnd": "-0.4379072",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 91,
-        "roadStart": "0.994583",
-        "roadEnd": "0.5007772",
+        "roadStart": "-0.4379072",
+        "roadEnd": "1.676679",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 92,
-        "roadStart": "0.5007772",
-        "roadEnd": "-0.03473091",
+        "roadStart": "1.676679",
+        "roadEnd": "-0.9241381",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 93,
-        "roadStart": "-0.03473091",
-        "roadEnd": "-2.081996",
+        "roadStart": "-0.9241381",
+        "roadEnd": "-0.313437",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 94,
-        "roadStart": "-2.081996",
-        "roadEnd": "1.742835",
+        "roadStart": "-0.313437",
+        "roadEnd": "-0.4893904",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 95,
-        "roadStart": "1.742835",
-        "roadEnd": "-0.8711762",
+        "roadStart": "-0.4893904",
+        "roadEnd": "-2.079646",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 96,
-        "roadStart": "-0.8711762",
-        "roadEnd": "-1.335201",
+        "roadStart": "-2.079646",
+        "roadEnd": "2.006917",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 97,
-        "roadStart": "-1.335201",
-        "roadEnd": "-1.190205",
+        "roadStart": "2.006917",
+        "roadEnd": "-2.549625",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 98,
-        "roadStart": "-1.190205",
-        "roadEnd": "-1.351339",
+        "roadStart": "-2.549625",
+        "roadEnd": "-2.883698",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 99,
-        "roadStart": "-1.351339",
-        "roadEnd": "2.675839",
+        "roadStart": "-2.883698",
+        "roadEnd": "-2.030123",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 100,
+        "roadStart": "-2.030123",
+        "roadEnd": "-0.6057196",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 101,
+        "roadStart": "-0.6057196",
+        "roadEnd": "1.917333",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 102,
+        "roadStart": "1.917333",
+        "roadEnd": "-1.170952",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 103,
+        "roadStart": "-1.170952",
+        "roadEnd": "-2.96498",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 104,
+        "roadStart": "-2.96498",
+        "roadEnd": "1.975709",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 105,
+        "roadStart": "1.975709",
+        "roadEnd": "-0.8630528",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 106,
+        "roadStart": "-0.8630528",
+        "roadEnd": "1.465",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 107,
+        "roadStart": "1.465",
+        "roadEnd": "0.774634",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 108,
+        "roadStart": "0.774634",
+        "roadEnd": "2.151801",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 109,
+        "roadStart": "2.151801",
+        "roadEnd": "-0.338016",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 110,
+        "roadStart": "-0.338016",
+        "roadEnd": "0.3048439",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 111,
+        "roadStart": "0.3048439",
+        "roadEnd": "-2.311882",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 112,
+        "roadStart": "-2.311882",
+        "roadEnd": "2.934232",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 113,
+        "roadStart": "2.934232",
+        "roadEnd": "0.5835938",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 114,
+        "roadStart": "0.5835938",
+        "roadEnd": "-1.64244",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 115,
+        "roadStart": "-1.64244",
+        "roadEnd": "-1.501226",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 116,
+        "roadStart": "-1.501226",
+        "roadEnd": "2.782033",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 117,
+        "roadStart": "2.782033",
+        "roadEnd": "-1.481544",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 118,
+        "roadStart": "-1.481544",
+        "roadEnd": "-1.944442",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 119,
+        "roadStart": "-1.944442",
+        "roadEnd": "-0.1712012",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 120,
+        "roadStart": "-0.1712012",
+        "roadEnd": "-2.372685",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 121,
+        "roadStart": "-2.372685",
+        "roadEnd": "1.257792",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 122,
+        "roadStart": "1.257792",
+        "roadEnd": "-1.945787",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 123,
+        "roadStart": "-1.945787",
+        "roadEnd": "-0.3831034",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 124,
+        "roadStart": "-0.3831034",
+        "roadEnd": "2.245937",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 125,
+        "roadStart": "2.245937",
+        "roadEnd": "-1.006799",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 126,
+        "roadStart": "-1.006799",
+        "roadEnd": "2.663342",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 127,
+        "roadStart": "2.663342",
+        "roadEnd": "-1.250665",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 128,
+        "roadStart": "-1.250665",
+        "roadEnd": "1.9201",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 129,
+        "roadStart": "1.9201",
+        "roadEnd": "-1.511861",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 130,
+        "roadStart": "-1.511861",
+        "roadEnd": "-1.468922",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 131,
+        "roadStart": "-1.468922",
+        "roadEnd": "1.489257",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 132,
+        "roadStart": "1.489257",
+        "roadEnd": "0.8962954",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 133,
+        "roadStart": "0.8962954",
+        "roadEnd": "-1.098263",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 134,
+        "roadStart": "-1.098263",
+        "roadEnd": "2.067036",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 135,
+        "roadStart": "2.067036",
+        "roadEnd": "-1.676536",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 136,
+        "roadStart": "-1.676536",
+        "roadEnd": "-2.357995",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 137,
+        "roadStart": "-2.357995",
+        "roadEnd": "0.07721663",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 138,
+        "roadStart": "0.07721663",
+        "roadEnd": "-2.148023",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 139,
+        "roadStart": "-2.148023",
+        "roadEnd": "-0.8992815",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 140,
+        "roadStart": "-0.8992815",
+        "roadEnd": "2.478091",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 141,
+        "roadStart": "2.478091",
+        "roadEnd": "0.4100914",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 142,
+        "roadStart": "0.4100914",
+        "roadEnd": "-2.59723",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 143,
+        "roadStart": "-2.59723",
+        "roadEnd": "-1.564249",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 144,
+        "roadStart": "-1.564249",
+        "roadEnd": "-0.1820278",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 145,
+        "roadStart": "-0.1820278",
+        "roadEnd": "-2.922306",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 146,
+        "roadStart": "-2.922306",
+        "roadEnd": "-2.612422",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 147,
+        "roadStart": "-2.612422",
+        "roadEnd": "-0.9340262",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 148,
+        "roadStart": "-0.9340262",
+        "roadEnd": "1.677845",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 149,
+        "roadStart": "1.677845",
+        "roadEnd": "1.181561",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 150,
+        "roadStart": "1.181561",
+        "roadEnd": "2.946974",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 151,
+        "roadStart": "2.946974",
+        "roadEnd": "1.46447",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 152,
+        "roadStart": "1.46447",
+        "roadEnd": "-1.570542",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 153,
+        "roadStart": "-1.570542",
+        "roadEnd": "-0.465333",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 154,
+        "roadStart": "-0.465333",
+        "roadEnd": "1.16695",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 155,
+        "roadStart": "1.16695",
+        "roadEnd": "-1.555637",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 156,
+        "roadStart": "-1.555637",
+        "roadEnd": "2.306311",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 157,
+        "roadStart": "2.306311",
+        "roadEnd": "0.1560879",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 158,
+        "roadStart": "0.1560879",
+        "roadEnd": "-0.4443102",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 159,
+        "roadStart": "-0.4443102",
+        "roadEnd": "2.038735",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 160,
+        "roadStart": "2.038735",
+        "roadEnd": "-0.002182484",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 161,
+        "roadStart": "-0.002182484",
+        "roadEnd": "1.702757",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 162,
+        "roadStart": "1.702757",
+        "roadEnd": "1.949694",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 163,
+        "roadStart": "1.949694",
+        "roadEnd": "0.6733737",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 164,
+        "roadStart": "0.6733737",
+        "roadEnd": "2.301254",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 165,
+        "roadStart": "2.301254",
+        "roadEnd": "0.4305401",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 166,
+        "roadStart": "0.4305401",
+        "roadEnd": "-1.169724",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 167,
+        "roadStart": "-1.169724",
+        "roadEnd": "-0.05590105",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 168,
+        "roadStart": "-0.05590105",
+        "roadEnd": "-2.189477",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 169,
+        "roadStart": "-2.189477",
+        "roadEnd": "0.2006388",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 170,
+        "roadStart": "0.2006388",
+        "roadEnd": "-2.186295",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 171,
+        "roadStart": "-2.186295",
+        "roadEnd": "-2.957768",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 172,
+        "roadStart": "-2.957768",
+        "roadEnd": "-2.873491",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 173,
+        "roadStart": "-2.873491",
+        "roadEnd": "2.325487",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 174,
+        "roadStart": "2.325487",
+        "roadEnd": "-0.6658397",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 175,
+        "roadStart": "-0.6658397",
+        "roadEnd": "1.368728",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 176,
+        "roadStart": "1.368728",
+        "roadEnd": "0.2030563",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 177,
+        "roadStart": "0.2030563",
+        "roadEnd": "0.5306964",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 178,
+        "roadStart": "0.5306964",
+        "roadEnd": "-0.4028702",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 179,
+        "roadStart": "-0.4028702",
+        "roadEnd": "1.340609",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 180,
+        "roadStart": "1.340609",
+        "roadEnd": "1.058297",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 181,
+        "roadStart": "1.058297",
+        "roadEnd": "-2.88706",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 182,
+        "roadStart": "-2.88706",
+        "roadEnd": "2.619064",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 183,
+        "roadStart": "2.619064",
+        "roadEnd": "1.985001",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 184,
+        "roadStart": "1.985001",
+        "roadEnd": "-2.005428",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 185,
+        "roadStart": "-2.005428",
+        "roadEnd": "0.7226167",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 186,
+        "roadStart": "0.7226167",
+        "roadEnd": "-2.458679",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 187,
+        "roadStart": "-2.458679",
+        "roadEnd": "-2.529706",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 188,
+        "roadStart": "-2.529706",
+        "roadEnd": "0.1658239",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 189,
+        "roadStart": "0.1658239",
+        "roadEnd": "2.365311",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 190,
+        "roadStart": "2.365311",
+        "roadEnd": "1.416472",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 191,
+        "roadStart": "1.416472",
+        "roadEnd": "2.273621",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 192,
+        "roadStart": "2.273621",
+        "roadEnd": "-0.4942255",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 193,
+        "roadStart": "-0.4942255",
+        "roadEnd": "-2.937188",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 194,
+        "roadStart": "-2.937188",
+        "roadEnd": "-0.8410025",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 195,
+        "roadStart": "-0.8410025",
+        "roadEnd": "-2.465331",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 196,
+        "roadStart": "-2.465331",
+        "roadEnd": "-1.480512",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 197,
+        "roadStart": "-1.480512",
+        "roadEnd": "1.887864",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 198,
+        "roadStart": "1.887864",
+        "roadEnd": "2.720819",
+        "groundLayer": 0,
+        "zoom": 10
+     },
+     {
+        "segmentNumber": 199,
+        "roadStart": "2.720819",
+        "roadEnd": "-2.827745",
         "groundLayer": 0,
         "zoom": 10
      }

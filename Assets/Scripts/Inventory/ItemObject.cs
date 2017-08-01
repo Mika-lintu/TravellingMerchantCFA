@@ -13,7 +13,6 @@ public class ItemObject : MonoBehaviour
     List<Component> colliderArray = new List<Component>();
     SpriteRenderer sRenderer;
     SpriteRenderer childRenderer;
-    public WorldList worldList;
     public int effect; //DAMAGE
     public bool parent; //IF THE OBJECT IS PARENT, ALL STACKED OBJECTS WILL BE ADDED AS CHILD OBJECTS
 

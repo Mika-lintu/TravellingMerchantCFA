@@ -70,6 +70,7 @@ MonoBehaviour:
   yOffset: 0
   spriteNumber: 0
   spriteList: []
+  rotation: 0
 --- !u!212 &212058852487110000
 SpriteRenderer:
   m_ObjectHideFlags: 1

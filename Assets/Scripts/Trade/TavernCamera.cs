@@ -5,12 +5,14 @@ using UnityEngine.Events;
 
 public class TavernCamera : MonoBehaviour {
 
+    Vector3 velocity = Vector3.zero;
+    Camera cam;
+
     public float dampTime;
     public Transform player;
     public Transform target;
+    public Transform shop;
     public Vector3 offset;
-    Vector3 velocity = Vector3.zero;
-    Camera cam;
     public bool zoomToPlayer;
     public UnityEvent gameMode;
 
@@ -22,23 +24,10 @@ public class TavernCamera : MonoBehaviour {
     {
         zoomToPlayer = false;
         cam = Camera.main;
+        target = player;
     }
 	
 	void Update () {
-
-        if (Input.GetKeyDown("a"))
-        {
-            if (!zoomToPlayer)
-            {
-                StopAllCoroutines();
-                StartCoroutine(ZoomToShop(2f));
-            }
-            else
-            {
-                StopAllCoroutines();
-                StartCoroutine(ZoomBack(5f));
-            }
-        }
 
 		if (target)
         {
@@ -52,6 +41,7 @@ public class TavernCamera : MonoBehaviour {
 
     IEnumerator ZoomToShop(float zoom)
     {
+        target = shop;
         while (cam.orthographicSize > zoom)
         {
             cam.orthographicSize -= Time.deltaTime * 4;
@@ -64,6 +54,7 @@ public class TavernCamera : MonoBehaviour {
 
     IEnumerator ZoomBack(float zoom)
     {
+        target = player;
         while (cam.orthographicSize < zoom)
         {
             cam.orthographicSize += Time.deltaTime * 4;
@@ -77,7 +68,7 @@ public class TavernCamera : MonoBehaviour {
     public void GoToShop()
     {
         StopAllCoroutines();
-        StartCoroutine(ZoomToShop(4f));
+        StartCoroutine(ZoomToShop(3f));
         modeEnum = Tavern.inShop;
     }
 
