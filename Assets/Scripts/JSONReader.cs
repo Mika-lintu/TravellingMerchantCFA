@@ -24,6 +24,7 @@ public class JSONReader : MonoBehaviour {
     float startPoint;
     float endPoint;
 
+
     void Awake()
     {
         path = Application.streamingAssetsPath + "/level02.json";
@@ -40,11 +41,13 @@ public class JSONReader : MonoBehaviour {
         camScript = Camera.main.GetComponent<CameraScript>();
     }
 
+
     void Start()
     {
         segMovement.SetSegmentsToMovementList(segments);
         StartSegments();
     }
+
 
     void StartSegments()
     {
@@ -67,6 +70,7 @@ public class JSONReader : MonoBehaviour {
         }
     }
 
+
     public void UpdateSegments(List<GameObject> segs)
     {
         float sP;
@@ -86,6 +90,7 @@ public class JSONReader : MonoBehaviour {
 
     }
 
+
     void GetSegmentPoints(int id, out float return1, out float return2, out int return3, out float return4)
     {
         float f1 = level.levelSegments[id].roadStart;
@@ -97,6 +102,7 @@ public class JSONReader : MonoBehaviour {
         return3 = bgLayer;
         return4 = camZoom;
     }
+
 
     void GetSegmentPoints(int id, out float return1, out float return2, out int return3)
     {

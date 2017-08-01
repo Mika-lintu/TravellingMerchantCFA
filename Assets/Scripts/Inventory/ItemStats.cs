@@ -24,9 +24,6 @@ public class ItemStats : MonoBehaviour {
         xOffset = newStats.xOffset;
         yOffset = newStats.yOffset;
         rotation = newStats.rotation;
-        scale = newStats.scale;
-        value = newStats.value;
-        weight = newStats.weight;
         quantity = newStats.quantity;
     }
 
@@ -37,9 +34,6 @@ public class ItemStats : MonoBehaviour {
         newItem.xOffset = xOffset;
         newItem.yOffset = yOffset;
         newItem.rotation = rotation;
-        newItem.scale = scale;
-        newItem.value = value;
-        newItem.weight = weight;
         newItem.quantity = quantity;
         newItem.itemLocation = itemLocation;
         return newItem;

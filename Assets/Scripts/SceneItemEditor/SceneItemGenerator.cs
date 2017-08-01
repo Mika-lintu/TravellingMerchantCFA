@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class SceneItemGenerator : MonoBehaviour
 {
-
-    public Dictionary<string, List<GameObject>> sceneItemStorage = new Dictionary<string, List<GameObject>>();
-    //public Dictionary<string, int> numberOfItemsInScene = new Dictionary<string, int>();
+    EditorJSONReader editorReader;
+    //public Dictionary<string, List<GameObject>> sceneItemStorage = new Dictionary<string, List<GameObject>>();
     [HideInInspector]
     public string levelName = "level01";
+    [HideInInspector]
+    public string levelItemsPath;
     [HideInInspector]
     public int numberOfItems;
     [HideInInspector]
     public List<string> levels;
-
+    GameObject[] allItems;
     public List<GameObject> levelItemList;
     [HideInInspector]
     public int currentLevel;
@@ -21,14 +22,18 @@ public class SceneItemGenerator : MonoBehaviour
     public const string itemPath = "Items";
 
 
-    public void GenerateSceneItems(string id, int quantity)
-    {
-
-    }
-
-
     public void Refresh()
     {
+
+#if UNITY_EDITOR
+
+        editorReader = GetComponent<EditorJSONReader>();
+
+#endif
+
+        levels = editorReader.GetLevelStrings();
+        
+        /*
         if (!sceneItemStorage.ContainsKey(levelName) || sceneItemStorage == null)
         {
             sceneItemStorage.Add(levelName, levelItemList);
@@ -37,20 +42,39 @@ public class SceneItemGenerator : MonoBehaviour
         {
             sceneItemStorage[levelName] = levelItemList;
         }
-        
-        
+        */
         levelName = levels[currentLevel];
         
         levelItemList.Clear();
-        levelItemList = sceneItemStorage[levelName];
-        /*
-        /*for (int i = 0; i < sceneItemStorage[levelName].Count; i++)
-        {
-            levelItemList.Add();
-        }
-        */
+        GetLevelItems();
+        //levelItemList = sceneItemStorage[levelName];
     }
 
+
+    public void GetLevelItems()
+    {
+#if UNITY_EDITOR
+
+        editorReader = GetComponent<EditorJSONReader>();
+
+#endif
+        Dictionary<string, List<GameObject>> newItemStorage = new Dictionary<string, List<GameObject>>();
+        List<string> itemStringList = new List<string>();
+        itemStringList = editorReader.GetLevelItems(levelName);
+        allItems = Resources.LoadAll<GameObject>("Items");
+
+        for (int i = 0; i < itemStringList.Count; i++)
+        {
+            for (int y = 0; y < allItems.Length; y++)
+            {
+                if (allItems[y].name == itemStringList[i])
+                {
+                    levelItemList.Add(allItems[y]);
+                }
+            }
+        }
+    }
+    
 
     public void LoadLevel(string loadLevel)
     {
@@ -65,6 +89,7 @@ public class SceneItemGenerator : MonoBehaviour
         Refresh();
 
     }
+    
 
     public void NextLevel()
     {
@@ -76,18 +101,31 @@ public class SceneItemGenerator : MonoBehaviour
         {
             currentLevel++;
         }
+
         Refresh();
     }
 
 
     public void AddScene(string newScene)
     {
+#if UNITY_EDITOR
+
+        editorReader = GetComponent<EditorJSONReader>();
+
+#endif
         levels.Add(newScene);
+        editorReader.WriteLevelStrings(levels);
     }
 
 
     public void RemoveSceneFromList(string sceneToRemove)
     {
+#if UNITY_EDITOR
+
+        editorReader = GetComponent<EditorJSONReader>();
+
+#endif
+
         int removeAt = 0;
         bool remove = false;
 
@@ -100,9 +138,30 @@ public class SceneItemGenerator : MonoBehaviour
             }
         }
 
-        if (remove) levels.RemoveAt(removeAt);
+        if (remove)
+        {
+            levels.RemoveAt(removeAt);
+            editorReader.WriteLevelStrings(levels);
+        }
+
+    }
+
+
+    public void SaveItemsToScene()
+    {
+        editorReader = GetComponent<EditorJSONReader>();
+        List<string> tempList = new List<string>();
+
+        for (int i = 0; i < levelItemList.Count; i++)
+        {
+            tempList.Add(levelItemList[i].name);
+        }
+
+        editorReader.SaveLevelItems(tempList, levelName);
 
     }
 
 
 }
+
+

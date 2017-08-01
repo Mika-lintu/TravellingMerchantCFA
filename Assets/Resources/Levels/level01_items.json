@@ -1,0 +1,22 @@
+{ 
+	 "levelItems": [
+		{
+		"itemName": "apple"
+		},
+		{
+		"itemName": "bomb"
+		},
+		{
+		"itemName": "pepper_jar"
+		},
+		{
+		"itemName": "poison_vial"
+		},
+		{
+		"itemName": "potion_health"
+		},
+		{
+		"itemName": "potion_strenght"
+		}
+	]
+}

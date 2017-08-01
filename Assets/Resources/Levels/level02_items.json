@@ -1,0 +1,13 @@
+{ 
+	 "levelItems": [
+		{
+		"itemName": "apple"
+		},
+		{
+		"itemName": "bomb"
+		},
+		{
+		"itemName": "pepper_jar"
+		}
+	]
+}

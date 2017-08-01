@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.Events;
 
 public class LevelDatabase : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class LevelDatabase : MonoBehaviour
 
     }
 
+
     void Start()
     {
 
@@ -45,6 +47,7 @@ public class LevelDatabase : MonoBehaviour
         //GenerateLevel(200);
         GetProps();
     }
+
 
     public void Refresh()
     {
@@ -58,12 +61,14 @@ public class LevelDatabase : MonoBehaviour
         road.DrawRoad();
     }
 
+
     public void NextSegment()
     {
         segmentNumber++;
         RefreshProps();
         Refresh();
     }
+
 
     public void PreviousSegment()
     {
@@ -76,6 +81,7 @@ public class LevelDatabase : MonoBehaviour
 
     }
 
+
     public void SaveChanges()
     {
         BezierSpline spline = GetComponent<BezierSpline>();
@@ -86,11 +92,13 @@ public class LevelDatabase : MonoBehaviour
         Refresh();
     }
 
+
     public void ChangeGroundLayer()
     {
         SpriteChanger groundSprite = GameObject.FindGameObjectWithTag("Background").GetComponent<SpriteChanger>();
         newGroundLayer = groundSprite.NextSprite();
     }
+
 
     public void ResetActiveProps()
     {
@@ -102,6 +110,7 @@ public class LevelDatabase : MonoBehaviour
         }
 
     }
+
 
     void GenerateLevel(int size)
     {
@@ -196,6 +205,7 @@ public class LevelDatabase : MonoBehaviour
         endPoint = level.levelSegments[segmentNumber].roadEnd;
     }
 
+
     private void AddRandomProps(int size)
     {
         for (int i = 0; i < size; i++)
@@ -205,6 +215,7 @@ public class LevelDatabase : MonoBehaviour
 
         WritePropsToDatabase();
     }
+
 
     private void GetSegmentPoints(int id, out float return1, out float return2, out int sprite)
     {
@@ -216,6 +227,7 @@ public class LevelDatabase : MonoBehaviour
         return2 = f2;
         sprite = s1;
     }
+
 
     private void UpdateSegments(float sp, float ep, int id)
     {
@@ -241,18 +253,6 @@ public class LevelDatabase : MonoBehaviour
         WriteToDatabase();
     }
 
-    /*public void AddProp(int segNum)
-    {
-        for (int i = 0; i < props.levelProps.Count; i++)
-        {
-
-        }
-
-        props.levelProps.Add(new Prop());
-        props.levelProps[props.levelProps.Count - 1].segmentNumber = segNum;
-
-    }
-    */
 
     public void UpdateProps()
     {
@@ -295,6 +295,7 @@ public class LevelDatabase : MonoBehaviour
 
     }
 
+
     public void RefreshProps()
     {
         GameObject[] propList = GameObject.FindGameObjectsWithTag("Prop");
@@ -307,6 +308,7 @@ public class LevelDatabase : MonoBehaviour
         GetProps();
 
     }
+
 
     public void GetProps()
     {
@@ -327,15 +329,5 @@ public class LevelDatabase : MonoBehaviour
     }
 }
 
-[System.Serializable]
-public class GameLevel
-{
-    public List<Level> levelSegments;
-}
 
-[System.Serializable]
-public class LevelProps
-{
-    public List<Prop> levelProps;
-}
 

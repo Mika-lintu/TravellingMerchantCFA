@@ -11,18 +11,13 @@ public class Item
     public float xOffset;
     public float yOffset;
     public float rotation;
-    public float scale;
-    [Range(0.1f, 3000f)]
-    public float value;
-    [Range(0.1f, 50f)]
-    public float weight;
     [Range(0, 15)]
     public int quantity;
     public string itemLocation;
 
     public string GetString()
     {
-        return "     {\n        \"id\": \"" + id + "\",\n        \"xOffset\": " + xOffset + ",\n        \"yOffset\": " + yOffset + ",\n        \"scale\": " + scale + ",\n        \"rotation\": " + rotation + ",\n        \"value\": " + value + ",\n        \"weight\": " + weight + ",\n        \"quantity\": " + quantity + ",\n        \"location\": \"" + itemLocation + "\"\n     }";
+        return "     {\n        \"id\": \"" + id + "\",\n        \"xOffset\": " + xOffset + ",\n        \"yOffset\": " + yOffset + ",\n        \"rotation\": " + rotation + ",\n        \"quantity\": " + quantity + ",\n        \"location\": \"" + itemLocation + "\"\n     }";
     }
 
 }

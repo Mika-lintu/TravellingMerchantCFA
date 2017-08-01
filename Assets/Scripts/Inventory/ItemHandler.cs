@@ -36,7 +36,7 @@ public class ItemHandler : MonoBehaviour {
             Vector3 newPosition = new Vector3(transform.position.x + itemList[i].xOffset, transform.position.y + itemList[i].yOffset, 0);
             Quaternion newRotation = Quaternion.identity;
             newRotation.eulerAngles = new Vector3(0, 0, itemList[i].rotation);
-            newItem = poolManager.ReuseItem(itemList[i].id, newPosition, newRotation, itemList[i].scale, gameObject);
+            newItem = poolManager.ReuseItem(itemList[i].id, newPosition, newRotation, gameObject);
             newItem.GetComponent<ItemStats>().SetStats(itemList[i]);
             newItem.SetActive(false);
             items.Add(newItem);

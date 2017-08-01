@@ -1,0 +1,10 @@
+{ 
+	 "levelItems": [
+		{
+		"itemName": "potion_strenght"
+		},
+		{
+		"itemName": "poison_vial"
+		}
+	]
+}
