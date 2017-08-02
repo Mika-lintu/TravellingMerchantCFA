@@ -12,6 +12,7 @@ public class SceneItemEditor : Editor
     bool showLevels = false;
     bool showItems = false;
     string sceneName;
+    public int sceneInt;
     string levelsPath = "Assets/Resources/Levels/";
 
     private void OnSceneGUI()
@@ -35,7 +36,9 @@ public class SceneItemEditor : Editor
     {
         
         EditorGUILayout.LabelField(itemEditor.levelName);
+        EditorGUILayout.IntField("Items In Scene: ", sceneInt);
         showLevels = EditorGUILayout.Foldout(showLevels, "Levels");
+        
 
         if (showLevels)
         {
@@ -56,6 +59,8 @@ public class SceneItemEditor : Editor
 
         EditorGUILayout.LabelField("Scene Name:");
         sceneName = EditorGUILayout.TextField(sceneName);
+
+        
 
         if (GUILayout.Button("Add New Scene"))
         {
@@ -78,18 +83,23 @@ public class SceneItemEditor : Editor
 
         if (GUILayout.Button("Next Level"))
         {
+            sceneInt = itemEditor.itemsInScene;
             itemEditor.NextLevel();
+            
         }
 
         if (GUILayout.Button("Save Items"))
         {
-            itemEditor.SaveItemsToScene();
-            EditorUtility.DisplayDialog("", "Item data saved saved: " + itemEditor.levelName, "Cool");
+
+            itemEditor.SaveItemsToScene(sceneInt);
+            EditorUtility.DisplayDialog("", "Item data saved: " + itemEditor.levelName, "Cool");
         }
 
         if (GUILayout.Button("Refresh"))
         {
+            sceneInt = itemEditor.itemsInScene;
             itemEditor.Refresh();
+            
         }
 
         showItems = EditorGUILayout.Foldout(showItems, "Items");

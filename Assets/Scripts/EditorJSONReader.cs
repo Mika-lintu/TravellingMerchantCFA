@@ -31,7 +31,6 @@ public class EditorJSONReader : MonoBehaviour
         List<string> newList = new List<string>();
         LevelStringsList levelStrings = new LevelStringsList();
         jsonString = File.ReadAllText(levelListPath);
-
         JsonUtility.FromJsonOverwrite(jsonString, levelStrings);
 
         for (int i = 0; i < levelStrings.listOfLevels.Count; i++)
@@ -63,25 +62,28 @@ public class EditorJSONReader : MonoBehaviour
     }
 
 
-    public List<string> GetLevelItems(string levelName)
+    public void GetLevelItems(string levelName, out List<string> return1, out int return2)
     {
         List<string> newList = new List<string>();
+        int sceneInt;
         LevelItems levelItems = new LevelItems();
         jsonString = File.ReadAllText(levelItemsList + levelName + "_items.json");
         JsonUtility.FromJsonOverwrite(jsonString, levelItems);
+        sceneInt = levelItems.itemsInScene;
 
         for (int i = 0; i < levelItems.levelItems.Count; i++)
         {
             newList.Add(levelItems.levelItems[i].itemName);
         }
 
-        return newList;
+        return1 = newList;
+        return2 = sceneInt;
     }
 
 
-    public void SaveLevelItems(List<string> newItemList, string levelName)
+    public void SaveLevelItems(List<string> newItemList, string levelName, int quantity)
     {
-        string stringToJSON = "{ \n\t \"levelItems\": [\n";
+        string stringToJSON = "{ \n\t \"itemsInScene\": " + quantity + ", \n\t \"levelItems\": [\n";
 
         for (int i = 0; i < newItemList.Count; i++)
         {
@@ -147,6 +149,7 @@ public class SceneItem
 [System.Serializable]
 public class LevelItems
 {
+    public int itemsInScene;
     public List<SceneItem> levelItems;
 }
 

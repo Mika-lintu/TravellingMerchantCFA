@@ -5,7 +5,6 @@ using UnityEngine;
 public class SceneItemGenerator : MonoBehaviour
 {
     EditorJSONReader editorReader;
-    //public Dictionary<string, List<GameObject>> sceneItemStorage = new Dictionary<string, List<GameObject>>();
     [HideInInspector]
     public string levelName = "level01";
     [HideInInspector]
@@ -19,7 +18,15 @@ public class SceneItemGenerator : MonoBehaviour
     [HideInInspector]
     public int currentLevel;
 
+    public int itemsInScene;
+
     public const string itemPath = "Items";
+
+
+    void Awake()
+    {
+        editorReader = GetComponent<EditorJSONReader>();
+    }
 
 
     public void Refresh()
@@ -32,22 +39,9 @@ public class SceneItemGenerator : MonoBehaviour
 #endif
 
         levels = editorReader.GetLevelStrings();
-        
-        /*
-        if (!sceneItemStorage.ContainsKey(levelName) || sceneItemStorage == null)
-        {
-            sceneItemStorage.Add(levelName, levelItemList);
-        }
-        else
-        {
-            sceneItemStorage[levelName] = levelItemList;
-        }
-        */
         levelName = levels[currentLevel];
-        
         levelItemList.Clear();
         GetLevelItems();
-        //levelItemList = sceneItemStorage[levelName];
     }
 
 
@@ -58,9 +52,8 @@ public class SceneItemGenerator : MonoBehaviour
         editorReader = GetComponent<EditorJSONReader>();
 
 #endif
-        Dictionary<string, List<GameObject>> newItemStorage = new Dictionary<string, List<GameObject>>();
-        List<string> itemStringList = new List<string>();
-        itemStringList = editorReader.GetLevelItems(levelName);
+        List<string> itemStringList;
+        editorReader.GetLevelItems(levelName, out itemStringList, out itemsInScene);
         allItems = Resources.LoadAll<GameObject>("Items");
 
         for (int i = 0; i < itemStringList.Count; i++)
@@ -73,8 +66,9 @@ public class SceneItemGenerator : MonoBehaviour
                 }
             }
         }
+        Debug.Log(itemsInScene);
     }
-    
+
 
     public void LoadLevel(string loadLevel)
     {
@@ -89,7 +83,7 @@ public class SceneItemGenerator : MonoBehaviour
         Refresh();
 
     }
-    
+
 
     public void NextLevel()
     {
@@ -147,17 +141,19 @@ public class SceneItemGenerator : MonoBehaviour
     }
 
 
-    public void SaveItemsToScene()
+    public void SaveItemsToScene(int newInt)
     {
+        itemsInScene = newInt;
         editorReader = GetComponent<EditorJSONReader>();
         List<string> tempList = new List<string>();
+
 
         for (int i = 0; i < levelItemList.Count; i++)
         {
             tempList.Add(levelItemList[i].name);
         }
 
-        editorReader.SaveLevelItems(tempList, levelName);
+        editorReader.SaveLevelItems(tempList, levelName, itemsInScene);
 
     }
 

@@ -19,13 +19,6 @@ public class ItemHandler : MonoBehaviour {
         //StartCoroutine(SetupItems());
     }
 
-    public void GetItems()
-    {
-
-    }
-
-
-
     public void SetItems(List<Item> newItemList)
     {
         itemList = newItemList;

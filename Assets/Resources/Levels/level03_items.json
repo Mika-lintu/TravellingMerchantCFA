@@ -1,4 +1,5 @@
 { 
+	 "itemsInScene": 8, 
 	 "levelItems": [
 		{
 		"itemName": "potion_strenght"

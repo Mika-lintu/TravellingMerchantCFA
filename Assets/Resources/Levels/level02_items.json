@@ -1,4 +1,5 @@
 { 
+	 "itemsInScene": 2, 
 	 "levelItems": [
 		{
 		"itemName": "apple"
