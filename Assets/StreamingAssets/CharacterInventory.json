@@ -7,7 +7,16 @@
       "rotation": 45,
       "quantity": 10,
       "location": "inventory"
+    },
+     {
+      "id": "apple",
+      "xOffset": -1.4,
+      "yOffset": 1.4,
+      "rotation": 45,
+      "quantity": 10,
+      "location": "inventory"
     }
+
   ]
 
 }

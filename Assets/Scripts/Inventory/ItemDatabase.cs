@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class ItemDatabase : MonoBehaviour
 {
     public string sceneName;
+    string levelItemsList = "Assets/Resources/Levels/";
 
     string path;
     string jsonString;
@@ -19,10 +20,10 @@ public class ItemDatabase : MonoBehaviour
     PlayerInventory inventory = new PlayerInventory();
     LevelItems allSceneItems = new LevelItems();
     ItemHandler itemHandler;
-    SceneItemGenerator itemGenerator;
 
     public Dictionary<string, GameObject> itemDictionary;
-    public Dictionary<string, GameObject> allItemsDictionary;
+    public List<GameObject> sceneItemsList;
+    Dictionary<GameObject, int> newSceneItems;
 
     public const string itemPath = "Items";
 
@@ -35,18 +36,16 @@ public class ItemDatabase : MonoBehaviour
         path = Application.streamingAssetsPath + "/CharacterInventory.json";
         jsonString = File.ReadAllText(path);
 
-        sceneItemsPath = Application.streamingAssetsPath + "/" + sceneName + "_items.json";
-        sceneItemsJSONString = File.ReadAllText(sceneItemsPath);
+        sceneItemsJSONString = File.ReadAllText(levelItemsList + "level01_items.json");
 
         JsonUtility.FromJsonOverwrite(jsonString, inventory);
         JsonUtility.FromJsonOverwrite(sceneItemsJSONString, allSceneItems);
 
         poolManager = GetComponent<PoolManager>();
-        itemGenerator = GetComponent<SceneItemGenerator>();
 
         itemDictionary = new Dictionary<string, GameObject>();
-        allItemsDictionary = new Dictionary<string, GameObject>();
-
+        sceneItemsList = new List<GameObject>();
+        
 
     }
 
@@ -56,7 +55,7 @@ public class ItemDatabase : MonoBehaviour
         itemHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>();
         PoolItems();
         itemHandler.SetItems(inventory.characterInventory);
-        
+        itemHandler.SetShopItems(newSceneItems);
     }
 
 
@@ -69,7 +68,17 @@ public class ItemDatabase : MonoBehaviour
         for (int i = 0; i < allItems.Length; i++)
         {
             itemDictionary.Add(allItems[i].name, allItems[i]);
+
+            for (int y = 0; y < allSceneItems.levelItems.Count; y++)
+            {
+                if (allSceneItems.levelItems[y].itemName == allItems[i].name)
+                {
+                    sceneItemsList.Add(allItems[i]);
+                }
+            }
+
         }
+
     }
 
 
@@ -81,12 +90,38 @@ public class ItemDatabase : MonoBehaviour
             poolManager.CreateItemPool(itemDictionary[inventory.characterInventory[i].id], inventory.characterInventory[i].quantity, "inventory");
         }
 
-        //TÄHÄN VÄLIIN PÄTKÄ JOSSA ARVOTAAN SCENE ITEMIT
-        for (int i = 0; i < allSceneItems.levelItems.Count; i++)
+        newSceneItems = PickRandomItems();
+
+        foreach (KeyValuePair<GameObject, int> item in newSceneItems)
         {
-            //poolManager.CreateItemPool(itemDictionary[allSceneItems.levelItems[i].itemName], allSceneItems.levelItems[i].quantity, "scene");
+            poolManager.CreateItemPool(item.Key, item.Value, "scene");
         }
     }
+
+    Dictionary<GameObject, int> PickRandomItems()
+    {
+        Dictionary<GameObject, int> newSceneItems = new Dictionary<GameObject, int>();
+        int itemCount = 3;
+
+        for (int i = 0; i < itemCount; i++)
+        {
+            bool itemDoesntHaveDuplicate = false;
+            GameObject tempObject = null;
+            ItemStats tempStats = null;
+            while (!itemDoesntHaveDuplicate)
+            {
+                tempObject = sceneItemsList[Random.Range(0, sceneItemsList.Count - 1)];
+                tempStats = tempObject.GetComponent<ItemStats>();
+                if (!newSceneItems.ContainsKey(tempObject)) itemDoesntHaveDuplicate = true;
+            }
+
+            newSceneItems.Add(tempObject, Random.Range(tempStats.minQuantity, tempStats.maxQuantity));
+        }
+
+        return newSceneItems;
+    }
+
+
 
 
     public void AddToInventory(string id, int quantity)
@@ -142,7 +177,6 @@ public class ItemDatabase : MonoBehaviour
         newItem = itemDictionary[id].GetComponent<ItemStats>().GetStats();
         newItem.quantity = quantity;
         newItem.itemLocation = location;
-        //allSceneItems.levelItems.Add(id);
 
         UpdateSceneItems();
     }
@@ -155,7 +189,6 @@ public class ItemDatabase : MonoBehaviour
         newItem = itemDictionary[id].GetComponent<ItemStats>().GetStats();
         newItem.quantity = quantity;
         newItem.itemLocation = location;
-        //allSceneItems.levelItems.Add(id);
 
         UpdateSceneItems(sceneName);
     }
@@ -197,7 +230,7 @@ public class ItemDatabase : MonoBehaviour
 
         for (int i = 0; i < allSceneItems.levelItems.Count; i++)
         {
-            string tempString = "";//allSceneItems.levelItems[i];
+            string tempString = "";
             stringStart = stringStart + tempString;
 
             if (i < allSceneItems.levelItems.Count - 1)
@@ -242,11 +275,6 @@ public class ItemDatabase : MonoBehaviour
         stringStart = stringStart + "   ]\n\n}";
 
         File.WriteAllText(sceneItemsPath, stringStart);
-
-    }
-
-    void GetRandomSceneItems()
-    {
 
     }
 

@@ -106,7 +106,7 @@ Prefab:
     - target: {fileID: 114295618887818864, guid: 9961e18acaa551441b7eeb565ea3737d,
         type: 2}
       propertyPath: levelItemList.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4289234573479232, guid: 9961e18acaa551441b7eeb565ea3737d, type: 2}
       propertyPath: m_LocalPosition.x
@@ -155,7 +155,7 @@ Prefab:
         type: 2}
       propertyPath: levelItemList.Array.data[1]
       value: 
-      objectReference: {fileID: 1288934534644842, guid: 49d4db4386b973046a6017e824ee6e05,
+      objectReference: {fileID: 1978252013936780, guid: 7d7e276f15884f5418cf7acc2c1df7d7,
         type: 2}
     - target: {fileID: 114295618887818864, guid: 9961e18acaa551441b7eeb565ea3737d,
         type: 2}
@@ -166,7 +166,7 @@ Prefab:
         type: 2}
       propertyPath: levelItemList.Array.data[2]
       value: 
-      objectReference: {fileID: 1978252013936780, guid: 7d7e276f15884f5418cf7acc2c1df7d7,
+      objectReference: {fileID: 1785107870955030, guid: 4959a1d62ea0c234bbc2f5be2af58467,
         type: 2}
     - target: {fileID: 114295618887818864, guid: 9961e18acaa551441b7eeb565ea3737d,
         type: 2}
@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 
+  sceneItemsList: []
 --- !u!114 &433053318
 MonoBehaviour:
   m_ObjectHideFlags: 0
