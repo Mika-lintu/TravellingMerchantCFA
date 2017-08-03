@@ -7,6 +7,7 @@ public class TavernCamera : MonoBehaviour {
 
     Vector3 velocity = Vector3.zero;
     Camera cam;
+    QuantUIList uiQuantity = new QuantUIList();
 
     public float dampTime;
     public Transform player;
@@ -17,14 +18,17 @@ public class TavernCamera : MonoBehaviour {
     public UnityEvent gameMode;
 
 
+
     public enum Tavern { tavern, inShop, }
     public Tavern modeEnum;
 
     void Awake()
     {
+        uiQuantity = GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>();
         zoomToPlayer = false;
         cam = Camera.main;
         target = player;
+        
     }
 	
 	void Update () {
@@ -50,10 +54,12 @@ public class TavernCamera : MonoBehaviour {
         }
         zoomToPlayer = true;
         gameMode.Invoke();
+        uiQuantity.ActivateUIs();
     }
 
     IEnumerator ZoomBack(float zoom)
     {
+        uiQuantity.DeactivateUIs();
         target = player;
         while (cam.orthographicSize < zoom)
         {

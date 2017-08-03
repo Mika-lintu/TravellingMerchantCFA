@@ -5,7 +5,7 @@ using UnityEngine;
 public class QuantUIList : MonoBehaviour
 {
     public List<GameObject> quantText;
-
+    List<GameObject> assignedQuantText = new List<GameObject>();
     List<GameObject> itemsInScene;
 
     void Awake()
@@ -68,9 +68,28 @@ public class QuantUIList : MonoBehaviour
                     go.GetComponent<ItemStats>().quantUI = quantText[i];
                     quantText[i].SetActive(true);
                     quantText[i].GetComponent<QuantUI>().SetQuantityText(go);
+                    assignedQuantText.Add(quantText[i]);
                     break;
                 }
             }
+        }
+    }
+
+
+    public void ActivateUIs()
+    {
+        for (int i = 0; i < assignedQuantText.Count; i++)
+        {
+            assignedQuantText[i].SetActive(true);
+        }
+    }
+
+
+    public void DeactivateUIs()
+    {
+        for (int i = 0; i < assignedQuantText.Count; i++)
+        {
+            assignedQuantText[i].SetActive(false);
         }
     }
 }
