@@ -1,6 +1,10 @@
 fileFormatVersion: 2
 guid: 0e6a44fe821712d4fb6ebc0fe38dcf8d
+<<<<<<< HEAD
+timeCreated: 1500893512
+=======
 timeCreated: 1500964318
+>>>>>>> UpdateThing
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}

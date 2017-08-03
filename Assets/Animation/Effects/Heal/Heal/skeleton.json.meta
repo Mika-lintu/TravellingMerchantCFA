@@ -1,6 +1,10 @@
 fileFormatVersion: 2
 guid: ff5374aade16941439b39357757604dd
+<<<<<<< HEAD
+timeCreated: 1500893511
+=======
 timeCreated: 1500537887
+>>>>>>> UpdateThing
 licenseType: Pro
 TextScriptImporter:
   userData: 

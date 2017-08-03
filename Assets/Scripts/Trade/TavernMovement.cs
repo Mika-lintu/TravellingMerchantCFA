@@ -5,7 +5,10 @@ using UnityEngine;
 public class TavernMovement : MonoBehaviour
 {
 
+    //ADD IN CAMERA
+
     TavernCamera tavernCamera;
+
     public GameObject target;
     public GameObject shopPosition;
     float movementSpeed = 2f;

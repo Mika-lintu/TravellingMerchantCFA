@@ -20,8 +20,12 @@ public class ItemStats : MonoBehaviour {
     [Range(0, 15)]
     public int quantity;
     public string itemLocation;
+<<<<<<< HEAD
     public int minQuantity;
     public int maxQuantity;
+=======
+    public GameObject quantUI;
+>>>>>>> Animations
 
     public void SetStats(Item newStats)
     {
@@ -42,5 +46,6 @@ public class ItemStats : MonoBehaviour {
         newItem.itemLocation = itemLocation;
         return newItem;
     }
+
 
 }

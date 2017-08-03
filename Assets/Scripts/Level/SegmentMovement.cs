@@ -70,6 +70,7 @@ public class SegmentMovement : MonoBehaviour
 
         if (Input.GetKeyDown("e"))
         {
+
             charactersStop.Invoke();
         }
 
