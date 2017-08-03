@@ -101,7 +101,7 @@ public class ItemDatabase : MonoBehaviour
     Dictionary<GameObject, int> PickRandomItems()
     {
         Dictionary<GameObject, int> newSceneItems = new Dictionary<GameObject, int>();
-        int itemCount = 3;
+        int itemCount = 6;
 
         for (int i = 0; i < itemCount; i++)
         {

@@ -36,7 +36,6 @@ public class ItemHandler : MonoBehaviour {
             newItem.GetComponent<ItemStats>().SetStats(itemList[i]);
             newItem.SetActive(false);
             items.Add(newItem);
-            Debug.Log("ItemHandler is not a lie");
         }
     }
 

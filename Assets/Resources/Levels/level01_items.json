@@ -17,6 +17,15 @@
 		},
 		{
 		"itemName": "potion_strenght"
+		},
+		{
+		"itemName": "flour"
+		},
+		{
+		"itemName": "sausage"
+		},
+		{
+		"itemName": "voodoo"
 		}
 	]
 }
