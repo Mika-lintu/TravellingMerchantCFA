@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: apple
+  itemName: Apple
   xOffset: 0
   yOffset: 0
   rotation: 0
@@ -127,12 +128,13 @@ MonoBehaviour:
   rarity: 0
   itemType: 0
   effectValue: 15
-  value: 0
+  value: 3
   weight: 0
   quantity: 0
   itemLocation: 
   minQuantity: 3
   maxQuantity: 10
+  quantUI: {fileID: 0}
 --- !u!212 &212442174793072508
 SpriteRenderer:
   m_ObjectHideFlags: 1

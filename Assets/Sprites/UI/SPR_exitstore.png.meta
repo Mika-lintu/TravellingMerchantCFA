@@ -1,13 +1,11 @@
 fileFormatVersion: 2
-guid: 750fa23aca67cc6448b189ad6afc2f53
-timeCreated: 1501755397
+guid: 6c3c6e7e186d9e64d939a952b32d63b9
+timeCreated: 1501765783
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SPR_buttons_2_0
-    21300002: SPR_buttons_2_1
-    21300004: SPR_buttons_2_2
-    21300006: SPR_buttons_2_3
+    21300000: SPR_exitstore_0
+    21300002: SPR_exitstore_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -130,52 +128,26 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPR_buttons_2_0
+      name: SPR_exitstore_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 293
-        width: 214
-        height: 214
+        x: 1
+        y: 271
+        width: 239
+        height: 241
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SPR_buttons_2_1
+      name: SPR_exitstore_1
       rect:
         serializedVersion: 2
-        x: 271
-        y: 295
-        width: 211
-        height: 211
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SPR_buttons_2_2
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 17
-        width: 214
-        height: 214
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SPR_buttons_2_3
-      rect:
-        serializedVersion: 2
-        x: 271
-        y: 18
-        width: 211
-        height: 211
+        x: 0
+        y: 0
+        width: 241
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

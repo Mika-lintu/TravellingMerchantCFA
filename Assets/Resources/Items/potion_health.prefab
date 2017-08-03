@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: potion_health
+  itemName: Potion of health
   xOffset: 0
   yOffset: 0
   rotation: 0
@@ -142,12 +143,13 @@ MonoBehaviour:
   rarity: 0
   itemType: 0
   effectValue: 30
-  value: 0
+  value: 21
   weight: 0
   quantity: 0
   itemLocation: 
   minQuantity: 6
   maxQuantity: 16
+  quantUI: {fileID: 0}
 --- !u!212 &212264163347767430
 SpriteRenderer:
   m_ObjectHideFlags: 1

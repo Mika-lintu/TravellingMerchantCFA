@@ -153,19 +153,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: poison_vial
+  itemName: Poison vial
   xOffset: 0
   yOffset: 0
   rotation: 0
   scale: 0
   rarity: 0
-  itemType: 1
-  effectValue: 15
-  value: 0
+  itemType: 0
+  effectValue: 0
+  value: 11
   weight: 0
   quantity: 0
   itemLocation: 
-  minQuantity: 3
-  maxQuantity: 6
+  minQuantity: 0
+  maxQuantity: 0
+  quantUI: {fileID: 0}
 --- !u!212 &212470009195764498
 SpriteRenderer:
   m_ObjectHideFlags: 1

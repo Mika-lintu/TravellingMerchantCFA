@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: flour
+  itemName: Flour
   xOffset: 0
   yOffset: 0
   rotation: 0
@@ -127,12 +128,13 @@ MonoBehaviour:
   rarity: 0
   itemType: 1
   effectValue: 10
-  value: 0
+  value: 7
   weight: 0
   quantity: 0
   itemLocation: 
   minQuantity: 3
   maxQuantity: 10
+  quantUI: {fileID: 0}
 --- !u!212 &212316228457936456
 SpriteRenderer:
   m_ObjectHideFlags: 1

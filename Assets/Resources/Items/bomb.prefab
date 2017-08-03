@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: bomb
+  itemName: Bomb
   xOffset: 0
   yOffset: 0
   rotation: 0
@@ -127,12 +128,13 @@ MonoBehaviour:
   rarity: 0
   itemType: 1
   effectValue: 30
-  value: 0
+  value: 9
   weight: 0
   quantity: 0
   itemLocation: 
   minQuantity: 5
   maxQuantity: 8
+  quantUI: {fileID: 0}
 --- !u!212 &212377160790603870
 SpriteRenderer:
   m_ObjectHideFlags: 1

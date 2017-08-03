@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemStats : MonoBehaviour {
 
     public string id;
+    public string itemName;
     public float xOffset;
     public float yOffset;
     public float rotation;

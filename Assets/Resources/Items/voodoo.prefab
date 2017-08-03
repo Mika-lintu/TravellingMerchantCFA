@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: voodoo
+  itemName: Voodoo Doll
   xOffset: 0
   yOffset: 0
   rotation: 0
@@ -157,12 +158,13 @@ MonoBehaviour:
   rarity: 0
   itemType: 1
   effectValue: 30
-  value: 0
+  value: 100
   weight: 0
   quantity: 0
   itemLocation: 
   minQuantity: 1
   maxQuantity: 2
+  quantUI: {fileID: 0}
 --- !u!212 &212321200438337206
 SpriteRenderer:
   m_ObjectHideFlags: 1

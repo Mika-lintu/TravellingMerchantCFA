@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: sausage
+  itemName: Sausage
   xOffset: 0
   yOffset: 0
   rotation: 0
@@ -200,12 +201,13 @@ MonoBehaviour:
   rarity: 0
   itemType: 0
   effectValue: 10
-  value: 0
-  weight: 0
+  value: 1
+  weight: 0.1
   quantity: 0
   itemLocation: 
   minQuantity: 5
   maxQuantity: 12
+  quantUI: {fileID: 0}
 --- !u!212 &212571795241541518
 SpriteRenderer:
   m_ObjectHideFlags: 1
