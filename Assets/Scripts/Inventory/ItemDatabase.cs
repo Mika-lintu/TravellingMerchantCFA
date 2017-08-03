@@ -96,6 +96,8 @@ public class ItemDatabase : MonoBehaviour
         {
             poolManager.CreateItemPool(item.Key, item.Value, "scene");
         }
+
+        
     }
 
     Dictionary<GameObject, int> PickRandomItems()

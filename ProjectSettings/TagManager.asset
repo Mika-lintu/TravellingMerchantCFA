@@ -14,7 +14,7 @@ TagManager:
   - editorRoadSprite
   - Background
   - PropListHandler
-  - Fire
+  - UIItemQuantity
   - waypoint
   - LevelSegment
   - Ground
