@@ -18,8 +18,6 @@ public class SceneItemGenerator : MonoBehaviour
     [HideInInspector]
     public int currentLevel;
 
-    public int itemsInScene;
-
     public const string itemPath = "Items";
 
 
@@ -35,7 +33,6 @@ public class SceneItemGenerator : MonoBehaviour
 #if UNITY_EDITOR
 
         editorReader = GetComponent<EditorJSONReader>();
-
 #endif
 
         levels = editorReader.GetLevelStrings();
@@ -50,10 +47,10 @@ public class SceneItemGenerator : MonoBehaviour
 #if UNITY_EDITOR
 
         editorReader = GetComponent<EditorJSONReader>();
-
 #endif
+
         List<string> itemStringList;
-        editorReader.GetLevelItems(levelName, out itemStringList, out itemsInScene);
+        editorReader.GetLevelItems(levelName, out itemStringList);
         allItems = Resources.LoadAll<GameObject>("Items");
 
         for (int i = 0; i < itemStringList.Count; i++)
@@ -66,7 +63,7 @@ public class SceneItemGenerator : MonoBehaviour
                 }
             }
         }
-        Debug.Log(itemsInScene);
+
     }
 
 
@@ -141,19 +138,17 @@ public class SceneItemGenerator : MonoBehaviour
     }
 
 
-    public void SaveItemsToScene(int newInt)
+    public void SaveItemsToScene()
     {
-        itemsInScene = newInt;
         editorReader = GetComponent<EditorJSONReader>();
         List<string> tempList = new List<string>();
-
 
         for (int i = 0; i < levelItemList.Count; i++)
         {
             tempList.Add(levelItemList[i].name);
         }
 
-        editorReader.SaveLevelItems(tempList, levelName, itemsInScene);
+        editorReader.SaveLevelItems(tempList, levelName);
 
     }
 

@@ -10,7 +10,9 @@ public class ItemStats : MonoBehaviour {
     public float rotation;
     public float scale;
     public int rarity;
-    public string type;
+    public enum Type { Healing, Damaging, Weapon };
+    public Type itemType;
+    public float effectValue;
     [Range(0.1f, 3000f)]
     public float value;
     [Range(0.1f, 50f)]
@@ -18,6 +20,8 @@ public class ItemStats : MonoBehaviour {
     [Range(0, 15)]
     public int quantity;
     public string itemLocation;
+    public int minQuantity;
+    public int maxQuantity;
 
     public void SetStats(Item newStats)
     {

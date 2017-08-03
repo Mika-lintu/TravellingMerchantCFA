@@ -52,10 +52,12 @@ public class PoolManager : MonoBehaviour
         }
     }
 
+
     public void CreateItemPool(GameObject prefab, int poolSize, string location)
     {
         string poolKey = prefab.name;
         GameObject poolHolder = null;
+
         if (location == "inventory")
         {
             poolHolder = inventory;
@@ -63,10 +65,20 @@ public class PoolManager : MonoBehaviour
         else
         {
             poolHolder = sceneItems;
-            poolHolder.transform.parent = transform;
+            //poolHolder.transform.parent = transform;
         }
 
+        if (!itemDictionary.ContainsKey(poolKey)) itemDictionary.Add(poolKey, new Queue<ItemObjectInstance>());
 
+        for (int i = 0; i < poolSize; i++)
+        {
+            ItemObjectInstance newObject = new ItemObjectInstance(Instantiate(prefab) as GameObject, location);
+            itemDictionary[poolKey].Enqueue(newObject);
+            newObject.SetParent(poolHolder.transform);
+        }
+
+        #region
+        /*
         if (!itemDictionary.ContainsKey(poolKey))
         {
             itemDictionary.Add(poolKey, new Queue<ItemObjectInstance>());
@@ -83,11 +95,12 @@ public class PoolManager : MonoBehaviour
             for (int i = 0; i < poolSize; i++)
             {
                 ItemObjectInstance newObject = new ItemObjectInstance(Instantiate(prefab) as GameObject, location);
-
                 itemDictionary[poolKey].Enqueue(newObject);
                 newObject.SetParent(poolHolder.transform);
             }
         }
+        */
+        #endregion
     }
 
 
