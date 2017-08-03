@@ -12,10 +12,5 @@ public class UIMovement : MonoBehaviour {
         targetItem = go;
         transform.position = Camera.main.WorldToScreenPoint((Vector3.up * yOffset * xOffset) + targetItem.transform.position);
     }
-<<<<<<< HEAD
 
-
-=======
-    //Lintu just making sure he wont mess things upp
->>>>>>> UpdateThing
 }

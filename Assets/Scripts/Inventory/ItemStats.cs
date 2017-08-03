@@ -18,6 +18,7 @@ public class ItemStats : MonoBehaviour {
     [Range(0, 15)]
     public int quantity;
     public string itemLocation;
+    public GameObject quantUI;
 
     public void SetStats(Item newStats)
     {

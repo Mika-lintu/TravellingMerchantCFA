@@ -6,45 +6,49 @@ using UnityEngine.UI;
 public class QuantUI : MonoBehaviour
 {
     
-    GameObject targetItem;
+    public GameObject targetItem;
     Text quantityText;
     int itemQuant;
-    public float yOffset;
-    
-
+    Rigidbody2D rig;
 
     void Awake()
     {
         quantityText = GetComponent<Text>();
-        itemQuant = targetItem.GetComponent<ItemStats>().quantity;
     }
-
+    void Start()
+    {
+        rig = targetItem.GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
-        if (Input.GetKey(KeyCode.L))
+        if(rig.simulated == true)
         {
-            UpdatePosition();
-        }
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            UpdateQuantity();
+            UpdatePosition(targetItem);
         }
     }
+
     public void SetQuantityText(GameObject go)
     {
         targetItem = go;
-        UpdatePosition();
-        UpdateQuantity();
+        UpdatePosition(targetItem);
+        UpdateQuantity(targetItem);
     }
    
-    void UpdatePosition()
+    void UpdatePosition(GameObject go)
     {
-        transform.position = Camera.main.WorldToScreenPoint((Vector3.up) + targetItem.transform.position);
+        transform.position = Camera.main.WorldToScreenPoint((Vector3.up * 0) + go.transform.position);
     }
 
-    void UpdateQuantity()
+    void UpdateQuantity(GameObject go)
     {
+        itemQuant = go.GetComponent<ItemStats>().quantity;
         quantityText.text = "" + itemQuant;
+    }
+
+    void HideQuantityUI()
+    {
+        //Hide Quantity UI when dragging 
+        //And show it again when not
     }
 
 }

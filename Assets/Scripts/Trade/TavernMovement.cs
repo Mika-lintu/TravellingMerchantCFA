@@ -5,13 +5,10 @@ using UnityEngine;
 public class TavernMovement : MonoBehaviour
 {
 
-<<<<<<< HEAD
     //ADD IN CAMERA
 
-
-=======
     TavernCamera tavernCamera;
->>>>>>> UpdateThing
+
     public GameObject target;
     public GameObject shopPosition;
     float movementSpeed = 2f;

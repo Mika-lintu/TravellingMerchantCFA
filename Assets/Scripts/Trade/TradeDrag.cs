@@ -33,7 +33,6 @@ public class TradeDrag : MonoBehaviour
     {
         if (!shopActive) MovementRaycast();
         else CheckShopInput();
-
     }
 
 

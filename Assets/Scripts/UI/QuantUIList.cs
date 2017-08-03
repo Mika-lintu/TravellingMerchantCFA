@@ -2,21 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuantUIList : MonoBehaviour {
-
+public class QuantUIList : MonoBehaviour
+{
     public List<GameObject> quantText;
 
-    void SetQuant()
-    {
+    List<GameObject> itemsInScene;
 
-        for (int i = 0; i < quantText.Count; i++)
+    void Awake()
+    {
+        itemsInScene = new List<GameObject>();
+    }
+
+    void Start()
+    {
+        MakeItemList();
+        GetItem();
+    }
+
+    void MakeItemList()
+    {
+        GameObject[] tempList = GameObject.FindGameObjectsWithTag("Item");
+        for (int i = 0; i < tempList.Length; i++)
         {
-            if (!quantText[i].activeInHierarchy)
-            {
-                quantText[i].SetActive(true);
-                //quantText[i].GetComponent<QuantUI>().SetQuantityText(???ITEM???);
-            }
+            itemsInScene.Add(tempList[i]);
         }
     }
 
+    void GetItem()
+    {
+        for (int i = 0; i < itemsInScene.Count; i++)
+        {
+            SetUIToItem(itemsInScene[i]);
+        }
+    }
+
+    void SetUIToItem(GameObject go)
+    {
+        if (go.GetComponent<ItemStats>().quantUI == null)
+        {
+            for (int i = 0; i < quantText.Count; i++)
+            {
+                if (quantText[i].GetComponent<QuantUI>().targetItem == null)
+                {
+
+                    go.GetComponent<ItemStats>().quantUI = quantText[i];
+                    quantText[i].SetActive(true);
+                    quantText[i].GetComponent<QuantUI>().SetQuantityText(go);
+                    break;
+                }
+            }
+        }
+    }
 }
