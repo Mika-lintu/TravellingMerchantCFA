@@ -16,9 +16,13 @@ public class TradeDrag : MonoBehaviour
     bool dragging = false;
     float dragTimer = 0.25f;
 
+    
     public GameObject bubble;
+    public GameObject exitButton;
     public GameObject anchor;
     public UnityEvent deselect;
+    
+
 
 
     void Awake()
@@ -198,10 +202,12 @@ public class TradeDrag : MonoBehaviour
         if (tavernCamera.modeEnum == TavernCamera.Tavern.inShop)
         {
             shopActive = true;
+            exitButton.SetActive(true);
         }
         else
         {
             shopActive = false;
+            exitButton.SetActive(false);
         }
     }
 }

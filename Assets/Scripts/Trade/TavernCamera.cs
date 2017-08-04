@@ -10,11 +10,13 @@ public class TavernCamera : MonoBehaviour {
     QuantUIList uiQuantity = new QuantUIList();
 
     public float dampTime;
+    public bool zoomToPlayer;
     public Transform player;
     public Transform target;
     public Transform shop;
     public Vector3 offset;
-    public bool zoomToPlayer;
+    
+
     public UnityEvent gameMode;
 
 
@@ -55,6 +57,7 @@ public class TavernCamera : MonoBehaviour {
         zoomToPlayer = true;
         gameMode.Invoke();
         uiQuantity.ActivateUIs();
+        
     }
 
     IEnumerator ZoomBack(float zoom)
@@ -69,6 +72,7 @@ public class TavernCamera : MonoBehaviour {
         }
         zoomToPlayer = false;
         gameMode.Invoke();
+       
     }
 
     public void GoToShop()
