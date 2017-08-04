@@ -84,7 +84,7 @@ public class TradeDrag : MonoBehaviour
             {
                 dragTimer -= Time.deltaTime;
 
-                if (dragTimer <= 0f)
+                if (dragTimer <= 0f && selectedObject != null)
                 {
                     StopAllCoroutines();
                     StartCoroutine(Dragging());

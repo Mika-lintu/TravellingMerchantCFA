@@ -109,7 +109,6 @@ public class JSONReader : MonoBehaviour {
         float f1 = level.levelSegments[id].roadStart;
         float f2 = level.levelSegments[id].roadEnd;
         int bgLayer = level.levelSegments[id].groundLayer;
-        float camZoom = level.levelSegments[id].zoom;
         return1 = f1;
         return2 = f2;
         return3 = bgLayer;

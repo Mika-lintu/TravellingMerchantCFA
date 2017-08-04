@@ -8,7 +8,6 @@ public class FollowWaypoints : MonoBehaviour
     public List<GameObject> waypoints;
     float disToWaypoint;
     float maxDis;
-    SpriteRenderer sprite;
     GameObject target;
     Vector2 previousPosition;
     GameSpeed gameSpeed;
@@ -17,7 +16,6 @@ public class FollowWaypoints : MonoBehaviour
     void Awake()
     {
         gameSpeed = Camera.main.GetComponent<GameSpeed>();
-        sprite = GetComponent<SpriteRenderer>();
     }
 
 

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemStats : MonoBehaviour {
+public class ItemStats : MonoBehaviour
+{
 
     public string id;
     public string itemName;
@@ -21,7 +22,9 @@ public class ItemStats : MonoBehaviour {
     [Range(0, 15)]
     public int quantity;
     public string itemLocation;
+    [Range(1, 15)]
     public int minQuantity;
+    [Range(1, 15)]
     public int maxQuantity;
     public GameObject quantUI;
 
@@ -43,6 +46,32 @@ public class ItemStats : MonoBehaviour {
         newItem.quantity = quantity;
         newItem.itemLocation = itemLocation;
         return newItem;
+    }
+
+    public void UpdateQuantity(int newQuantity)
+    {
+        quantity += newQuantity;
+
+        if (quantity == 1)
+        {
+            quantUI.SetActive(false);
+            quantUI = null;
+        }
+        else if (quantity <= 0)
+        {
+            if (quantUI != null)
+            {
+                quantUI.SetActive(false);
+                quantUI = null;
+            }
+
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            quantUI.GetComponent<QuantUI>().SetQuantityText(gameObject);
+        }
+
     }
 
 

@@ -2488,6 +2488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 1504166650}
+  exitButton: {fileID: 1707805831}
   anchor: {fileID: 53402157}
   deselect:
     m_PersistentCalls:
@@ -3031,11 +3032,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dampTime: 0.15
+  zoomToPlayer: 0
   player: {fileID: 615258554}
   target: {fileID: 615258554}
   shop: {fileID: 1084377885}
   offset: {x: 0, y: 1, z: 0}
-  zoomToPlayer: 0
   gameMode:
     m_PersistentCalls:
       m_Calls:

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NPCStats : MonoBehaviour {
 
-    public string name;
     public float reach;
     public float movementSpeed;
     public float turnSpeed;

@@ -9,6 +9,7 @@ public class Trade : MonoBehaviour
     GameObject selectedObject;
     TavernCamera tavernCamera;
     ItemHandler itemHandler;
+    PoolManager poolManager;
 
     public Text costText;
     public Text amountText;
@@ -29,6 +30,7 @@ public class Trade : MonoBehaviour
     {
         tavernCamera = Camera.main.GetComponent<TavernCamera>();
         itemHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>();
+        poolManager = Camera.main.GetComponent<PoolManager>();
     }
 
 
@@ -103,7 +105,10 @@ public class Trade : MonoBehaviour
 
         if (Coins.amount >= (int)cost)
         {
+            ItemStats itemStats = selectedObject.GetComponent<ItemStats>();
+            itemStats.UpdateQuantity(-itemAmount);
             Coins.RemoveCoins(cost);
+            itemHandler.BuyItems(selectedObject, itemAmount);
         }
         else
         {
@@ -116,6 +121,8 @@ public class Trade : MonoBehaviour
 
     void SellItem()
     {
+        ItemStats itemStats = selectedObject.GetComponent<ItemStats>();
+        itemStats.UpdateQuantity(-itemAmount);
         Coins.AddCoins(cost);
     }
 

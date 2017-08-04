@@ -15,13 +15,15 @@ public class PropStats : MonoBehaviour {
     [HideInInspector]
     public int spriteNumber;
     public Sprite[] spriteList;
-    SpriteRenderer spriteRenderer;
+    //SpriteRenderer spriteRenderer;
     [HideInInspector]
     public float rotation;
 
+    /*
     public void ChangeSprite(int i)
     {
         spriteNumber += i;
         spriteRenderer.sprite = spriteList[spriteNumber];
     }
+    */
 }

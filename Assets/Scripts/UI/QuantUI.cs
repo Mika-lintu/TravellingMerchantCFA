@@ -15,35 +15,50 @@ public class QuantUI : MonoBehaviour
     {
         quantityText = GetComponent<Text>();
     }
+
+    void OnDisable()
+    {
+        targetItem = null;
+        transform.parent.GetComponent<QuantUIList>().RemoveFromAssignedList(gameObject);
+    }
+
+
     void Start()
     {
         rig = targetItem.GetComponent<Rigidbody2D>();
     }
+
+
     void Update()
     {
         if(rig.simulated == true)
         {
-            UpdatePosition(targetItem);
+            UpdatePosition();
         }
     }
+
 
     public void SetQuantityText(GameObject go)
     {
         targetItem = go;
-        UpdatePosition(targetItem);
-        UpdateQuantity(targetItem);
+        itemQuant = go.GetComponent<ItemStats>().quantity;
+        transform.position = Camera.main.WorldToScreenPoint((Vector3.up * 0) + go.transform.position);
+        quantityText.text = "" + itemQuant;
+        //UpdatePosition(targetItem);
+        //UpdateQuantity(targetItem);
     }
    
-    void UpdatePosition(GameObject go)
+    void UpdatePosition()
     {
-        transform.position = Camera.main.WorldToScreenPoint((Vector3.up * 0) + go.transform.position);
+        transform.position = Camera.main.WorldToScreenPoint((Vector3.up * 0) + targetItem.transform.position);
     }
-
+    /*
     void UpdateQuantity(GameObject go)
     {
-        itemQuant = go.GetComponent<ItemStats>().quantity;
+        
         quantityText.text = "" + itemQuant;
     }
+    */
 
     void HideQuantityUI()
     {

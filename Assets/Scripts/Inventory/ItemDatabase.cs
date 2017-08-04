@@ -13,7 +13,7 @@ public class ItemDatabase : MonoBehaviour
     string path;
     string jsonString;
 
-    string sceneItemsPath;
+    //string sceneItemsPath;
     string sceneItemsJSONString;
 
     PoolManager poolManager;
@@ -171,7 +171,7 @@ public class ItemDatabase : MonoBehaviour
         UpdateInventory();
     }
 
-
+    /*
     public void AddToScene(string id, int quantity)
     {
         Item newItem = new Item();
@@ -194,7 +194,7 @@ public class ItemDatabase : MonoBehaviour
 
         UpdateSceneItems(sceneName);
     }
-
+    */
 
     void UpdateInventory()
     {
@@ -223,7 +223,7 @@ public class ItemDatabase : MonoBehaviour
         File.WriteAllText(path, stringStart);
     }
 
-
+    /*
     void UpdateSceneItems()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -279,5 +279,5 @@ public class ItemDatabase : MonoBehaviour
         File.WriteAllText(sceneItemsPath, stringStart);
 
     }
-
+    */
 }

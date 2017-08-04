@@ -9,7 +9,7 @@ public class RoadGenerator : MonoBehaviour {
     LineRenderer line;
     Vector3[] roadPoints;
     float curveLength = 0f;
-    float standardWidth = 2f;
+    //float standardWidth = 2f;
     public bool customRoad = false;
     public float lineStartWidth;
     public float lineEndWidth;

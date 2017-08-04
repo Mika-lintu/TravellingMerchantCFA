@@ -101,7 +101,7 @@ public class Stats : MonoBehaviour
         }
         if (gameObject.GetComponent<EnemyAI>() != null)
         {
-            gameObject.GetComponent<EnemyAI>().Death();
+            //gameObject.GetComponent<EnemyAI>().Death();
             
         }
         else if (gameObject.GetComponent<HenchmanAI>() != null)

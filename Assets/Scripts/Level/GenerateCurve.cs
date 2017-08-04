@@ -9,7 +9,7 @@ public class GenerateCurve : MonoBehaviour {
     [HideInInspector]
     public float endPoint;
     BezierSpline curve;
-    SegmentMovement segMov;
+    //SegmentMovement segMov;
     Vector3 startVector;
     Vector3 endVector;
     float width;
@@ -18,7 +18,7 @@ public class GenerateCurve : MonoBehaviour {
     void Awake()
     {
         curve = GetComponent<BezierSpline>();
-        segMov = transform.parent.GetComponent<SegmentMovement>();
+        //segMov = transform.parent.GetComponent<SegmentMovement>();
         width = groundExample.bounds.size.x;
 
     }

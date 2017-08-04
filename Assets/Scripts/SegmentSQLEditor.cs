@@ -8,9 +8,9 @@ using Mono.Data.Sqlite;
 public class SegmentSQLEditor : MonoBehaviour
 {
 
-    private string connectionString;
+    //private string connectionString;
     public int segmentNumber;
-    int segmentSprite;
+    //int segmentSprite;
     EditorRoad road;
     [HideInInspector]
     public float startPoint;
@@ -21,7 +21,7 @@ public class SegmentSQLEditor : MonoBehaviour
 
     private void Awake()
     {
-        connectionString = "URI=file:" + Application.dataPath + "/Tommi/SegmentTestDB.sqlite";
+        //connectionString = "URI=file:" + Application.dataPath + "/Tommi/SegmentTestDB.sqlite";
         //DeleteSegments();
         //ClearIDs();
         //GenerateLevel(100);
@@ -30,14 +30,14 @@ public class SegmentSQLEditor : MonoBehaviour
     public void Refresh()
     {
         GenerateCurve curve = GetComponent<GenerateCurve>();
-        SpriteChanger groundSprite = GameObject.FindGameObjectWithTag("editorRoadSprite").GetComponent<SpriteChanger>();
-        Connect();
-        GetSegmentPoints(segmentNumber, out startPoint, out endPoint, out segmentSprite);
+        //SpriteChanger groundSprite = GameObject.FindGameObjectWithTag("editorRoadSprite").GetComponent<SpriteChanger>();
+        //Connect();
+        //GetSegmentPoints(segmentNumber, out startPoint, out endPoint, out segmentSprite);
         curve.CreateBezierWithPoints(startPoint, endPoint);
-        groundSprite.SetSprite(segmentSprite);
+        //groundSprite.SetSprite(segmentSprite);
         road = GetComponent<EditorRoad>();
         road.DrawRoad();
-        InstantiateProp();
+        //InstantiateProp();
     }
 
     public void NextSegment()
@@ -59,7 +59,7 @@ public class SegmentSQLEditor : MonoBehaviour
         BezierSpline spline = GetComponent<BezierSpline>();
         startPoint = spline.points[0].y;
         endPoint = spline.points[3].y;
-        UpdateSegments(startPoint, endPoint, segmentNumber);
+        //UpdateSegments(startPoint, endPoint, segmentNumber);
         Refresh();
     }
 
@@ -75,27 +75,12 @@ public class SegmentSQLEditor : MonoBehaviour
     }
 
 
-
-
-
-    void Start()
-    {
-        /*
-        DeleteSegments();
-        ClearIDs();
-        GenerateLevel(levelSize);
-        */
-        //GenerateLevel(100);
-        //UpdateSegments(-3f, 3f, 2);
-
-    }
-
     /*
      * 
      * SQL-functions:
      *
      */
-
+     /*
     void Connect()
     {
         connectionString = "URI=file:" + Application.dataPath + "/Tommi/SegmentTestDB.sqlite";
@@ -334,7 +319,7 @@ public class SegmentSQLEditor : MonoBehaviour
                 string sqlQuery;
                 string sqlQuery2;
 
-                sqlQuery = String.Format("INSERT INTO SegProps(SegID) VALUES(" + /*segmentNumber*/ segNum + ")");
+                sqlQuery = String.Format("INSERT INTO SegProps(SegID) VALUES(" + /*segmentNumber segNum + ")");
 
                 dbCmd.CommandText = sqlQuery;
                 dbCmd.ExecuteScalar();
@@ -430,7 +415,7 @@ public class SegmentSQLEditor : MonoBehaviour
 
             }
         }
-    }
+    }*/
 }
 
 
