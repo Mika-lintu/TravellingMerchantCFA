@@ -19,8 +19,7 @@ public class AnimationControl : MonoBehaviour
 
     Spine.Unity.SkeletonAnimation skeletonAnimation;
     AnimationStateControl animState;
-    //EffectAnimation effect;
-    //GameObject animChild;
+    
    
     void Start()
     {
