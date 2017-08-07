@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 750fa23aca67cc6448b189ad6afc2f53
-timeCreated: 1501675017
+timeCreated: 1501755397
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -146,10 +146,10 @@ TextureImporter:
       name: SPR_buttons_2_1
       rect:
         serializedVersion: 2
-        x: 276
-        y: 300
-        width: 200
-        height: 200
+        x: 271
+        y: 295
+        width: 211
+        height: 211
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +172,10 @@ TextureImporter:
       name: SPR_buttons_2_3
       rect:
         serializedVersion: 2
-        x: 276
-        y: 24
-        width: 200
-        height: 200
+        x: 271
+        y: 18
+        width: 211
+        height: 211
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

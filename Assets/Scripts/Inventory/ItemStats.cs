@@ -5,12 +5,15 @@ using UnityEngine;
 public class ItemStats : MonoBehaviour {
 
     public string id;
+    public string itemName;
     public float xOffset;
     public float yOffset;
     public float rotation;
     public float scale;
     public int rarity;
-    public string type;
+    public enum Type { Healing, Damaging, Weapon };
+    public Type itemType;
+    public float effectValue;
     [Range(0.1f, 3000f)]
     public float value;
     [Range(0.1f, 50f)]
@@ -18,6 +21,8 @@ public class ItemStats : MonoBehaviour {
     [Range(0, 15)]
     public int quantity;
     public string itemLocation;
+    public int minQuantity;
+    public int maxQuantity;
     public GameObject quantUI;
 
     public void SetStats(Item newStats)
@@ -25,9 +30,6 @@ public class ItemStats : MonoBehaviour {
         xOffset = newStats.xOffset;
         yOffset = newStats.yOffset;
         rotation = newStats.rotation;
-        scale = newStats.scale;
-        value = newStats.value;
-        weight = newStats.weight;
         quantity = newStats.quantity;
     }
 
@@ -38,9 +40,6 @@ public class ItemStats : MonoBehaviour {
         newItem.xOffset = xOffset;
         newItem.yOffset = yOffset;
         newItem.rotation = rotation;
-        newItem.scale = scale;
-        newItem.value = value;
-        newItem.weight = weight;
         newItem.quantity = quantity;
         newItem.itemLocation = itemLocation;
         return newItem;

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SceneItemGenerator : MonoBehaviour
 {
-
-    public Dictionary<string, List<GameObject>> sceneItemStorage = new Dictionary<string, List<GameObject>>();
-    //public Dictionary<string, int> numberOfItemsInScene = new Dictionary<string, int>();
+    EditorJSONReader editorReader;
     [HideInInspector]
     public string levelName = "level01";
+    [HideInInspector]
+    public string levelItemsPath;
     [HideInInspector]
     public int numberOfItems;
     [HideInInspector]
     public List<string> levels;
-
+    GameObject[] allItems;
     public List<GameObject> levelItemList;
     [HideInInspector]
     public int currentLevel;
@@ -21,34 +21,49 @@ public class SceneItemGenerator : MonoBehaviour
     public const string itemPath = "Items";
 
 
-    public void GenerateSceneItems(string id, int quantity)
+    void Awake()
     {
-
+        editorReader = GetComponent<EditorJSONReader>();
     }
 
 
     public void Refresh()
     {
-        if (!sceneItemStorage.ContainsKey(levelName) || sceneItemStorage == null)
-        {
-            sceneItemStorage.Add(levelName, levelItemList);
-        }
-        else
-        {
-            sceneItemStorage[levelName] = levelItemList;
-        }
-        
-        
+
+#if UNITY_EDITOR
+
+        editorReader = GetComponent<EditorJSONReader>();
+#endif
+
+        levels = editorReader.GetLevelStrings();
         levelName = levels[currentLevel];
-        
         levelItemList.Clear();
-        levelItemList = sceneItemStorage[levelName];
-        /*
-        /*for (int i = 0; i < sceneItemStorage[levelName].Count; i++)
+        GetLevelItems();
+    }
+
+
+    public void GetLevelItems()
+    {
+#if UNITY_EDITOR
+
+        editorReader = GetComponent<EditorJSONReader>();
+#endif
+
+        List<string> itemStringList;
+        editorReader.GetLevelItems(levelName, out itemStringList);
+        allItems = Resources.LoadAll<GameObject>("Items");
+
+        for (int i = 0; i < itemStringList.Count; i++)
         {
-            levelItemList.Add();
+            for (int y = 0; y < allItems.Length; y++)
+            {
+                if (allItems[y].name == itemStringList[i])
+                {
+                    levelItemList.Add(allItems[y]);
+                }
+            }
         }
-        */
+
     }
 
 
@@ -66,6 +81,7 @@ public class SceneItemGenerator : MonoBehaviour
 
     }
 
+
     public void NextLevel()
     {
         if (currentLevel + 1 >= levels.Count)
@@ -76,18 +92,31 @@ public class SceneItemGenerator : MonoBehaviour
         {
             currentLevel++;
         }
+
         Refresh();
     }
 
 
     public void AddScene(string newScene)
     {
+#if UNITY_EDITOR
+
+        editorReader = GetComponent<EditorJSONReader>();
+
+#endif
         levels.Add(newScene);
+        editorReader.WriteLevelStrings(levels);
     }
 
 
     public void RemoveSceneFromList(string sceneToRemove)
     {
+#if UNITY_EDITOR
+
+        editorReader = GetComponent<EditorJSONReader>();
+
+#endif
+
         int removeAt = 0;
         bool remove = false;
 
@@ -100,9 +129,30 @@ public class SceneItemGenerator : MonoBehaviour
             }
         }
 
-        if (remove) levels.RemoveAt(removeAt);
+        if (remove)
+        {
+            levels.RemoveAt(removeAt);
+            editorReader.WriteLevelStrings(levels);
+        }
+
+    }
+
+
+    public void SaveItemsToScene()
+    {
+        editorReader = GetComponent<EditorJSONReader>();
+        List<string> tempList = new List<string>();
+
+        for (int i = 0; i < levelItemList.Count; i++)
+        {
+            tempList.Add(levelItemList[i].name);
+        }
+
+        editorReader.SaveLevelItems(tempList, levelName);
 
     }
 
 
 }
+
+

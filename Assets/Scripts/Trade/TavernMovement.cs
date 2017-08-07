@@ -8,6 +8,7 @@ public class TavernMovement : MonoBehaviour
     //ADD IN CAMERA
 
     TavernCamera tavernCamera;
+    AnimationControl animState;
 
     public GameObject target;
     public GameObject shopPosition;
@@ -20,6 +21,7 @@ public class TavernMovement : MonoBehaviour
     void Awake()
     {
         tavernCamera = Camera.main.GetComponent<TavernCamera>();
+        animState = GetComponent<AnimationControl>();
     }
 
 
@@ -73,7 +75,7 @@ public class TavernMovement : MonoBehaviour
         playerAtShop = false;
         target = newTargetPosition;
         targetDistance = Vector2.Distance(transform.position, target.transform.position);
-
+        animState.Walk();
         while (targetDistance >= 0.1f)
         {
             targetDistance = Vector2.Distance(transform.position, target.transform.position);
@@ -81,14 +83,14 @@ public class TavernMovement : MonoBehaviour
             FlipPlayer(newTargetPosition);
             yield return null;
         }
-
+        animState.NormalIdle();
     }
 
 
     IEnumerator MoveToShop()
     {
         targetDistance = Vector2.Distance(transform.position, shopPosition.transform.position);
-
+        animState.Walk();
         while (targetDistance >= 0.1f)
         {
             targetDistance = Vector2.Distance(transform.position, shopPosition.transform.position);
@@ -96,8 +98,9 @@ public class TavernMovement : MonoBehaviour
             FlipPlayer(shopPosition);
             yield return null;
         }
-
+        animState.NormalIdle();
         playerAtShop = true;
         tavernCamera.GoToShop();
+        
     }
 }

@@ -7,6 +7,7 @@ public class BattleController : MonoBehaviour
 {
 
     public List<GameObject> goodGuys;
+    public List<GameObject> baddies;
     public List<GameObject> overallEnemies;
     public List<GameObject> activeEnemies;
     public bool battleOngoing;

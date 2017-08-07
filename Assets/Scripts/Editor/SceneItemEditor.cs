@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.IO;
 
 [CustomEditor(typeof(SceneItemGenerator))]
 public class SceneItemEditor : Editor
@@ -11,17 +12,31 @@ public class SceneItemEditor : Editor
     bool showLevels = false;
     bool showItems = false;
     string sceneName;
+    string levelsPath = "Assets/Resources/Levels/";
 
     private void OnSceneGUI()
     {
         itemEditor = target as SceneItemGenerator;
     }
 
+    TextAsset ConvertStringToTextAsset(string newFileName)
+    {
+        string text = "{\n\t\"levelItems\": [\n\t\t{\n\n\t\t}\n\t]\n}";
+        string temporaryTextFileName = newFileName + "_items";
+        File.WriteAllText(Application.dataPath + "/Resources/Levels/" + temporaryTextFileName + ".json", text);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        TextAsset textAsset = Resources.Load(temporaryTextFileName) as TextAsset;
+        return textAsset;
+    }
+
+
     public override void OnInspectorGUI()
     {
         
         EditorGUILayout.LabelField(itemEditor.levelName);
         showLevels = EditorGUILayout.Foldout(showLevels, "Levels");
+        
 
         if (showLevels)
         {
@@ -43,9 +58,13 @@ public class SceneItemEditor : Editor
         EditorGUILayout.LabelField("Scene Name:");
         sceneName = EditorGUILayout.TextField(sceneName);
 
+        
+
         if (GUILayout.Button("Add New Scene"))
         {
             itemEditor.AddScene(sceneName);
+            
+            ConvertStringToTextAsset(sceneName);
         }
 
         if (GUILayout.Button("Remove Scene"))
@@ -63,6 +82,13 @@ public class SceneItemEditor : Editor
         if (GUILayout.Button("Next Level"))
         {
             itemEditor.NextLevel();
+            
+        }
+
+        if (GUILayout.Button("Save Items"))
+        {
+            EditorUtility.DisplayDialog("", "Item data saved: " + itemEditor.levelName, "Cool");
+            itemEditor.SaveItemsToScene();
         }
 
         if (GUILayout.Button("Refresh"))

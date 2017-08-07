@@ -5,6 +5,9 @@ using UnityEngine;
 public class ItemHandler : MonoBehaviour {
 
     public List<GameObject> items;
+    public List<GameObject> shopItems;
+    public List<GameObject> shopSlots;
+    public GameObject shopParent;
     List<Item> itemList;
     PoolManager poolManager;
 
@@ -19,13 +22,6 @@ public class ItemHandler : MonoBehaviour {
         //StartCoroutine(SetupItems());
     }
 
-    public void GetItems()
-    {
-
-    }
-
-
-
     public void SetItems(List<Item> newItemList)
     {
         itemList = newItemList;
@@ -36,15 +32,32 @@ public class ItemHandler : MonoBehaviour {
             Vector3 newPosition = new Vector3(transform.position.x + itemList[i].xOffset, transform.position.y + itemList[i].yOffset, 0);
             Quaternion newRotation = Quaternion.identity;
             newRotation.eulerAngles = new Vector3(0, 0, itemList[i].rotation);
-            newItem = poolManager.ReuseItem(itemList[i].id, newPosition, newRotation, itemList[i].scale, gameObject);
+            newItem = poolManager.ReuseItem(itemList[i].id, newPosition, newRotation, gameObject);
             newItem.GetComponent<ItemStats>().SetStats(itemList[i]);
             newItem.SetActive(false);
             items.Add(newItem);
         }
     }
 
+    public void SetShopItems(Dictionary<GameObject, int> newItems)
+    {
+        int shopSlotInt = 0;
 
+        foreach (KeyValuePair<GameObject, int> item in newItems)
+        {
+            GameObject newItem;
+            Vector3 newPosition = shopSlots[shopSlotInt].transform.position;
+            Quaternion newRotation = Quaternion.identity;
+            newItem = poolManager.ReuseItem(item.Key.name, newPosition, newRotation, shopParent);
+            newItem.GetComponent<ItemStats>().quantity = item.Value;
+            newItem.GetComponent<Rigidbody2D>().isKinematic = true;
+            newItem.tag = "ShopItem";
+            newItem.SetActive(true);
+            shopItems.Add(newItem);
+            shopSlotInt++;
+        }
 
+    }
 
     public void ShowItems()
     {

@@ -1,7 +1,37 @@
 {
-  "array": [
+  "sceneList": [
     {
-      "id": "bomb1"
+      "scenes": [
+        {
+          "id": "level01",
+          "items": [
+            {
+              "itemName": "testItem"
+            },
+            {
+              "itemName": "testItem2"
+            },
+            {
+              "itemName": "testItem3"
+            }
+          ]
+        },
+        {
+          "id": "level02",
+          "items": [
+            {
+              "itemName": "testItem4"
+            },
+            {
+              "itemName": "testItem5"
+            },
+            {
+              "itemName": "testItem6"
+            }
+          ]
+        }
+
+      ]
     }
   ]
 

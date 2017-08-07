@@ -54,8 +54,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1785107870955030}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.89, y: -2.35, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalPosition: {x: 0.994, y: 0.489, z: 0}
+  m_LocalScale: {x: 0.07, y: 0.07, z: 1}
   m_Children:
   - {fileID: 4533416022495604}
   m_Father: {fileID: 0}
@@ -120,13 +120,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: apple
+  itemName: Apple
   xOffset: 0
   yOffset: 0
   rotation: 0
-  value: 0
+  scale: 0
+  rarity: 0
+  itemType: 0
+  effectValue: 15
+  value: 3
   weight: 0
   quantity: 0
   itemLocation: 
+  minQuantity: 3
+  maxQuantity: 10
+  quantUI: {fileID: 0}
 --- !u!212 &212442174793072508
 SpriteRenderer:
   m_ObjectHideFlags: 1

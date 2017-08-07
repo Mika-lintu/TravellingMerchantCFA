@@ -12,6 +12,7 @@ public class Trade : MonoBehaviour
 
     public Text costText;
     public Text amountText;
+    public Text itemNameText;
     public GameObject tradeInfo;
     public GameObject errorMessage;
     public GameObject infoCollider;
@@ -19,8 +20,10 @@ public class Trade : MonoBehaviour
 
     bool empty;
     float cost;
+    float baseCost;
     int itemAmount;
-
+    int itemsInStorage;
+    string itemName;
 
     void Awake()
     {
@@ -33,22 +36,35 @@ public class Trade : MonoBehaviour
     {
         amountText.text = "" + itemAmount;
         costText.text = "" + cost;
+        itemNameText.text = "" + itemName;
     }
 
 
     public void GetShopItem(GameObject go)
     {
         selectedObject = go;
-        tradeInfo.GetComponent<UIMovement>().SetPosition(selectedObject);
-        SetBubbleCollider(go);
+        ItemStats itemStats = selectedObject.GetComponent<ItemStats>();
+
+        baseCost = itemStats.value;
+        itemsInStorage = itemStats.quantity;
+        itemName = itemStats.itemName;
+       
+        cost = baseCost;
+        itemAmount = 1;
+
+        SetBubbleCollider();
+        UpdateTradeInfo();
     }
 
 
     public void AddItemsToCart()
     {
-        itemAmount++;
-        cost++;
-        UpdateTradeInfo();
+        if (itemsInStorage > itemAmount)
+        {
+            itemAmount++;
+            cost = cost + baseCost;
+            UpdateTradeInfo();
+        }
     }
 
 
@@ -58,7 +74,7 @@ public class Trade : MonoBehaviour
         if (itemAmount >= 1)
         {
             itemAmount--;
-            cost--;
+            cost = cost - baseCost;
             UpdateTradeInfo();
         }
 
@@ -96,7 +112,7 @@ public class Trade : MonoBehaviour
         }
 
     }
-    
+
 
     void SellItem()
     {
@@ -114,10 +130,10 @@ public class Trade : MonoBehaviour
     }
 
 
-    void SetBubbleCollider(GameObject go)
+    void SetBubbleCollider()
     {
         infoCollider.SetActive(true);
-        infoCollider.transform.position = new Vector3(-0.65f, 0.9f, -1f) + go.transform.position;
+        //infoCollider.transform.position = new Vector3(-0.65f, 0.9f, -1f) + go.transform.position;
     }
 
 

@@ -52,10 +52,12 @@ public class PoolManager : MonoBehaviour
         }
     }
 
+
     public void CreateItemPool(GameObject prefab, int poolSize, string location)
     {
         string poolKey = prefab.name;
         GameObject poolHolder = null;
+
         if (location == "inventory")
         {
             poolHolder = inventory;
@@ -63,10 +65,20 @@ public class PoolManager : MonoBehaviour
         else
         {
             poolHolder = sceneItems;
-            poolHolder.transform.parent = transform;
+            //poolHolder.transform.parent = transform;
         }
 
+        if (!itemDictionary.ContainsKey(poolKey)) itemDictionary.Add(poolKey, new Queue<ItemObjectInstance>());
 
+        for (int i = 0; i < poolSize; i++)
+        {
+            ItemObjectInstance newObject = new ItemObjectInstance(Instantiate(prefab) as GameObject, location);
+            itemDictionary[poolKey].Enqueue(newObject);
+            newObject.SetParent(poolHolder.transform);
+        }
+
+        #region
+        /*
         if (!itemDictionary.ContainsKey(poolKey))
         {
             itemDictionary.Add(poolKey, new Queue<ItemObjectInstance>());
@@ -83,11 +95,12 @@ public class PoolManager : MonoBehaviour
             for (int i = 0; i < poolSize; i++)
             {
                 ItemObjectInstance newObject = new ItemObjectInstance(Instantiate(prefab) as GameObject, location);
-
                 itemDictionary[poolKey].Enqueue(newObject);
                 newObject.SetParent(poolHolder.transform);
             }
         }
+        */
+        #endregion
     }
 
 
@@ -103,7 +116,7 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public GameObject ReuseItem(string id, Vector3 position, Quaternion rotation, float scale, GameObject parent)
+    public GameObject ReuseItem(string id, Vector3 position, Quaternion rotation, GameObject parent)
     {
         string poolKey = id;
 
@@ -111,7 +124,7 @@ public class PoolManager : MonoBehaviour
         {
             ItemObjectInstance objectToReuse = itemDictionary[poolKey].Dequeue();
             itemDictionary[poolKey].Enqueue(objectToReuse);
-            objectToReuse.Reuse(position, rotation, scale);
+            objectToReuse.Reuse(position, rotation);
             objectToReuse.SetParent(parent.transform);
             return objectToReuse.gameObject;
         }
@@ -201,7 +214,7 @@ public class PoolManager : MonoBehaviour
             }
         }
 
-        public void Reuse(Vector3 position, Quaternion rotation, float scale)
+        public void Reuse(Vector3 position, Quaternion rotation)
         {
             if (hasPoolObjectComponent)
             {
@@ -211,7 +224,6 @@ public class PoolManager : MonoBehaviour
             gameObject.SetActive(true);
             transform.position = position;
             transform.rotation = rotation;
-            transform.localScale = new Vector3(scale, scale, 1);
         }
 
         public void SetParent(Transform parent)

@@ -1,0 +1,16 @@
+{ 
+	 "listOfLevels": [
+		{
+		"levelName": "level01"
+		},
+		{
+		"levelName": "level02"
+		},
+		{
+		"levelName": "level03"
+		},
+		{
+		"levelName": "level04"
+		}
+	]
+}
