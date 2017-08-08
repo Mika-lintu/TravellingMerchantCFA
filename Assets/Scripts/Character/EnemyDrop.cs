@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyDrop : MonoBehaviour
 {
+    //Mika
+
     float coinDrop;
     public float minCoinDrop;
     public float maxCoinDrop;

@@ -25,7 +25,7 @@ public class Stats : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-        startColor = sprite.color;
+        //startColor = sprite.color;
         battleC = Camera.main.GetComponent<BattleController>();
         bUI = GameObject.FindGameObjectWithTag("BattleUI").GetComponent<BattleUI>();
         enemyDrop = GetComponent<EnemyDrop>();
