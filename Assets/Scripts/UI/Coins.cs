@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Coins : MonoBehaviour {
+      //Mika
+
     static Text coins;
 
     public static int amount;

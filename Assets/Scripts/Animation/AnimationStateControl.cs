@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationStateControl : MonoBehaviour {
    
-    //ADD IN CAMERA
+    //Mika
 
     public enum GameState { idle, onMove, battle}
     public GameState animState;

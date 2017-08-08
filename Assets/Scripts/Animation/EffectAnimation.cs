@@ -2,18 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectAnimation : MonoBehaviour {
-  
+public class EffectAnimation : MonoBehaviour
+{
+    //Mika
+
     Animator anim;
-    public string animName;
     AnimatorClipInfo[] clipInfo;
+
+    public string animName;
+
     float time;
 
-    void Awake () {
-        
+    void Awake()
+    {
+
         anim = GetComponent<Animator>();
         clipInfo = anim.GetCurrentAnimatorClipInfo(0);
-        
+
         //ImpactAnimation();
     }
 
@@ -48,6 +53,6 @@ public class EffectAnimation : MonoBehaviour {
     void ResetEffect()
     {
         this.gameObject.SetActive(false);
-        
+
     }
 }

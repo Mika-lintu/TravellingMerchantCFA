@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TextEffect : MonoBehaviour
 {
+    //Mika
     private Text popupText;
     RectTransform rTransfomr;
     float timeOfTravel = 2f;

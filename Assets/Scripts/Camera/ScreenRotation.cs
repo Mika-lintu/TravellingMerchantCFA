@@ -11,12 +11,15 @@ public class ScreenRotation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Screen.autorotateToLandscapeLeft == true)
         {
-            //Screen.orientation = ScreenOrientation.LandscapeLeft;
-            Debug.Log(Screen.orientation);
-            Screen.autorotateToLandscapeLeft = true;
+            Screen.orientation = ScreenOrientation.AutoRotation;
         }
+            //Screen.orientation = ScreenOrientation.LandscapeLeft;
+            //Screen.autorotateToLandscapeLeft = true;
 	}
-
+    public void Testi()
+    {
+        Debug.Log(Screen.orientation);
+    }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TextFade : MonoBehaviour {
-
+    //Mika
     Text text;
     public float timer;
 

@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour {
+
+    //Mika
+
     public List<GameObject> textList;
     Stats stats;
     public Image hp;

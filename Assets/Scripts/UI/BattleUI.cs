@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour
 {
+    //Mika
+
     public List<GameObject> battleUISet;
 
     /* ON SET UI:

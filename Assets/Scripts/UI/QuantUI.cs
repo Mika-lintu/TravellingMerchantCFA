@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class QuantUI : MonoBehaviour
 {
-    
+    //Mika
     public GameObject targetItem;
     Text quantityText;
-    int itemQuant;
     Rigidbody2D rig;
+    int itemQuant;
 
     void Awake()
     {

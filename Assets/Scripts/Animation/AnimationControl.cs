@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AnimationControl : MonoBehaviour
 {
+    //Mika 
+
     [Spine.Unity.SpineAnimation]
     public string idle;
     [Spine.Unity.SpineAnimation]

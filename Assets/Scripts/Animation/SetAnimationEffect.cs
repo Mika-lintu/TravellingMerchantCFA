@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class SetAnimationEffect : MonoBehaviour {
     
+    //Mika 
+
     public List<GameObject> healEffectList;
     public List<GameObject> hitEffectList;
-
-    void Update()
-    {
-
-    }
 
 
     public void SetHealAnimation(GameObject go)
