@@ -20,6 +20,9 @@ public class JSONReader : MonoBehaviour {
     [HideInInspector]
     public LevelProps props = new LevelProps();
     CameraScript camScript;
+    TextAsset newPath;
+    TextAsset[] jsonFiles;
+    public string levelName = "level02";
 
     float startPoint;
     float endPoint;
@@ -27,13 +30,22 @@ public class JSONReader : MonoBehaviour {
 
     void Awake()
     {
-        path = Application.streamingAssetsPath + "/level02.json";
-        jsonString = File.ReadAllText(path);
-        JsonUtility.FromJsonOverwrite(jsonString, level);
+        path = "JsonFiles/LevelData/";
+        //jsonFiles = Resources.LoadAll<TextAsset>("JsonFiles/LevelData");
 
-        propsPath = Application.streamingAssetsPath + "/level02Props.json";
-        jsonStringProps = File.ReadAllText(propsPath);
-        JsonUtility.FromJsonOverwrite(jsonStringProps, props);
+        //path = Application.streamingAssetsPath + "/level02.json";
+        newPath = Resources.Load(path + levelName) as TextAsset;
+        string content = newPath.ToString();
+        //jsonString = File.ReadAllText(path);
+        //JsonUtility.FromJsonOverwrite(jsonString, level);
+        JsonUtility.FromJsonOverwrite(content, level);
+
+        newPath = Resources.Load(path + levelName + "Props") as TextAsset;
+        content = newPath.ToString();
+        //propsPath = Application.streamingAssetsPath + "/level02Props.json";
+        //jsonStringProps = File.ReadAllText(propsPath);
+        //JsonUtility.FromJsonOverwrite(jsonStringProps, props);
+        JsonUtility.FromJsonOverwrite(content, props);
 
         segMovement = GetComponent<SegmentMovement>();
         propHandler = GetComponent<PropHandler>();

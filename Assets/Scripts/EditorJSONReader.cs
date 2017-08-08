@@ -8,8 +8,8 @@ public class EditorJSONReader : MonoBehaviour
 
 
     string jsonString;
-    string levelListPath = "Assets/Resources/Levels/levelStrings.json";
-    string levelItemsList = "Assets/Resources/Levels/";
+    string levelListPath = "JsonFiles/LevelItems/levelStrings";//"Assets/Resources/JsonFiles/LevelItems/levelStrings.json";
+    string levelItemsList = "Assets/Resources/JsonFiles/LevelItems/";
 
 
 
@@ -28,10 +28,16 @@ public class EditorJSONReader : MonoBehaviour
 
     public List<string> GetLevelStrings()
     {
-        List<string> newList = new List<string>();
+        string levelListPath = "JsonFiles/LevelItems/levelStrings";
+        //levelListPath = "JsonFiles/LevelItems/levelStrings.json";
+
         LevelStringsList levelStrings = new LevelStringsList();
-        jsonString = File.ReadAllText(levelListPath);
-        JsonUtility.FromJsonOverwrite(jsonString, levelStrings);
+        TextAsset newPath = Resources.Load(levelListPath) as TextAsset;
+        string content = newPath.ToString();
+        //jsonString = File.ReadAllText(levelListPath);
+        JsonUtility.FromJsonOverwrite(content, levelStrings);
+
+        List<string> newList = new List<string>();
 
         for (int i = 0; i < levelStrings.listOfLevels.Count; i++)
         {
@@ -64,6 +70,7 @@ public class EditorJSONReader : MonoBehaviour
 
     public void GetLevelItems(string levelName, out List<string> return1)
     {
+        string levelItemsList = "Assets/Resources/JsonFiles/LevelItems/";
         List<string> newList = new List<string>();
         LevelItems levelItems = new LevelItems();
         jsonString = File.ReadAllText(levelItemsList + levelName + "_items.json");

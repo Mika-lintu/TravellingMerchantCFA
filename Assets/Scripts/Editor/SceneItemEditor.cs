@@ -23,7 +23,7 @@ public class SceneItemEditor : Editor
     {
         string text = "{\n\t\"levelItems\": [\n\t\t{\n\n\t\t}\n\t]\n}";
         string temporaryTextFileName = newFileName + "_items";
-        File.WriteAllText(Application.dataPath + "/Resources/Levels/" + temporaryTextFileName + ".json", text);
+        File.WriteAllText(Application.dataPath + "/Resources/JsonFiles/LevelItems" + temporaryTextFileName + ".json", text);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         TextAsset textAsset = Resources.Load(temporaryTextFileName) as TextAsset;

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class ItemDatabase : MonoBehaviour
 {
     public string sceneName;
-    string levelItemsList = "Assets/Resources/Levels/";
+    string levelItemsList = "Assets/Resources/JsonFiles/LevelItems";
 
     string path;
     string jsonString;
@@ -33,16 +33,17 @@ public class ItemDatabase : MonoBehaviour
 
     void Awake()
     {
-        path = Application.streamingAssetsPath + "/CharacterInventory.json";
-        jsonString = File.ReadAllText(path);
+        path = "JsonFiles/LevelItems/";
+        TextAsset newPath = Resources.Load(path + "CharacterInventory") as TextAsset;
+        string content = newPath.ToString();
+        //content = newPath.ToString();
+        JsonUtility.FromJsonOverwrite(content, inventory);
 
-        sceneItemsJSONString = File.ReadAllText(levelItemsList + "level01_items.json");
-
-        JsonUtility.FromJsonOverwrite(jsonString, inventory);
-        JsonUtility.FromJsonOverwrite(sceneItemsJSONString, allSceneItems);
+        newPath = Resources.Load(path + sceneName + "_items") as TextAsset;
+        content = newPath.ToString();
+        JsonUtility.FromJsonOverwrite(content, allSceneItems);
 
         poolManager = GetComponent<PoolManager>();
-
         itemDictionary = new Dictionary<string, GameObject>();
         sceneItemsList = new List<GameObject>();
         
