@@ -15,7 +15,6 @@ public class GameSpeed : MonoBehaviour
     private void Update()
     {
         gameSpeed = Mathf.InverseLerp(15, -20, player.transform.position.y * speedMultiplier);
-        Debug.Log(gameSpeed);
 
         if (Input.GetKeyDown("i"))
         {
