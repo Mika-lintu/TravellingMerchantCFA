@@ -9,8 +9,9 @@ using System.IO;
 
 public class SegmentManager01 : MonoBehaviour
 {
+    /*
     string path;
-    string jsonString;
+    //string jsonString;
 
     string propsPath;
     string jsonStringProps;
@@ -29,11 +30,11 @@ public class SegmentManager01 : MonoBehaviour
      * 
      *      - CONNECT TO THE SEGMENTS SQLITE-FILE
      *      - GET REFERENCE FOR THE SEGMENT MOVEMENT SCRIPT
-     */
+     
     private void Awake()
     {
         path = Application.streamingAssetsPath + "/level02.json";
-        jsonString = File.ReadAllText(path);
+        //jsonString = File.ReadAllText(path);
 
         propsPath = Application.streamingAssetsPath + "/level02Props.json";
         jsonStringProps = File.ReadAllText(propsPath);
@@ -45,10 +46,10 @@ public class SegmentManager01 : MonoBehaviour
 
 
 
-    /* ON START:
+     ON START:
      * 
      *      - SET THE DATA FOR THE FIRST SEGMENTS
-     */
+     
     void Start()
     {
 
@@ -58,10 +59,10 @@ public class SegmentManager01 : MonoBehaviour
 
 
 
-    /* START SEGMENTS:
+     START SEGMENTS:
      * 
      *      - GETS EACH SEGMENT "PLACEHOLDER" AND SETS THE DATA INTO THE FROM SQL
-     */
+     
     void StartSegments()
     {
         for (int i = 0; i < 4; i++)
@@ -79,13 +80,13 @@ public class SegmentManager01 : MonoBehaviour
 
 
 
-    /* UPDATE SEGMENTS:
+     UPDATE SEGMENTS:
      * 
      *      - GETS A NEW SEGMENT LIST FROM SEGMENT MOVEMENT (AFTER SEGMENT NR.0 IS SET AS SEG NR.3 IN SEGMENT MOVEMENT SCRIPT)
      *      - UPDATES SEGMENT NR.3 INDEX
      *      - UPDATES SEGMENT NR.3 ROAD POINTS
      *      - GETS ALL PROPS WHICH ARE SET IN THE SQL-FILE
-     */
+     
     public void UpdateSegments(List<GameObject> updatedList)
     {
         float sP;
@@ -131,11 +132,11 @@ public class SegmentManager01 : MonoBehaviour
 
 
 
-    /*
+    
      * 
      * SQL-functions:
      *
-     */
+     
 
     private void InsertRandomSegment(int segLength)
     {
@@ -282,4 +283,5 @@ public class SegmentManager01 : MonoBehaviour
             }
         }
     }
+    */
 }

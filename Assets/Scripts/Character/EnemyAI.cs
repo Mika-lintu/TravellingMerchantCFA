@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-
+    /*
     BattleController battleC;
     List<GameObject> targetsList;
     GameObject target;
@@ -181,7 +181,7 @@ public class EnemyAI : MonoBehaviour
                 inReach = false;
                 target = null;
                 battleC.CheckBattleLists();
-            }*/
+            }
 
         //Debug.Log("Attack: " + target.name + "   Damage: " + attackDamage + "   Target Health: " + target.GetComponent<Stats>().health);
     }
@@ -196,4 +196,5 @@ public class EnemyAI : MonoBehaviour
         target = null;
         gameObject.SetActive(false);
     }
+    */
 }

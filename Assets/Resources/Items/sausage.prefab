@@ -206,7 +206,7 @@ MonoBehaviour:
   quantity: 0
   itemLocation: 
   minQuantity: 5
-  maxQuantity: 12
+  maxQuantity: 15
   quantUI: {fileID: 0}
 --- !u!212 &212571795241541518
 SpriteRenderer:

@@ -7,7 +7,7 @@ public class TavernCamera : MonoBehaviour {
 
     Vector3 velocity = Vector3.zero;
     Camera cam;
-    QuantUIList uiQuantity = new QuantUIList();
+    QuantUIList uiQuantity;
 
     public float dampTime;
     public bool zoomToPlayer;

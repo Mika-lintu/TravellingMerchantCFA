@@ -97,7 +97,7 @@ public class BattleController : MonoBehaviour
                 {
                     activeEnemies.Add(overallEnemies[i]);
                     overallEnemies[i].SetActive(true);
-                    overallEnemies[i].GetComponent<EnemyAI>().StartBattle();
+                    //overallEnemies[i].GetComponent<EnemyAI>().StartBattle();
                 }
             }
             else

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemHandler : MonoBehaviour {
+public class ItemHandler : MonoBehaviour
+{
 
     public List<GameObject> items;
     public List<GameObject> shopItems;
@@ -10,16 +11,12 @@ public class ItemHandler : MonoBehaviour {
     public GameObject shopParent;
     List<Item> itemList;
     PoolManager poolManager;
+    ItemDatabase itemDatabase;
 
     void Awake()
     {
         poolManager = Camera.main.GetComponent<PoolManager>();
-
-    }
-
-    private void Start()
-    {
-        //StartCoroutine(SetupItems());
+        itemDatabase = Camera.main.GetComponent<ItemDatabase>();
     }
 
     public void SetItems(List<Item> newItemList)
@@ -39,6 +36,7 @@ public class ItemHandler : MonoBehaviour {
         }
     }
 
+
     public void SetShopItems(Dictionary<GameObject, int> newItems)
     {
         int shopSlotInt = 0;
@@ -57,6 +55,11 @@ public class ItemHandler : MonoBehaviour {
             shopSlotInt++;
         }
 
+    }
+
+    public void BuyItems(GameObject go, int quantity)
+    {
+        poolManager.PoolItemsToInventory(go, quantity, transform.position, gameObject);
     }
 
     public void ShowItems()

@@ -19,7 +19,7 @@ public class SegmentMovement : MonoBehaviour
     JSONReader manager;
     GameObject activeSegment;
     GameSpeed gameSpeed;
-    CameraScript camScript;
+    //CameraScript camScript;
     public Sprite bgSprite;
     [HideInInspector]
     public bool moving = false;
@@ -39,10 +39,8 @@ public class SegmentMovement : MonoBehaviour
         manager = GetComponent<JSONReader>();
         Camera cam = Camera.main;
         gameSpeed = cam.GetComponent<GameSpeed>();
-        camScript = Camera.main.GetComponent<CameraScript>();
+        //camScript = Camera.main.GetComponent<CameraScript>();
 
-        Vector3 p1 = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
-        Vector3 p2 = cam.ViewportToWorldPoint(new Vector3(1, 0, cam.nearClipPlane));
         screenWidth = bgSprite.bounds.size.x;
     }
 

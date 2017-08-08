@@ -65,7 +65,6 @@ public class EditorJSONReader : MonoBehaviour
     public void GetLevelItems(string levelName, out List<string> return1)
     {
         List<string> newList = new List<string>();
-        int sceneInt;
         LevelItems levelItems = new LevelItems();
         jsonString = File.ReadAllText(levelItemsList + levelName + "_items.json");
         JsonUtility.FromJsonOverwrite(jsonString, levelItems);

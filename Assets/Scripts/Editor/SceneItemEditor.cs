@@ -12,7 +12,7 @@ public class SceneItemEditor : Editor
     bool showLevels = false;
     bool showItems = false;
     string sceneName;
-    string levelsPath = "Assets/Resources/Levels/";
+    //string levelsPath = "Assets/Resources/Levels/";
 
     private void OnSceneGUI()
     {

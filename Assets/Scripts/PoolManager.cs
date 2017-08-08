@@ -5,6 +5,7 @@ using UnityEngine;
 public class PoolManager : MonoBehaviour
 {
 
+
     Dictionary<string, Queue<ItemObjectInstance>> itemDictionary = new Dictionary<string, Queue<ItemObjectInstance>>();
     Dictionary<int, Queue<ObjectInstance>> poolDictionary = new Dictionary<int, Queue<ObjectInstance>>();
 
@@ -35,7 +36,6 @@ public class PoolManager : MonoBehaviour
     public void CreatePool(GameObject prefab, int poolSize)
     {
         int poolKey = prefab.GetInstanceID();
-        List<GameObject> poolList = new List<GameObject>();
         GameObject poolHolder = new GameObject(prefab.name + " pool");
         poolHolder.transform.parent = transform;
 
@@ -129,6 +129,34 @@ public class PoolManager : MonoBehaviour
             return objectToReuse.gameObject;
         }
         return null;
+    }
+
+
+    public void PoolItemsToInventory(GameObject go, int quantity, Vector2 position, GameObject parent)
+    {
+        string poolKey = go.GetComponent<ItemStats>().id;
+
+        for (int i = 0; i < quantity; i++)
+        {
+            if (itemDictionary.ContainsKey(poolKey))
+            {
+                ItemObjectInstance objectToReuse = itemDictionary[poolKey].Dequeue();
+                itemDictionary[poolKey].Enqueue(objectToReuse);
+                objectToReuse.Reuse(position, Quaternion.identity);
+                if (i == 0)
+                {
+                    objectToReuse.gameObject.GetComponent<ItemStats>().quantity = quantity;
+                    objectToReuse.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                } else
+                {
+                    objectToReuse.gameObject.SetActive(false);
+                }
+                objectToReuse.SetParent(parent.transform);
+            }
+        }
+
+        GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>().MakeItemList();
+
     }
 
 
@@ -229,6 +257,15 @@ public class PoolManager : MonoBehaviour
         public void SetParent(Transform parent)
         {
             transform.parent = parent;
+
+            if (parent.name == "Player")
+            {
+                gameObject.tag = "Item";
+            }
+            else if (parent.name == "SceneItems")
+            {
+                gameObject.tag = "ShopItem";
+            }
         }
     }
 }

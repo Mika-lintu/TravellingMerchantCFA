@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleAI : MonoBehaviour {
-
+    
     enum CharacterType { Henchman, Enemy }
     CharacterType characterType = new CharacterType();
 
@@ -40,11 +40,6 @@ public class BattleAI : MonoBehaviour {
 
     void SetCharacterActions(List<string> actionStrings)
     {
-        List<TurnActions> meleeAttacks = new List<TurnActions>();
-        List<TurnActions> rangedAttacks = new List<TurnActions>();
-        List<TurnActions> specialMelee = new List<TurnActions>();
-        List<TurnActions> specialRanged = new List<TurnActions>();
-        List<TurnActions> lowHealth = new List<TurnActions>();
 
         for (int i = 0; i < actionStrings.Count; i++)
         {
@@ -151,5 +146,33 @@ public class BattleAI : MonoBehaviour {
 
     #endregion
 
-
+    
 }
+
+[System.Serializable]
+public class AIAction
+{
+    public string actionName;
+    public int meleeRange;
+    public int ranged;
+    public int lowHealth;
+    public int losingBattle;
+
+
+
+    public void GetActionOdds(out int return1, out int return2, out int return3, out int return4)
+    {
+        return1 = meleeRange;
+        return2 = ranged;
+        return3 = lowHealth;
+        return4 = losingBattle;
+    }
+}
+
+[System.Serializable]
+public class ListOfAIActions
+{
+    AIAction action;
+}
+
+

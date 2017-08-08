@@ -11,7 +11,7 @@ public class LevelSegment02 : MonoBehaviour {
     public bool randomGenerator;
     GenerateCurve curveGenerator;
     RoadGenerator road;
-    JSONReader jsonReader;
+    //JSONReader jsonReader;
     [HideInInspector]
     public float roadStart;
     public int segNum;
@@ -22,7 +22,7 @@ public class LevelSegment02 : MonoBehaviour {
     {
         curveGenerator = GetComponent<GenerateCurve>();
         road = GetComponent<RoadGenerator>();
-        jsonReader = transform.parent.GetComponent<JSONReader>();
+        //jsonReader = transform.parent.GetComponent<JSONReader>();
         bgSprite = transform.GetChild(0).GetComponent<SpriteChanger>();
     }
 

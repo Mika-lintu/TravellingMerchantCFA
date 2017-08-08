@@ -5,12 +5,13 @@ using UnityEngine;
 public class QuantUIList : MonoBehaviour
 {
     public List<GameObject> quantText;
-    List<GameObject> assignedQuantText = new List<GameObject>();
+    public List<GameObject> assignedQuantText;
     List<GameObject> itemsInScene;
 
     void Awake()
     {
         itemsInScene = new List<GameObject>();
+        assignedQuantText = new List<GameObject>();
     }
 
     void Start()
@@ -18,23 +19,13 @@ public class QuantUIList : MonoBehaviour
         //MakeItemList();
         
     }
-
-
-    void Update()
-    {
-        if (Input.GetKeyDown("t"))
-        {
-            MakeItemList();
-            
-        }
-    }
-    
+   
 
     public void MakeItemList()
     {
         GameObject[] tempList = GameObject.FindGameObjectsWithTag("ShopItem");
         GameObject[] tempList2 = GameObject.FindGameObjectsWithTag("Item");
-        Debug.Log(tempList.Length);
+
         for (int i = 0; i < tempList.Length; i++)
         {
             itemsInScene.Add(tempList[i]);
@@ -52,7 +43,7 @@ public class QuantUIList : MonoBehaviour
     {
         for (int i = 0; i < itemsInScene.Count; i++)
         {
-            SetUIToItem(itemsInScene[i]);
+            if (itemsInScene[i].GetComponent<ItemStats>().quantity > 1) SetUIToItem(itemsInScene[i]);
         }
     }
 
@@ -91,5 +82,27 @@ public class QuantUIList : MonoBehaviour
         {
             assignedQuantText[i].SetActive(false);
         }
+    }
+
+
+    public void RemoveFromAssignedList(GameObject go)
+    {
+        int removeAt = 0;
+        bool remove = false;
+        for (int i = 0; i < assignedQuantText.Count; i++)
+        {
+            if (assignedQuantText[i].Equals(go))
+            {
+                removeAt = i;
+                remove = true;
+                break;
+            }
+        }
+
+        if (remove)
+        {
+            assignedQuantText.RemoveAt(removeAt);
+        }
+
     }
 }

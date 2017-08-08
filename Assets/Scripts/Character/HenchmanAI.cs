@@ -17,7 +17,6 @@ public class HenchmanAI : MonoBehaviour
     public float movementSpeed;
     public float actionSpeed;
     public bool battleOngoing;
-    float fixedActionSpeed;
     float damage;
     float turnTimer = 10f;
     bool flipSprite;
@@ -26,7 +25,6 @@ public class HenchmanAI : MonoBehaviour
 
 
     IEnumerator turnCountdown;
-    IEnumerator returnToStartPosition;
 
     delegate void Actions();
     Actions turnActions;
@@ -36,7 +34,7 @@ public class HenchmanAI : MonoBehaviour
         battleC = Camera.main.GetComponent<BattleController>();
         sprite = GetComponent<SpriteRenderer>();
         turnCountdown = runTurnCountdown();
-        returnToStartPosition = goToStartPosition();
+        //returnToStartPosition = goToStartPosition();
         gameSpeed = Camera.main.GetComponent<GameSpeed>();
     }
 
@@ -95,7 +93,7 @@ public class HenchmanAI : MonoBehaviour
     {
         if (!countdownRunning)
         {
-            fixedActionSpeed = actionSpeed + Random.Range(-0.5f, 0.5f);
+            //fixedActionSpeed = actionSpeed + Random.Range(-0.5f, 0.5f);
             turnCountdown = runTurnCountdown();
             StartCoroutine(turnCountdown);
         }

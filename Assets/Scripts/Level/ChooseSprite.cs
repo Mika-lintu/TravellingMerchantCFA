@@ -6,13 +6,13 @@ public class ChooseSprite : MonoBehaviour {
 
     public List<GameObject> spritelist;
     public GameObject segments;
-    SegmentManager01 manager;
+    //SegmentManager01 manager;
     float screenWidth;
 
 
     void Awake()
     {
-        manager = segments.GetComponent<SegmentManager01>();
+        //manager = segments.GetComponent<SegmentManager01>();
 
         Camera cam = Camera.main;
         Vector3 p1 = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
@@ -38,7 +38,7 @@ public class ChooseSprite : MonoBehaviour {
             if (spritelist[i].GetComponent<SpriteChanger>().active == false)
             {
                 SpriteChanger changer = spritelist[i].GetComponent<SpriteChanger>();
-                spritelist[i].transform.SetParent(manager.segments[3].transform);
+                //spritelist[i].transform.SetParent(manager.segments[3].transform);
                 changer.active = true;
                 changer.currentSprite = spriteNumber;
                 changer.SetSprite(spriteNumber);
@@ -60,7 +60,7 @@ public class ChooseSprite : MonoBehaviour {
             if (spritelist[i].GetComponent<SpriteChanger>().active == false)
             {
                 SpriteChanger changer = spritelist[i].GetComponent<SpriteChanger>();
-                spritelist[i].transform.SetParent(manager.segments[segmentNumber - 1].transform);
+                //spritelist[i].transform.SetParent(manager.segments[segmentNumber - 1].transform);
                 changer.active = true;
                 changer.currentSprite = spriteNumber;
                 changer.SetSprite(spriteNumber);
