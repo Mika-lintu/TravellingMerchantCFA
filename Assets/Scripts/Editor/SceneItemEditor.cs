@@ -33,7 +33,7 @@ public class SceneItemEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        
+        itemEditor = target as SceneItemGenerator;
         EditorGUILayout.LabelField(itemEditor.levelName);
         showLevels = EditorGUILayout.Foldout(showLevels, "Levels");
         

@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4289234573479232}
   - component: {fileID: 114295618887818864}
+  - component: {fileID: 114668373813866984}
+  - component: {fileID: 114673016479791258}
   m_Layer: 0
   m_Name: SceneItemEditor
   m_TagString: Untagged
@@ -52,12 +54,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: level01
+  levelItemsPath: 
   numberOfItems: 0
   levels:
   - level01
   - level02
   - level03
+  - level04
   levelItemList:
   - {fileID: 1785107870955030, guid: 4959a1d62ea0c234bbc2f5be2af58467, type: 2}
   - {fileID: 1288934534644842, guid: 49d4db4386b973046a6017e824ee6e05, type: 2}
+  - {fileID: 1978252013936780, guid: 7d7e276f15884f5418cf7acc2c1df7d7, type: 2}
+  - {fileID: 1925047871688198, guid: 6f09084a02c99f1458a49dd8fb40e23c, type: 2}
+  - {fileID: 1702473921978212, guid: e57f2f0337da56c419770a7c62ccd7df, type: 2}
+  - {fileID: 1978252013936780, guid: 5942f2ee293618d458eb731b3d5eed65, type: 2}
+  - {fileID: 1024106143758808, guid: 3d45c7ff4a0d52b409dd4a69e8588974, type: 2}
+  - {fileID: 1060990036567688, guid: c2f53fea27b131c43949b84ebca96b98, type: 2}
+  - {fileID: 1301091953252452, guid: fda3356a5c3fae1429d45854901f229a, type: 2}
+  - {fileID: 1783488362468840, guid: 87db292ffdd814f45b6c22064e904d53, type: 2}
+  - {fileID: 1997721815452870, guid: 17251abef2b015544a18e421c6615cd2, type: 2}
+  - {fileID: 1746842987727918, guid: f260effadb8b4ef469fde4091e6259cf, type: 2}
+  - {fileID: 1456976962793676, guid: 51c8d75896dac6c4cb8452c06c6c00f4, type: 2}
+  - {fileID: 1691239157491762, guid: 0658d62047843594995f72e6558b58ae, type: 2}
+  - {fileID: 1925179861144452, guid: 4dd392f5eda7a184683e677cb43edf26, type: 2}
+  - {fileID: 1925179861144452, guid: 4dd392f5eda7a184683e677cb43edf26, type: 2}
   currentLevel: 0
+--- !u!114 &114668373813866984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644633097102836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f3ff1188d385349bd50d0267522a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: 
+  sceneItemsList: []
+--- !u!114 &114673016479791258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644633097102836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564e1231516eddc46a21727f20dcd840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
