@@ -149,30 +149,4 @@ public class BattleAI : MonoBehaviour {
     
 }
 
-[System.Serializable]
-public class AIAction
-{
-    public string actionName;
-    public int meleeRange;
-    public int ranged;
-    public int lowHealth;
-    public int losingBattle;
-
-
-
-    public void GetActionOdds(out int return1, out int return2, out int return3, out int return4)
-    {
-        return1 = meleeRange;
-        return2 = ranged;
-        return3 = lowHealth;
-        return4 = losingBattle;
-    }
-}
-
-[System.Serializable]
-public class ListOfAIActions
-{
-    AIAction action;
-}
-
 
