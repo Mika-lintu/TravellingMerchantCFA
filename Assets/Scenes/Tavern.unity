@@ -3775,6 +3775,7 @@ MonoBehaviour:
   - {fileID: 920917071}
   - {fileID: 46575955}
   - {fileID: 1107312316}
+  assignedQuantText: []
 --- !u!1 &1833290228
 GameObject:
   m_ObjectHideFlags: 0
