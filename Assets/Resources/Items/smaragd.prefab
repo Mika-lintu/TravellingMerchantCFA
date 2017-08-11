@@ -55,7 +55,7 @@ Transform:
   m_GameObject: {fileID: 1746842987727918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.266, y: -2.266, z: 0}
-  m_LocalScale: {x: 0.09379377, y: 0.09379377, z: 0.09379377}
+  m_LocalScale: {x: 0.075, y: 0.075, z: 1}
   m_Children:
   - {fileID: 4488559507930256}
   m_Father: {fileID: 0}
@@ -176,8 +176,8 @@ MonoBehaviour:
   scale: 0
   rarity: 0
   itemType: 1
-  effectValue: 5
-  value: 100
+  effectValue: 10
+  value: 90
   weight: 0
   quantity: 0
   itemLocation: 
@@ -215,7 +215,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3127572c5ed33d3499e6670fffba5472, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a994c7d0e60f4af47b49b4da6d61548b, type: 3}
   m_Color: {r: 1, g: 0.9019608, b: 0.6392157, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -250,7 +250,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0c0cb981dc694224d8dd8633af2dcd05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93e8db82d245aa747a4da45613a3ef84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
