@@ -29,13 +29,13 @@ public class PauseMenu : MonoBehaviour
 
         if (Input.deviceOrientation == DeviceOrientation.LandscapeLeft)
         {
-            temp.text = "Orientation = landscapeLeft";
+            //temp.text = "Orientation = landscapeLeft";
             portrait = false;
             SetLandscapeLayout();
         }
         else if (Input.deviceOrientation == DeviceOrientation.Portrait)
         {
-            temp.text = "Orientation = portrait";
+            //temp.text = "Orientation = portrait";
             portrait = true;
             SetPortraitLayout();
         }
@@ -44,15 +44,18 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    public void OpenPage(int pageNum)
+    public void OpenPage(int num)
     {
+        pageNum = num;
         if (!portrait)
         {
             landscapeMenuPages[pageNum].SetActive(true);
+            temp.text = "" + pageNum;
         }
         else
         {
             portraitMenuPages[pageNum].SetActive(true);
+            temp.text = "" + pageNum;
         }
     }
 
@@ -88,6 +91,7 @@ public class PauseMenu : MonoBehaviour
             landscapeMenu.SetActive(false);
             portraitMenu.SetActive(true);
             portraitMenuPages[pageNum].SetActive(true);
+            temp.text = "" + pageNum;
         }
     }
 
@@ -99,6 +103,7 @@ public class PauseMenu : MonoBehaviour
             portraitMenu.SetActive(false);
             landscapeMenu.SetActive(true);
             landscapeMenuPages[pageNum].SetActive(true);
+            temp.text = "" + pageNum;
         }
     }
 
