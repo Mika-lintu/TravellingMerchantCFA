@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/EnemyStats")]
 public class AIStats : ScriptableObject {
 
+    public float maxHealth;
     public float turnSpeed;
     public float range;
     public float movementSpeed;

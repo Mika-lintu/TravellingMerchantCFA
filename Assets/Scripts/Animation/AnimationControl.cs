@@ -13,11 +13,11 @@ public class AnimationControl : MonoBehaviour
     [Spine.Unity.SpineAnimation]
     public string attack;
     [Spine.Unity.SpineAnimation]
-    public string defaultAnimation = "Idle";
+    public string steal;
 
     string hurt = "Being Hit";
     string death = "Death";
-    string run = "Run";    
+    string run = "Run";
 
     Spine.Unity.SkeletonAnimation skeletonAnimation;
     //AnimationStateControl animState;

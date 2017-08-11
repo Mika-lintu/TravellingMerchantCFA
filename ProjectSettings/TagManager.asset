@@ -19,6 +19,7 @@ TagManager:
   - LevelSegment
   - Ground
   - ShopKeeper
+  - FleeTarget
   layers:
   - Default
   - TransparentFX

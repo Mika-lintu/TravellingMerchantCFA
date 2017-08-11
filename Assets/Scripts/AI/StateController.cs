@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class StateController : MonoBehaviour
 {
-
+    public float health;
     public State currentState;
     public AIStats aiStats;
     public Transform currentTarget;
     public State remainState;
     public State turnState;
     public State moveToTargetState;
+    public State fleeState;
+    public State deathState;
     private bool aiActive;
 
     AnimationControl animControl;
@@ -21,15 +23,22 @@ public class StateController : MonoBehaviour
     [HideInInspector]
     public bool targetInRange;
     [HideInInspector]
+    public bool fleeing;
+    [HideInInspector]
     public float distanceToTarget;
     [HideInInspector]
     public Dictionary<string, int> turnActions;
+    [HideInInspector]
+    public GameObject fleeTarget;
+    [HideInInspector]
+    public bool isFlipped = false;
 
     #region General
 
     private void Awake()
     {
         animControl = GetComponent<AnimationControl>();
+        fleeing = false;
     }
 
     private void Start()
@@ -56,6 +65,8 @@ public class StateController : MonoBehaviour
     public void SetupAI()
     {
         turnActions = aiStats.GetActionsDictionary();
+        health = aiStats.maxHealth;
+        fleeTarget = GameObject.FindGameObjectWithTag("FleeTarget");
         aiActive = true;
     }
 
@@ -155,6 +166,9 @@ public class StateController : MonoBehaviour
     public void Flee()
     {
         Debug.Log("Flee");
+        currentTarget = fleeTarget.transform;
+        targetInRange = false;
+        TransitionToState(fleeState);
         ResetStateTimer();
     }
 
@@ -168,6 +182,14 @@ public class StateController : MonoBehaviour
     {
         Debug.Log("HealSelf");
         ResetStateTimer();
+    }
+
+    public void Death()
+    {
+        Debug.Log("Death");
+        currentTarget = null;
+        animControl.DeathAnimation();
+        TransitionToState(deathState);
     }
 
     #endregion
@@ -186,6 +208,7 @@ public class StateController : MonoBehaviour
         TransitionToState(moveToTargetState);
     }
 
+
     public void MoveToTarget()
     {
         if (currentCoroutine == null || currentCoroutine.ToString() != MoveCoroutine().ToString())
@@ -196,8 +219,21 @@ public class StateController : MonoBehaviour
         }
     }
 
+
+    public void FleeFromBattle()
+    {
+        if (currentCoroutine == null || currentCoroutine.ToString() != FleeCoroutine().ToString())
+        {
+            StopAllCoroutines();
+            currentCoroutine = FleeCoroutine();
+            StartCoroutine(currentCoroutine);
+        }
+    }
+
+
     IEnumerator MoveCoroutine()
     {
+        FlipCharacter();
         animControl.SetAnimation(animControl.walk, true);
 
         while (!targetInRange)
@@ -206,12 +242,52 @@ public class StateController : MonoBehaviour
             yield return null;
         }
         animControl.SetAnimation(animControl.idle, true);
+        currentCoroutine = null;
+
     }
+
+
+    IEnumerator FleeCoroutine()
+    {
+        FlipCharacter();
+        animControl.SetAnimation(animControl.steal, true);
+
+        while (!targetInRange)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, currentTarget.position, aiStats.movementSpeed * Time.deltaTime);
+            yield return null;
+        }
+        currentCoroutine = null;
+
+    }
+
 
     public bool TargetInRange()
     {
         return DistanceToTarget() <= aiStats.range;
     }
 
-    #endregion
+
+    void FlipCharacter()
+    {
+        if (currentTarget.position.x > transform.position.x)
+        {
+            if (!isFlipped)
+            {
+                isFlipped = true;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, 1);
+            }
+            else
+            {
+                if (isFlipped)
+                {
+                    isFlipped = false;
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, 1);
+                }
+            }
+        }
+    }
+
+        #endregion
+    
 }

@@ -8,16 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f68ec7fe512fc4fb49d7f319e32800, type: 3}
-  m_Name: OwlingStats
+  m_Script: {fileID: 11500000, guid: d7edf20065d99074b8963edca31ca880, type: 3}
+  m_Name: DisableCharacter
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  turnSpeed: 3
-  range: 1.5
-  movementSpeed: 5
-  meleeAttack: 50
-  rangedAttack: 0
-  steal: 0
-  flee: 100
-  specialAttack: 0
-  healSelf: 0
