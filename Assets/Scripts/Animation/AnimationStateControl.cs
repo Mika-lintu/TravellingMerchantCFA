@@ -75,10 +75,10 @@ public class AnimationStateControl : MonoBehaviour {
     }
     void Idle(GameObject go)
     {
-        go.GetComponent<AnimationControl>().NormalIdle();
+        //go.GetComponent<AnimationControl>().NormalIdle();
     }
     void Walk(GameObject go)
     {
-        go.GetComponent<AnimationControl>().Walk();
+        //go.GetComponent<AnimationControl>().Walk();
     }
 }

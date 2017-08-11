@@ -15,6 +15,7 @@ public class IsTargetInReach : Decision {
     {
         if (controller.DistanceToTarget() <= controller.aiStats.range)
         {
+            controller.targetInRange = true;
             return true;
         }
         else

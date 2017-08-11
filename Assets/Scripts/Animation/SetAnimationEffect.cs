@@ -35,7 +35,7 @@ public class SetAnimationEffect : MonoBehaviour {
 
                 hitEffectList[i].SetActive(true);
                 hitEffectList[i].transform.position = new Vector3(0.3f, 3) + go.transform.position;
-                go.GetComponent<AnimationControl>().Hurt();
+                //go.GetComponent<AnimationControl>().Hurt();
                 break;
             }
         }

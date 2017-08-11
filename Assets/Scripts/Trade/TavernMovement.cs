@@ -75,7 +75,8 @@ public class TavernMovement : MonoBehaviour
         playerAtShop = false;
         target = newTargetPosition;
         targetDistance = Vector2.Distance(transform.position, target.transform.position);
-        animState.Walk();
+        //animState.Walk();
+        animState.SetAnimation(animState.walk, true);
         while (targetDistance >= 0.1f)
         {
             targetDistance = Vector2.Distance(transform.position, target.transform.position);
@@ -83,14 +84,16 @@ public class TavernMovement : MonoBehaviour
             FlipPlayer(newTargetPosition);
             yield return null;
         }
-        animState.NormalIdle();
+        //animState.NormalIdle();
+        animState.SetAnimation(animState.idle, true);
     }
 
 
     IEnumerator MoveToShop()
     {
         targetDistance = Vector2.Distance(transform.position, shopPosition.transform.position);
-        animState.Walk();
+        //animState.Walk();
+        animState.SetAnimation(animState.walk, true);
         while (targetDistance >= 0.1f)
         {
             targetDistance = Vector2.Distance(transform.position, shopPosition.transform.position);
@@ -98,7 +101,8 @@ public class TavernMovement : MonoBehaviour
             FlipPlayer(shopPosition);
             yield return null;
         }
-        animState.NormalIdle();
+        //animState.NormalIdle();
+        animState.SetAnimation(animState.idle, true);
         playerAtShop = true;
         tavernCamera.GoToShop();
         

@@ -12,9 +12,11 @@ public class TurnAction : AIAction
 
         if (controller.TurnTimerHasElapsed())
         {
+            controller.ResetStateTimer();
+
             if (controller.TargetInRange())
             {
-                controller.Attack();
+                controller.PickTurnAction();
             }
             else
             {

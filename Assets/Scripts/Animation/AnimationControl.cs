@@ -12,67 +12,64 @@ public class AnimationControl : MonoBehaviour
     public string walk;
     [Spine.Unity.SpineAnimation]
     public string attack;
+    [Spine.Unity.SpineAnimation]
+    public string defaultAnimation = "Idle";
 
-    string hurt = "Being hit";
+    string hurt = "Being Hit";
     string death = "Death";
-    string run = "Run";
-
-    string currentAnimation;
+    string run = "Run";    
 
     Spine.Unity.SkeletonAnimation skeletonAnimation;
-    AnimationStateControl animState;
+    //AnimationStateControl animState;
     
    
     void Start()
     {
         skeletonAnimation = GetComponent<Spine.Unity.SkeletonAnimation>();
         Debug.Log(skeletonAnimation.AnimationName);
-        animState = Camera.main.GetComponent<AnimationStateControl>();
-        //animChild = transform.GetChild(0).gameObject;
-        //effect = animChild.GetComponent<EffectAnimation>();
-        
+        skeletonAnimation.state.End += State_End;
+        //animState = Camera.main.GetComponent<AnimationStateControl>();
+
     }
-    
+
+
     void Update()
     {
-        if (Input.GetKey(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.N))
         {
-            Hurt();
+            SetAnimation(hurt, false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            DeathAnimation();
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            SetAnimation(attack, false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            SetAnimation(walk, true);
         }
     }
 
-
-    void AnimationSet(string name)
+    public void SetAnimation(string name, bool loop)
     {
-        if (name == currentAnimation)
-        {
-            return;
-        }
-        skeletonAnimation.state.SetAnimation(0, name, true);
-        currentAnimation = name;
+        skeletonAnimation.state.SetAnimation(0, name, loop);
+        if (!loop) skeletonAnimation.state.AddAnimation(0, idle, true, 0f);
     }
 
-    void UseAnimationOnce(string name)
+    public void DeathAnimation()
     {
-        skeletonAnimation.state.SetAnimation(0, name, false);
-        skeletonAnimation.state.AddAnimation(0, walk, true, 0f);
-       
+        skeletonAnimation.state.SetAnimation(0, death, false);
     }
 
-    public void NormalIdle()
+    private void State_End(Spine.TrackEntry trackEntry)
     {
-        AnimationSet(idle);
+
     }
 
-    public void Walk()
-    {
-        AnimationSet(walk);
-    }
-
-    public void Hurt(){
-        UseAnimationOnce(hurt);
-       // animChild.SetActive(true);
-        //effect.HealAnimation();
-    }
-   
 }

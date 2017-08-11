@@ -204,6 +204,7 @@ MonoBehaviour:
   idle: Idle (Normal, Light)
   walk: Walk (Light)
   attack: Throw
+  defaultAnimation: Idle
 --- !u!114 &114848638951098572
 MonoBehaviour:
   m_ObjectHideFlags: 1

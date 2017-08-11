@@ -23,17 +23,17 @@ GameObject:
   - component: {fileID: 23928705052306168}
   - component: {fileID: 114374803589619906}
   - component: {fileID: 114530638855891172}
-  - component: {fileID: 114677003882263714}
-  - component: {fileID: 114639122460182850}
   - component: {fileID: 114369245687466630}
   - component: {fileID: 50281150526764580}
+  - component: {fileID: 114581038970861876}
+  - component: {fileID: 114482579411252422}
   m_Layer: 0
   m_Name: Owling
   m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4070151792271608
 Transform:
   m_ObjectHideFlags: 1
@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417989800222618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.65, y: -1.29, z: 0}
+  m_LocalPosition: {x: 1.7, y: -2.1, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -145,9 +145,24 @@ MonoBehaviour:
   calculateTangents: 0
   logErrors: 0
   disableRenderingOnOverride: 1
-  _animationName: 
-  loop: 0
+  _animationName: Idle
+  loop: 1
   timeScale: 1
+--- !u!114 &114482579411252422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417989800222618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f72ba68985573204780dbcd6c7022696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idle: Idle
+  walk: Run
+  attack: Attack
+  defaultAnimation: Idle
 --- !u!114 &114530638855891172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,8 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847f8cbb2bf15774f8870a6874ca7b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScale: {x: 0.7, y: 0.7, z: 1}
---- !u!114 &114639122460182850
+  startScale: {x: 1, y: 1, z: 1}
+--- !u!114 &114581038970861876
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -168,24 +183,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1417989800222618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 775240f34ea2eed41aea0a8c7a65f863, type: 3}
+  m_Script: {fileID: 11500000, guid: 4452d274f5bfba1439be92192ec71a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: 
-  health: 75
-  damage: 7
-  level: 0
-  dodgeChange: 0.1
-  startHealth: 75
-  characterType: 1
---- !u!114 &114677003882263714
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1417989800222618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e327fad8a05a2b7468b548ddc68bdf35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  currentState: {fileID: 11400000, guid: d88622daafd589c48b501f6c33143ac2, type: 2}
+  aiStats: {fileID: 11400000, guid: 71e4c84d38020b540bc9ef535c35cec8, type: 2}
+  currentTarget: {fileID: 0}
+  remainState: {fileID: 11400000, guid: 0813b98076bf3d74999ace9a542cd9ed, type: 2}
+  turnState: {fileID: 11400000, guid: d88622daafd589c48b501f6c33143ac2, type: 2}
+  moveToTargetState: {fileID: 11400000, guid: 063969158478afc4b841cebaf0cfad3b, type: 2}
+  stateTimeElapsed: 0
+  targetInRange: 0
+  distanceToTarget: 0
