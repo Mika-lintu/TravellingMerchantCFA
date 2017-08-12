@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4272933863090304}
   - component: {fileID: 212212444214317758}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPR_fish_white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 50710100744774366}
   - component: {fileID: 231564929954265792}
   - component: {fileID: 114861966106469918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPR_fish_01
   m_TagString: Item
   m_Icon: {fileID: 0}

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4077868271326504}
   - component: {fileID: 212220623549148484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: skull_w
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 60393904597418546}
   - component: {fileID: 50460728544098086}
   - component: {fileID: 231542326661117652}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: skull
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1519187841897976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.645652, y: -3.1719918, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.087894864, y: 0.087894864, z: 0.087894864}
   m_Children:
   - {fileID: 4077868271326504}

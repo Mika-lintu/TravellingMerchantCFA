@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4540382379078738}
   - component: {fileID: 212711878569528674}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPR_dagger_white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 231815448573155146}
   - component: {fileID: 60954293248664234}
   - component: {fileID: 114468700829513456}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPR_dagger_01
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1364921015518772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.48262578, y: -0.14242126, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.075, y: 0.075, z: 1}
   m_Children:
   - {fileID: 4540382379078738}

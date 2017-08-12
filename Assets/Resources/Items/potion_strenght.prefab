@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4240954971768986}
   - component: {fileID: 212854331993626146}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: potion_w
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 58154936895634936}
   - component: {fileID: 58262651567338288}
   - component: {fileID: 114816188252616010}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: potion_strenght
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1978252013936780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.81931, y: -4.4418464, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.075, y: 0.075, z: 1}
   m_Children:
   - {fileID: 4240954971768986}

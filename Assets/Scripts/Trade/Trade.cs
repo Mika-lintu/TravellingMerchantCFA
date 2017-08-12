@@ -17,7 +17,6 @@ public class Trade : MonoBehaviour
     public GameObject tradeInfo;
     public GameObject errorMessage;
     public GameObject infoCollider;
-    public List<GameObject> shopSlots;
 
     bool empty;
     float cost;
@@ -148,14 +147,10 @@ public class Trade : MonoBehaviour
     {
         if (tavernCamera.modeEnum == TavernCamera.Tavern.inShop)
         {
-            //transform.GetChild(0).gameObject.SetActive(true);
-            //transform.GetChild(1).gameObject.SetActive(true);
             itemHandler.ShowItems();
         }
         else
         {
-            //transform.GetChild(0).gameObject.SetActive(false);
-            //transform.GetChild(1).gameObject.SetActive(false);
             itemHandler.HideItems();
         }
     }

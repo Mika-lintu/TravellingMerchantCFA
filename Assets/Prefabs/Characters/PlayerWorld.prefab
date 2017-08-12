@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1022234855215644
 GameObject:
   m_ObjectHideFlags: 1
@@ -120,8 +120,8 @@ GameObject:
   - component: {fileID: 114472227705450832}
   - component: {fileID: 60651300881164266}
   m_Layer: 0
-  m_Name: TestInventory
-  m_TagString: InventoryBackground
+  m_Name: Backpack
+  m_TagString: Backpack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 114877352697180088}
   - component: {fileID: 114357433128970486}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: PlayerWorld
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -596,8 +596,8 @@ Transform:
   m_LocalPosition: {x: -0.2, y: -4.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4626512661915976}
   - {fileID: 4431018808505738}
+  - {fileID: 4626512661915976}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -669,7 +669,7 @@ Transform:
   - {fileID: 4704427843731472}
   - {fileID: 4488017538620494}
   m_Father: {fileID: 4131313518873566}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4438937497440406
 Transform:
@@ -777,12 +777,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1117223073750476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.75, y: 0.15999997, z: 0.00999999}
-  m_LocalScale: {x: -0.4, y: 0.4, z: 1}
+  m_LocalPosition: {x: -1.05, y: 2.54, z: -0.1}
+  m_LocalScale: {x: -0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 4954430773589934}
   m_Father: {fileID: 4131313518873566}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4639461954147790
 Transform:
@@ -1668,11 +1668,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spritelist:
-  - {fileID: 21300000, guid: d0340304ed733f6488458fd2f9402dbc, type: 3}
-  - {fileID: 21300000, guid: 6f8e5636debd6a14db0a6e63444e0258, type: 3}
-  - {fileID: 21300000, guid: 1856ac9c31f28f24cb657a6d1d2853f6, type: 3}
-  - {fileID: 21300000, guid: a5de6ba525baa9543bcde32b5021c766, type: 3}
-  - {fileID: 21300000, guid: a5de6ba525baa9543bcde32b5021c766, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   itemTemplates:
   - {fileID: 1846100633682750}
   - {fileID: 1819566953684492}
@@ -1694,11 +1694,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spritelist:
-  - {fileID: 21300000, guid: d0340304ed733f6488458fd2f9402dbc, type: 3}
-  - {fileID: 21300000, guid: 6f8e5636debd6a14db0a6e63444e0258, type: 3}
-  - {fileID: 21300000, guid: 1856ac9c31f28f24cb657a6d1d2853f6, type: 3}
-  - {fileID: 21300000, guid: a5de6ba525baa9543bcde32b5021c766, type: 3}
-  - {fileID: 21300000, guid: a5de6ba525baa9543bcde32b5021c766, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   itemTemplates:
   - {fileID: 1846100633682750}
   - {fileID: 1819566953684492}
@@ -1733,11 +1733,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spritelist:
-  - {fileID: 21300000, guid: d0340304ed733f6488458fd2f9402dbc, type: 3}
-  - {fileID: 21300000, guid: 6f8e5636debd6a14db0a6e63444e0258, type: 3}
-  - {fileID: 21300000, guid: 1856ac9c31f28f24cb657a6d1d2853f6, type: 3}
-  - {fileID: 21300000, guid: a5de6ba525baa9543bcde32b5021c766, type: 3}
-  - {fileID: 21300000, guid: a5de6ba525baa9543bcde32b5021c766, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   itemTemplates:
   - {fileID: 1846100633682750}
   - {fileID: 1819566953684492}
@@ -1777,11 +1777,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spritelist:
-  - {fileID: 21300000, guid: d0340304ed733f6488458fd2f9402dbc, type: 3}
-  - {fileID: 21300000, guid: 6f8e5636debd6a14db0a6e63444e0258, type: 3}
-  - {fileID: 21300000, guid: 1856ac9c31f28f24cb657a6d1d2853f6, type: 3}
-  - {fileID: 21300000, guid: a5de6ba525baa9543bcde32b5021c766, type: 3}
-  - {fileID: 21300000, guid: a5de6ba525baa9543bcde32b5021c766, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   itemTemplates:
   - {fileID: 1846100633682750}
   - {fileID: 1819566953684492}
@@ -1805,7 +1805,10 @@ MonoBehaviour:
   idle: Idle (Normal, Light)
   walk: Walk (Light)
   attack: Throw
-  defaultAnimation: Idle
+  steal: 
+  hurt: 
+  death: 
+  run: 
 --- !u!114 &114472227705450832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1889,11 +1892,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spritelist:
-  - {fileID: 21300000, guid: d0340304ed733f6488458fd2f9402dbc, type: 3}
-  - {fileID: 21300000, guid: 6f8e5636debd6a14db0a6e63444e0258, type: 3}
-  - {fileID: 21300000, guid: 1856ac9c31f28f24cb657a6d1d2853f6, type: 3}
-  - {fileID: 21300000, guid: a5de6ba525baa9543bcde32b5021c766, type: 3}
-  - {fileID: 21300000, guid: a5de6ba525baa9543bcde32b5021c766, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   itemTemplates:
   - {fileID: 1846100633682750}
   - {fileID: 1819566953684492}

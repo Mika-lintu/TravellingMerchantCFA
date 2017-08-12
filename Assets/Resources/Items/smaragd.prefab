@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4488559507930256}
   - component: {fileID: 212125121945887532}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: smaragd_w
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 50897446933710026}
   - component: {fileID: 231508595270513648}
   - component: {fileID: 114584059019692652}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: smaragd
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1746842987727918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.266, y: -2.266, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.075, y: 0.075, z: 1}
   m_Children:
   - {fileID: 4488559507930256}

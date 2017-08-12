@@ -5,8 +5,6 @@ using UnityEngine;
 public class TavernMovement : MonoBehaviour
 {
 
-    //ADD IN CAMERA
-
     TavernCamera tavernCamera;
     AnimationControl animState;
 
@@ -75,7 +73,6 @@ public class TavernMovement : MonoBehaviour
         playerAtShop = false;
         target = newTargetPosition;
         targetDistance = Vector2.Distance(transform.position, target.transform.position);
-        //animState.Walk();
         animState.SetAnimation(animState.walk, true);
         while (targetDistance >= 0.1f)
         {
@@ -84,7 +81,6 @@ public class TavernMovement : MonoBehaviour
             FlipPlayer(newTargetPosition);
             yield return null;
         }
-        //animState.NormalIdle();
         animState.SetAnimation(animState.idle, true);
     }
 
@@ -92,7 +88,6 @@ public class TavernMovement : MonoBehaviour
     IEnumerator MoveToShop()
     {
         targetDistance = Vector2.Distance(transform.position, shopPosition.transform.position);
-        //animState.Walk();
         animState.SetAnimation(animState.walk, true);
         while (targetDistance >= 0.1f)
         {
@@ -101,7 +96,6 @@ public class TavernMovement : MonoBehaviour
             FlipPlayer(shopPosition);
             yield return null;
         }
-        //animState.NormalIdle();
         animState.SetAnimation(animState.idle, true);
         playerAtShop = true;
         tavernCamera.GoToShop();

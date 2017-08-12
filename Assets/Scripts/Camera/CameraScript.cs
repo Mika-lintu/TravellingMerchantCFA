@@ -109,13 +109,6 @@ public class CameraScript : MonoBehaviour {
 
         }
 
-        //Debug.Log(Mathf.InverseLerp(segmentStartX, 0, activeSegment.transform.position.x));
-
-        /*
-        //cam.orthographicSize = Mathf.Lerp(previousCamZoom, camZoom, activeSegment.transform.position.x - player.position.x);
-        cam.orthographicSize = Mathf.InverseLerp(previousCamZoom, camZoom, activeSegment.transform.position.x - player.position.x);
-        Debug.Log(previousCamZoom + "  " + camZoom + "   " + (activeSegment.transform.position.x - player.position.x) + "   "  + cam.orthographicSize);
-        */
     }
 
     private void OnEnable()
@@ -196,6 +189,7 @@ public class CameraScript : MonoBehaviour {
         }
         dampTime = 0.15f;
     }
+
 
     #region old coroutines
     /*

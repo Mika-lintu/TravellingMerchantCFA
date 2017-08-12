@@ -13,7 +13,6 @@ public class ItemDatabase : MonoBehaviour
     string path;
     string jsonString;
 
-    //string sceneItemsPath;
     string sceneItemsJSONString;
 
     PoolManager poolManager;
@@ -172,30 +171,6 @@ public class ItemDatabase : MonoBehaviour
         UpdateInventory();
     }
 
-    /*
-    public void AddToScene(string id, int quantity)
-    {
-        Item newItem = new Item();
-        string location = "scene";
-        newItem = itemDictionary[id].GetComponent<ItemStats>().GetStats();
-        newItem.quantity = quantity;
-        newItem.itemLocation = location;
-
-        UpdateSceneItems();
-    }
-
-
-    public void AddToScene(string id, int quantity, string sceneName)
-    {
-        Item newItem = new Item();
-        string location = "scene";
-        newItem = itemDictionary[id].GetComponent<ItemStats>().GetStats();
-        newItem.quantity = quantity;
-        newItem.itemLocation = location;
-
-        UpdateSceneItems(sceneName);
-    }
-    */
 
     void UpdateInventory()
     {
@@ -224,61 +199,4 @@ public class ItemDatabase : MonoBehaviour
         File.WriteAllText(path, stringStart);
     }
 
-    /*
-    void UpdateSceneItems()
-    {
-        string sceneName = SceneManager.GetActiveScene().name;
-        string stringStart = "{\n     \"" + sceneName + "\": [\n";
-
-
-        for (int i = 0; i < allSceneItems.levelItems.Count; i++)
-        {
-            string tempString = "";
-            stringStart = stringStart + tempString;
-
-            if (i < allSceneItems.levelItems.Count - 1)
-            {
-                stringStart = stringStart + ",\n";
-
-            }
-            else
-            {
-                stringStart = stringStart + "\n";
-            }
-        }
-
-        stringStart = stringStart + "   ]\n\n}";
-
-        File.WriteAllText(sceneItemsPath, stringStart);
-
-    }
-
-
-    void UpdateSceneItems(string sceneName)
-    {
-        string stringStart = "{\n     \"" + sceneName + "\": [\n";
-
-
-        for (int i = 0; i < allSceneItems.levelItems.Count; i++)
-        {
-            string tempString = "";// allSceneItems.levelItems[i];
-            stringStart = stringStart + tempString;
-
-            if (i < allSceneItems.levelItems.Count - 1)
-            {
-                stringStart = stringStart + ",\n";
-
-            }
-            else
-            {
-                stringStart = stringStart + "\n";
-            }
-        }
-
-        stringStart = stringStart + "   ]\n\n}";
-
-        File.WriteAllText(sceneItemsPath, stringStart);
-
-    }
-    */
 }

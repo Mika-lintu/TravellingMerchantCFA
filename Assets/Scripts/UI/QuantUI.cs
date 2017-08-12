@@ -18,8 +18,8 @@ public class QuantUI : MonoBehaviour
 
     void OnDisable()
     {
-        targetItem = null;
-        transform.parent.GetComponent<QuantUIList>().RemoveFromAssignedList(gameObject);
+        //targetItem = null;
+        //transform.parent.GetComponent<QuantUIList>().RemoveFromAssignedList(gameObject);
     }
 
 
@@ -44,8 +44,6 @@ public class QuantUI : MonoBehaviour
         itemQuant = go.GetComponent<ItemStats>().quantity;
         transform.position = Camera.main.WorldToScreenPoint((Vector3.up * 0) + go.transform.position);
         quantityText.text = "" + itemQuant;
-        //UpdatePosition(targetItem);
-        //UpdateQuantity(targetItem);
     }
    
     void UpdatePosition()

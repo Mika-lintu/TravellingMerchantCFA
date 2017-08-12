@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4149158058839904}
   - component: {fileID: 212482157666931748}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPR_lute_white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 50139084300438500}
   - component: {fileID: 231244239334113670}
   - component: {fileID: 114799857136186550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPR_lute_01
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1465456915570216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.71, y: -1.74, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.26501852, y: 0.26501852, z: 3.5335803}
   m_Children:
   - {fileID: 4149158058839904}

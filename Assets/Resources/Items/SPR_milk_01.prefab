@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4886171703210694}
   - component: {fileID: 212869706192941562}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPR_milk_white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 50133047623314284}
   - component: {fileID: 231430283605652946}
   - component: {fileID: 114697460069342442}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPR_milk_01
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713798648593926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.904, y: -2.844, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.10814733, y: 0.10814733, z: 1.4419644}
   m_Children:
   - {fileID: 4886171703210694}

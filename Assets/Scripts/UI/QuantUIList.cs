@@ -55,7 +55,6 @@ public class QuantUIList : MonoBehaviour
             {
                 if (quantText[i].GetComponent<QuantUI>().targetItem == null)
                 {
-
                     go.GetComponent<ItemStats>().quantUI = quantText[i];
                     quantText[i].SetActive(true);
                     quantText[i].GetComponent<QuantUI>().SetQuantityText(go);

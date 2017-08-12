@@ -44,4 +44,16 @@ public class AnimationControl : MonoBehaviour
         skeletonAnimation.state.SetAnimation(0, death, false);
     }
 
+
+    public void PauseAnimation()
+    {
+        skeletonAnimation.state.TimeScale = 0f;
+    }
+
+
+    public void ResumeAnimation()
+    {
+        skeletonAnimation.state.TimeScale = 1f;
+    }
+
 }

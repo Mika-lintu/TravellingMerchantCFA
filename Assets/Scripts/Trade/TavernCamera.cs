@@ -8,13 +8,14 @@ public class TavernCamera : MonoBehaviour {
     Vector3 velocity = Vector3.zero;
     Camera cam;
     QuantUIList uiQuantity;
-
+    GameObject backpack;
     public float dampTime;
     public bool zoomToPlayer;
     public Transform player;
     public Transform target;
     public Transform shop;
     public Vector3 offset;
+    AnimationControl animControl;
     
 
     public UnityEvent gameMode;
@@ -30,10 +31,16 @@ public class TavernCamera : MonoBehaviour {
         zoomToPlayer = false;
         cam = Camera.main;
         target = player;
-        
+        animControl = player.GetComponent<AnimationControl>();
+        backpack = GameObject.FindGameObjectWithTag("Backpack");
     }
-	
-	void Update () {
+
+    private void Start()
+    {
+        backpack.SetActive(false);
+    }
+
+    void Update () {
 
 		if (target)
         {
@@ -55,8 +62,10 @@ public class TavernCamera : MonoBehaviour {
             yield return null;
         }
         zoomToPlayer = true;
+        backpack.SetActive(true);
         gameMode.Invoke();
         uiQuantity.ActivateUIs();
+        animControl.PauseAnimation();
         
     }
 
@@ -72,7 +81,8 @@ public class TavernCamera : MonoBehaviour {
         }
         zoomToPlayer = false;
         gameMode.Invoke();
-       
+        animControl.ResumeAnimation();
+        backpack.SetActive(false);
     }
 
     public void GoToShop()

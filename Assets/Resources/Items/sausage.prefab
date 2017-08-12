@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 231031001151768552}
   - component: {fileID: 60267493841528540}
   - component: {fileID: 114151353832554352}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sausage
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4521083702818438}
   - component: {fileID: 212571795241541518}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: whitesausage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1060990036567688}
   m_LocalRotation: {x: 0, y: 0, z: -0.13052624, w: 0.9914449}
-  m_LocalPosition: {x: 10.937684, y: -4.438464, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.115, y: 0.115, z: 1}
   m_Children:
   - {fileID: 4521083702818438}

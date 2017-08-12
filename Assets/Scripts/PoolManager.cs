@@ -8,12 +8,19 @@ public class PoolManager : MonoBehaviour
 
     Dictionary<string, Queue<ItemObjectInstance>> itemDictionary = new Dictionary<string, Queue<ItemObjectInstance>>();
     Dictionary<int, Queue<ObjectInstance>> poolDictionary = new Dictionary<int, Queue<ObjectInstance>>();
-
+    QuantUIList itemUIList;
+    GameObject backpack;
     static PoolManager _instance;
     public GameObject[] itemPrefabs;
     public GameObject inventory;
     public GameObject sceneItems;
 
+
+    private void Awake()
+    {
+        itemUIList = GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>();
+        backpack = GameObject.FindGameObjectWithTag("Backpack");
+    }
 
     public static PoolManager instance
     {
@@ -124,8 +131,8 @@ public class PoolManager : MonoBehaviour
         {
             ItemObjectInstance objectToReuse = itemDictionary[poolKey].Dequeue();
             itemDictionary[poolKey].Enqueue(objectToReuse);
-            objectToReuse.Reuse(position, rotation);
             objectToReuse.SetParent(parent.transform);
+            objectToReuse.Reuse(position, rotation);
             return objectToReuse.gameObject;
         }
         return null;
@@ -134,6 +141,7 @@ public class PoolManager : MonoBehaviour
 
     public void PoolItemsToInventory(GameObject go, int quantity, Vector2 position, GameObject parent)
     {
+        
         string poolKey = go.GetComponent<ItemStats>().id;
 
         for (int i = 0; i < quantity; i++)
@@ -147,15 +155,17 @@ public class PoolManager : MonoBehaviour
                 {
                     objectToReuse.gameObject.GetComponent<ItemStats>().quantity = quantity;
                     objectToReuse.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                    objectToReuse.SetParent(backpack.transform);
                 } else
                 {
                     objectToReuse.gameObject.SetActive(false);
+                    objectToReuse.SetParent(parent.transform);
                 }
-                objectToReuse.SetParent(parent.transform);
+                
             }
         }
 
-        GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>().MakeItemList();
+        itemUIList.MakeItemList();
 
     }
 
@@ -258,12 +268,19 @@ public class PoolManager : MonoBehaviour
         {
             transform.parent = parent;
 
-            if (parent.name == "Player")
+
+            if (parent.name == "Player" || parent.name == "Backpack")
             {
+                Vector3 newPosition = transform.position;
+                newPosition.z = -1f;
+                transform.position = newPosition;
                 gameObject.tag = "Item";
             }
             else if (parent.name == "SceneItems")
             {
+                Vector3 newPosition = transform.position;
+                newPosition.z = -1f;
+                transform.position = newPosition;
                 gameObject.tag = "ShopItem";
             }
         }

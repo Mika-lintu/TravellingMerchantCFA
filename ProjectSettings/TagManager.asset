@@ -34,7 +34,7 @@ TagManager:
   - PlayerItem
   - Background
   - Collider
-  - 
+  - NotCollidingWithItems
   - 
   - 
   - 
