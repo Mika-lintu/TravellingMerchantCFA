@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "PluggableAI/Decision/isTargetAlive")]
-public class IsTargetAlive : Decision
-{
+[CreateAssetMenu(menuName = "PluggableAI/Decision/isCharacterAlive")]
+public class IsCharacterAlive : Decision {
 
     public override bool Decide(StateController controller)
     {
@@ -19,5 +17,4 @@ public class IsTargetAlive : Decision
             return true;
         }
     }
-
 }

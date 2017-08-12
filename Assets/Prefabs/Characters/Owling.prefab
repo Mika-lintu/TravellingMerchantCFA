@@ -162,7 +162,10 @@ MonoBehaviour:
   idle: Idle
   walk: Run
   attack: Attack
-  defaultAnimation: Idle
+  steal: 
+  hurt: Being Hit
+  death: Death
+  run: Run
 --- !u!114 &114530638855891172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4452d274f5bfba1439be92192ec71a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   currentState: {fileID: 11400000, guid: d88622daafd589c48b501f6c33143ac2, type: 2}
   aiStats: {fileID: 11400000, guid: 71e4c84d38020b540bc9ef535c35cec8, type: 2}
   currentTarget: {fileID: 0}
@@ -193,9 +197,11 @@ MonoBehaviour:
   turnState: {fileID: 11400000, guid: d88622daafd589c48b501f6c33143ac2, type: 2}
   moveToTargetState: {fileID: 11400000, guid: 063969158478afc4b841cebaf0cfad3b, type: 2}
   fleeState: {fileID: 11400000, guid: 1bca3c3f8cd4d38459954bf30a005659, type: 2}
+  deathState: {fileID: 0}
   stateTimeElapsed: 0
   targetInRange: 0
   fleeing: 0
   distanceToTarget: 0
   fleeTarget: {fileID: 0}
   isFlipped: 0
+  isPlayer: 0

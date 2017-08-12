@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StateController : MonoBehaviour
 {
@@ -14,9 +15,12 @@ public class StateController : MonoBehaviour
     public State fleeState;
     public State deathState;
     private bool aiActive;
-
+    private float timerVariable;
+    private float attackVariable;
+    StateController targetStateController;
     AnimationControl animControl;
     IEnumerator currentCoroutine = null;
+    public UnityEvent deathEvent;
 
     [HideInInspector]
     public float stateTimeElapsed;
@@ -32,6 +36,9 @@ public class StateController : MonoBehaviour
     public GameObject fleeTarget;
     [HideInInspector]
     public bool isFlipped = false;
+    [HideInInspector]
+    public bool isPlayer;
+
 
     #region General
 
@@ -39,14 +46,8 @@ public class StateController : MonoBehaviour
     {
         animControl = GetComponent<AnimationControl>();
         fleeing = false;
-    }
-
-    private void Start()
-    {
         SetupAI();
-
     }
-
 
     private void Update()
     {
@@ -64,9 +65,26 @@ public class StateController : MonoBehaviour
 
     public void SetupAI()
     {
-        turnActions = aiStats.GetActionsDictionary();
+        if (gameObject.tag == "Player")
+        {
+            isPlayer = true;
+        }
+        else
+        {
+            isPlayer = false;
+        }
+
+        if (!isPlayer)
+        {
+            turnActions = aiStats.GetActionsDictionary();
+            fleeTarget = GameObject.FindGameObjectWithTag("FleeTarget");
+            targetStateController = currentTarget.GetComponent<StateController>();
+            timerVariable = aiStats.turnSpeed * 0.5f;
+            attackVariable = aiStats.damage * 0.3f;
+            currentTarget.gameObject.GetComponent<StateController>().AddDeathListener(gameObject);
+        }
+
         health = aiStats.maxHealth;
-        fleeTarget = GameObject.FindGameObjectWithTag("FleeTarget");
         aiActive = true;
     }
 
@@ -137,7 +155,7 @@ public class StateController : MonoBehaviour
 
     public void ResetStateTimer()
     {
-        stateTimeElapsed = 0f;
+        stateTimeElapsed = Random.Range(0, timerVariable);
     }
 
 
@@ -145,9 +163,17 @@ public class StateController : MonoBehaviour
 
     #region Turn Actions
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        animControl.SetAnimation(animControl.hurt, false);
+    }
+
     public void MeleeAttack()
     {
         animControl.SetAnimation(animControl.attack, false);
+        float damage = Random.Range(aiStats.damage - attackVariable, aiStats.damage + attackVariable);
+        targetStateController.TakeDamage(Mathf.Round(damage));
         ResetStateTimer();
     }
 
@@ -189,7 +215,19 @@ public class StateController : MonoBehaviour
         Debug.Log("Death");
         currentTarget = null;
         animControl.DeathAnimation();
+        deathEvent.Invoke();
         TransitionToState(deathState);
+    }
+
+    public void AddDeathListener(GameObject go)
+    {
+        deathEvent.AddListener(go.GetComponent<StateController>().TargetIsDead);
+    }
+
+
+    public void TargetIsDead()
+    {
+        Flee();
     }
 
     #endregion
@@ -201,6 +239,7 @@ public class StateController : MonoBehaviour
         distanceToTarget = Vector2.Distance(transform.position, currentTarget.position);
         return Vector2.Distance(transform.position, currentTarget.position);
     }
+
 
     public void SetMoveToTargetState()
     {
@@ -222,6 +261,8 @@ public class StateController : MonoBehaviour
 
     public void FleeFromBattle()
     {
+        currentTarget = fleeTarget.transform;
+
         if (currentCoroutine == null || currentCoroutine.ToString() != FleeCoroutine().ToString())
         {
             StopAllCoroutines();
@@ -288,6 +329,6 @@ public class StateController : MonoBehaviour
         }
     }
 
-        #endregion
-    
+    #endregion
+
 }

@@ -20,7 +20,7 @@ public class DragScript : MonoBehaviour
 
     void Awake()
     {
-        itemSlotsScript = itemSlots.GetComponent<ItemSlots>();
+        //itemSlotsScript = itemSlots.GetComponent<ItemSlots>();
         dragging = false;
         clickTimer = 0.25f;
     }

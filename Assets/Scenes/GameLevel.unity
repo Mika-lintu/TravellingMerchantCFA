@@ -4076,6 +4076,58 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1334977241027078, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626512661915976, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431018808505738, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117223073750476, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_TagString
+      value: Backpack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762158417298260, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117223073750476, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_Name
+      value: Backpack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117223073750476, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626512661915976, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626512661915976, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626512661915976, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_LocalScale.x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626512661915976, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626512661915976, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009699519509648, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d59b83b0e9525b438e5bec8f990cffd, type: 2}
   m_IsPrefabParent: 0
@@ -5934,11 +5986,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 496301197}
---- !u!4 &496388496 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4626512661915976, guid: 3d59b83b0e9525b438e5bec8f990cffd,
-    type: 2}
-  m_PrefabInternal: {fileID: 315258487}
 --- !u!1 &529810228
 GameObject:
   m_ObjectHideFlags: 0
@@ -10356,8 +10403,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dampTime: 0.15
-  player: {fileID: 1503478270}
-  backpack: {fileID: 496388496}
   items: {fileID: 0}
   offset: {x: 0, y: 2, z: 0}
   activeSegment: {fileID: 0}
@@ -14909,6 +14954,10 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1417989800222618, guid: 18d054b8c1118944a9f6b3665aa8fb69, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18d054b8c1118944a9f6b3665aa8fb69, type: 2}
   m_IsPrefabParent: 0
@@ -18884,6 +18933,10 @@ MonoBehaviour:
   idle: Idle/Normal
   walk: Walk
   attack: Melee Attack
+  steal: 
+  hurt: 
+  death: 
+  run: 
 --- !u!114 &1789688272
 MonoBehaviour:
   m_ObjectHideFlags: 0

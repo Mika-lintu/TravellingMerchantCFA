@@ -39,8 +39,6 @@ public class PauseMenu : MonoBehaviour
             portrait = true;
             SetPortraitLayout();
         }
-
-        Debug.Log(Input.deviceOrientation);
     }
 
 

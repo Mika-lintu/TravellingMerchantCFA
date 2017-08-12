@@ -6,6 +6,7 @@ using UnityEngine;
 public class AIStats : ScriptableObject {
 
     public float maxHealth;
+    public float damage;
     public float turnSpeed;
     public float range;
     public float movementSpeed;

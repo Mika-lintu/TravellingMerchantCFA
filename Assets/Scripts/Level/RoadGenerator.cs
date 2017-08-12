@@ -38,19 +38,6 @@ public class RoadGenerator : MonoBehaviour {
 
     public void DrawRoad()
     {
-        /*
-        AnimationCurve lineCurve = new AnimationCurve();
-        float startW = Mathf.InverseLerp(7, -10, curve.GetPoint(0).y); //7, -10
-        float endW = Mathf.InverseLerp(7, -10, curve.GetPoint(1).y);
-        lineCurve.AddKey(0, startW);
-        lineCurve.AddKey(1, endW);
-        
-        line.widthCurve = lineCurve;
-        line.numPositions = 21;
-        float stepPrecision = 100f;
-        float[] fractionStep = new float[(int)stepPrecision];
-        Vector3 oldPoint = curve.GetPoint(0);
-        */
         curveLength = 0f;
         curve = GetComponent<BezierSpline>();
         line = GetComponent<LineRenderer>();
@@ -90,17 +77,21 @@ public class RoadGenerator : MonoBehaviour {
         {
             if (i == -1)
             {
-                Vector3 tempPosition = new Vector3(curve.GetPoint(0).x - 1.5f, curve.GetPoint(0).y, 0);
-                line.SetPosition(0, tempPosition - transform.position);
+                Vector3 tempPosition = new Vector3(curve.GetPoint(0).x - 1.5f, curve.GetPoint(0).y, 0) - transform.position;
+                tempPosition.z = 0f;
+                line.SetPosition(0, tempPosition);
             }
             else if (i == line.numPositions - 2)
             {
-                line.SetPosition(i, curve.GetPoint(1) - transform.position);
+                Vector3 tempPosition = curve.GetPoint(1) - transform.position;
+                tempPosition.z = 0f;
+                line.SetPosition(i, tempPosition);
             }
             else if (i == line.numPositions - 1)
             {
-                Vector3 tempPosition = new Vector3(curve.GetPoint(1).x + 1.5f, curve.GetPoint(1).y, 0);
-                line.SetPosition(i, tempPosition - transform.position);
+                Vector3 tempPosition = new Vector3(curve.GetPoint(1).x + 1.5f, curve.GetPoint(1).y, 0) - transform.position;
+                tempPosition.z = 0f;
+                line.SetPosition(i, tempPosition);
             }
             else
             {
@@ -111,7 +102,9 @@ public class RoadGenerator : MonoBehaviour {
                     currentStepLength += fractionStep[fractionStepIndex];
                     fractionStepIndex++;
                 }
-                line.SetPosition(i + 1, curve.GetPoint((float)fractionStepIndex / fractionStep.Length) - transform.position);
+                Vector3 tempPosition = curve.GetPoint((float)fractionStepIndex / fractionStep.Length) - transform.position;
+                tempPosition.z = 0f;
+                line.SetPosition(i + 1, tempPosition);
             }
 
         }
