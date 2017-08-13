@@ -4,7 +4,7 @@
       "id": "bomb",
       "xOffset": 0.1467579,
       "yOffset": -1.867944,
-      "rotation": 45,
+      "rotation": 90,
       "quantity": 10,
       "location": "inventory"
     },

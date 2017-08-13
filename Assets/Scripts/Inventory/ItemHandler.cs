@@ -31,12 +31,13 @@ public class ItemHandler : MonoBehaviour
             //KUN TASKUT TULEE KÄYTTÖÖN, NIIN TIETTYY TASKUUN ASETTAMINEN TULEE TÄHÄN
             GameObject newItem;
             Vector3 newPosition = new Vector3(backpackItems.transform.position.x, backpackItems.transform.position.y, 0);
-            Quaternion newRotation = Quaternion.identity;
+            Quaternion newRotation = Quaternion.Euler(new Vector3(0, 0, itemList[i].rotation));
             newRotation.eulerAngles = new Vector3(0, 0, itemList[i].rotation);
             newItem = poolManager.ReuseItem(itemList[i].id, newPosition, newRotation, backpackItems);
             newItem.GetComponent<ItemStats>().SetStats(itemList[i]);
             newItem.SetActive(true);
             newItem.transform.localPosition = new Vector3(itemList[i].xOffset, itemList[i].yOffset, -1);
+            //newItem.transform.position = new Vector3(itemList[i].xOffset, itemList[i].yOffset, -1);
             characterItems.Add(newItem);
         }
     }
@@ -101,5 +102,23 @@ public class ItemHandler : MonoBehaviour
     public void AddItem(GameObject go)
     {
         characterItems.Add(go);
+    }
+
+
+    public void SaveItemsToJSON()
+    {
+        List<Item> playerItemList = new List<Item>();
+
+        for (int i = 0; i < characterItems.Count; i++)
+        {
+            Item newItem;
+            if (characterItems[i].GetComponent<ItemStats>().quantity > 0)
+            {
+                playerItemList.Add(newItem = characterItems[i].GetComponent<ItemStats>().GetStats());
+            }
+            
+        }
+
+        itemDatabase.SaveNewInventoryToJSON(playerItemList);
     }
 }

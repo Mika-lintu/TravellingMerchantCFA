@@ -11,6 +11,7 @@ public class ItemDatabase : MonoBehaviour
     string levelItemsList = "Assets/Resources/JsonFiles/LevelItems";
 
     string path;
+    string sceneItemPath;
     string jsonString;
 
     string sceneItemsJSONString;
@@ -32,20 +33,35 @@ public class ItemDatabase : MonoBehaviour
 
     void Awake()
     {
-        path = "JsonFiles/LevelItems/";
-        TextAsset newPath = Resources.Load(path + "CharacterInventory") as TextAsset;
-        string content = newPath.ToString();
+        TextAsset newPath;
+        string content;
+        if (File.Exists(Application.persistentDataPath + "/LevelItems/CharacterInventory.json"))
+        {
+            path = Application.persistentDataPath + "/LevelItems/";
+            newPath = Resources.Load(path + "CharacterInventory.json") as TextAsset;
+            content = File.OpenText(path + "CharacterInventory.json").ReadToEnd();
+        }
+        else
+        {
+            path = "JsonFiles/LevelItems/";
+            newPath = Resources.Load(path + "CharacterInventory") as TextAsset;
+            content = newPath.ToString();
+        }
+
+        
+
         //content = newPath.ToString();
         JsonUtility.FromJsonOverwrite(content, inventory);
 
-        newPath = Resources.Load(path + sceneName + "_items") as TextAsset;
+        sceneItemPath = "JsonFiles/LevelItems/";
+        newPath = Resources.Load(sceneItemPath + sceneName + "_items") as TextAsset;
         content = newPath.ToString();
         JsonUtility.FromJsonOverwrite(content, allSceneItems);
 
         poolManager = GetComponent<PoolManager>();
         itemDictionary = new Dictionary<string, GameObject>();
         sceneItemsList = new List<GameObject>();
-        
+
 
     }
 
@@ -97,7 +113,7 @@ public class ItemDatabase : MonoBehaviour
             poolManager.CreateItemPool(item.Key, item.Value, "scene");
         }
 
-        
+
     }
 
     Dictionary<GameObject, int> PickRandomItems()
@@ -196,7 +212,18 @@ public class ItemDatabase : MonoBehaviour
 
         stringStart = stringStart + "   ]\n\n}";
 
-        File.WriteAllText(path, stringStart);
+        if (!Directory.Exists (Application.persistentDataPath + "/LevelItems/"))
+        {
+            Directory.CreateDirectory(Application.persistentDataPath + "/LevelItems/");
+        }
+        File.WriteAllText(Application.persistentDataPath + "/LevelItems/CharacterInventory.json", stringStart); 
+        //File.WriteAllText(path, stringStart);
+    }
+
+    public void SaveNewInventoryToJSON(List<Item> newItems)
+    {
+        inventory.characterInventory = newItems;
+        UpdateInventory();
     }
 
 }

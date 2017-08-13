@@ -49,6 +49,9 @@ public class ItemStats : MonoBehaviour
     public Item GetStats()
     {
         Item newItem = new Item();
+        xOffset = transform.localPosition.x;
+        yOffset = transform.localPosition.y;
+        rotation = transform.eulerAngles.z;
         newItem.id = id;
         newItem.xOffset = xOffset;
         newItem.yOffset = yOffset;
@@ -103,9 +106,11 @@ public class ItemStats : MonoBehaviour
             Debug.Log(Vector2.Distance(transform.position, spawnPosition));
             yield return null;
         }
+        gameObject.layer = LayerMask.NameToLayer("PlayerItem");
+        spring.connectedAnchor = Vector2.zero;
         spring.enabled = false;
         rig.drag = 10f;
-        gameObject.layer = LayerMask.NameToLayer("PlayerItem");
+
 
     }
 

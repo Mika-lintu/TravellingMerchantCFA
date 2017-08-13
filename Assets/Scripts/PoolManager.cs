@@ -10,6 +10,7 @@ public class PoolManager : MonoBehaviour
     Dictionary<int, Queue<ObjectInstance>> poolDictionary = new Dictionary<int, Queue<ObjectInstance>>();
     QuantUIList itemUIList;
     GameObject backpack;
+    ItemHandler itemHandler;
     static PoolManager _instance;
     public GameObject[] itemPrefabs;
     public GameObject inventory;
@@ -19,7 +20,8 @@ public class PoolManager : MonoBehaviour
     private void Awake()
     {
         itemUIList = GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>();
-        backpack = GameObject.FindGameObjectWithTag("Backpack");
+        backpack = GameObject.FindGameObjectWithTag("Backpack").transform.GetChild(0).gameObject;
+        itemHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>();
     }
 
     public static PoolManager instance
@@ -154,13 +156,16 @@ public class PoolManager : MonoBehaviour
 
                 if (i == 0)
                 {
-
-                    objectToReuse.gameObject.GetComponent<ItemStats>().quantity = quantity;
+                    ItemStats stats = objectToReuse.gameObject.GetComponent<ItemStats>();
+                    
+                    stats.quantity = quantity;
+                    stats.itemLocation = "inventory";
                     objectToReuse.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
                     objectToReuse.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
                     objectToReuse.SetParent(backpack.transform);
                     objectToReuse.gameObject.transform.position = new Vector3(oldPosition.x, oldPosition.y, -1f);
-                    objectToReuse.gameObject.GetComponent<ItemStats>().BuyItem(position);
+                    stats.BuyItem(position);
+                    itemHandler.AddItem(objectToReuse.gameObject);
                 }
                 else
                 {
@@ -283,7 +288,6 @@ public class PoolManager : MonoBehaviour
                 newPosition.z = -1f;
                 transform.position = newPosition;
                 gameObject.tag = "Item";
-
             }
             else if (parent.name == "SceneItems")
             {
