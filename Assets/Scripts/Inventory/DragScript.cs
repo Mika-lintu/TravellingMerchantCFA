@@ -2,144 +2,192 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DragScript : MonoBehaviour
 {
 
-    Rigidbody2D rig;
-    bool dragging;
-    public bool quickSelection = false;
-    GameObject draggingObject;
-    GameObject colliderObject;
+    CameraScript cam;
     GameObject selectedObject;
     SpringJoint2D spring;
+    Rigidbody2D rig;
+    BackpackGravity backpackGravity;
+    bool inventoryActive = false;
+    bool dragging = false;
+    float dragTimer = 0.25f;
+
+    public bool quickSelection;
+    public GameObject bubble;
+    public GameObject exitButton;
     public GameObject anchor;
-    ItemSlots itemSlotsScript;
-    public GameObject itemSlots;
-    float clickTimer;
+    public UnityEvent deselect;
+
+
+
 
     void Awake()
     {
-        //itemSlotsScript = itemSlots.GetComponent<ItemSlots>();
-        dragging = false;
-        clickTimer = 0.25f;
+        cam = Camera.main.GetComponent<CameraScript>();
+        backpackGravity = GameObject.FindGameObjectWithTag("BackpackGravity").GetComponent<BackpackGravity>();
     }
+
 
     void Update()
     {
-        //CLICK
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            rig = null;
-            colliderObject = null;
+        if (inventoryActive) CheckInventoryInput();
+    }
 
-            if (hit.collider != null && hit.collider.gameObject.transform.tag == "Item")
+
+    void CheckInventoryInput()
+    {
+        if (!dragging)
+        {
+
+            if (Input.GetMouseButtonDown(0))
             {
-                colliderObject = hit.collider.gameObject;
-                Debug.Log("CLICK");
-            } else if (hit.collider != null && hit.collider.gameObject.tag == "Character" && quickSelection)
-            {
-                itemSlotsScript.ThrowItem(hit.collider.gameObject);
+                InventoryRaycast();
+                ResetTimer();
             }
-        }
 
-        //HOLD
-        if (Input.GetMouseButton(0))
-        {
-            clickTimer -= Time.deltaTime;
-        }
+            else if (Input.GetMouseButton(0))
 
-        //RELEASE
-        if (!Input.GetMouseButton(0))
-        {
-            if (colliderObject != null)
             {
+                dragTimer -= Time.deltaTime;
 
-                if (clickTimer > 0f)
+                if (dragTimer <= 0f && selectedObject != null)
                 {
-                    Unselect();
-                    selectedObject = colliderObject;
-                    selectedObject.GetComponent<ItemObject>().EnableOutlines();
-                }
-
-                if (dragging)
-                {
-                    dragging = false;
-                    rig.drag = 1f;
-                    colliderObject = null;
-                    spring.enabled = false;
-                    ResetTimer();
+                    StopAllCoroutines();
+                    StartCoroutine(Dragging());
                 }
 
             }
-            ResetTimer();
-        }
 
-        //DRAG
-        if (clickTimer <= 0f && colliderObject != null)
-        {
-            Unselect();
-            if (!dragging)
+            else if (Input.GetMouseButtonUp(0))
+
             {
-
-                Debug.Log("DRAG");
-                dragging = true;
-                rig = colliderObject.GetComponent<Rigidbody2D>();
-                rig.drag = 10f;
-                spring = colliderObject.GetComponent<SpringJoint2D>();
-                spring.enabled = true;
-                spring.frequency = 1f;
-                spring.distance = 0.05f;
-                spring.connectedBody = anchor.GetComponent<Rigidbody2D>();
-
+                SelectItem();
             }
 
+        }
+
+    }
+
+
+    void InventoryRaycast()
+    {
+        Debug.Log("inventory raycast");
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        rig = null;
+
+        if (hit.collider != null)
+        {
+            if (selectedObject != null)
+            {
+                DisableBorders();
+                StopAllCoroutines();
+                selectedObject = null;
+            }
+
+            if (hit.collider.gameObject.transform.tag == "Item")
+            {
+                selectedObject = hit.collider.gameObject;
+            }
+            else if (hit.collider.gameObject.transform.tag == "ShopItem")
+            {
+                selectedObject = hit.collider.gameObject;
+            }
+
+        }
+        Debug.Log(selectedObject);
+    }
+
+
+    IEnumerator Dragging()
+    {
+        Debug.Log("Dragging");
+        dragging = true;
+        rig = selectedObject.GetComponent<Rigidbody2D>();
+        rig.drag = 3f;
+        spring = selectedObject.GetComponent<SpringJoint2D>();
+        spring.enabled = true;
+        spring.frequency = 1f;
+        spring.distance = 0.05f;
+        spring.connectedBody = anchor.GetComponent<Rigidbody2D>();
+        DisableBorders();
+
+        while (Input.GetMouseButton(0))
+        {
             anchor.transform.position = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            if (Input.GetKey("s"))
-            {
-                rig.MoveRotation(rig.rotation + 150 * Time.fixedDeltaTime);
-            }
-            else if (Input.GetKey("d"))
-            {
-                rig.MoveRotation(rig.rotation + -150 * Time.fixedDeltaTime);
-            }
+            yield return null;
+        }
+        if (backpackGravity.IsObjectInBackpack(selectedObject))
+        {
+            ReleaseItem();
+        }
+        else
+        {
+            rig.drag = 10f;
+            ReleaseItem();
+        }
+    }
+
+
+    void ReleaseItem()
+    {
+        dragging = false;
+        spring.enabled = false;
+        DisableBorders();
+        StopAllCoroutines();
+        selectedObject = null;
+    }
+
+
+    void SelectItem()
+    {
+
+        if (selectedObject != null)
+        {
+            selectedObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            ActivateInfoBubble();
         }
 
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+
+    public void DisableBorders()
     {
-        collision.GetComponent<Rigidbody2D>().gravityScale = 0.8f;
+        if (selectedObject != null) selectedObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+
+    void ActivateInfoBubble()
     {
-        collision.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        //bubble.SetActive(true);
     }
+
 
     void ResetTimer()
     {
-        clickTimer = 0.25f;
+        dragTimer = 0.25f;
     }
 
-    void Unselect()
-    {
-        if (selectedObject != null)
-        {
-            selectedObject.GetComponent<ItemObject>().DisableOutlines();
-            selectedObject = null;
-        }
-    }
 
-    public void SetToItemSlot(GameObject itemSlot)
+    public void CheckGameMode()
     {
-        if (selectedObject != null)
+
+        if (cam.modeEnum == CameraScript.Mode.inventory)
         {
-            itemSlot.GetComponent<QuickSlot>().SetObjectToSlot(selectedObject);
-            Unselect();
+            inventoryActive = true;
         }
-        
+        else if (cam.modeEnum == CameraScript.Mode.battle)
+        {
+            inventoryActive = false;
+        }
+        else
+        {
+            inventoryActive = false;
+        }
+
     }
 
 }

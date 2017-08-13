@@ -12,7 +12,7 @@ public class ModeChecker : MonoBehaviour {
 
     public void PrintStateWithText(GameController.GameState newState)
     {
-        Debug.Log("Game Mode Is: " + newState);
+        //Debug.Log("Game Mode Is: " + newState);
     }
 
 }

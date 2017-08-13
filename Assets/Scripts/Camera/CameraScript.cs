@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CameraScript : MonoBehaviour {
 
@@ -21,6 +22,11 @@ public class CameraScript : MonoBehaviour {
     public float previousCamZoom = 10f;
     public float camZoom = 10f;
     float segmentStartX;
+
+    public UnityEvent gameMode;
+
+    public enum Mode { free, inventory, battle }
+    public Mode modeEnum;
 
     IEnumerator currentCoroutine;
 
@@ -153,6 +159,7 @@ public class CameraScript : MonoBehaviour {
         activeSegment = go;
     }
 
+
     IEnumerator ZoomToInventory(float zoom, float invOffset)
     {
         while (cam.orthographicSize > zoom)
@@ -162,8 +169,9 @@ public class CameraScript : MonoBehaviour {
             yield return null;
         }
         dampTime = 0.15f;
-        //backpack.GetChild(0).gameObject.SetActive(true);
         backpack.gameObject.SetActive(true);
+        modeEnum = Mode.inventory;
+        gameMode.Invoke();
     }
 
     IEnumerator ZoomBack(float speed, float invOffset)
@@ -177,6 +185,8 @@ public class CameraScript : MonoBehaviour {
             yield return null;
         }
         dampTime = 0.15f;
+        modeEnum = Mode.free;
+        gameMode.Invoke();
     }
 
     IEnumerator BattleZoom(float zoom)
@@ -188,6 +198,8 @@ public class CameraScript : MonoBehaviour {
             yield return null;
         }
         dampTime = 0.15f;
+        modeEnum = Mode.battle;
+        gameMode.Invoke();
     }
 
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemHandler : MonoBehaviour
 {
-
+    public bool tavernMode;
     public List<GameObject> characterItems;
     public List<GameObject> shopItems;
     public List<GameObject> shopSlots;
@@ -46,20 +46,23 @@ public class ItemHandler : MonoBehaviour
     public void SetShopItems(Dictionary<GameObject, int> newItems)
     {
         int shopSlotInt = 0;
-
-        foreach (KeyValuePair<GameObject, int> item in newItems)
+        if (tavernMode)
         {
-            GameObject newItem;
-            Vector3 newPosition = shopSlots[shopSlotInt].transform.position;
-            Quaternion newRotation = Quaternion.identity;
-            newItem = poolManager.ReuseItem(item.Key.name, newPosition, newRotation, shopParent);
-            newItem.GetComponent<ItemStats>().quantity = item.Value;
-            newItem.GetComponent<Rigidbody2D>().isKinematic = true;
-            newItem.tag = "ShopItem";
-            newItem.SetActive(true);
-            shopItems.Add(newItem);
-            shopSlotInt++;
+            foreach (KeyValuePair<GameObject, int> item in newItems)
+            {
+                GameObject newItem;
+                Vector3 newPosition = shopSlots[shopSlotInt].transform.position;
+                Quaternion newRotation = Quaternion.identity;
+                newItem = poolManager.ReuseItem(item.Key.name, newPosition, newRotation, shopParent);
+                newItem.GetComponent<ItemStats>().quantity = item.Value;
+                newItem.GetComponent<Rigidbody2D>().isKinematic = true;
+                newItem.tag = "ShopItem";
+                newItem.SetActive(true);
+                shopItems.Add(newItem);
+                shopSlotInt++;
+            }
         }
+
 
     }
 
