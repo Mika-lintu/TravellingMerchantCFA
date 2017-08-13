@@ -2,16 +2,16 @@
   "characterInventory": [
     {
       "id": "bomb",
-      "xOffset": -1,
-      "yOffset": 1,
+      "xOffset": 0.1467579,
+      "yOffset": -1.867944,
       "rotation": 45,
       "quantity": 10,
       "location": "inventory"
     },
      {
       "id": "apple",
-      "xOffset": -1.4,
-      "yOffset": 1.4,
+      "xOffset": -0.7721689,
+      "yOffset": -1.715012,
       "rotation": 45,
       "quantity": 10,
       "location": "inventory"

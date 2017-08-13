@@ -11,7 +11,7 @@ public class TradeDrag : MonoBehaviour
     GameObject selectedObject;
     SpringJoint2D spring;
     Rigidbody2D rig;
-
+    BackpackGravity backpackGravity;
     bool shopActive = false;
     bool dragging = false;
     float dragTimer = 0.25f;
@@ -30,6 +30,7 @@ public class TradeDrag : MonoBehaviour
         tavernCamera = Camera.main.GetComponent<TavernCamera>();
         tavernMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<TavernMovement>();
         trade = GetComponent<Trade>();
+        backpackGravity = GameObject.FindGameObjectWithTag("BackpackGravity").GetComponent<BackpackGravity>();
     }
 
 
@@ -135,7 +136,7 @@ public class TradeDrag : MonoBehaviour
     {
         dragging = true;
         rig = selectedObject.GetComponent<Rigidbody2D>();
-        rig.drag = 1f;
+        rig.drag = 3f;
         spring = selectedObject.GetComponent<SpringJoint2D>();
         spring.enabled = true;
         spring.frequency = 1f;
@@ -149,9 +150,15 @@ public class TradeDrag : MonoBehaviour
             anchor.transform.position = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             yield return null;
         }
-        rig.drag = 10f;
-        ReleaseItem();
-
+        if (backpackGravity.IsObjectInBackpack(selectedObject))
+        {
+            ReleaseItem();
+        }
+        else
+        {
+            rig.drag = 10f;
+            ReleaseItem();
+        }
     }
 
 

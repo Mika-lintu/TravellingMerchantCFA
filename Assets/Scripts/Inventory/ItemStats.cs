@@ -28,6 +28,16 @@ public class ItemStats : MonoBehaviour
     public int maxQuantity;
     public GameObject quantUI;
 
+    [HideInInspector]
+    SpringJoint2D spring;
+    Rigidbody2D rig;
+
+    private void Awake()
+    {
+        spring = GetComponent<SpringJoint2D>();
+        rig = GetComponent<Rigidbody2D>();
+    }
+
     public void SetStats(Item newStats)
     {
         xOffset = newStats.xOffset;
@@ -71,6 +81,31 @@ public class ItemStats : MonoBehaviour
         {
             quantUI.GetComponent<QuantUI>().SetQuantityText(gameObject);
         }
+
+    }
+
+    public void BuyItem(Vector2 spawnPosition)
+    {
+        StartCoroutine(BuyItemCoroutine(spawnPosition));
+    }
+
+    public IEnumerator BuyItemCoroutine(Vector2 spawnPosition)
+    {
+        spring.connectedAnchor = spawnPosition;
+        spring.enabled = true;
+        rig.isKinematic = false;
+        rig.simulated = true;
+        rig.gravityScale = 0f;
+        rig.drag = 3f;
+
+        while(Vector2.Distance(transform.position, spawnPosition) > 0.1f)
+        {
+            Debug.Log(Vector2.Distance(transform.position, spawnPosition));
+            yield return null;
+        }
+        spring.enabled = false;
+        rig.drag = 10f;
+        gameObject.layer = LayerMask.NameToLayer("PlayerItem");
 
     }
 

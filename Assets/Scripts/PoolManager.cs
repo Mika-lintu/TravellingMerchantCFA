@@ -141,7 +141,7 @@ public class PoolManager : MonoBehaviour
 
     public void PoolItemsToInventory(GameObject go, int quantity, Vector2 position, GameObject parent)
     {
-        
+        Vector2 oldPosition = (Vector2)go.transform.position;
         string poolKey = go.GetComponent<ItemStats>().id;
 
         for (int i = 0; i < quantity; i++)
@@ -151,17 +151,24 @@ public class PoolManager : MonoBehaviour
                 ItemObjectInstance objectToReuse = itemDictionary[poolKey].Dequeue();
                 itemDictionary[poolKey].Enqueue(objectToReuse);
                 objectToReuse.Reuse(position, Quaternion.identity);
+
                 if (i == 0)
                 {
+
                     objectToReuse.gameObject.GetComponent<ItemStats>().quantity = quantity;
                     objectToReuse.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                    objectToReuse.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
                     objectToReuse.SetParent(backpack.transform);
-                } else
+                    objectToReuse.gameObject.transform.position = new Vector3(oldPosition.x, oldPosition.y, -1f);
+                    objectToReuse.gameObject.GetComponent<ItemStats>().BuyItem(position);
+                }
+                else
                 {
                     objectToReuse.gameObject.SetActive(false);
                     objectToReuse.SetParent(parent.transform);
                 }
                 
+
             }
         }
 
@@ -271,13 +278,16 @@ public class PoolManager : MonoBehaviour
 
             if (parent.name == "Player" || parent.name == "Backpack")
             {
+                gameObject.layer = LayerMask.NameToLayer("PlayerItem");
                 Vector3 newPosition = transform.position;
                 newPosition.z = -1f;
                 transform.position = newPosition;
                 gameObject.tag = "Item";
+
             }
             else if (parent.name == "SceneItems")
             {
+                gameObject.layer = LayerMask.NameToLayer("ShelfItem");
                 Vector3 newPosition = transform.position;
                 newPosition.z = -1f;
                 transform.position = newPosition;

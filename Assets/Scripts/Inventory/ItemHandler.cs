@@ -9,6 +9,7 @@ public class ItemHandler : MonoBehaviour
     public List<GameObject> shopItems;
     public List<GameObject> shopSlots;
     public GameObject shopParent;
+    public Transform purchaseAnchor;
     public List<Item> itemList;
     PoolManager poolManager;
     ItemDatabase itemDatabase;
@@ -29,7 +30,6 @@ public class ItemHandler : MonoBehaviour
         {
             //KUN TASKUT TULEE KÄYTTÖÖN, NIIN TIETTYY TASKUUN ASETTAMINEN TULEE TÄHÄN
             GameObject newItem;
-            //Vector3 newPosition = new Vector3(backpackItems.transform.position.x + itemList[i].xOffset, backpackItems.transform.position.y + itemList[i].yOffset, 0);
             Vector3 newPosition = new Vector3(backpackItems.transform.position.x, backpackItems.transform.position.y, 0);
             Quaternion newRotation = Quaternion.identity;
             newRotation.eulerAngles = new Vector3(0, 0, itemList[i].rotation);
@@ -64,7 +64,7 @@ public class ItemHandler : MonoBehaviour
 
     public void BuyItems(GameObject go, int quantity)
     {
-        poolManager.PoolItemsToInventory(go, quantity, transform.position, gameObject);
+        poolManager.PoolItemsToInventory(go, quantity, purchaseAnchor.position, gameObject);
     }
 
     public void ShowItems()
