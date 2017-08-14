@@ -20,7 +20,8 @@ public class ItemSlots : MonoBehaviour
 
     void Awake()
     {
-        dragScript = testInventory.GetComponent<DragScript>();
+        dragScript = Camera.main.GetComponent<DragScript>();
+       // dragScript = testInventory.GetComponent<DragScript>();
     }
 
     public void SelectSlot(int slotNr)
