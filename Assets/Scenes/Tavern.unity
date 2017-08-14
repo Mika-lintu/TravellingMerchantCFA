@@ -3711,6 +3711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b3910170144c640b67803978a2d686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tavernMode: 1
   characterItems: []
   shopItems: []
   shopSlots:

@@ -46,10 +46,19 @@
 		"itemName": "SPR_meat_01"
 		},
 		{
-		"itemName": "SPR_milk_01"
+		"itemName": "SPR_dagger_01"
 		},
 		{
-		"itemName": "SPR_milk_01"
+		"itemName": "SPR_lute_01"
+		},
+		{
+		"itemName": "SPR_fish_01"
+		},
+		{
+		"itemName": "SPR_speedpotion_01"
+		},
+		{
+		"itemName": "SPR_speedpotion_01"
 		}
 	]
 }
