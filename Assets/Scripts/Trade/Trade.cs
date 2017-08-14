@@ -138,7 +138,10 @@ public class Trade : MonoBehaviour
 
     void SetBubbleCollider()
     {
+        Transform infoTransform;
+        infoTransform = tradeInfo.transform;
         infoCollider.SetActive(true);
+        infoCollider.transform.localScale = infoTransform.localScale - new Vector3(0.6f,0.6f,0);
         //infoCollider.transform.position = new Vector3(-0.65f, 0.9f, -1f) + go.transform.position;
     }
 
