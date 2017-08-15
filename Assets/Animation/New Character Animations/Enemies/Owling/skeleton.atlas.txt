@@ -1,0 +1,139 @@
+
+skeleton.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Beak_Lower
+  rotate: false
+  xy: 261, 42
+  size: 14, 8
+  orig: 14, 8
+  offset: 0, 0
+  index: -1
+Beak_Upper
+  rotate: false
+  xy: 304, 56
+  size: 23, 20
+  orig: 23, 20
+  offset: 0, 0
+  index: -1
+Body
+  rotate: true
+  xy: 102, 41
+  size: 85, 86
+  orig: 85, 86
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 2, 47
+  size: 98, 79
+  orig: 98, 79
+  offset: 0, 0
+  index: -1
+Left_Arm
+  rotate: false
+  xy: 190, 41
+  size: 69, 85
+  orig: 69, 85
+  offset: 0, 0
+  index: -1
+Left_Eye
+  rotate: true
+  xy: 442, 82
+  size: 13, 16
+  orig: 13, 16
+  offset: 0, 0
+  index: -1
+Left_Eye(Closed)
+  rotate: false
+  xy: 89, 25
+  size: 8, 7
+  orig: 8, 7
+  offset: 0, 0
+  index: -1
+Left_Eyebrow
+  rotate: false
+  xy: 442, 97
+  size: 23, 29
+  orig: 23, 29
+  offset: 0, 0
+  index: -1
+Left_Foot
+  rotate: true
+  xy: 47, 2
+  size: 43, 40
+  orig: 43, 40
+  offset: 0, 0
+  index: -1
+Left_Pupil
+  rotate: false
+  xy: 486, 118
+  size: 7, 8
+  orig: 7, 8
+  offset: 0, 0
+  index: -1
+Left_Thigh
+  rotate: false
+  xy: 357, 80
+  size: 41, 46
+  orig: 41, 46
+  offset: 0, 0
+  index: -1
+Right_Arm
+  rotate: true
+  xy: 261, 78
+  size: 48, 94
+  orig: 48, 94
+  offset: 0, 0
+  index: -1
+Right_Eye
+  rotate: false
+  xy: 467, 109
+  size: 17, 17
+  orig: 17, 17
+  offset: 0, 0
+  index: -1
+Right_Eye(Closed)
+  rotate: false
+  xy: 329, 70
+  size: 12, 6
+  orig: 12, 6
+  offset: 0, 0
+  index: -1
+Right_Eyebrow
+  rotate: false
+  xy: 261, 52
+  size: 41, 24
+  orig: 41, 24
+  offset: 0, 0
+  index: -1
+Right_Foot
+  rotate: false
+  xy: 2, 2
+  size: 43, 43
+  orig: 43, 43
+  offset: 0, 0
+  index: -1
+Right_Pupil
+  rotate: false
+  xy: 467, 99
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+Right_Thigh
+  rotate: false
+  xy: 400, 80
+  size: 40, 46
+  orig: 40, 46
+  offset: 0, 0
+  index: -1
+Tongue
+  rotate: false
+  xy: 89, 34
+  size: 11, 11
+  orig: 11, 11
+  offset: 0, 0
+  index: -1

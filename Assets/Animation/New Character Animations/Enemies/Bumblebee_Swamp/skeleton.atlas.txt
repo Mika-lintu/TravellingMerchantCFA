@@ -1,0 +1,174 @@
+
+skeleton.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body1
+  rotate: false
+  xy: 2, 10
+  size: 122, 116
+  orig: 122, 116
+  offset: 0, 0
+  index: -1
+Body2
+  rotate: false
+  xy: 126, 17
+  size: 101, 109
+  orig: 101, 109
+  offset: 0, 0
+  index: -1
+Body3
+  rotate: false
+  xy: 319, 49
+  size: 70, 77
+  orig: 70, 77
+  offset: 0, 0
+  index: -1
+Head_Base
+  rotate: false
+  xy: 229, 35
+  size: 88, 91
+  orig: 88, 91
+  offset: 0, 0
+  index: -1
+Left_Antenna
+  rotate: false
+  xy: 275, 2
+  size: 36, 31
+  orig: 36, 31
+  offset: 0, 0
+  index: -1
+Left_Eye
+  rotate: false
+  xy: 367, 12
+  size: 20, 35
+  orig: 20, 35
+  offset: 0, 0
+  index: -1
+Left_Eye_Shine1
+  rotate: true
+  xy: 367, 2
+  size: 8, 10
+  orig: 8, 10
+  offset: 0, 0
+  index: -1
+Left_Eye_Shine2
+  rotate: false
+  xy: 508, 123
+  size: 2, 3
+  orig: 2, 3
+  offset: 0, 0
+  index: -1
+Left_Leg1
+  rotate: false
+  xy: 349, 3
+  size: 16, 30
+  orig: 16, 30
+  offset: 0, 0
+  index: -1
+Left_Leg2
+  rotate: false
+  xy: 313, 2
+  size: 16, 31
+  orig: 16, 31
+  offset: 0, 0
+  index: -1
+Left_Leg3
+  rotate: true
+  xy: 389, 21
+  size: 20, 30
+  orig: 20, 30
+  offset: 0, 0
+  index: -1
+Left_Tooth
+  rotate: true
+  xy: 389, 5
+  size: 14, 19
+  orig: 14, 19
+  offset: 0, 0
+  index: -1
+Left_Wing
+  rotate: true
+  xy: 391, 101
+  size: 25, 108
+  orig: 25, 108
+  offset: 0, 0
+  index: -1
+Right_Antenna
+  rotate: true
+  xy: 319, 35
+  size: 12, 44
+  orig: 12, 44
+  offset: 0, 0
+  index: -1
+Right_Eye
+  rotate: true
+  xy: 458, 46
+  size: 26, 35
+  orig: 26, 35
+  offset: 0, 0
+  index: -1
+Right_Eye_Shine1
+  rotate: false
+  xy: 126, 5
+  size: 12, 10
+  orig: 12, 10
+  offset: 0, 0
+  index: -1
+Right_Eye_Shine2
+  rotate: false
+  xy: 501, 121
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+Right_Leg1
+  rotate: true
+  xy: 421, 4
+  size: 19, 28
+  orig: 19, 28
+  offset: 0, 0
+  index: -1
+Right_Leg2
+  rotate: false
+  xy: 331, 2
+  size: 16, 31
+  orig: 16, 31
+  offset: 0, 0
+  index: -1
+Right_Leg3
+  rotate: true
+  xy: 421, 25
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+Right_Tooth
+  rotate: false
+  xy: 451, 7
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Right_Wing
+  rotate: true
+  xy: 391, 74
+  size: 25, 108
+  orig: 25, 108
+  offset: 0, 0
+  index: -1
+Shadow
+  rotate: false
+  xy: 391, 43
+  size: 65, 29
+  orig: 65, 29
+  offset: 0, 0
+  index: -1
+Stinger
+  rotate: false
+  xy: 229, 2
+  size: 44, 31
+  orig: 44, 31
+  offset: 0, 0
+  index: -1
