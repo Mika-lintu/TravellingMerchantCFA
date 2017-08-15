@@ -25,9 +25,9 @@ GameObject:
   - component: {fileID: 50720733772937948}
   - component: {fileID: 231445206621560564}
   - component: {fileID: 114447512929261090}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPR_speedpotion_01
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4119662580355118}
   - component: {fileID: 212901917721559550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPR_[type]potion_white
   m_TagString: Untagged
   m_Icon: {fileID: 0}

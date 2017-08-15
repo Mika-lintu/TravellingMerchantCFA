@@ -74,12 +74,11 @@ public class PoolManager : MonoBehaviour
         else
         {
             poolHolder = sceneItems;
-            //poolHolder.transform.parent = transform;
         }
 
         if (!itemDictionary.ContainsKey(poolKey)) itemDictionary.Add(poolKey, new Queue<ItemObjectInstance>());
 
-        for (int i = 0; i < poolSize; i++)
+        for (int i = 0; i < poolSize + 4; i++)
         {
             ItemObjectInstance newObject = new ItemObjectInstance(Instantiate(prefab) as GameObject, location);
             itemDictionary[poolKey].Enqueue(newObject);
@@ -152,7 +151,6 @@ public class PoolManager : MonoBehaviour
             {
                 ItemObjectInstance objectToReuse = itemDictionary[poolKey].Dequeue();
                 objectToReuse.Reuse(position, Quaternion.identity);
-
                 if (i == 0)
                 {
                     ItemStats stats = objectToReuse.gameObject.GetComponent<ItemStats>();
@@ -185,35 +183,13 @@ public class PoolManager : MonoBehaviour
     public void RemoveItemsFromInventory(GameObject go, int quantity)
     {
         string poolKey = go.GetComponent<ItemStats>().id;
-        if (itemDictionary[poolKey].Count <= 0)
-        {
-            go.layer = LayerMask.NameToLayer("ShelfItem");
-            go.tag = "ShopItem";
-            go.transform.parent = sceneItems.transform;
-
-        } else
-        {
 
         for (int i = 0; i < quantity; i++)
         {
-
-            if (go.GetComponent<ItemStats>().quantity > 1 && itemDictionary[poolKey].Peek().gameObject.GetInstanceID() == go.GetInstanceID())
-            {
-                ItemObjectInstance reQueueObject = itemDictionary[poolKey].Dequeue();
-                itemDictionary[poolKey].Enqueue(reQueueObject);
-                i = i - 1;
-                Debug.Log("requeued");
-                continue;
-            }
-
-
             ItemObjectInstance objectToRemove = itemDictionary[poolKey].Dequeue();
             itemDictionary[poolKey].Enqueue(objectToRemove);
             objectToRemove.SetParent(sceneItems.transform);
         }
-    }
-
-
 
         itemUIList.DeactivateUIs();
         itemUIList.MakeItemList();
