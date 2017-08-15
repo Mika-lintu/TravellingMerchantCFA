@@ -8,10 +8,12 @@ public class LevelDatabase : MonoBehaviour
 {
 
     string path;
-    string jsonString;
+    TextAsset jsonString;
+    string content;
 
     string propsPath;
-    string jsonStringProps;
+    TextAsset jsonStringProps;
+    string propContent;
 
     public int segmentNumber;
     EditorRoad road;
@@ -27,12 +29,17 @@ public class LevelDatabase : MonoBehaviour
 
     void Awake()
     {
-        
-        path = Application.streamingAssetsPath + "/level02.json";
+        /*
+        path = Application.streamingAssetsPath + "/level0.json";
         jsonString = File.ReadAllText(path);
+        */
 
-        propsPath = Application.streamingAssetsPath + "/level02Props.json";
-        jsonStringProps = File.ReadAllText(propsPath);
+        path = "JsonFiles/LevelData/";
+        jsonString = Resources.Load(path + "level01") as TextAsset;
+        content = jsonString.ToString();
+
+        jsonStringProps = Resources.Load(path + "level01" + "props") as TextAsset;
+        propContent = jsonStringProps.ToString();
 
         propHandler = GetComponent<PropHandler>();
 
@@ -41,10 +48,8 @@ public class LevelDatabase : MonoBehaviour
 
     void Start()
     {
-
-        JsonUtility.FromJsonOverwrite(jsonString, level);
-        JsonUtility.FromJsonOverwrite(jsonStringProps, props);
-        //GenerateLevel(200);
+        JsonUtility.FromJsonOverwrite(content, level);
+        JsonUtility.FromJsonOverwrite(propContent, props);
         GetProps();
     }
 
@@ -145,7 +150,8 @@ public class LevelDatabase : MonoBehaviour
     private void WriteToDatabase()
     {
         string stringStart = "{\n     \"levelSegments\": [\n";
-
+        string savePath = Application.streamingAssetsPath + "/LevelData/level01.json";
+        
 
         for (int i = 0; i < level.levelSegments.Count; i++)
         {
@@ -165,14 +171,14 @@ public class LevelDatabase : MonoBehaviour
 
         stringStart = stringStart + "   ]\n\n}";
 
-        File.WriteAllText(path, stringStart);
+        File.WriteAllText(savePath, stringStart);
     }
 
 
     private void WritePropsToDatabase()
     {
         string stringStart = "{\n     \"levelProps\": [\n";
-
+        string savePropsPath = Application.streamingAssetsPath + "/LevelData/level01Props.json";
 
         for (int i = 0; i < props.levelProps.Count; i++)
         {
@@ -192,15 +198,21 @@ public class LevelDatabase : MonoBehaviour
 
         stringStart = stringStart + "   ]\n\n}";
 
-        File.WriteAllText(propsPath, stringStart);
+        File.WriteAllText(savePropsPath, stringStart);
     }
 
 
     private void GetRoadPoints()
     {
-        path = Application.streamingAssetsPath + "/level02.json";
-        jsonString = File.ReadAllText(path);
-        JsonUtility.FromJsonOverwrite(jsonString, level);
+        //path = Application.streamingAssetsPath + "/level02.json";
+        path = "JsonFiles/LevelData/";
+        jsonString = Resources.Load(path + "level01") as TextAsset;
+        
+
+        //jsonString = Resources.Load(path + "level01") as TextAsset;
+        content = jsonString.ToString();
+
+        JsonUtility.FromJsonOverwrite(content, level);
         startPoint = level.levelSegments[segmentNumber].roadStart;
         endPoint = level.levelSegments[segmentNumber].roadEnd;
     }
@@ -312,9 +324,13 @@ public class LevelDatabase : MonoBehaviour
 
     public void GetProps()
     {
+        path = "JsonFiles/LevelData/";
+        jsonStringProps = Resources.Load(path + "level01" + "Props") as TextAsset;
+        Debug.Log(path + "level01" + "props");
+        propContent = jsonStringProps.ToString();
+
         propsPath = Application.streamingAssetsPath + "/level02Props.json";
-        jsonStringProps = File.ReadAllText(propsPath);
-        JsonUtility.FromJsonOverwrite(jsonStringProps, props);
+        JsonUtility.FromJsonOverwrite(propContent, props);
         propHandler = GetComponent<PropHandler>();
 
         for (int i = 0; i < props.levelProps.Count; i++)
