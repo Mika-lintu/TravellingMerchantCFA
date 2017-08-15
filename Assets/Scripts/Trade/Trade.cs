@@ -10,6 +10,7 @@ public class Trade : MonoBehaviour
     TavernCamera tavernCamera;
     ItemHandler itemHandler;
     PoolManager poolManager;
+    RectTransform uiBubbleTransform;
 
     public Text costText;
     public Text amountText;
@@ -30,6 +31,7 @@ public class Trade : MonoBehaviour
         tavernCamera = Camera.main.GetComponent<TavernCamera>();
         itemHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>();
         poolManager = Camera.main.GetComponent<PoolManager>();
+        uiBubbleTransform = tradeInfo.transform.GetChild(0).GetComponent<RectTransform>();
     }
 
 
@@ -139,10 +141,16 @@ public class Trade : MonoBehaviour
     void SetBubbleCollider()
     {
         Transform infoTransform;
-        infoTransform = tradeInfo.transform;
+        //uiBubbleTransform.      
+        //infoTransform = tradeInfo.transform;
+        Vector3 tempPos = Camera.main.ScreenToWorldPoint(uiBubbleTransform.transform.position);
+        tempPos.z = 0;
+        infoCollider.transform.position = tempPos;
+        //infoCollider.transform.position = uiBubbleTransform.
         infoCollider.SetActive(true);
-        infoCollider.transform.localScale = infoTransform.localScale - new Vector3(0.6f,0.6f,0);
-        //infoCollider.transform.position = new Vector3(-0.65f, 0.9f, -1f) + go.transform.position;
+        
+        //infoCollider.transform.localScale = infoTransform.localScale - new Vector3(0.4f,0.6f,0);
+        //infoCollider.transform.position = new Vector3(-0.4f, 0.7f, -1f) + go.transform.position;
     }
 
 

@@ -3991,6 +3991,8 @@ GameObject:
   - component: {fileID: 1849228371}
   - component: {fileID: 1849228370}
   - component: {fileID: 1849228369}
+  - component: {fileID: 1849228373}
+  - component: {fileID: 1849228372}
   m_Layer: 11
   m_Name: InfoBubbleCollider
   m_TagString: Untagged
@@ -4044,9 +4046,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.35790676}
+  m_Offset: {x: -0.027357414, y: 0.33289447}
   serializedVersion: 2
-  m_Size: {x: 5.37, y: 3.32}
+  m_Size: {x: 6.0448027, y: 3.5701215}
 --- !u!4 &1849228371
 Transform:
   m_ObjectHideFlags: 0
@@ -4054,12 +4056,40 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1849228368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.548, y: 1.71, z: -5}
-  m_LocalScale: {x: 0.3805922, y: 0.34949225, z: 0.99}
+  m_LocalPosition: {x: 59.8, y: -0.21, z: -5}
+  m_LocalScale: {x: 0.34, y: 0.35, z: 0.99}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1849228372
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1849228368}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -2.3483646, y: 2.0737991}
+  serializedVersion: 2
+  m_Size: {x: 0.8725948, y: 0.71384007}
+--- !u!61 &1849228373
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1849228368}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 1.8512042, y: -1.5537431}
+  serializedVersion: 2
+  m_Size: {x: 1.3145664, y: 1.1341377}
 --- !u!1 &1947068448
 GameObject:
   m_ObjectHideFlags: 0

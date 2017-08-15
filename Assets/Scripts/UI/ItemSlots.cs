@@ -30,6 +30,7 @@ public class ItemSlots : MonoBehaviour
         {
             if (i == slotNr && itemInSlots[i] != null)
             {
+                Debug.Log("Jotain tapahtuu");
                 itemSlots[i].GetComponent<SlotButton>().SelectSwitch(true);
                 selected = itemInSlots[i];
                 dragScript.quickSelection = true;

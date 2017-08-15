@@ -1911,7 +1911,7 @@ MonoBehaviour:
   projectiles: []
   selected: {fileID: 0}
   testInventory: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 1503478263}
 --- !u!114 &118432205
 MonoBehaviour:
   m_ObjectHideFlags: 0
