@@ -69,6 +69,7 @@ public class ItemHandler : MonoBehaviour
     public void BuyItems(GameObject go, int quantity)
     {
         poolManager.PoolItemsToInventory(go, quantity, purchaseAnchor.position, gameObject);
+        
     }
 
     public void SellItems(GameObject go, int quantity)
@@ -80,7 +81,7 @@ public class ItemHandler : MonoBehaviour
         {
             for (int i = 0; i < characterItems.Count; i++)
             {
-                if (go.Equals(characterItems[i]))
+                if (go.GetInstanceID() == characterItems[i].GetInstanceID())
                 {
                     removeBool = true;
                     removeInt = i;

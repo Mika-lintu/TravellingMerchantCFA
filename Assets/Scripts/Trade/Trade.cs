@@ -11,7 +11,7 @@ public class Trade : MonoBehaviour
     ItemHandler itemHandler;
     PoolManager poolManager;
     RectTransform uiBubbleTransform;
-
+    GameObject infoBubble;
     public Text costText;
     public Text amountText;
     public Text itemNameText;
@@ -97,7 +97,6 @@ public class Trade : MonoBehaviour
         }
 
         ResetTrade();
-
     }
 
 
@@ -126,11 +125,13 @@ public class Trade : MonoBehaviour
         itemStats.UpdateQuantity(-itemAmount);
         Coins.AddCoins(cost);
         itemHandler.SellItems(selectedObject, itemAmount);
+
     }
 
 
     public void ResetTrade()
     {
+        selectedObject = null;
         cost = 0f;
         itemAmount = 0;
         UpdateTradeInfo();

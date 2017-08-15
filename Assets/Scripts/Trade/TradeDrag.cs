@@ -40,6 +40,11 @@ public class TradeDrag : MonoBehaviour
         else CheckShopInput();
     }
 
+    public void DeselectDebugger()
+    {
+        Debug.Log("dfesese");
+    }
+
 
     void MovementRaycast()
     {
@@ -162,10 +167,14 @@ public class TradeDrag : MonoBehaviour
     }
 
 
-    void ReleaseItem()
+    public void ReleaseItem()
     {
         dragging = false;
-        spring.enabled = false;
+        if (spring != null)
+        {
+            spring.enabled = false;
+        }
+
         DisableBorders();
         StopAllCoroutines();
         selectedObject = null;

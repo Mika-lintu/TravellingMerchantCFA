@@ -31,11 +31,13 @@ public class ItemStats : MonoBehaviour
     [HideInInspector]
     SpringJoint2D spring;
     Rigidbody2D rig;
+    PoolManager poolManager;
 
     private void Awake()
     {
         spring = GetComponent<SpringJoint2D>();
         rig = GetComponent<Rigidbody2D>();
+        poolManager = Camera.main.GetComponent<PoolManager>();
     }
 
     public void SetStats(Item newStats)
@@ -78,6 +80,7 @@ public class ItemStats : MonoBehaviour
                 quantUI.GetComponent<QuantUI>().RemoveTarget();
                 quantUI.SetActive(false);
                 quantUI = null;
+                //poolManager.SendItemToLimbo(gameObject);
             }
 
             gameObject.SetActive(false);
@@ -96,6 +99,7 @@ public class ItemStats : MonoBehaviour
 
     public IEnumerator BuyItemCoroutine(Vector2 spawnPosition)
     {
+        float timer = 0.3f;
         spring.connectedAnchor = spawnPosition;
         spring.enabled = true;
         rig.isKinematic = false;
@@ -103,11 +107,12 @@ public class ItemStats : MonoBehaviour
         rig.gravityScale = 0f;
         rig.drag = 3f;
 
-        while(Vector2.Distance(transform.position, spawnPosition) > 0.1f)
-        {
-            Debug.Log(Vector2.Distance(transform.position, spawnPosition));
-            yield return null;
-        }
+        //while(/*Vector2.Distance(transform.position, spawnPosition) > 0.1f || */timer <= 0f)
+        //{
+          //  Debug.Log(timer);
+            //timer -= Time.deltaTime;
+            yield return new WaitForSeconds(0.3f);
+        //}
         gameObject.layer = LayerMask.NameToLayer("PlayerItem");
         spring.connectedAnchor = Vector2.zero;
         spring.enabled = false;

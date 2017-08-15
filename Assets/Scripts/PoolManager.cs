@@ -178,6 +178,7 @@ public class PoolManager : MonoBehaviour
 
             }
         }
+        itemUIList.DeactivateUIs();
         itemUIList.MakeItemList();
     }
 
@@ -188,14 +189,23 @@ public class PoolManager : MonoBehaviour
 
         for (int i = 0; i < quantity; i++)
         {
+            if (itemDictionary[poolKey].Peek().gameObject.GetInstanceID() == go.GetInstanceID() && go.GetComponent<ItemStats>().quantity > 1)
+            {
+                ItemObjectInstance reQueueObject = itemDictionary[poolKey].Dequeue();
+                itemDictionary[poolKey].Enqueue(reQueueObject);
+                i = i - 1;
+                Debug.Log("requeued");
+                continue;
+            }
             ItemObjectInstance objectToRemove = itemDictionary[poolKey].Dequeue();
             itemDictionary[poolKey].Enqueue(objectToRemove);
             objectToRemove.SetParent(sceneItems.transform);
         }
+
+        itemUIList.DeactivateUIs();
         itemUIList.MakeItemList();
     }
-
-    
+        
 
     public void ReuseProp(GameObject prefab, Vector3 position, Quaternion rotation, GameObject parent)
     {
