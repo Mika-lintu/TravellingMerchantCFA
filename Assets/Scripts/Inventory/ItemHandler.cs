@@ -71,6 +71,32 @@ public class ItemHandler : MonoBehaviour
         poolManager.PoolItemsToInventory(go, quantity, purchaseAnchor.position, gameObject);
     }
 
+    public void SellItems(GameObject go, int quantity)
+    {
+        int removeInt = 0;
+        bool removeBool = false;
+
+        if (go.GetComponent<ItemStats>().quantity <= 0)
+        {
+            for (int i = 0; i < characterItems.Count; i++)
+            {
+                if (go.Equals(characterItems[i]))
+                {
+                    removeBool = true;
+                    removeInt = i;
+                    break;
+                }
+            }
+        }
+
+
+        if (removeBool)
+        {
+            characterItems.RemoveAt(removeInt);
+        }
+        poolManager.RemoveItemsFromInventory(go, quantity);
+    }
+
     public void ShowItems()
     {
         for (int i = 0; i < characterItems.Count; i++)

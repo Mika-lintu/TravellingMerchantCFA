@@ -19,7 +19,7 @@ public class PoolManager : MonoBehaviour
 
     private void Awake()
     {
-        //itemUIList = GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>();
+        itemUIList = GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>();
         backpack = GameObject.FindGameObjectWithTag("Backpack").transform.GetChild(0).gameObject;
         itemHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>();
     }
@@ -178,12 +178,24 @@ public class PoolManager : MonoBehaviour
 
             }
         }
-
         itemUIList.MakeItemList();
-
     }
 
 
+    public void RemoveItemsFromInventory(GameObject go, int quantity)
+    {
+        string poolKey = go.GetComponent<ItemStats>().id;
+
+        for (int i = 0; i < quantity; i++)
+        {
+            ItemObjectInstance objectToRemove = itemDictionary[poolKey].Dequeue();
+            itemDictionary[poolKey].Enqueue(objectToRemove);
+            objectToRemove.SetParent(sceneItems.transform);
+        }
+        itemUIList.MakeItemList();
+    }
+
+    
 
     public void ReuseProp(GameObject prefab, Vector3 position, Quaternion rotation, GameObject parent)
     {
@@ -192,7 +204,7 @@ public class PoolManager : MonoBehaviour
         if (poolDictionary.ContainsKey(poolKey))
         {
             ObjectInstance objectToReuse = poolDictionary[poolKey].Dequeue();
-            poolDictionary[poolKey].Enqueue(objectToReuse);
+            poolDictionary[poolKey].Dequeue();
             objectToReuse.Reuse(position, rotation);
             objectToReuse.SetParent(parent.transform);
         }

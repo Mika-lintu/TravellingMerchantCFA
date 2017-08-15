@@ -67,6 +67,7 @@ public class ItemStats : MonoBehaviour
 
         if (quantity == 1)
         {
+            quantUI.GetComponent<QuantUI>().RemoveTarget();
             quantUI.SetActive(false);
             quantUI = null;
         }
@@ -74,6 +75,7 @@ public class ItemStats : MonoBehaviour
         {
             if (quantUI != null)
             {
+                quantUI.GetComponent<QuantUI>().RemoveTarget();
                 quantUI.SetActive(false);
                 quantUI = null;
             }

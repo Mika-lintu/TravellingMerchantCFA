@@ -7,6 +7,7 @@ public class QuantUI : MonoBehaviour
 {
     //Mika
     public GameObject targetItem;
+    QuantUIList qUIList;
     Text quantityText;
     Rigidbody2D rig;
     int itemQuant;
@@ -14,12 +15,24 @@ public class QuantUI : MonoBehaviour
     void Awake()
     {
         quantityText = GetComponent<Text>();
+        qUIList = transform.parent.GetComponent<QuantUIList>();
     }
 
     void OnDisable()
     {
         //targetItem = null;
         //transform.parent.GetComponent<QuantUIList>().RemoveFromAssignedList(gameObject);
+    }
+
+    public void RemoveTarget()
+    {
+        rig.simulated = false;
+        targetItem = null;
+        rig = null;
+        itemQuant = 0;
+        qUIList.RemoveFromAssignedList(gameObject);
+        Debug.Log("remove target thingy thing");
+        //qUIList.RemoveFromAssignedList(gameObject);
     }
 
 
@@ -45,6 +58,8 @@ public class QuantUI : MonoBehaviour
         transform.position = Camera.main.WorldToScreenPoint((Vector3.up * 0) + go.transform.position);
         quantityText.text = "" + itemQuant;
     }
+
+
    
     void UpdatePosition()
     {

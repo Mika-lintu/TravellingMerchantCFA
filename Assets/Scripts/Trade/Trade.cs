@@ -125,6 +125,7 @@ public class Trade : MonoBehaviour
         ItemStats itemStats = selectedObject.GetComponent<ItemStats>();
         itemStats.UpdateQuantity(-itemAmount);
         Coins.AddCoins(cost);
+        itemHandler.SellItems(selectedObject, itemAmount);
     }
 
 
