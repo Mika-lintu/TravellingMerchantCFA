@@ -1,0 +1,188 @@
+
+skeleton.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: true
+  xy: 118, 24
+  size: 102, 115
+  orig: 102, 115
+  offset: 0, 0
+  index: -1
+Clothes
+  rotate: false
+  xy: 2, 12
+  size: 114, 114
+  orig: 114, 114
+  offset: 0, 0
+  index: -1
+Eye1
+  rotate: true
+  xy: 1015, 121
+  size: 5, 7
+  orig: 5, 7
+  offset: 0, 0
+  index: -1
+Eye2
+  rotate: true
+  xy: 1015, 114
+  size: 5, 7
+  orig: 5, 7
+  offset: 0, 0
+  index: -1
+Eye_Closed1
+  rotate: false
+  xy: 895, 94
+  size: 10, 1
+  orig: 10, 1
+  offset: 0, 0
+  index: -1
+Eye_Closed2
+  rotate: true
+  xy: 2, 2
+  size: 8, 1
+  orig: 8, 1
+  offset: 0, 0
+  index: -1
+Eyebrow1
+  rotate: true
+  xy: 1004, 107
+  size: 19, 9
+  orig: 19, 9
+  offset: 0, 0
+  index: -1
+Eyebrow2
+  rotate: true
+  xy: 391, 68
+  size: 16, 9
+  orig: 16, 9
+  offset: 0, 0
+  index: -1
+Hand
+  rotate: true
+  xy: 391, 27
+  size: 39, 45
+  orig: 39, 45
+  offset: 0, 0
+  index: -1
+Hand(Fist)
+  rotate: false
+  xy: 539, 51
+  size: 35, 38
+  orig: 35, 38
+  offset: 0, 0
+  index: -1
+Hand(Fist)-1
+  rotate: true
+  xy: 438, 2
+  size: 33, 38
+  orig: 33, 38
+  offset: 0, 0
+  index: -1
+Hand(Open)
+  rotate: true
+  xy: 491, 50
+  size: 40, 46
+  orig: 40, 46
+  offset: 0, 0
+  index: -1
+Hand(Open)-1
+  rotate: true
+  xy: 438, 37
+  size: 29, 45
+  orig: 29, 45
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 235, 32
+  size: 76, 94
+  orig: 76, 94
+  offset: 0, 0
+  index: -1
+Hips
+  rotate: false
+  xy: 491, 92
+  size: 71, 34
+  orig: 71, 34
+  offset: 0, 0
+  index: -1
+Lower Leg
+  rotate: true
+  xy: 766, 94
+  size: 32, 65
+  orig: 32, 65
+  offset: 0, 0
+  index: -1
+Lower Leg-1
+  rotate: true
+  xy: 633, 91
+  size: 35, 65
+  orig: 35, 65
+  offset: 0, 0
+  index: -1
+LowerArm
+  rotate: true
+  xy: 833, 91
+  size: 35, 60
+  orig: 35, 60
+  offset: 0, 0
+  index: -1
+LowerArm-1
+  rotate: true
+  xy: 895, 97
+  size: 29, 58
+  orig: 29, 58
+  offset: 0, 0
+  index: -1
+Mouth
+  rotate: false
+  xy: 235, 28
+  size: 25, 2
+  orig: 25, 2
+  offset: 0, 0
+  index: -1
+Neck
+  rotate: true
+  xy: 955, 89
+  size: 37, 47
+  orig: 37, 47
+  offset: 0, 0
+  index: -1
+Stick
+  rotate: false
+  xy: 313, 86
+  size: 100, 40
+  orig: 100, 40
+  offset: 0, 0
+  index: -1
+Upper leg
+  rotate: true
+  xy: 700, 92
+  size: 34, 64
+  orig: 34, 64
+  offset: 0, 0
+  index: -1
+Upper leg-1
+  rotate: true
+  xy: 564, 91
+  size: 35, 67
+  orig: 35, 67
+  offset: 0, 0
+  index: -1
+UpperArm
+  rotate: true
+  xy: 313, 25
+  size: 59, 76
+  orig: 59, 76
+  offset: 0, 0
+  index: -1
+UpperArm-1
+  rotate: true
+  xy: 415, 68
+  size: 58, 74
+  orig: 58, 74
+  offset: 0, 0
+  index: -1

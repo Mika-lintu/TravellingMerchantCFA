@@ -20,7 +20,8 @@ public class ItemSlots : MonoBehaviour
 
     void Awake()
     {
-        dragScript = testInventory.GetComponent<DragScript>();
+        dragScript = Camera.main.GetComponent<DragScript>();
+       // dragScript = testInventory.GetComponent<DragScript>();
     }
 
     public void SelectSlot(int slotNr)
@@ -29,6 +30,7 @@ public class ItemSlots : MonoBehaviour
         {
             if (i == slotNr && itemInSlots[i] != null)
             {
+                Debug.Log("Jotain tapahtuu");
                 itemSlots[i].GetComponent<SlotButton>().SelectSwitch(true);
                 selected = itemInSlots[i];
                 dragScript.quickSelection = true;

@@ -74,7 +74,7 @@ public class CameraScript : MonoBehaviour {
                     inventoryZoom = true;
                     target = backpack;
                     offset = new Vector3(0, 0f, 0);
-                    //ShowSlots();
+                    ShowSlots();
                     gameSpeed.movingDisabled = true;
 
                 }
@@ -85,7 +85,7 @@ public class CameraScript : MonoBehaviour {
                     inventoryZoom = false;
                     target = player;
                     offset = new Vector3(0, 2f, 0);
-                    //ShowSlots();
+                    ShowSlots();
                 }
                 else
                 {
@@ -93,7 +93,7 @@ public class CameraScript : MonoBehaviour {
                     inventoryZoom = false;
                     target = player;
                     offset = new Vector3(0, 2f, 0);
-                    //HideSlots();
+                    HideSlots();
                     gameSpeed.movingDisabled = false;
                 }
 
@@ -139,7 +139,7 @@ public class CameraScript : MonoBehaviour {
         target = player;
         //offset = new Vector3(0, 2f, 0);
         StartCoroutine(currentCoroutine);
-        //HideSlots();
+        HideSlots();
     }
 
     void StartBattle()
@@ -148,7 +148,7 @@ public class CameraScript : MonoBehaviour {
         StopAllCoroutines();
         currentCoroutine = BattleZoom(7f);
         StartCoroutine(currentCoroutine);
-        //ShowSlots();
+        ShowSlots();
     }
 
     public void UpdateZoom(GameObject go, float newZoom)
