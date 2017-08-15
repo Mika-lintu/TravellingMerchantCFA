@@ -151,13 +151,11 @@ public class PoolManager : MonoBehaviour
             if (itemDictionary.ContainsKey(poolKey))
             {
                 ItemObjectInstance objectToReuse = itemDictionary[poolKey].Dequeue();
-                itemDictionary[poolKey].Enqueue(objectToReuse);
                 objectToReuse.Reuse(position, Quaternion.identity);
 
                 if (i == 0)
                 {
                     ItemStats stats = objectToReuse.gameObject.GetComponent<ItemStats>();
-                    
                     stats.quantity = quantity;
                     stats.itemLocation = "inventory";
                     objectToReuse.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
@@ -172,6 +170,7 @@ public class PoolManager : MonoBehaviour
                 {
                     objectToReuse.gameObject.SetActive(false);
                     objectToReuse.SetParent(parent.transform);
+                    objectToReuse.gameObject.GetComponent<ItemStats>().itemLocation = "inventory";
                     objectToReuse.gameObject.tag = "Item";
                 }
                 
