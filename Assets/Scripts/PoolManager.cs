@@ -173,7 +173,7 @@ public class PoolManager : MonoBehaviour
                     objectToReuse.gameObject.GetComponent<ItemStats>().itemLocation = "inventory";
                     objectToReuse.gameObject.tag = "Item";
                 }
-                
+
 
             }
         }
@@ -185,10 +185,19 @@ public class PoolManager : MonoBehaviour
     public void RemoveItemsFromInventory(GameObject go, int quantity)
     {
         string poolKey = go.GetComponent<ItemStats>().id;
+        if (itemDictionary[poolKey].Count <= 0)
+        {
+            go.layer = LayerMask.NameToLayer("ShelfItem");
+            go.tag = "ShopItem";
+            go.transform.parent = sceneItems.transform;
+
+        } else
+        {
 
         for (int i = 0; i < quantity; i++)
         {
-            if (itemDictionary[poolKey].Peek().gameObject.GetInstanceID() == go.GetInstanceID() && go.GetComponent<ItemStats>().quantity > 1)
+
+            if (go.GetComponent<ItemStats>().quantity > 1 && itemDictionary[poolKey].Peek().gameObject.GetInstanceID() == go.GetInstanceID())
             {
                 ItemObjectInstance reQueueObject = itemDictionary[poolKey].Dequeue();
                 itemDictionary[poolKey].Enqueue(reQueueObject);
@@ -196,15 +205,20 @@ public class PoolManager : MonoBehaviour
                 Debug.Log("requeued");
                 continue;
             }
+
+
             ItemObjectInstance objectToRemove = itemDictionary[poolKey].Dequeue();
             itemDictionary[poolKey].Enqueue(objectToRemove);
             objectToRemove.SetParent(sceneItems.transform);
         }
+    }
+
+
 
         itemUIList.DeactivateUIs();
         itemUIList.MakeItemList();
     }
-        
+
 
     public void ReuseProp(GameObject prefab, Vector3 position, Quaternion rotation, GameObject parent)
     {
