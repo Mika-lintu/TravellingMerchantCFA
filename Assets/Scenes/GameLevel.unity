@@ -22931,6 +22931,11 @@ Prefab:
       propertyPath: levelName
       value: level01
       objectReference: {fileID: 0}
+    - target: {fileID: 120581911839769184, guid: cac7b242b435f5a4a99a777dd500d2b8,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fc5650eaed491224abe5ed98667b753b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cac7b242b435f5a4a99a777dd500d2b8, type: 2}
   m_IsPrefabParent: 0

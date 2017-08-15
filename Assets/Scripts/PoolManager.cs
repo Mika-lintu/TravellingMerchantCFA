@@ -172,6 +172,7 @@ public class PoolManager : MonoBehaviour
                 {
                     objectToReuse.gameObject.SetActive(false);
                     objectToReuse.SetParent(parent.transform);
+                    objectToReuse.gameObject.tag = "Item";
                 }
                 
 
