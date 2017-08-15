@@ -195,7 +195,7 @@ MonoBehaviour:
   rarity: 0
   itemType: 0
   effectValue: 10
-  value: 1
+  value: 3
   weight: 0.1
   quantity: 0
   itemLocation: 

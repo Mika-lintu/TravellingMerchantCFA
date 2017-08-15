@@ -200,7 +200,7 @@ MonoBehaviour:
   rarity: 0
   itemType: 0
   effectValue: 50
-  value: 0
+  value: 10
   weight: 0
   quantity: 0
   itemLocation: 
