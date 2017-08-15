@@ -47,6 +47,11 @@ public class CameraScript : MonoBehaviour {
         backpack = player.Find("Backpack");
     }
 
+    void Start()
+    {
+        backpack.gameObject.SetActive(false);
+    }
+
     void Update()
     {
         if (!startMovement)
