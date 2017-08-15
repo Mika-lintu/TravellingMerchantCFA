@@ -166,6 +166,7 @@ public class PoolManager : MonoBehaviour
                     objectToReuse.gameObject.transform.position = new Vector3(oldPosition.x, oldPosition.y, -1f);
                     stats.BuyItem(position);
                     itemHandler.AddItem(objectToReuse.gameObject);
+                    objectToReuse.gameObject.tag = "Item";
                 }
                 else
                 {
