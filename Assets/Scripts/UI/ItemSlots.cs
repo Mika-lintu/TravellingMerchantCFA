@@ -10,7 +10,7 @@ public class ItemSlots : MonoBehaviour
     public GameObject[] projectiles;
     public GameObject selected;
     DragScript dragScript;
-    public GameObject testInventory;
+    //public GameObject testInventory;
     public GameObject player;
 
     public void SetObject(GameObject go, int nr)
@@ -28,21 +28,17 @@ public class ItemSlots : MonoBehaviour
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
+            
             if (i == slotNr && itemInSlots[i] != null)
             {
-                Debug.Log("Jotain tapahtuu");
-                itemSlots[i].GetComponent<SlotButton>().SelectSwitch(true);
                 selected = itemInSlots[i];
                 dragScript.quickSelection = true;
             }
-            else
-            {
-                itemSlots[i].GetComponent<SlotButton>().SelectSwitch(false);
-            }
-
+          
         }
         
     }
+
 
     public void Deselect()
     {
