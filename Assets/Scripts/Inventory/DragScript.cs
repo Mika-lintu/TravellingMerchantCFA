@@ -22,13 +22,14 @@ public class DragScript : MonoBehaviour
     public GameObject anchor;
     public UnityEvent deselect;
 
-
-
+    public GameObject itemSlots;
+   
 
     void Awake()
     {
         cam = Camera.main.GetComponent<CameraScript>();
         backpackGravity = GameObject.FindGameObjectWithTag("BackpackGravity").GetComponent<BackpackGravity>();
+        
     }
 
 
@@ -171,6 +172,15 @@ public class DragScript : MonoBehaviour
         dragTimer = 0.25f;
     }
 
+    public void SetToItemSlot(GameObject itemSlot)
+    {
+        if (selectedObject != null)
+        {
+            itemSlot.GetComponent<QuickSlot>().SetObjectToSlot(selectedObject);
+            DisableBorders();
+        }
+
+    }
 
     public void CheckGameMode()
     {
