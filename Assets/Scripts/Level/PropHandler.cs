@@ -16,7 +16,7 @@ public class PropHandler : MonoBehaviour
     void Awake()
     {
         jsonReader = GetComponent<JSONReader>();
-        //levelProps = jsonReader.props.levelProps;
+        levelProps = jsonReader.props.levelProps;
         poolManager = GetComponent<PoolManager>();
         propDictionary = new Dictionary<string, GameObject>();
         LoadProps();
@@ -81,7 +81,7 @@ public class PropHandler : MonoBehaviour
     {
         for (int i = 0; i < propIDs.Count; i++)
         {
-            poolManager.CreatePool(propDictionary[propIDs[i]], 12);
+            poolManager.CreatePool(propDictionary[propIDs[i]], 25);
         }
     }
 

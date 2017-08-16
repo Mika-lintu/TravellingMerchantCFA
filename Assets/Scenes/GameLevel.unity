@@ -2445,6 +2445,21 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114994704986940188, guid: b7967fa173374764fa6675a939063411,
+        type: 2}
+      propertyPath: startScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114994704986940188, guid: b7967fa173374764fa6675a939063411,
+        type: 2}
+      propertyPath: startScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114994704986940188, guid: b7967fa173374764fa6675a939063411,
+        type: 2}
+      propertyPath: startScale.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7967fa173374764fa6675a939063411, type: 2}
   m_IsPrefabParent: 0
@@ -16147,7 +16162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847f8cbb2bf15774f8870a6874ca7b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScale: {x: 1, y: 1, z: 1}
+  startScale: {x: 2, y: 2, z: 0}
 --- !u!114 &1503478266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20342,7 +20357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847f8cbb2bf15774f8870a6874ca7b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScale: {x: 0.9, y: 0.9, z: 1}
+  startScale: {x: 2, y: 2, z: 0}
 --- !u!50 &1789688270
 Rigidbody2D:
   serializedVersion: 4
@@ -23290,11 +23305,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1731715941}
     m_Modifications:
-    - target: {fileID: 114315017882301980, guid: cac7b242b435f5a4a99a777dd500d2b8,
-        type: 2}
-      propertyPath: charactersStop.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4135391667077940, guid: cac7b242b435f5a4a99a777dd500d2b8, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.71964586
@@ -23334,54 +23344,14 @@ Prefab:
       objectReference: {fileID: 995467786}
     - target: {fileID: 114315017882301980, guid: cac7b242b435f5a4a99a777dd500d2b8,
         type: 2}
-      propertyPath: charactersWalk.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Moving
-      objectReference: {fileID: 0}
-    - target: {fileID: 114315017882301980, guid: cac7b242b435f5a4a99a777dd500d2b8,
-        type: 2}
       propertyPath: charactersStop.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 995467775}
     - target: {fileID: 114315017882301980, guid: cac7b242b435f5a4a99a777dd500d2b8,
         type: 2}
-      propertyPath: charactersStop.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StopMoving
-      objectReference: {fileID: 0}
-    - target: {fileID: 114315017882301980, guid: cac7b242b435f5a4a99a777dd500d2b8,
-        type: 2}
-      propertyPath: charactersStop.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114315017882301980, guid: cac7b242b435f5a4a99a777dd500d2b8,
-        type: 2}
-      propertyPath: charactersStop.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114315017882301980, guid: cac7b242b435f5a4a99a777dd500d2b8,
-        type: 2}
       propertyPath: charactersStop.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 995467786}
-    - target: {fileID: 114315017882301980, guid: cac7b242b435f5a4a99a777dd500d2b8,
-        type: 2}
-      propertyPath: charactersStop.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Stopped
-      objectReference: {fileID: 0}
-    - target: {fileID: 114315017882301980, guid: cac7b242b435f5a4a99a777dd500d2b8,
-        type: 2}
-      propertyPath: charactersStop.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 114973577250019692, guid: cac7b242b435f5a4a99a777dd500d2b8,
-        type: 2}
-      propertyPath: levelName
-      value: level01
-      objectReference: {fileID: 0}
-    - target: {fileID: 120581911839769184, guid: cac7b242b435f5a4a99a777dd500d2b8,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: fc5650eaed491224abe5ed98667b753b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cac7b242b435f5a4a99a777dd500d2b8, type: 2}
   m_IsPrefabParent: 0
