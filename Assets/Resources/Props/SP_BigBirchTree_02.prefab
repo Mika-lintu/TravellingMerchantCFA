@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4873587925918356}
   - component: {fileID: 212972690274517692}
   - component: {fileID: 114877456850603520}
-  - component: {fileID: 114211701165917078}
+  - component: {fileID: 114881697281572828}
   m_Layer: 0
   m_Name: SP_BigBirchTree_02
   m_TagString: Prop
@@ -42,17 +42,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114211701165917078
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1035045259545488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114877456850603520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,6 +60,18 @@ MonoBehaviour:
   spriteNumber: 0
   spriteList: []
   rotation: 0
+--- !u!114 &114881697281572828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1035045259545488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d52fd46d734b794da37b9bf6cb436fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 2, y: 2, z: 1}
 --- !u!212 &212972690274517692
 SpriteRenderer:
   m_ObjectHideFlags: 1

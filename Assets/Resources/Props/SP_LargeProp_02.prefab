@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4091448769064720}
   - component: {fileID: 212631366666197544}
   - component: {fileID: 114116614907940362}
-  - component: {fileID: 114639391439405158}
+  - component: {fileID: 114073748109615174}
   m_Layer: 0
   m_Name: SP_LargeProp_02
   m_TagString: Prop
@@ -42,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114073748109615174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1467047386792312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d52fd46d734b794da37b9bf6cb436fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 2, y: 2, z: 1}
 --- !u!114 &114116614907940362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -60,17 +72,6 @@ MonoBehaviour:
   spriteNumber: 0
   spriteList: []
   rotation: 0
---- !u!114 &114639391439405158
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1467047386792312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212631366666197544
 SpriteRenderer:
   m_ObjectHideFlags: 1

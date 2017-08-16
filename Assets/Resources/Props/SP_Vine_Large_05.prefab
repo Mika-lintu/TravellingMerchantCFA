@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4291779737988538}
   - component: {fileID: 212186110498075090}
   - component: {fileID: 114153411008809446}
-  - component: {fileID: 114161914392750178}
+  - component: {fileID: 114563354921759562}
   m_Layer: 0
   m_Name: SP_Vine_Large_05
   m_TagString: Prop
@@ -60,7 +60,7 @@ MonoBehaviour:
   spriteNumber: 0
   spriteList: []
   rotation: 0
---- !u!114 &114161914392750178
+--- !u!114 &114563354921759562
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -68,9 +68,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1669028879809466}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d52fd46d734b794da37b9bf6cb436fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startScale: {x: 2, y: 2, z: 1}
 --- !u!212 &212186110498075090
 SpriteRenderer:
   m_ObjectHideFlags: 1

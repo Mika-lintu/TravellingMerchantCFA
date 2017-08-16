@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4755145854128426}
   - component: {fileID: 212483298001056116}
   - component: {fileID: 114212272975335308}
-  - component: {fileID: 114332352955428800}
+  - component: {fileID: 114927298234993176}
   m_Layer: 0
   m_Name: SP_RedPlant_01
   m_TagString: Prop
@@ -60,7 +60,7 @@ MonoBehaviour:
   spriteNumber: 0
   spriteList: []
   rotation: 0
---- !u!114 &114332352955428800
+--- !u!114 &114927298234993176
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -68,9 +68,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1431637926370624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d52fd46d734b794da37b9bf6cb436fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startScale: {x: 2, y: 2, z: 1}
 --- !u!212 &212483298001056116
 SpriteRenderer:
   m_ObjectHideFlags: 1

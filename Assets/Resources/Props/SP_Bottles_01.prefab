@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4859688920213902}
   - component: {fileID: 212167965694746572}
   - component: {fileID: 114137268329384472}
-  - component: {fileID: 114143104053646556}
+  - component: {fileID: 114144705023665992}
   m_Layer: 0
   m_Name: SP_Bottles_01
   m_TagString: Prop
@@ -60,7 +60,7 @@ MonoBehaviour:
   spriteNumber: 0
   spriteList: []
   rotation: 0
---- !u!114 &114143104053646556
+--- !u!114 &114144705023665992
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -68,9 +68,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1554765268466412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d52fd46d734b794da37b9bf6cb436fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startScale: {x: 2, y: 2, z: 1}
 --- !u!212 &212167965694746572
 SpriteRenderer:
   m_ObjectHideFlags: 1

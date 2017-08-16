@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4760251630228012}
   - component: {fileID: 212658015270376404}
   - component: {fileID: 114151584556620402}
-  - component: {fileID: 114163062650658156}
+  - component: {fileID: 114905345616826346}
   m_Layer: 0
   m_Name: SP_YellowFarmHouse_01
   m_TagString: Prop
@@ -60,7 +60,7 @@ MonoBehaviour:
   spriteNumber: 0
   spriteList: []
   rotation: 0
---- !u!114 &114163062650658156
+--- !u!114 &114905345616826346
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -68,9 +68,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1382900201235802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d52fd46d734b794da37b9bf6cb436fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startScale: {x: 2, y: 2, z: 1}
 --- !u!212 &212658015270376404
 SpriteRenderer:
   m_ObjectHideFlags: 1

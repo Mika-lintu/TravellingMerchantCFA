@@ -43,6 +43,7 @@ public class LevelDatabase : MonoBehaviour
 
         propHandler = GetComponent<PropHandler>();
 
+
     }
 
 
@@ -212,6 +213,11 @@ public class LevelDatabase : MonoBehaviour
         //jsonString = Resources.Load(path + "level01") as TextAsset;
         content = jsonString.ToString();
 
+#if UNITY_EDITOR
+        path = Application.streamingAssetsPath + "/LevelData";
+        content = File.ReadAllText(path + "/level01.json");
+#endif
+
         JsonUtility.FromJsonOverwrite(content, level);
         startPoint = level.levelSegments[segmentNumber].roadStart;
         endPoint = level.levelSegments[segmentNumber].roadEnd;
@@ -328,7 +334,12 @@ public class LevelDatabase : MonoBehaviour
         jsonStringProps = Resources.Load(path + "level01" + "Props") as TextAsset;
         propContent = jsonStringProps.ToString();
 
-        propsPath = Application.streamingAssetsPath + "/level02Props.json";
+#if UNITY_EDITOR
+        path = Application.streamingAssetsPath + "/LevelData";
+        propContent = File.ReadAllText(path + "/level01Props.json");
+#endif
+
+        //propsPath = Application.streamingAssetsPath + "/level02Props.json";
         JsonUtility.FromJsonOverwrite(propContent, props);
         propHandler = GetComponent<PropHandler>();
 

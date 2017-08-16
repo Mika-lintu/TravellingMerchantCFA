@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4812892505686418}
   - component: {fileID: 212639113298218760}
   - component: {fileID: 114001700766487414}
-  - component: {fileID: 114634860962463050}
+  - component: {fileID: 114549305908227428}
   m_Layer: 0
   m_Name: SP_OrangeFarmHouse_01
   m_TagString: Prop
@@ -60,7 +60,7 @@ MonoBehaviour:
   spriteNumber: 0
   spriteList: []
   rotation: 0
---- !u!114 &114634860962463050
+--- !u!114 &114549305908227428
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -68,9 +68,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1968701528238530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad78097fa81d3b148a47ee0f68805b10, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d52fd46d734b794da37b9bf6cb436fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startScale: {x: 2, y: 2, z: 1}
 --- !u!212 &212639113298218760
 SpriteRenderer:
   m_ObjectHideFlags: 1
