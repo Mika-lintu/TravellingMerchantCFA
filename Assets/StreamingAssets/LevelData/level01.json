@@ -24,41 +24,41 @@
      {
         "segmentNumber": 3,
         "roadStart": "-7.806648",
-        "roadEnd": "-3.250255",
+        "roadEnd": "-4.950974",
         "groundLayer": 1,
         "zoom": 10
      },
      {
         "segmentNumber": 4,
-        "roadStart": "-3.250255",
-        "roadEnd": "-7.537993",
-        "groundLayer": 0,
+        "roadStart": "-4.950974",
+        "roadEnd": "-3.799036",
+        "groundLayer": 2,
         "zoom": 10
      },
      {
         "segmentNumber": 5,
-        "roadStart": "-7.537993",
-        "roadEnd": "-4.097397",
+        "roadStart": "-3.799036",
+        "roadEnd": "-7.08148",
         "groundLayer": 2,
         "zoom": 10
      },
      {
         "segmentNumber": 6,
-        "roadStart": "-4.097397",
-        "roadEnd": "-2.177569",
-        "groundLayer": 3,
+        "roadStart": "-7.08148",
+        "roadEnd": "-2.097969",
+        "groundLayer": 2,
         "zoom": 10
      },
      {
         "segmentNumber": 7,
-        "roadStart": "-2.177569",
-        "roadEnd": "0.05243587",
+        "roadStart": "-2.097969",
+        "roadEnd": "-5.532437",
         "groundLayer": 1,
         "zoom": 10
      },
      {
         "segmentNumber": 8,
-        "roadStart": "0.05243587",
+        "roadStart": "-5.532437",
         "roadEnd": "-2.827345",
         "groundLayer": 0,
         "zoom": 10
@@ -87,20 +87,20 @@
      {
         "segmentNumber": 12,
         "roadStart": "-4.603768",
-        "roadEnd": "-4.578534",
+        "roadEnd": "-1.816506",
         "groundLayer": 3,
         "zoom": 10
      },
      {
         "segmentNumber": 13,
-        "roadStart": "-4.578534",
-        "roadEnd": "-7.559077",
+        "roadStart": "-1.816506",
+        "roadEnd": "-9.183802",
         "groundLayer": 2,
         "zoom": 10
      },
      {
         "segmentNumber": 14,
-        "roadStart": "-7.559077",
+        "roadStart": "-9.183802",
         "roadEnd": "-6.776767",
         "groundLayer": 3,
         "zoom": 10
@@ -108,20 +108,20 @@
      {
         "segmentNumber": 15,
         "roadStart": "-6.776767",
-        "roadEnd": "-6.875661",
+        "roadEnd": "-7.421339",
         "groundLayer": 2,
         "zoom": 10
      },
      {
         "segmentNumber": 16,
-        "roadStart": "-6.875661",
-        "roadEnd": "-6.768886",
+        "roadStart": "-7.421339",
+        "roadEnd": "-7.048639",
         "groundLayer": 0,
         "zoom": 10
      },
      {
         "segmentNumber": 17,
-        "roadStart": "-6.768886",
+        "roadStart": "-7.048639",
         "roadEnd": "-9.3241",
         "groundLayer": 2,
         "zoom": 10

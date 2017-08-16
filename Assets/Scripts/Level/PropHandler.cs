@@ -10,7 +10,7 @@ public class PropHandler : MonoBehaviour
     List<Prop> levelProps;
     List<string> propIDs;
     public Dictionary<string, GameObject> propDictionary;
-    public const string propPath = "Props";
+    public string propPath = "Props";
     public GameObject[] allProps;
 
     void Awake()
@@ -31,6 +31,7 @@ public class PropHandler : MonoBehaviour
 
     public void LoadProps()
     {
+        propPath = "Props";
         allProps = Resources.LoadAll<GameObject>(propPath);
         propDictionary = new Dictionary<string, GameObject>();
 
