@@ -326,7 +326,6 @@ public class LevelDatabase : MonoBehaviour
     {
         path = "JsonFiles/LevelData/";
         jsonStringProps = Resources.Load(path + "level01" + "Props") as TextAsset;
-        Debug.Log(path + "level01" + "props");
         propContent = jsonStringProps.ToString();
 
         propsPath = Application.streamingAssetsPath + "/level02Props.json";
