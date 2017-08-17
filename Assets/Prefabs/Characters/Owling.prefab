@@ -40,13 +40,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417989800222618}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.6, y: -2.1, z: 0}
+  m_LocalRotation: {x: 0.008726558, y: 0, z: 0, w: 0.999962}
+  m_LocalPosition: {x: 2.57, y: -1.55, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1, y: 0, z: 0}
 --- !u!23 &23928705052306168
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -162,7 +162,7 @@ MonoBehaviour:
   idle: Idle
   walk: Run
   attack: Attack
-  steal: 
+  steal: Run(With loot)
   hurt: Being Hit
   death: Death
   run: Run
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417989800222618}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 847f8cbb2bf15774f8870a6874ca7b6e, type: 3}
   m_Name: 
@@ -197,7 +197,12 @@ MonoBehaviour:
   turnState: {fileID: 11400000, guid: d88622daafd589c48b501f6c33143ac2, type: 2}
   moveToTargetState: {fileID: 11400000, guid: 063969158478afc4b841cebaf0cfad3b, type: 2}
   fleeState: {fileID: 11400000, guid: 1bca3c3f8cd4d38459954bf30a005659, type: 2}
-  deathState: {fileID: 0}
+  deathState: {fileID: 11400000, guid: 58c8b65d8cfcdaa43b2f5b643e1ee128, type: 2}
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   stateTimeElapsed: 0
   targetInRange: 0
   fleeing: 0

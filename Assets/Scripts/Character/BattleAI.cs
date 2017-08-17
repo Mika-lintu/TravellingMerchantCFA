@@ -56,7 +56,7 @@ public class BattleAI : MonoBehaviour {
         }
         else if (characterType == CharacterType.Henchman)
         {
-            allTargets = battleController.baddies;
+            allTargets = battleController.activeEnemies;
         }
 
         ChooseClosestTarget();

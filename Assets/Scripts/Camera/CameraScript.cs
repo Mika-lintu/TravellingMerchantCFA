@@ -54,7 +54,7 @@ public class CameraScript : MonoBehaviour {
 
     void Update()
     {
-        if (!startMovement)
+        if (modeEnum != Mode.battle)
         {
             if (target)
             {
@@ -124,15 +124,15 @@ public class CameraScript : MonoBehaviour {
 
     private void OnEnable()
     {
-        BattleController.EndBattle += EndBattle;
-        BattleController.StartBattle += StartBattle;
+        //BattleController.EndBattle += EndBattle;
+        //BattleController.StartBattle += StartBattle;
     }
 
 
     private void OnDisable()
     {
-        BattleController.EndBattle -= EndBattle;
-        BattleController.StartBattle -= StartBattle;
+        //BattleController.EndBattle -= EndBattle;
+        //BattleController.StartBattle -= StartBattle;
     }
 
     void EndBattle()

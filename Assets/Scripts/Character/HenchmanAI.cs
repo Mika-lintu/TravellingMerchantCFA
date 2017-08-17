@@ -23,7 +23,7 @@ public class HenchmanAI : MonoBehaviour
     bool inReach;
     bool countdownRunning;
 
-
+/*
     IEnumerator turnCountdown;
 
     delegate void Actions();
@@ -214,7 +214,7 @@ public class HenchmanAI : MonoBehaviour
             //battleC.CheckBattleLists();
             //}
             //else Debug.Log("Attack: " + target.name + "   Damage: " + attackDamage + "   Target Health: " + target.GetComponent<Stats>().health);
-        }
+        /*}
     }
 
     public void Death()
@@ -224,5 +224,5 @@ public class HenchmanAI : MonoBehaviour
         countdownRunning = false;
         gameObject.SetActive(false);
         //stats.Death();
-    }
+    }*/
 }

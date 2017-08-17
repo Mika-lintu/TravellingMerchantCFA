@@ -27,7 +27,7 @@ public class Stats : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         //startColor = sprite.color;
         battleC = Camera.main.GetComponent<BattleController>();
-        bUI = GameObject.FindGameObjectWithTag("BattleUI").GetComponent<BattleUI>();
+        //bUI = GameObject.FindGameObjectWithTag("BattleUI").GetComponent<BattleUI>();
         enemyDrop = GetComponent<EnemyDrop>();
     }
 
@@ -106,7 +106,7 @@ public class Stats : MonoBehaviour
         }
         else if (gameObject.GetComponent<HenchmanAI>() != null)
         {
-            gameObject.GetComponent<HenchmanAI>().Death();
+            //gameObject.GetComponent<HenchmanAI>().Death();
         }
         battleC.CheckBattleLists();
         StopAllCoroutines();

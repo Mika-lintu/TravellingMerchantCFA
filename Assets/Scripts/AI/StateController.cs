@@ -65,6 +65,7 @@ public class StateController : MonoBehaviour
 
     public void SetupAI()
     {
+
         if (gameObject.tag == "Player")
         {
             isPlayer = true;
@@ -72,6 +73,7 @@ public class StateController : MonoBehaviour
         else
         {
             isPlayer = false;
+            health = aiStats.maxHealth;
         }
 
         if (!isPlayer)
@@ -84,8 +86,12 @@ public class StateController : MonoBehaviour
             currentTarget.gameObject.GetComponent<StateController>().AddDeathListener(gameObject);
         }
 
-        health = aiStats.maxHealth;
         aiActive = true;
+    }
+
+    public void BattleReset()
+    {
+
     }
 
 

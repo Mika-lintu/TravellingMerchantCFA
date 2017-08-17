@@ -16,7 +16,7 @@ public class PropHandler : MonoBehaviour
     void Awake()
     {
         jsonReader = GetComponent<JSONReader>();
-        //levelProps = jsonReader.props.levelProps;
+        levelProps = jsonReader.props.levelProps;
         poolManager = GetComponent<PoolManager>();
         propDictionary = new Dictionary<string, GameObject>();
         LoadProps();
