@@ -81,6 +81,22 @@ public class QuantUIList : MonoBehaviour
         //}
     }
 
+    public GameObject SetUIToItemAndReturnText(GameObject go)
+    {
+        for (int i = 0; i < quantText.Count; i++)
+        {
+            if (quantText[i].GetComponent<QuantUI>().targetItem == null)
+            {
+                go.GetComponent<ItemStats>().quantUI = quantText[i];
+                quantText[i].SetActive(true);
+                quantText[i].GetComponent<QuantUI>().SetQuantityText(go);
+                assignedQuantText.Add(quantText[i]);
+                return quantText[i];
+            }
+        }
+        return null;
+    }
+
 
     public void ActivateUIs()
     {

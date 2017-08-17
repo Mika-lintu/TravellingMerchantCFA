@@ -27,6 +27,7 @@ public class ItemStats : MonoBehaviour
     [Range(1, 15)]
     public int maxQuantity;
     public GameObject quantUI;
+    QuantUIList itemUIList;
 
     [HideInInspector]
     SpringJoint2D spring;
@@ -38,6 +39,7 @@ public class ItemStats : MonoBehaviour
         spring = GetComponent<SpringJoint2D>();
         rig = GetComponent<Rigidbody2D>();
         poolManager = Camera.main.GetComponent<PoolManager>();
+        itemUIList = GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>();
     }
 
     public void SetStats(Item newStats)
@@ -63,6 +65,7 @@ public class ItemStats : MonoBehaviour
         return newItem;
     }
 
+
     public void UpdateQuantity(int newQuantity)
     {
         quantity += newQuantity;
@@ -80,7 +83,6 @@ public class ItemStats : MonoBehaviour
                 quantUI.GetComponent<QuantUI>().RemoveTarget();
                 quantUI.SetActive(false);
                 quantUI = null;
-                //poolManager.SendItemToLimbo(gameObject);
             }
 
             gameObject.SetActive(false);
@@ -92,6 +94,40 @@ public class ItemStats : MonoBehaviour
 
     }
 
+
+    public void SetQuantity(int newQuantity)
+    {
+        quantity = newQuantity;
+
+        if (quantUI == null)
+        {
+            quantUI = itemUIList.SetUIToItemAndReturnText(gameObject);
+        }
+
+        if (quantity == 1)
+        {
+            quantUI.GetComponent<QuantUI>().RemoveTarget();
+            quantUI.SetActive(false);
+            quantUI = null;
+        }
+        else if (quantity <= 0)
+        {
+            if (quantUI != null)
+            {
+                quantUI.GetComponent<QuantUI>().RemoveTarget();
+                quantUI.SetActive(false);
+                quantUI = null;
+            }
+
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            quantUI.GetComponent<QuantUI>().SetQuantityText(gameObject);
+        }
+    }
+
+
     public void BuyItem(Vector2 spawnPosition)
     {
         StartCoroutine(BuyItemCoroutine(spawnPosition));
@@ -99,7 +135,7 @@ public class ItemStats : MonoBehaviour
 
     public IEnumerator BuyItemCoroutine(Vector2 spawnPosition)
     {
-        float timer = 0.3f;
+        //float timer = 0.3f;
         spring.connectedAnchor = spawnPosition;
         spring.enabled = true;
         rig.isKinematic = false;
