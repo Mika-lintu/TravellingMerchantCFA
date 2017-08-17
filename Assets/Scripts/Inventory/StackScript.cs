@@ -9,6 +9,7 @@ public class StackScript : MonoBehaviour
     QuantUIList itemUIList;
     string id;
     int quantity;
+    [HideInInspector]
     public bool stackParent;
 
     void Awake()
