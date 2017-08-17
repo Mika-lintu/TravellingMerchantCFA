@@ -18,7 +18,7 @@ public class Coins : MonoBehaviour
 
     private void Start()
     {
-        SetAmount(1000f);
+        SetAmount(100f);
     }
 
     public static void AddCoins(float num)
