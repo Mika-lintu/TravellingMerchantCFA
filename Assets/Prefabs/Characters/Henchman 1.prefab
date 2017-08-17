@@ -147,6 +147,10 @@ MonoBehaviour:
   idle: Idle/Normal
   walk: Walk
   attack: Melee Attack
+  steal: 
+  hurt: 
+  death: 
+  run: 
 --- !u!114 &114791778277312744
 MonoBehaviour:
   m_ObjectHideFlags: 1

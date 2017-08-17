@@ -22,6 +22,7 @@ TagManager:
   - FleeTarget
   - Backpack
   - BackpackGravity
+  - SceneExit
   layers:
   - Default
   - TransparentFX

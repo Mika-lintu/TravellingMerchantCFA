@@ -125,3 +125,7 @@ MonoBehaviour:
   idle: Idle
   walk: Move
   attack: Attack (Sting)
+  steal: 
+  hurt: 
+  death: 
+  run: 

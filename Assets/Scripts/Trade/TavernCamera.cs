@@ -89,14 +89,14 @@ public class TavernCamera : MonoBehaviour {
     {
         modeEnum = Tavern.inShop;
         StopAllCoroutines();
-        StartCoroutine(ZoomToShop(3f));
+        StartCoroutine(ZoomToShop(5f));
     }
 
     public void GoFromShop()
     {
         modeEnum = Tavern.tavern;
         StopAllCoroutines();
-        StartCoroutine(ZoomBack(5f));
+        StartCoroutine(ZoomBack(7f));
     }
 
 }
