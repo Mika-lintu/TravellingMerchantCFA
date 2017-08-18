@@ -5,13 +5,17 @@ using UnityEngine;
 public class QuantUIList : MonoBehaviour
 {
     TavernCamera tavernCam;
+    ItemHandler itemHandler;
+
     public List<GameObject> quantText;
     public List<GameObject> assignedQuantText;
     List<GameObject> itemsInScene;
 
     void Awake()
     {
+        
         tavernCam = Camera.main.GetComponent<TavernCamera>();
+        itemHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>();
     }
 
     void Start()
@@ -23,31 +27,50 @@ public class QuantUIList : MonoBehaviour
 
     public void MakeItemList()
     {
-        if (tavernCam.modeEnum == TavernCamera.Tavern.inShop)
+        Debug.Log("ASD");
+        if (itemHandler.tavernMode == true)
+        {
+            if (tavernCam.modeEnum == TavernCamera.Tavern.inShop)
+            {
+                itemsInScene = new List<GameObject>();
+                assignedQuantText = new List<GameObject>();
+                GameObject[] tempList = GameObject.FindGameObjectsWithTag("ShopItem");
+                GameObject[] tempList2 = GameObject.FindGameObjectsWithTag("Item");
+
+                for (int i = 0; i < tempList.Length; i++)
+                {
+                    itemsInScene.Add(tempList[i]);
+                }
+
+                for (int i = 0; i < tempList2.Length; i++)
+                {
+                    itemsInScene.Add(tempList2[i]);
+                }
+
+                GetItems();
+            }
+            else
+            {
+                DeactivateUIs();
+            }
+        }
+        if (itemHandler.tavernMode == false)
         {
             itemsInScene = new List<GameObject>();
             assignedQuantText = new List<GameObject>();
-            GameObject[] tempList = GameObject.FindGameObjectsWithTag("ShopItem");
-            GameObject[] tempList2 = GameObject.FindGameObjectsWithTag("Item");
-
+            GameObject[] tempList = GameObject.FindGameObjectsWithTag("Item");
             for (int i = 0; i < tempList.Length; i++)
             {
                 itemsInScene.Add(tempList[i]);
             }
-
-            for (int i = 0; i < tempList2.Length; i++)
-            {
-                itemsInScene.Add(tempList2[i]);
-            }
-
             GetItems();
         }
-        else
-        {
-            DeactivateUIs();
-        }
+       
 
+        
+ 
     }
+
 
     public void RefreshUIs()
     {
@@ -59,6 +82,7 @@ public class QuantUIList : MonoBehaviour
     {
         for (int i = 0; i < itemsInScene.Count; i++)
         {
+            
             if (itemsInScene[i].GetComponent<ItemStats>().quantity > 1) SetUIToItem(itemsInScene[i]);
         }
     }
@@ -83,7 +107,7 @@ public class QuantUIList : MonoBehaviour
 
 
     public void ActivateUIs()
-    {
+    {Debug.Log("MEEEEEEEP");
         for (int i = 0; i < assignedQuantText.Count; i++)
         {
             assignedQuantText[i].SetActive(true);

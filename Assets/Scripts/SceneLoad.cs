@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour {
+public class SceneLoad : MonoBehaviour
+{
 
     public int selectScene;
     ItemHandler itemHandler;
@@ -13,9 +14,10 @@ public class SceneManager : MonoBehaviour {
         itemHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>();
     }
 
-	public void LoadByIndex(int sceneIndex)
+
+    public void LoadByIndex(int sceneIndex)
     {
-        Application.LoadLevel(sceneIndex);
+        SceneManager.LoadScene(sceneIndex);
     }
 
     void Update()
@@ -23,26 +25,31 @@ public class SceneManager : MonoBehaviour {
         LoadOnClick();
     }
 
+
     void LoadOnClick()
     {
         if (Input.GetMouseButtonUp(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if(hit.collider.tag == "SceneExit")
+            if (hit.collider != null)
             {
-                Debug.Log(selectScene);
-                StartCoroutine(SceneChange());
-                //LoadByIndex(selectScene);
+                if (hit.collider.tag == "SceneExit")
+                {
+                    Debug.Log(selectScene);
+                    StartCoroutine(SceneChange());
+                }
+            }
+            else
+            {
+
             }
         }
-        else
-        {
 
-        }
+
     }
 
 
-	IEnumerator SceneChange()
+    IEnumerator SceneChange()
     {
         Debug.Log("I did happen");
         itemHandler.SaveItemsToJSON();
