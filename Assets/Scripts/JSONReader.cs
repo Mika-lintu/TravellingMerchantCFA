@@ -125,4 +125,9 @@ public class JSONReader : MonoBehaviour {
         return2 = f2;
         return3 = bgLayer;
     }
+
+    public void GetPlayerStats()
+    {
+
+    }
 }
