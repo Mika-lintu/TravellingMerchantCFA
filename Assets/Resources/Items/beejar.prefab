@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 50537626627984560}
   - component: {fileID: 231402897601702424}
   - component: {fileID: 60337750861655222}
+  - component: {fileID: 114090996332931322}
   m_Layer: 9
   m_Name: beejar
   m_TagString: Item
@@ -171,6 +172,18 @@ MonoBehaviour:
   minQuantity: 1
   maxQuantity: 3
   quantUI: {fileID: 0}
+--- !u!114 &114090996332931322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1691239157491762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe25cc9786077434e84f8069c15b8b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stackParent: 0
 --- !u!212 &212556704305397856
 SpriteRenderer:
   m_ObjectHideFlags: 1

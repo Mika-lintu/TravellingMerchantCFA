@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 50897446933710026}
   - component: {fileID: 231508595270513648}
   - component: {fileID: 114584059019692652}
+  - component: {fileID: 114243153564396218}
   m_Layer: 9
   m_Name: smaragd
   m_TagString: Item
@@ -157,6 +158,18 @@ PolygonCollider2D:
       - {x: 0.099999994, y: -2.18}
       - {x: 0.25, y: -1.99}
       - {x: 0.34, y: -1.89}
+--- !u!114 &114243153564396218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746842987727918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe25cc9786077434e84f8069c15b8b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stackParent: 0
 --- !u!114 &114584059019692652
 MonoBehaviour:
   m_ObjectHideFlags: 1

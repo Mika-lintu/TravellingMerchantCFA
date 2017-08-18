@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 70293038596504046}
   - component: {fileID: 58734974365518034}
   - component: {fileID: 114636524621643158}
+  - component: {fileID: 114651784040747452}
   m_Layer: 9
   m_Name: voodoo
   m_TagString: Item
@@ -165,6 +166,18 @@ MonoBehaviour:
   minQuantity: 1
   maxQuantity: 1
   quantUI: {fileID: 0}
+--- !u!114 &114651784040747452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1301091953252452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe25cc9786077434e84f8069c15b8b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stackParent: 0
 --- !u!212 &212321200438337206
 SpriteRenderer:
   m_ObjectHideFlags: 1

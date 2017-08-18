@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 58423535470238792}
   - component: {fileID: 58278928150621154}
   - component: {fileID: 114281342078216306}
+  - component: {fileID: 114611422944339868}
   m_Layer: 9
   m_Name: potion_health
   m_TagString: Item
@@ -150,6 +151,18 @@ MonoBehaviour:
   minQuantity: 6
   maxQuantity: 16
   quantUI: {fileID: 0}
+--- !u!114 &114611422944339868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702473921978212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe25cc9786077434e84f8069c15b8b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stackParent: 0
 --- !u!212 &212264163347767430
 SpriteRenderer:
   m_ObjectHideFlags: 1

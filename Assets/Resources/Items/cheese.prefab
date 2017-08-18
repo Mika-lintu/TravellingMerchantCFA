@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 231558075830371236}
   - component: {fileID: 114373795927419864}
   - component: {fileID: 60449379199066196}
+  - component: {fileID: 114441755700679054}
   m_Layer: 9
   m_Name: cheese
   m_TagString: Item
@@ -221,6 +222,18 @@ MonoBehaviour:
   minQuantity: 1
   maxQuantity: 3
   quantUI: {fileID: 0}
+--- !u!114 &114441755700679054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1456976962793676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe25cc9786077434e84f8069c15b8b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stackParent: 0
 --- !u!212 &212354319280928394
 SpriteRenderer:
   m_ObjectHideFlags: 1
