@@ -10,7 +10,7 @@ public class PlayerStats {
 
     public string GetString()
     {
-        return "\"currentSegment\": \"" + currentSegment;
+        return "\"currentSegment\": " + currentSegment;
     }
 	
 }

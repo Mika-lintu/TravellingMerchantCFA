@@ -8,9 +8,11 @@ public class SceneLoad : MonoBehaviour
 
     public int selectScene;
     ItemHandler itemHandler;
+    PlayerController playerController;
 
     void Awake()
     {
+        playerController = Camera.main.GetComponent<PlayerController>();
         itemHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>();
     }
 
@@ -36,8 +38,13 @@ public class SceneLoad : MonoBehaviour
                 if (hit.collider.tag == "SceneExit")
                 {
                     Debug.Log(selectScene);
+                    if (itemHandler.tavernMode)
+                    {
+                        playerController.UpdatePlayerStats(11);
+                    }
                     StartCoroutine(SceneChange());
                 }
+
             }
             else
             {
