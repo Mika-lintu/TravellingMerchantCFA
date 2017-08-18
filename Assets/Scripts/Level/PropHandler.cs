@@ -82,7 +82,7 @@ public class PropHandler : MonoBehaviour
     {
         for (int i = 0; i < propIDs.Count; i++)
         {
-            poolManager.CreatePool(propDictionary[propIDs[i]], 12);
+            poolManager.CreatePool(propDictionary[propIDs[i]], 50);
         }
     }
 
