@@ -259,6 +259,7 @@ public class PoolManager : MonoBehaviour
         bool hasPoolObjectComponent;
         PoolObject poolObjectScript;
 
+
         public ItemObjectInstance(GameObject objectInstance, string location)
         {
             gameObject = objectInstance;
@@ -277,6 +278,7 @@ public class PoolManager : MonoBehaviour
             }
         }
 
+
         public void Reuse(Vector3 position, Quaternion rotation)
         {
             if (hasPoolObjectComponent)
@@ -288,6 +290,7 @@ public class PoolManager : MonoBehaviour
             transform.position = position;
             transform.rotation = rotation;
         }
+
 
         public void SetParent(Transform parent)
         {

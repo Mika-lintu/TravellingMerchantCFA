@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4777610568818812}
   - component: {fileID: 212382839655260764}
   - component: {fileID: 114728631608660696}
-  - component: {fileID: 114948368515143708}
+  - component: {fileID: 114789245298206742}
   m_Layer: 0
   m_Name: SP_GrassPattern_01
   m_TagString: Prop
@@ -60,7 +60,7 @@ MonoBehaviour:
   spriteNumber: 0
   spriteList: []
   rotation: 0
---- !u!114 &114948368515143708
+--- !u!114 &114789245298206742
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1008682094723646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52fd46d734b794da37b9bf6cb436fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 2244800dea189a44c940f1fdfd83810d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startScale: {x: 2, y: 2, z: 1}

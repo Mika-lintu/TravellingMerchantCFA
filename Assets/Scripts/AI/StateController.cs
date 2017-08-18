@@ -351,6 +351,8 @@ public class StateController : MonoBehaviour
         while (!targetInRange)
         {
             transform.position = Vector2.MoveTowards(transform.position, currentTarget.position, aiStats.movementSpeed * Time.deltaTime);
+            Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+            transform.position = newPosition;
             yield return null;
         }
         animControl.SetAnimation(animControl.idle, true);

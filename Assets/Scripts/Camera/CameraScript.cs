@@ -95,7 +95,7 @@ public class CameraScript : MonoBehaviour
             else if (battleZoom)
             {
                 previousCamZoom = cam.orthographicSize;
-                currentCoroutine = BattleZoom(7f);
+                currentCoroutine = BattleZoom(15f);
                 inventoryZoom = false;
                 target = player;
                 offset = new Vector3(0, 2f, 0);
@@ -206,8 +206,13 @@ public class CameraScript : MonoBehaviour
 
     IEnumerator BattleZoom(float zoom)
     {
-        while (Mathf.Approximately(zoom, cam.orthographicSize))
+        float t = 0;
+        while (!Mathf.Approximately(zoom, cam.orthographicSize))
         {
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, zoom, t);
+            t += Time.deltaTime * dampTime;
+            Debug.Log("battle zoooom " + t);
+            /*
             if (cam.orthographicSize < zoom)
             {
                 cam.orthographicSize += Time.deltaTime * 2;
@@ -217,7 +222,10 @@ public class CameraScript : MonoBehaviour
                 cam.orthographicSize -= Time.deltaTime * 2;
             }
 
-            dampTime = 0.25f;
+            if (Mathf.Approximately(zoom, cam.orthographicSize)) Debug.Log("zoom is approximately same");
+            */
+            
+            dampTime = 0.1f;
             yield return null;
         }
         dampTime = 0.15f;
