@@ -18,6 +18,7 @@ public class CameraScript : MonoBehaviour {
     Camera cam;
     Vector3 tempPosition;
     GameSpeed gameSpeed;
+    BattleController battleController;
     bool startMovement = false;
     public float previousCamZoom = 10f;
     public float camZoom = 10f;
@@ -45,6 +46,7 @@ public class CameraScript : MonoBehaviour {
         gameSpeed = Camera.main.GetComponent<GameSpeed>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         backpack = player.Find("Backpack");
+        battleController = GetComponent<BattleController>();
     }
 
     void Start()
@@ -54,6 +56,11 @@ public class CameraScript : MonoBehaviour {
 
     void Update()
     {
+        if (Input.GetKeyDown("space"))
+        {
+            battleController.StartNewBattle();
+        }
+
         if (modeEnum != Mode.battle)
         {
             if (target)

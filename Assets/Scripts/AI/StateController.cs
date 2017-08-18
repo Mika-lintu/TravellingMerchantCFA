@@ -19,8 +19,10 @@ public class StateController : MonoBehaviour
     private float attackVariable;
     StateController targetStateController;
     AnimationControl animControl;
+    BattleController battleControl;
     IEnumerator currentCoroutine = null;
     public UnityEvent deathEvent;
+    GameObject player;
 
     [HideInInspector]
     public float stateTimeElapsed;
@@ -33,11 +35,14 @@ public class StateController : MonoBehaviour
     [HideInInspector]
     public Dictionary<string, int> turnActions;
     [HideInInspector]
-    public GameObject fleeTarget;
+    public Vector2 fleeTarget;
     [HideInInspector]
     public bool isFlipped = false;
     [HideInInspector]
     public bool isPlayer;
+    public enum AIType { hostile, friendly, player };
+    public AIType entityType;
+
 
 
     #region General
@@ -45,6 +50,8 @@ public class StateController : MonoBehaviour
     private void Awake()
     {
         animControl = GetComponent<AnimationControl>();
+        battleControl = Camera.main.GetComponent<BattleController>();
+        player = GameObject.FindGameObjectWithTag("Player");
         fleeing = false;
         SetupAI();
     }
@@ -66,6 +73,7 @@ public class StateController : MonoBehaviour
     public void SetupAI()
     {
 
+        
         if (gameObject.tag == "Player")
         {
             isPlayer = true;
@@ -76,22 +84,74 @@ public class StateController : MonoBehaviour
             health = aiStats.maxHealth;
         }
 
-        if (!isPlayer)
+        if (entityType == AIType.hostile)
         {
+            ResetPosition();
+            FindTarget();
             turnActions = aiStats.GetActionsDictionary();
-            fleeTarget = GameObject.FindGameObjectWithTag("FleeTarget");
-            targetStateController = currentTarget.GetComponent<StateController>();
             timerVariable = aiStats.turnSpeed * 0.5f;
             attackVariable = aiStats.damage * 0.3f;
+            Debug.Log(currentTarget.name);
             currentTarget.gameObject.GetComponent<StateController>().AddDeathListener(gameObject);
         }
 
         aiActive = true;
     }
 
-    public void BattleReset()
-    {
 
+    public void StartNewBattle()
+    {
+        SetupAI();
+    }
+
+
+    public void ResetPosition()
+    {
+        float randomX = Random.value;
+        float randomY = Random.Range(-3, 5);
+
+        if (randomX <= 0.5f)
+        {
+            randomX = -30f;
+        }
+        else
+        {
+            randomX = 30f;
+        }
+
+        transform.position = new Vector3(randomX, randomY, transform.position.z);
+        fleeTarget = transform.position;
+    }
+
+
+    public void FindTarget()
+    {
+        List<GameObject> tempTargetList = new List<GameObject>();
+        GameObject tempTarget = player.gameObject;
+        float distanceToTarget = 100;
+
+        if (entityType == AIType.friendly)
+        {
+            tempTargetList = battleControl.overallEnemies;
+        }
+        else if (entityType == AIType.hostile)
+        {
+            tempTargetList = battleControl.goodGuys;
+        }
+
+        for (int i = 0; i < tempTargetList.Count; i++)
+        {
+            float tempDistance = Vector2.Distance(transform.position, tempTargetList[i].transform.position);
+
+            if (tempDistance < distanceToTarget)
+            {
+                distanceToTarget = tempDistance;
+                tempTarget = tempTargetList[i];
+            }
+        }
+
+        currentTarget = tempTarget.transform;
+        targetStateController = currentTarget.GetComponent<StateController>();
     }
 
 
@@ -198,7 +258,7 @@ public class StateController : MonoBehaviour
     public void Flee()
     {
         Debug.Log("Flee");
-        currentTarget = fleeTarget.transform;
+        currentTarget = null;
         targetInRange = false;
         TransitionToState(fleeState);
         ResetStateTimer();
@@ -267,7 +327,7 @@ public class StateController : MonoBehaviour
 
     public void FleeFromBattle()
     {
-        currentTarget = fleeTarget.transform;
+        currentTarget = null;
 
         if (currentCoroutine == null || currentCoroutine.ToString() != FleeCoroutine().ToString())
         {

@@ -31,7 +31,7 @@ public class BattleController : MonoBehaviour
     private void Awake()
     {
         gameSpeed = GetComponent<GameSpeed>();
-        bUI = GameObject.FindGameObjectWithTag("BattleUI").GetComponent<BattleUI>();
+        //bUI = GameObject.FindGameObjectWithTag("BattleUI").GetComponent<BattleUI>();
     }
 
 
@@ -75,7 +75,18 @@ public class BattleController : MonoBehaviour
         battleOngoing = true;
         gameSpeed.movingDisabled = true;
         ActivateEnemies(enemies);
-        StartBattle.Invoke();
+
+        for (int i = 0; i < activeEnemies.Count; i++)
+        {
+            activeEnemies[i].GetComponent<StateController>().StartNewBattle();
+        }
+
+        for (int i = 0; i < goodGuys.Count; i++)
+        {
+            goodGuys[i].GetComponent<StateController>().StartNewBattle();
+        }
+
+        //StartBattle.Invoke();
         //StartBattle();
         SetUITarget();
     }
@@ -103,7 +114,7 @@ public class BattleController : MonoBehaviour
                 activeEnemies.Add(overallEnemies[i]);
                 overallEnemies[i].SetActive(true);
                 //overallEnemies[i].GetComponent<EnemyAI>().StartBattle();
-                overallEnemies[i].GetComponent<StateController>().BattleReset();
+                overallEnemies[i].GetComponent<StateController>().ResetPosition();
             }
         }
     }
@@ -123,14 +134,14 @@ public class BattleController : MonoBehaviour
         {
             if (goodGuys[i].activeInHierarchy)
             {
-                bUI.SetUI(goodGuys[i]);
+                //bUI.SetUI(goodGuys[i]);
             }
         }
         for (int i = 0; i < activeEnemies.Count; i++)
         {
             if (activeEnemies[i].activeInHierarchy)
             {
-                bUI.SetUI(activeEnemies[i]);
+                //bUI.SetUI(activeEnemies[i]);
             }
         }
     }

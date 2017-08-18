@@ -2445,6 +2445,16 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114629196294334802, guid: b7967fa173374764fa6675a939063411,
+        type: 2}
+      propertyPath: death
+      value: Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 114629196294334802, guid: b7967fa173374764fa6675a939063411,
+        type: 2}
+      propertyPath: hurt
+      value: Being hit
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114220242907046772, guid: b7967fa173374764fa6675a939063411, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b7967fa173374764fa6675a939063411, type: 2}
@@ -11544,6 +11554,16 @@ MonoBehaviour:
   - {fileID: 2108135911}
   activeEnemies: []
   battleOngoing: 0
+  StartBattle:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  EndBattle:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &995467780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14017,6 +14037,39 @@ Transform:
   m_PrefabParentObject: {fileID: 4793363222730466, guid: b7967fa173374764fa6675a939063411,
     type: 2}
   m_PrefabInternal: {fileID: 178710809}
+--- !u!114 &1182212170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1182212168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4452d274f5bfba1439be92192ec71a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 150
+  currentState: {fileID: 11400000, guid: 0813b98076bf3d74999ace9a542cd9ed, type: 2}
+  aiStats: {fileID: 11400000, guid: bba12fe1a89b737449fd7a8cb5710b82, type: 2}
+  currentTarget: {fileID: 0}
+  remainState: {fileID: 0}
+  turnState: {fileID: 0}
+  moveToTargetState: {fileID: 0}
+  fleeState: {fileID: 0}
+  deathState: {fileID: 11400000, guid: 58c8b65d8cfcdaa43b2f5b643e1ee128, type: 2}
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  stateTimeElapsed: 0
+  targetInRange: 0
+  fleeing: 0
+  distanceToTarget: 0
+  fleeTarget: {x: 0, y: 0}
+  isFlipped: 0
+  isPlayer: 0
+  entityType: 1
 --- !u!1 &1197189726
 GameObject:
   m_ObjectHideFlags: 0
@@ -16116,6 +16169,7 @@ GameObject:
   - component: {fileID: 1503478265}
   - component: {fileID: 1503478264}
   - component: {fileID: 1503478272}
+  - component: {fileID: 1503478273}
   m_Layer: 0
   m_Name: PlayerWorld
   m_TagString: Player
@@ -16184,8 +16238,8 @@ MonoBehaviour:
   walk: Walk (Light)
   attack: Throw
   steal: 
-  hurt: 
-  death: 
+  hurt: Being hit
+  death: Death
   run: 
 --- !u!114 &1503478268
 MonoBehaviour:
@@ -16292,6 +16346,39 @@ MonoBehaviour:
   shopParent: {fileID: 251051672}
   purchaseAnchor: {fileID: 0}
   itemList: []
+--- !u!114 &1503478273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1503478263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4452d274f5bfba1439be92192ec71a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  currentState: {fileID: 11400000, guid: b70d5540e7b0033448555dbc129dab0d, type: 2}
+  aiStats: {fileID: 0}
+  currentTarget: {fileID: 0}
+  remainState: {fileID: 11400000, guid: 0813b98076bf3d74999ace9a542cd9ed, type: 2}
+  turnState: {fileID: 0}
+  moveToTargetState: {fileID: 0}
+  fleeState: {fileID: 0}
+  deathState: {fileID: 11400000, guid: 58c8b65d8cfcdaa43b2f5b643e1ee128, type: 2}
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  stateTimeElapsed: 0
+  targetInRange: 0
+  fleeing: 0
+  distanceToTarget: 0
+  fleeTarget: {x: 0, y: 0}
+  isFlipped: 0
+  isPlayer: 0
+  entityType: 2
 --- !u!1 &1505994663
 GameObject:
   m_ObjectHideFlags: 0
