@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CameraScript : MonoBehaviour {
+public class CameraScript : MonoBehaviour
+{
 
     public float dampTime = 0.15f;
     Transform player;
@@ -58,60 +59,61 @@ public class CameraScript : MonoBehaviour {
     {
         if (Input.GetKeyDown("space"))
         {
-            battleController.StartNewBattle();
+            StartBattle();
+
         }
 
-        if (modeEnum != Mode.battle)
+        //if (modeEnum != Mode.battle)
+        //{
+        if (target)
         {
-            if (target)
+            Vector3 point = Camera.main.WorldToViewportPoint(target.position);
+            Vector3 delta = target.position - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
+            Vector3 destination = transform.position + offset + delta;
+            transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+            transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -6f, 5), -10);
+        }
+
+        if (Input.GetKeyDown("i"))
+        {
+            if (currentCoroutine != null)
             {
-                Vector3 point = Camera.main.WorldToViewportPoint(target.position);
-                Vector3 delta = target.position - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
-                Vector3 destination = transform.position + offset + delta;
-                transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
-                transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -6f, 5), -10);
+                StopCoroutine(currentCoroutine);
             }
 
-            if (Input.GetKeyDown("i"))
+            if (!inventoryZoom)
             {
-                if (currentCoroutine != null)
-                {
-                    StopCoroutine(currentCoroutine);
-                }
+                previousCamZoom = cam.orthographicSize;
+                currentCoroutine = ZoomToInventory(2f, -1f);
+                inventoryZoom = true;
+                target = backpack;
+                offset = new Vector3(0, 0f, 0);
+                ShowSlots();
+                gameSpeed.movingDisabled = true;
 
-                if (!inventoryZoom)
-                {
-                    previousCamZoom = cam.orthographicSize;
-                    currentCoroutine = ZoomToInventory(2f, -1f);
-                    inventoryZoom = true;
-                    target = backpack;
-                    offset = new Vector3(0, 0f, 0);
-                    ShowSlots();
-                    gameSpeed.movingDisabled = true;
-
-                }
-                else if (battleZoom)
-                {
-                    previousCamZoom = cam.orthographicSize;
-                    currentCoroutine = BattleZoom(7f);
-                    inventoryZoom = false;
-                    target = player;
-                    offset = new Vector3(0, 2f, 0);
-                    ShowSlots();
-                }
-                else
-                {
-                    currentCoroutine = ZoomBack(3f, 1f);
-                    inventoryZoom = false;
-                    target = player;
-                    offset = new Vector3(0, 2f, 0);
-                    HideSlots();
-                    gameSpeed.movingDisabled = false;
-                }
-
-
-                StartCoroutine(currentCoroutine);
             }
+            else if (battleZoom)
+            {
+                previousCamZoom = cam.orthographicSize;
+                currentCoroutine = BattleZoom(7f);
+                inventoryZoom = false;
+                target = player;
+                offset = new Vector3(0, 2f, 0);
+                ShowSlots();
+            }
+            else
+            {
+                currentCoroutine = ZoomBack(3f, 1f);
+                inventoryZoom = false;
+                target = player;
+                offset = new Vector3(0, 2f, 0);
+                HideSlots();
+                gameSpeed.movingDisabled = false;
+            }
+
+
+            StartCoroutine(currentCoroutine);
+            //}
         }
 
         if (activeSegment != null)
@@ -158,7 +160,8 @@ public class CameraScript : MonoBehaviour {
     {
         battleZoom = true;
         StopAllCoroutines();
-        currentCoroutine = BattleZoom(7f);
+        battleController.StartNewBattle();
+        currentCoroutine = BattleZoom(15f);
         StartCoroutine(currentCoroutine);
         ShowSlots();
     }
@@ -203,15 +206,23 @@ public class CameraScript : MonoBehaviour {
 
     IEnumerator BattleZoom(float zoom)
     {
-        while (cam.orthographicSize < zoom)
+        while (Mathf.Approximately(zoom, cam.orthographicSize))
         {
-            cam.orthographicSize += Time.deltaTime * 2;
+            if (cam.orthographicSize < zoom)
+            {
+                cam.orthographicSize += Time.deltaTime * 2;
+            }
+            else
+            {
+                cam.orthographicSize -= Time.deltaTime * 2;
+            }
+
             dampTime = 0.25f;
             yield return null;
         }
         dampTime = 0.15f;
-        modeEnum = Mode.battle;
-        gameMode.Invoke();
+        //modeEnum = Mode.battle;
+        //gameMode.Invoke();
     }
 
 

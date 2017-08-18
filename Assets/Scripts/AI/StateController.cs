@@ -35,7 +35,9 @@ public class StateController : MonoBehaviour
     [HideInInspector]
     public Dictionary<string, int> turnActions;
     [HideInInspector]
-    public Vector2 fleeTarget;
+    Transform fleeTarget;
+    [HideInInspector]
+    Vector3 fleeTargetPosition;
     [HideInInspector]
     public bool isFlipped = false;
     [HideInInspector]
@@ -86,6 +88,7 @@ public class StateController : MonoBehaviour
 
         if (entityType == AIType.hostile)
         {
+            fleeTarget = transform.GetChild(0);
             ResetPosition();
             FindTarget();
             turnActions = aiStats.GetActionsDictionary();
@@ -120,7 +123,7 @@ public class StateController : MonoBehaviour
         }
 
         transform.position = new Vector3(randomX, randomY, transform.position.z);
-        fleeTarget = transform.position;
+        fleeTargetPosition = transform.position;
     }
 
 
@@ -258,7 +261,9 @@ public class StateController : MonoBehaviour
     public void Flee()
     {
         Debug.Log("Flee");
-        currentTarget = null;
+        fleeTarget.position = fleeTargetPosition;
+        fleeTarget.transform.parent = transform.parent;
+        currentTarget = fleeTarget;
         targetInRange = false;
         TransitionToState(fleeState);
         ResetStateTimer();
@@ -327,7 +332,7 @@ public class StateController : MonoBehaviour
 
     public void FleeFromBattle()
     {
-        currentTarget = null;
+        currentTarget = fleeTarget;
 
         if (currentCoroutine == null || currentCoroutine.ToString() != FleeCoroutine().ToString())
         {
