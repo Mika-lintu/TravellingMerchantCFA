@@ -12,6 +12,8 @@ public class ObjectScaling : MonoBehaviour {
         Vector3 tempScale = new Vector3(startScale.x * i, startScale.y * i, 1);
         transform.localScale = tempScale;
         //float scaleMultiplier = Mathf.Lerp(0.5f, 1f, t);
+        Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+        transform.position = newPosition;
 
 
     }
