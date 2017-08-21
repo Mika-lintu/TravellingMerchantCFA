@@ -2436,27 +2436,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1390200097758762, guid: b7967fa173374764fa6675a939063411, type: 2}
-      propertyPath: m_Name
-      value: Henchman
-      objectReference: {fileID: 0}
     - target: {fileID: 33593981038079806, guid: b7967fa173374764fa6675a939063411,
         type: 2}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 114629196294334802, guid: b7967fa173374764fa6675a939063411,
-        type: 2}
-      propertyPath: death
-      value: Death
+    - target: {fileID: 1390200097758762, guid: b7967fa173374764fa6675a939063411, type: 2}
+      propertyPath: m_Name
+      value: Henchman
       objectReference: {fileID: 0}
-    - target: {fileID: 114629196294334802, guid: b7967fa173374764fa6675a939063411,
-        type: 2}
-      propertyPath: hurt
-      value: Being hit
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114220242907046772, guid: b7967fa173374764fa6675a939063411, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7967fa173374764fa6675a939063411, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &190171150
@@ -14155,38 +14144,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4793363222730466, guid: b7967fa173374764fa6675a939063411,
     type: 2}
   m_PrefabInternal: {fileID: 178710809}
---- !u!114 &1182212170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1182212168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4452d274f5bfba1439be92192ec71a5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 150
-  currentState: {fileID: 11400000, guid: f9cc5dabfac4dfc44acde060b573bdae, type: 2}
-  aiStats: {fileID: 11400000, guid: 29ad4b0f91082044c8e0805a9618109c, type: 2}
-  currentTarget: {fileID: 0}
-  remainState: {fileID: 11400000, guid: 0813b98076bf3d74999ace9a542cd9ed, type: 2}
-  turnState: {fileID: 11400000, guid: d88622daafd589c48b501f6c33143ac2, type: 2}
-  moveToTargetState: {fileID: 11400000, guid: 063969158478afc4b841cebaf0cfad3b, type: 2}
-  fleeState: {fileID: 0}
-  deathState: {fileID: 11400000, guid: 58c8b65d8cfcdaa43b2f5b643e1ee128, type: 2}
-  deathEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  stateTimeElapsed: 0
-  targetInRange: 0
-  fleeing: 0
-  distanceToTarget: 0
-  isFlipped: 0
-  isPlayer: 0
-  entityType: 1
 --- !u!1 &1197189726
 GameObject:
   m_ObjectHideFlags: 0
@@ -16494,6 +16451,8 @@ MonoBehaviour:
   distanceToTarget: 0
   isFlipped: 0
   isPlayer: 0
+  targetIsDead: 0
+  numberOfEnemiesTargeted: 0
   entityType: 2
 --- !u!1 &1505994663
 GameObject:

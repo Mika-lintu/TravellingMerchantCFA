@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  currentState: {fileID: 11400000, guid: 37ae252a20081884ebbc56041ffc9074, type: 2}
+  currentState: {fileID: 11400000, guid: f9cc5dabfac4dfc44acde060b573bdae, type: 2}
   aiStats: {fileID: 11400000, guid: 71e4c84d38020b540bc9ef535c35cec8, type: 2}
   currentTarget: {fileID: 0}
   remainState: {fileID: 11400000, guid: 0813b98076bf3d74999ace9a542cd9ed, type: 2}
@@ -238,4 +238,6 @@ MonoBehaviour:
   distanceToTarget: 0
   isFlipped: 0
   isPlayer: 0
+  targetIsDead: 0
+  numberOfEnemiesTargeted: 0
   entityType: 0

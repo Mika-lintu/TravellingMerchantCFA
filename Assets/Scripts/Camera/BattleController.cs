@@ -14,16 +14,6 @@ public class BattleController : MonoBehaviour
     GameSpeed gameSpeed;
 
     BattleUI bUI;
-    /*
-    public delegate void TargetCheck();
-    public static event TargetCheck UpdateTargets;
-
-    public delegate void EndBattleDelegate();
-    public static event EndBattleDelegate EndBattle;
-
-    public delegate void StartBattleDelegate();
-    public static event StartBattleDelegate StartBattle;
-    */
 
     public UnityEvent StartBattle;
     public UnityEvent EndBattle;
@@ -31,7 +21,6 @@ public class BattleController : MonoBehaviour
     private void Awake()
     {
         gameSpeed = GetComponent<GameSpeed>();
-        //bUI = GameObject.FindGameObjectWithTag("BattleUI").GetComponent<BattleUI>();
     }
 
 
@@ -65,13 +54,12 @@ public class BattleController : MonoBehaviour
         goodGuys = newGoodiesList;
         activeEnemies = newEnemyList;
 
-        //else UpdateTargets();
     }
 
 
     public void StartNewBattle()
     {
-        int enemies = UnityEngine.Random.Range(1, 3);
+        int enemies = UnityEngine.Random.Range(2, 3);
         battleOngoing = true;
         gameSpeed.movingDisabled = true;
         ActivateEnemies(enemies);
@@ -86,8 +74,6 @@ public class BattleController : MonoBehaviour
             goodGuys[i].GetComponent<StateController>().StartNewBattle();
         }
 
-        //StartBattle.Invoke();
-        //StartBattle();
         SetUITarget();
     }
 
@@ -98,7 +84,6 @@ public class BattleController : MonoBehaviour
         gameSpeed.movingDisabled = true;
         ActivateEnemies(enemies);
         StartBattle.Invoke();
-        //StartBattle();
         SetUITarget();
     }
 
@@ -107,13 +92,12 @@ public class BattleController : MonoBehaviour
     {
         activeEnemies = new List<GameObject>();
 
-        for (int i = 0; i < overallEnemies.Count; i++)
+        for (int i = 0; i < numberOfEnemies; i++)
         {
             if (!overallEnemies[i].activeInHierarchy)
             {
                 activeEnemies.Add(overallEnemies[i]);
                 overallEnemies[i].SetActive(true);
-                //overallEnemies[i].GetComponent<EnemyAI>().StartBattle();
                 overallEnemies[i].GetComponent<StateController>().ResetPosition();
             }
         }
@@ -123,7 +107,6 @@ public class BattleController : MonoBehaviour
     public void PlayerDeath()
     {
         Debug.Log("Player Died");
-        //Time.timeScale = 0f;
     }
 
 
@@ -150,6 +133,38 @@ public class BattleController : MonoBehaviour
     public void AddBattleListener(GameObject go)
     {
         StartBattle.AddListener(go.GetComponent<StateController>().SetupAI);
+    }
+
+
+    public void RemoveCharacterFromBattle(GameObject go)
+    {
+        int removeInt = 0;
+        if (go.GetComponent<StateController>().entityType == StateController.AIType.hostile)
+        {
+            for (int i = 0; i < activeEnemies.Count; i++)
+            {
+                if (go.GetInstanceID().Equals(activeEnemies[i]))
+                {
+                    removeInt = i;
+                    continue;
+                }
+            }
+            activeEnemies.RemoveAt(removeInt);
+        }
+        else
+        {
+
+            for (int i = 0; i < goodGuys.Count; i++)
+            {
+                if (go.GetInstanceID().Equals(goodGuys[i]))
+                {
+                    removeInt = i;
+                    continue;
+                }
+            }
+            goodGuys.RemoveAt(removeInt);
+        }
+
     }
 
 }
