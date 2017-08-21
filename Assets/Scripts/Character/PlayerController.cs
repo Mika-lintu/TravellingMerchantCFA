@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log(playerStats.currentSegment);
 
         jsonReader = GetComponent<JSONReader>();
+        Debug.Log(jsonReader.segmentIndex);
+        Debug.Log(playerStats.currentSegment);
         jsonReader.segmentIndex = playerStats.currentSegment;
     }
 
