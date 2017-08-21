@@ -16,13 +16,14 @@ public class StackScript : MonoBehaviour
     {
         itemStats = GetComponent<ItemStats>();
         id = itemStats.id;
-        itemUIList = GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>();
+        
     }
 
     void Start()
     {
+        itemUIList = GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>();
         stackParent = false;
-        quantity = itemStats.quantity;
+        quantity = itemStats.quantity
     }
 
 
