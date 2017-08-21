@@ -63,8 +63,7 @@ public class CameraScript : MonoBehaviour
 
         }
 
-        //if (modeEnum != Mode.battle)
-        //{
+
         if (target)
         {
             Vector3 point = Camera.main.WorldToViewportPoint(target.position);
@@ -113,7 +112,7 @@ public class CameraScript : MonoBehaviour
 
 
             StartCoroutine(currentCoroutine);
-            //}
+
         }
 
         if (activeSegment != null)
@@ -131,18 +130,6 @@ public class CameraScript : MonoBehaviour
 
     }
 
-    private void OnEnable()
-    {
-        //BattleController.EndBattle += EndBattle;
-        //BattleController.StartBattle += StartBattle;
-    }
-
-
-    private void OnDisable()
-    {
-        //BattleController.EndBattle -= EndBattle;
-        //BattleController.StartBattle -= StartBattle;
-    }
 
     void EndBattle()
     {
@@ -151,7 +138,6 @@ public class CameraScript : MonoBehaviour
         currentCoroutine = ZoomBack(1.5f, 0f);
         inventoryZoom = false;
         target = player;
-        //offset = new Vector3(0, 2f, 0);
         StartCoroutine(currentCoroutine);
         HideSlots();
     }
@@ -191,7 +177,6 @@ public class CameraScript : MonoBehaviour
 
     IEnumerator ZoomBack(float speed, float invOffset)
     {
-        //backpack.GetChild(0).gameObject.SetActive(false);
         backpack.gameObject.SetActive(false);
         while (cam.orthographicSize != previousCamZoom)
         {
@@ -211,79 +196,10 @@ public class CameraScript : MonoBehaviour
         {
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, zoom, t);
             t += Time.deltaTime * dampTime;
-            Debug.Log("battle zoooom " + t);
-            /*
-            if (cam.orthographicSize < zoom)
-            {
-                cam.orthographicSize += Time.deltaTime * 2;
-            }
-            else
-            {
-                cam.orthographicSize -= Time.deltaTime * 2;
-            }
-
-            if (Mathf.Approximately(zoom, cam.orthographicSize)) Debug.Log("zoom is approximately same");
-            */
-            
             dampTime = 0.1f;
             yield return null;
         }
         dampTime = 0.15f;
-        //modeEnum = Mode.battle;
-        //gameMode.Invoke();
     }
 
-
-    #region old coroutines
-    /*
-    IEnumerator ZoomToInventory(float zoom, float invOffset)
-    {
-        while (cam.orthographicSize > zoom)
-        {
-            cam.orthographicSize -= Time.deltaTime * 4;
-            dampTime = 0.25f;
-            yield return null;
-        }
-        dampTime = 0.15f;
-        //items.GetComponent<ItemHandler>().ShowItems();
-        //items.transform.parent.position += new Vector3(0, 0, invOffset);
-        //Color tempColor = player.GetComponent<SpriteRenderer>().color;
-        backpack.GetChild(0).gameObject.SetActive(true);
-        //tempColor.a = 0.5f;
-        //player.GetComponent<SpriteRenderer>().color = tempColor;
-    }
-
-    IEnumerator ZoomBack(float zoom, float speed, float invOffset)
-    {
-        //Color tempColor = player.GetComponent<SpriteRenderer>().color;
-        //tempColor.a = 1f;
-        //player.GetComponent<SpriteRenderer>().color = tempColor;
-        //items.GetComponent<ItemHandler>().HideItems();
-        //items.transform.parent.position += new Vector3(0, 0, invOffset);
-        backpack.GetChild(0).gameObject.SetActive(false);
-        while (cam.orthographicSize != zoom)
-        {
-            cam.orthographicSize = Mathf.MoveTowards(cam.orthographicSize, zoom, Time.deltaTime * speed);
-            dampTime = 0.4f;
-            yield return null;
-        }
-        dampTime = 0.15f;
-    }
-
-    IEnumerator BattleZoom(float zoom)
-    {
-        //Color tempColor = player.GetComponent<SpriteRenderer>().color;
-        //tempColor.a = 1f;
-        //player.GetComponent<SpriteRenderer>().color = tempColor;
-        //items.GetComponent<ItemHandler>().HideItems();
-        while (cam.orthographicSize < zoom)
-        {
-            cam.orthographicSize += Time.deltaTime * 2;
-            dampTime = 0.25f;
-            yield return null;
-        }
-        dampTime = 0.15f;
-    }
-    */
-    #endregion
 }

@@ -29,12 +29,10 @@ public class PlayerController : MonoBehaviour
         }
 
         JsonUtility.FromJsonOverwrite(content, playerStats);
-        Debug.Log(playerStats.currentSegment);
+
         if (!GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>().tavernMode)
         {
             jsonReader = GameObject.FindGameObjectWithTag("SegmentParent").GetComponent<JSONReader>();
-            Debug.Log(jsonReader.segmentIndex);
-
         }
         else
         {
@@ -53,7 +51,6 @@ public class PlayerController : MonoBehaviour
             Directory.CreateDirectory(Application.persistentDataPath + "/PlayerData/");
         }
         File.WriteAllText(Application.persistentDataPath + "/PlayerData/playerStats.json", stringStart);
-        //File.WriteAllText(path, stringStart);
     }
 
     public void UpdatePlayerStats(int newSeg)
@@ -66,7 +63,6 @@ public class PlayerController : MonoBehaviour
             Directory.CreateDirectory(Application.persistentDataPath + "/PlayerData/");
         }
         File.WriteAllText(Application.persistentDataPath + "/PlayerData/playerStats.json", stringStart);
-        //File.WriteAllText(path, stringStart);
     }
 
 

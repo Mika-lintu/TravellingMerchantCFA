@@ -19,7 +19,7 @@ public class PoolManager : MonoBehaviour
 
     private void Awake()
     {
-        //itemUIList = GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>();
+        itemUIList = GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>();
         backpack = GameObject.FindGameObjectWithTag("Backpack").transform.GetChild(0).gameObject;
         itemHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>();
     }

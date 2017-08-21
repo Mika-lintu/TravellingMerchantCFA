@@ -39,7 +39,7 @@ public class ItemStats : MonoBehaviour
         spring = GetComponent<SpringJoint2D>();
         rig = GetComponent<Rigidbody2D>();
         poolManager = Camera.main.GetComponent<PoolManager>();
-        //itemUIList = GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>();
+        itemUIList = GameObject.FindGameObjectWithTag("UIItemQuantity").GetComponent<QuantUIList>();
     }
 
     public void SetStats(Item newStats)

@@ -20,14 +20,13 @@ public class QuantUIList : MonoBehaviour
 
     void Start()
     {
-        //MakeItemList();
+        MakeItemList();
 
     }
 
 
     public void MakeItemList()
     {
-        Debug.Log("ASD");
         if (itemHandler.tavernMode == true)
         {
             if (tavernCam.modeEnum == TavernCamera.Tavern.inShop)
@@ -123,7 +122,7 @@ public class QuantUIList : MonoBehaviour
 
 
     public void ActivateUIs()
-    {Debug.Log("MEEEEEEEP");
+    {
         for (int i = 0; i < assignedQuantText.Count; i++)
         {
             assignedQuantText[i].SetActive(true);
