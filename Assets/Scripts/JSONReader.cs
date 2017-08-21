@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class JSONReader : MonoBehaviour {
+public class JSONReader : MonoBehaviour
+{
 
     string path;
     string jsonString;
@@ -56,8 +57,12 @@ public class JSONReader : MonoBehaviour {
 
     void Start()
     {
-        segMovement.SetSegmentsToMovementList(segments);
-        StartSegments();
+        if (!GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>().tavernMode)
+        {
+            segMovement.SetSegmentsToMovementList(segments);
+            StartSegments();
+        }
+
     }
 
 

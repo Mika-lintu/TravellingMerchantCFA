@@ -30,11 +30,17 @@ public class PlayerController : MonoBehaviour
 
         JsonUtility.FromJsonOverwrite(content, playerStats);
         Debug.Log(playerStats.currentSegment);
+        if (!GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>().tavernMode)
+        {
+            jsonReader = GameObject.FindGameObjectWithTag("SegmentParent").GetComponent<JSONReader>();
+            Debug.Log(jsonReader.segmentIndex);
 
-        jsonReader = GetComponent<JSONReader>();
-        Debug.Log(jsonReader.segmentIndex);
-        Debug.Log(playerStats.currentSegment);
-        jsonReader.segmentIndex = playerStats.currentSegment;
+        }
+        else
+        {
+            jsonReader = GetComponent<JSONReader>();
+        }
+        jsonReader.segmentIndex = playerStats.currentSegment - 2;
     }
 
     public void UpdatePlayerStats()
@@ -62,7 +68,7 @@ public class PlayerController : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/PlayerData/playerStats.json", stringStart);
         //File.WriteAllText(path, stringStart);
     }
-    
+
 
 }
 

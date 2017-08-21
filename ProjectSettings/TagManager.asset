@@ -23,6 +23,7 @@ TagManager:
   - Backpack
   - BackpackGravity
   - SceneExit
+  - SegmentParent
   layers:
   - Default
   - TransparentFX

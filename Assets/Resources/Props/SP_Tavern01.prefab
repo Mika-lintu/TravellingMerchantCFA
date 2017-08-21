@@ -38,9 +38,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4549006017506782}
   - component: {fileID: 60396512630331744}
+  - component: {fileID: 114180076464390150}
   m_Layer: 0
   m_Name: ExitCollider
-  m_TagString: Untagged
+  m_TagString: SceneExit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,6 +91,18 @@ PolygonCollider2D:
       - {x: -0.90257907, y: -3.2069325}
       - {x: -1.0578562, y: -0.6260685}
       - {x: -3.195468, y: 0.25693905}
+--- !u!114 &114180076464390150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1389668779681254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c191ae11a5e51a4ab45f90e08084a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectScene: 2
 --- !u!114 &114314707711492416
 MonoBehaviour:
   m_ObjectHideFlags: 1
