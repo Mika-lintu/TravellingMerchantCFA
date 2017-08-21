@@ -17,9 +17,9 @@ public class SceneLoad : MonoBehaviour
     }
 
 
-    public void LoadByIndex(int sceneIndex)
+    public void LoadByIndex()
     {
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(selectScene);
     }
 
     void Update()
@@ -60,7 +60,7 @@ public class SceneLoad : MonoBehaviour
     {
         Debug.Log("I did happen");
         itemHandler.SaveItemsToJSON();
-        LoadByIndex(selectScene);
+        LoadByIndex();
         yield return null;
     }
 }
