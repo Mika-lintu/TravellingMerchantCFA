@@ -14167,12 +14167,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
-  currentState: {fileID: 11400000, guid: 0813b98076bf3d74999ace9a542cd9ed, type: 2}
-  aiStats: {fileID: 11400000, guid: bba12fe1a89b737449fd7a8cb5710b82, type: 2}
+  currentState: {fileID: 11400000, guid: f9cc5dabfac4dfc44acde060b573bdae, type: 2}
+  aiStats: {fileID: 11400000, guid: 29ad4b0f91082044c8e0805a9618109c, type: 2}
   currentTarget: {fileID: 0}
-  remainState: {fileID: 0}
-  turnState: {fileID: 0}
-  moveToTargetState: {fileID: 0}
+  remainState: {fileID: 11400000, guid: 0813b98076bf3d74999ace9a542cd9ed, type: 2}
+  turnState: {fileID: 11400000, guid: d88622daafd589c48b501f6c33143ac2, type: 2}
+  moveToTargetState: {fileID: 11400000, guid: 063969158478afc4b841cebaf0cfad3b, type: 2}
   fleeState: {fileID: 0}
   deathState: {fileID: 11400000, guid: 58c8b65d8cfcdaa43b2f5b643e1ee128, type: 2}
   deathEvent:
@@ -22809,6 +22809,11 @@ Prefab:
       propertyPath: charactersStop.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 995467786}
+    - target: {fileID: 114973577250019692, guid: cac7b242b435f5a4a99a777dd500d2b8,
+        type: 2}
+      propertyPath: segmentIndex
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cac7b242b435f5a4a99a777dd500d2b8, type: 2}
   m_IsPrefabParent: 0

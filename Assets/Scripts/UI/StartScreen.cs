@@ -22,10 +22,12 @@ public class StartScreen : MonoBehaviour {
         {
             PortraitLayout();
         }
+        /*
         if (Input.GetMouseButtonUp(0))
         {
             sceneLoad.LoadByIndex();
         }
+        */
     }
     void PortraitLayout()
     {

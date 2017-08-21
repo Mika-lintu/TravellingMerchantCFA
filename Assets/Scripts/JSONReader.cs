@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class JSONReader : MonoBehaviour
 {
@@ -32,20 +33,13 @@ public class JSONReader : MonoBehaviour
     void Awake()
     {
         path = "JsonFiles/LevelData/";
-        //jsonFiles = Resources.LoadAll<TextAsset>("JsonFiles/LevelData");
 
-        //path = Application.streamingAssetsPath + "/level02.json";
         newPath = Resources.Load(path + levelName) as TextAsset;
         string content = newPath.ToString();
-        //jsonString = File.ReadAllText(path);
-        //JsonUtility.FromJsonOverwrite(jsonString, level);
         JsonUtility.FromJsonOverwrite(content, level);
 
         newPath = Resources.Load(path + levelName + "Props") as TextAsset;
         content = newPath.ToString();
-        //propsPath = Application.streamingAssetsPath + "/level02Props.json";
-        //jsonStringProps = File.ReadAllText(propsPath);
-        //JsonUtility.FromJsonOverwrite(jsonStringProps, props);
         JsonUtility.FromJsonOverwrite(content, props);
 
         segMovement = GetComponent<SegmentMovement>();
@@ -57,12 +51,19 @@ public class JSONReader : MonoBehaviour
 
     void Start()
     {
-        if (!GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>().tavernMode)
+        if (SceneManager.GetActiveScene().name == "GameLevel")
         {
             segMovement.SetSegmentsToMovementList(segments);
             StartSegments();
         }
 
+        /*
+            if (!GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>().tavernMode)
+        {
+            segMovement.SetSegmentsToMovementList(segments);
+            StartSegments();
+        }
+        */
     }
 
 

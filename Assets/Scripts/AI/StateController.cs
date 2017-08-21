@@ -55,7 +55,8 @@ public class StateController : MonoBehaviour
         battleControl = Camera.main.GetComponent<BattleController>();
         player = GameObject.FindGameObjectWithTag("Player");
         fleeing = false;
-        SetupAI();
+        battleControl.AddBattleListener(gameObject);
+        //SetupAI();
     }
 
     private void Update()
@@ -75,7 +76,6 @@ public class StateController : MonoBehaviour
     public void SetupAI()
     {
 
-        
         if (gameObject.tag == "Player")
         {
             isPlayer = true;
@@ -94,7 +94,14 @@ public class StateController : MonoBehaviour
             turnActions = aiStats.GetActionsDictionary();
             timerVariable = aiStats.turnSpeed * 0.5f;
             attackVariable = aiStats.damage * 0.3f;
-            Debug.Log(currentTarget.name);
+            currentTarget.gameObject.GetComponent<StateController>().AddDeathListener(gameObject);
+        }
+        else if (entityType == AIType.friendly)
+        {
+            FindTarget();
+            turnActions = aiStats.GetActionsDictionary();
+            timerVariable = aiStats.turnSpeed * 0.5f;
+            attackVariable = aiStats.damage * 0.3f;
             currentTarget.gameObject.GetComponent<StateController>().AddDeathListener(gameObject);
         }
 
@@ -127,10 +134,10 @@ public class StateController : MonoBehaviour
     }
 
 
-    public void FindTarget()
+    public bool FindTarget()
     {
         List<GameObject> tempTargetList = new List<GameObject>();
-        GameObject tempTarget = player.gameObject;
+        GameObject tempTarget = null;
         float distanceToTarget = 100;
 
         if (entityType == AIType.friendly)
@@ -154,7 +161,18 @@ public class StateController : MonoBehaviour
         }
 
         currentTarget = tempTarget.transform;
-        targetStateController = currentTarget.GetComponent<StateController>();
+
+
+        if (tempTarget != null)
+        {
+            targetStateController = currentTarget.GetComponent<StateController>();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
 

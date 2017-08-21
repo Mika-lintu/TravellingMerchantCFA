@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,10 +31,15 @@ public class PlayerController : MonoBehaviour
 
         JsonUtility.FromJsonOverwrite(content, playerStats);
 
-        if (!GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>().tavernMode)
+        if (SceneManager.GetActiveScene().name == "GameLevel")
         {
             jsonReader = GameObject.FindGameObjectWithTag("SegmentParent").GetComponent<JSONReader>();
         }
+        /*
+        if (!GameObject.FindGameObjectWithTag("Player").GetComponent<ItemHandler>().tavernMode)
+        {
+            jsonReader = GameObject.FindGameObjectWithTag("SegmentParent").GetComponent<JSONReader>();
+        }*/
         else
         {
             jsonReader = GetComponent<JSONReader>();

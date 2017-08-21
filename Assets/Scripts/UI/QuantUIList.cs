@@ -21,7 +21,6 @@ public class QuantUIList : MonoBehaviour
     void Start()
     {
         MakeItemList();
-
     }
 
 
@@ -53,6 +52,7 @@ public class QuantUIList : MonoBehaviour
                 DeactivateUIs();
             }
         }
+
         if (itemHandler.tavernMode == false)
         {
             itemsInScene = new List<GameObject>();

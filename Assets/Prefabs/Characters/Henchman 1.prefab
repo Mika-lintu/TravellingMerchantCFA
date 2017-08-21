@@ -26,8 +26,8 @@ GameObject:
   - component: {fileID: 50228645924765004}
   - component: {fileID: 114994704986940188}
   - component: {fileID: 114934864814677912}
-  - component: {fileID: 114220242907046772}
   - component: {fileID: 114229970363509920}
+  - component: {fileID: 114117213546968496}
   m_Layer: 0
   m_Name: Henchman 1
   m_TagString: Character
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &114220242907046772
+--- !u!114 &114117213546968496
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -114,13 +114,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1390200097758762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0515df4306157d543a4c4ff739874747, type: 3}
+  m_Script: {fileID: 11500000, guid: 4452d274f5bfba1439be92192ec71a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reach: 2
-  movementSpeed: 2.5
-  actionSpeed: 3.5
-  battleOngoing: 0
+  health: 150
+  currentState: {fileID: 11400000, guid: f9cc5dabfac4dfc44acde060b573bdae, type: 2}
+  aiStats: {fileID: 11400000, guid: 29ad4b0f91082044c8e0805a9618109c, type: 2}
+  currentTarget: {fileID: 0}
+  remainState: {fileID: 11400000, guid: 0813b98076bf3d74999ace9a542cd9ed, type: 2}
+  turnState: {fileID: 11400000, guid: d88622daafd589c48b501f6c33143ac2, type: 2}
+  moveToTargetState: {fileID: 11400000, guid: 063969158478afc4b841cebaf0cfad3b, type: 2}
+  fleeState: {fileID: 0}
+  deathState: {fileID: 11400000, guid: 58c8b65d8cfcdaa43b2f5b643e1ee128, type: 2}
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  stateTimeElapsed: 0
+  targetInRange: 0
+  fleeing: 0
+  distanceToTarget: 0
+  isFlipped: 0
+  isPlayer: 0
+  entityType: 1
 --- !u!114 &114229970363509920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,8 +165,8 @@ MonoBehaviour:
   walk: Walk
   attack: Melee Attack
   steal: 
-  hurt: 
-  death: 
+  hurt: Being hit
+  death: Death
   run: 
 --- !u!114 &114791778277312744
 MonoBehaviour:

@@ -119,7 +119,6 @@ public class CameraScript : MonoBehaviour
         {
             float tempZoom = Mathf.InverseLerp(segmentStartX, 0, activeSegment.transform.position.x);
             cam.orthographicSize = Mathf.Lerp(previousCamZoom, camZoom, tempZoom);
-            Debug.Log(activeSegment.transform.position.x);
 
             if (activeSegment.transform.position.x < 0)
             {

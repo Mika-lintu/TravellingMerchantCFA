@@ -37,7 +37,6 @@ public class ItemHandler : MonoBehaviour
             newItem.GetComponent<ItemStats>().SetStats(itemList[i]);
             newItem.SetActive(true);
             newItem.transform.localPosition = new Vector3(itemList[i].xOffset, itemList[i].yOffset, -1);
-            //newItem.transform.position = new Vector3(itemList[i].xOffset, itemList[i].yOffset, -1);
             characterItems.Add(newItem);
         }
     }
@@ -134,7 +133,7 @@ public class ItemHandler : MonoBehaviour
         characterItems.Add(go);
     }
 
-
+    
     public void SaveItemsToJSON()
     {
         List<Item> playerItemList = new List<Item>();
@@ -151,4 +150,5 @@ public class ItemHandler : MonoBehaviour
 
         itemDatabase.SaveNewInventoryToJSON(playerItemList);
     }
+    
 }

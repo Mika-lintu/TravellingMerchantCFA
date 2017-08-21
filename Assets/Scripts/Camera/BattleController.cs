@@ -146,4 +146,10 @@ public class BattleController : MonoBehaviour
         }
     }
 
+
+    public void AddBattleListener(GameObject go)
+    {
+        StartBattle.AddListener(go.GetComponent<StateController>().SetupAI);
+    }
+
 }

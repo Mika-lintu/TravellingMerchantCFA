@@ -37,28 +37,24 @@ public class SceneLoad : MonoBehaviour
             {
                 if (hit.collider.tag == "SceneExit")
                 {
-                    Debug.Log(selectScene);
-                    if (itemHandler.tavernMode)
+                    if (SceneManager.GetActiveScene().name == "Tavern")
                     {
                         playerController.UpdatePlayerStats(11);
                     }
+                    else if (SceneManager.GetActiveScene().name == "StartScreen")
+                    {
+                        playerController.UpdatePlayerStats(6);
+                    }
+
                     StartCoroutine(SceneChange());
                 }
-
-            }
-            else
-            {
-
             }
         }
-
-
     }
 
 
     IEnumerator SceneChange()
     {
-        Debug.Log("I did happen");
         itemHandler.SaveItemsToJSON();
         LoadByIndex();
         yield return null;
