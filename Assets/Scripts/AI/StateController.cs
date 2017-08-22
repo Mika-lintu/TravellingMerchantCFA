@@ -14,7 +14,7 @@ public class StateController : MonoBehaviour
     public State moveToTargetState;
     public State fleeState;
     public State deathState;
-    private bool aiActive = false;
+    private bool aiActive;
     private float timerVariable;
     private float attackVariable;
     StateController targetStateController;
@@ -42,10 +42,6 @@ public class StateController : MonoBehaviour
     public bool isFlipped = false;
     [HideInInspector]
     public bool isPlayer;
-    [HideInInspector]
-    public bool targetIsAlive = true;
-    //[HideInInspector]
-    public int numberOfEnemiesTargeted;
     public enum AIType { hostile, friendly, player };
     public AIType entityType;
 
@@ -59,12 +55,7 @@ public class StateController : MonoBehaviour
         battleControl = Camera.main.GetComponent<BattleController>();
         player = GameObject.FindGameObjectWithTag("Player");
         fleeing = false;
-        //SetupAI();
-    }
-
-    private void OnEnable()
-    {
-        battleControl.AddBattleListener(gameObject);
+        SetupAI();
     }
 
     private void Update()
@@ -83,6 +74,7 @@ public class StateController : MonoBehaviour
 
     public void SetupAI()
     {
+
 
         if (gameObject.tag == "Player")
         {
@@ -126,15 +118,15 @@ public class StateController : MonoBehaviour
     public void ResetPosition()
     {
         float randomX = Random.value;
-        float randomY = Random.Range(0, 1);
+        float randomY = Random.Range(-3, 5);
 
         if (randomX <= 0.5f)
         {
-            randomX = -10f;
+            randomX = -30f;
         }
         else
         {
-            randomX = 10f;
+            randomX = 30f;
         }
 
         transform.position = new Vector3(randomX, randomY, transform.position.z);
@@ -142,72 +134,52 @@ public class StateController : MonoBehaviour
     }
 
 
-    public bool FindTarget()
+    public void FindTarget()
     {
         List<GameObject> tempTargetList = new List<GameObject>();
-        GameObject nearestTarget = null;
-        GameObject newTarget = null;
+        GameObject tempTarget = player.gameObject;
         float distanceToTarget = 100;
-        int leastTargeted = 10;
 
         if (entityType == AIType.friendly)
         {
-            tempTargetList = battleControl.activeEnemies;
+            tempTargetList = battleControl.overallEnemies;
         }
         else if (entityType == AIType.hostile)
         {
             tempTargetList = battleControl.goodGuys;
         }
-        else
-        {
-            return false;
-        }
 
         for (int i = 0; i < tempTargetList.Count; i++)
         {
-            if (tempTargetList[i].GetComponent<StateController>().health > 0)
+            float tempDistance = Vector2.Distance(transform.position, tempTargetList[i].transform.position);
+
+            if (tempDistance < distanceToTarget)
             {
-                float tempDistance = Vector2.Distance(transform.position, tempTargetList[i].transform.position);
-
-
-                if (tempDistance < distanceToTarget)
-                {
-                    distanceToTarget = tempDistance;
-                    nearestTarget = tempTargetList[i];
-                }
-
-                if (tempTargetList[i].GetComponent<StateController>().numberOfEnemiesTargeted <= leastTargeted)
-                {
-                    newTarget = tempTargetList[i];
-                    leastTargeted = tempTargetList[i].GetComponent<StateController>().numberOfEnemiesTargeted;
-                }
+                distanceToTarget = tempDistance;
+                tempTarget = tempTargetList[i];
             }
-           
         }
 
+        currentTarget = tempTarget.transform;
+        targetStateController = currentTarget.GetComponent<StateController>();
+        TransitionToState(turnState);
+    }
 
-        if (nearestTarget.GetComponent<StateController>().numberOfEnemiesTargeted == 0)
+
+    public int GetNumberOfTargets()
+    {
+        List<GameObject> tempTargetList = new List<GameObject>();
+
+        if (entityType == AIType.friendly)
         {
-            currentTarget = nearestTarget.transform;
+            tempTargetList = battleControl.overallEnemies;
         }
-        else
+        else if (entityType == AIType.hostile)
         {
-            currentTarget = newTarget.transform;
+            tempTargetList = battleControl.goodGuys;
         }
 
-
-        if (currentTarget != null)
-        {
-            targetIsAlive = true;
-            targetStateController = currentTarget.GetComponent<StateController>();
-            targetStateController.numberOfEnemiesTargeted++;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
+        return tempTargetList.Count;
     }
 
 
@@ -336,8 +308,6 @@ public class StateController : MonoBehaviour
 
     public void Death()
     {
-        targetIsAlive = false;
-        battleControl.RemoveCharacterFromBattle(gameObject);
         Debug.Log("Death");
         currentTarget = null;
         animControl.DeathAnimation();
@@ -353,7 +323,7 @@ public class StateController : MonoBehaviour
 
     public void TargetIsDead()
     {
-        targetIsAlive = false;
+        Flee();
     }
 
     #endregion
