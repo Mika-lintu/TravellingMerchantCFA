@@ -126,10 +126,12 @@ public class TradeDrag : MonoBehaviour
             if (hit.collider.gameObject.transform.tag == "Item")
             {
                 selectedObject = hit.collider.gameObject;
+                trade.selling = true;
             }
             else if (hit.collider.gameObject.transform.tag == "ShopItem")
             {
                 selectedObject = hit.collider.gameObject;
+                trade.selling = false;
             }
 
         }

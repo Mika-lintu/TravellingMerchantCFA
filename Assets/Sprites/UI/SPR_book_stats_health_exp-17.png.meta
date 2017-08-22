@@ -1,9 +1,11 @@
 fileFormatVersion: 2
 guid: 46a7da4353d5b1c46a5dfcadd1b50e82
-timeCreated: 1503040745
+timeCreated: 1503401177
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: SPR_book_stats_health_exp-17_0
+    21300002: SPR_book_stats_health_exp-17_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +36,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -124,7 +126,33 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SPR_book_stats_health_exp-17_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 110
+        width: 501
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SPR_book_stats_health_exp-17_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 512
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

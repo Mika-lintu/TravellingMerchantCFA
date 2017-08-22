@@ -15,6 +15,7 @@ public class Trade : MonoBehaviour
     public Text costText;
     public Text amountText;
     public Text itemNameText;
+    public Text sellingOrBuying;
     public GameObject tradeInfo;
     public GameObject errorMessage;
     public GameObject infoCollider;
@@ -25,6 +26,7 @@ public class Trade : MonoBehaviour
     int itemAmount;
     int itemsInStorage;
     string itemName;
+    public bool selling;
 
     void Awake()
     {
@@ -40,6 +42,13 @@ public class Trade : MonoBehaviour
         amountText.text = "" + itemAmount;
         costText.text = "" + cost;
         itemNameText.text = "" + itemName;
+        if (selling)
+        {
+            sellingOrBuying.text = "Sell";
+        }else if (!selling)
+        {
+            sellingOrBuying.text = "Buy";
+        }
     }
 
 
@@ -51,7 +60,7 @@ public class Trade : MonoBehaviour
         baseCost = itemStats.value;
         itemsInStorage = itemStats.quantity;
         itemName = itemStats.itemName;
-       
+
         cost = baseCost;
         itemAmount = 1;
 
@@ -143,16 +152,10 @@ public class Trade : MonoBehaviour
     void SetBubbleCollider()
     {
         Transform infoTransform;
-        //uiBubbleTransform.      
-        //infoTransform = tradeInfo.transform;
         Vector3 tempPos = Camera.main.ScreenToWorldPoint(uiBubbleTransform.transform.position);
         tempPos.z = 0;
         infoCollider.transform.position = tempPos;
-        //infoCollider.transform.position = uiBubbleTransform.
         infoCollider.SetActive(true);
-        
-        //infoCollider.transform.localScale = infoTransform.localScale - new Vector3(0.4f,0.6f,0);
-        //infoCollider.transform.position = new Vector3(-0.4f, 0.7f, -1f) + go.transform.position;
     }
 
 
